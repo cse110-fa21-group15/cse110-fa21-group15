@@ -22,4 +22,13 @@
 - All members are expected to cehck Slack messages on a daily basis.
 
 ## Scheduling Meetings
-- Stand up - Standup meetings will be conducted at 6:20 PM after 
+- Stand up - Standup meetings will be conducted at 6:20 PM after Tuesday's lecture in person at the tables outside the CSE building.
+- Weekly - Weekly meetings will be conducted on Saturday at 10:00 AM via Zoom.
+- Discussion
+
+## General Responsibilities for All Team Members
+- Attend all meetings, and if not, inform Team Leads 24 hours in advance.
+ + x
+- Maintain communication and check Team Slack at least everyday.
+
+## Resolving Conflicts
