@@ -1,11 +1,45 @@
+**Type of Meeting**:
+
 **Date**:
 
 **Attendance**
-
-**Absent**
+Daryl Foo               -- Yes
+Elias Arghand           -- Yes
+Jasmine Wang            -- Yes
+Jonathan Padungyothee   -- Yes
+Lavanya Verma           -- Yes
+Likitch Palabindela     -- Yes
+Madelyn Mirai Adams     -- Yes
+Naweed Malal            -- Yes
+Sahil Bhalla            -- Yes
+Xiaoye Zuo              -- Yes 
 
 **Last Meeting Stuff**
 
-**What we're working on today**
+**Project Updates/Issues**
+Daryl Foo
+    - 
+Elias Arghand
+    - 
+Jasmine Wang 
+    - 
+Jonathan Padungyothee  
+    - 
+Lavanya Verma           
+    - 
+Likitch Palabindela    
+    - 
+Madelyn Mirai Adams     
+    - 
+Naweed Malal            
+    - 
+Sahil Bhalla            
+    - 
+Xiaoye Zuo              
+    -   
 
-**Issues Discussed**
+**General Notes**
+
+**Topics for Next Meeting**
+
+**Duration**
