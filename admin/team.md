@@ -9,6 +9,7 @@
 1. Daryl Foo: https://github.com/DarylFSN
 - My name is Daryl, and I am a fourth year Computer Science major in Warren College. I enjoy practicing cardistry and playing video games during my free time.
 
+
 2. Elias Arghand: https://github.com/earghand 
 - Hi, my name is Elias and I am a third year Computer Science major with a minor in Cognitive Science at Warren College! A hobby I have picked up is photography.
 
