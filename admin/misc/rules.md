@@ -5,16 +5,16 @@
 - Team Name: 16 - 1
 
 ## Team Member Information
-- Daryl Foo, dsfoo@ucsd.edu 6692747248
-- Elias Arghand, earghand@ucsd.edu , 8582847645
-- Jasmine Wang, jiw085@ucsd.edu, 5593856182
-- Jonathan Padungyothee, jpadungy@ucsd.edu, 8184504407
-- Lavanya Verma, laverma@ucsd.edu, 8582417337 
-- Likitch Palabindela, lpalabin@ucsd.edu, 4087148131
-- Madelyn Mirai Adams, m5adams@ucsd.edu, 9514276371
-- Naweed Malal, nmalal@ucsd.edu, 8187467939
-- Sahil Bhalla, s2bhalla@ucsd.edu, 9254747321
-- Xiaoye Zuo, x5zuo@ucsd.edu, 8589997054
+1. Daryl Foo, dsfoo@ucsd.edu 6692747248
+2. Elias Arghand, earghand@ucsd.edu , 8582847645
+3. Jasmine Wang, jiw085@ucsd.edu, 5593856182
+4. Jonathan Padungyothee, jpadungy@ucsd.edu, 8184504407
+5. Lavanya Verma, laverma@ucsd.edu, 8582417337 
+6. Likitch Palabindela, lpalabin@ucsd.edu, 4087148131
+7. Madelyn Mirai Adams, m5adams@ucsd.edu, 9514276371
+8. Naweed Malal, nmalal@ucsd.edu, 8187467939
+9. Sahil Bhalla, s2bhalla@ucsd.edu, 9254747321
+10. Xiaoye Zuo, x5zuo@ucsd.edu, 8589997054
 
 ## Primary Means of Communication and Expectation
 - Our primary means of communication will be through Slack for important announcements regarding the project.
@@ -28,7 +28,7 @@
 
 ## General Responsibilities for All Team Members
 - Attend all meetings, and if not, inform Team Leads 24 hours in advance.
- + x
+
 - Maintain communication and check Team Slack at least everyday.
 
 ## Resolving Conflicts
