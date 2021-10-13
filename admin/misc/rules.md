@@ -28,7 +28,7 @@
 
 ## General Responsibilities for All Team Members
 - Attend all meetings, and if not, inform Team Leads 24 hours in advance.
-
+  - Relay information to Team Leads about progress.
 - Maintain communication and check Team Slack at least everyday.
 
 ## Resolving Conflicts
