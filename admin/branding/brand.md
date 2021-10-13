@@ -1,7 +1,7 @@
-## TEAM 15
-# BRANDING NOTES
+## Team 15
+# Branding Notes
 
-team colors, a logo, a mascot, custom fonts, power point themes,
+Team color, a logo, a mascot, custom fonts, power point themes, ...
 # ***Notes***
 1. **Team Color** - Pumpkin    
 2. **Team Name**  - Pie Over 12
