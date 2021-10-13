@@ -1,4 +1,4 @@
-<center> # Group Contract</center>
+# Group Contract
 
 ## Group Identification
 - Team Number: 15
