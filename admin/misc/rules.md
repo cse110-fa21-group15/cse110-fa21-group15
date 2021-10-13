@@ -2,7 +2,7 @@
 
 ## Group Identification
 - Team Number: 15
-- Team Name: $\pi$
+- Team Name: Pi Over Twelve
 
 ## Team Member Information
 1. Daryl Foo, dsfoo@ucsd.edu 6692747248
