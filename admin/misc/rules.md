@@ -2,7 +2,8 @@
 
 ## Group Identification
 - Team Number: 15
-- Team Name: Pi Over Twelve
+- Team Name: Pie Over 12
+- Team Color: Pumpkin
 
 ## Team Member Information
 1. Daryl Foo, dsfoo@ucsd.edu 6692747248
