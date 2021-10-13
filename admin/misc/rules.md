@@ -2,7 +2,7 @@
 
 ## Group Identification
 - Team Number: 15
-- Team Name: 16 - 1
+- Team Name: $\pi$
 
 ## Team Member Information
 1. Daryl Foo, dsfoo@ucsd.edu 6692747248
