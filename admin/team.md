@@ -31,7 +31,7 @@
 - Hello! My name is Naweed and I am a 4th year Computer Science student in Sixth College. Things I like to do in my free time are watch anime,  play video games and tennis, and do Leetcode!
 
 9. Sahil Bhalla: https://github.com/WanderingVagrant/
-- Hi, I’m Sahil, a third year physics student at sixth college. Some things I like to do besides software engineering are boards games, reading, and playing video games.
+- Hi, I’m Sahil, a third year physics student at sixth college. Some things I like to do besides software engineering are board games, reading, and playing video games.
 
 10. Xiaoye Zuo: https://github.com/LavitaZ 
 - Hello! I’m Xiaoye and I’m a 4-th year major in Computer Engineering with a Business minor in Warren. When I’m not coding, which is 99% of the time, I’m either cooking, reading, or somewhere outdoors.  
