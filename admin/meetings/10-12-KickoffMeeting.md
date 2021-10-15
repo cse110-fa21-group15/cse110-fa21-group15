@@ -3,16 +3,16 @@
 **Date** 10/12
 
 **Attendance**
-Daryl Foo               -- Yes
-Elias Arghand           -- Yes
-Jasmine Wang            -- Yes
-Jonathan Padungyothee   -- Yes
-Lavanya Verma           -- Yes
-Likitch Palabindela     -- Yes
-Madelyn Mirai Adams     -- Yes
-Naweed Malal            -- Yes
-Sahil Bhalla            -- Yes
-Xiaoye Zuo              -- Yes
+- Daryl Foo               -- Yes
+- Elias Arghand           -- Yes
+- Jasmine Wang            -- Yes
+- Jonathan Padungyothee   -- Yes
+- Lavanya Verma           -- Yes
+- Likitch Palabindela     -- Yes
+- Madelyn Mirai Adams     -- Yes
+- Naweed Malal            -- Yes
+- Sahil Bhalla            -- Yes
+- Xiaoye Zuo              -- Yes
 
 **General Notes**
 - Group Contract
