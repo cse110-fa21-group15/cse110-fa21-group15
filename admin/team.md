@@ -2,7 +2,7 @@
 
 ## Group Identification
 - Team Number: 15
-- Team Name: Pie Over 12	 
+- Team Name: Pie Over Twelve	 
 - Team Color: Pumpkin	
 
 ## Team Roster
