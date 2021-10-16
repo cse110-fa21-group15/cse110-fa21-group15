@@ -16,7 +16,8 @@
 
 **Last Meeting Stuff**
 
-**Project Updates/Issues**
+**Project Updates/Issues**   
+
 Daryl Foo  
 - 
 Elias Arghand  
