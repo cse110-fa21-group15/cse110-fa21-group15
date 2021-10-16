@@ -18,8 +18,8 @@
 - Group Contract
   - Means Of Communication (Zoom and Slack)
   - Scheduling Meetings 
-    - Standup after Lecture 
-    - Weekly Fridays at 10am
+    - Standup after Tuesday Lecture 
+    - Weekly Saturdays at 10am
   - General Responsibilities
     - Maintain Communication and show respect
   - Resolving Conflicts
