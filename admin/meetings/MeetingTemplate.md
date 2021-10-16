@@ -15,29 +15,19 @@
 - Xiaoye Zuo              -- Yes 
 
 **Last Meeting Stuff**
-
+- Daryl Foo:               
+- Elias Arghand:           
+- Jasmine Wang:            
+- Jonathan Padungyothee:   
+- Lavanya Verma:           
+- Likitch Palabindela:     
+- Madelyn Mirai Adams:     
+- Naweed Malal:            
+- Sahil Bhalla:            
+- Xiaoye Zuo:       
+         
 **Project Updates/Issues**   
 
-Daryl Foo  
-- 
-Elias Arghand  
-- 
-Jasmine Wang  
-- 
-Jonathan Padungyothee  
-- 
-Lavanya Verma         
-- 
-Likitch Palabindela  
-- 
-Madelyn Mirai Adams    
-- 
-Naweed Malal              
-- 
-Sahil Bhalla           
-- 
-Xiaoye Zuo            
--   
 
 **General Notes**
 
