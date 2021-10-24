@@ -1,0 +1,50 @@
+**Type of Meeting**:
+
+**Date**:
+
+**Attendance**
+- Daryl Foo               -- Yes
+- Elias Arghand           -- Yes
+- Jasmine Wang            -- Yes
+- Jonathan Padungyothee   -- Yes
+- Lavanya Verma           -- Yes
+- Likitch Palabindela     -- Yes
+- Madelyn Mirai Adams     -- Yes
+- Naweed Malal            -- Yes
+- Sahil Bhalla            -- Yes
+- Xiaoye Zuo              -- Yes 
+
+**Last Meeting Stuff**
+- Daryl Foo:               
+- Elias Arghand:           
+- Jasmine Wang:            
+- Jonathan Padungyothee:   
+- Lavanya Verma:           
+- Likitch Palabindela:     
+- Madelyn Mirai Adams:     
+- Naweed Malal:            
+- Sahil Bhalla:            
+- Xiaoye Zuo:       
+         
+**Project Updates/Issues**   
+- Assigned team roles:
+  - UI/UX
+    - Daryl
+    - Jasmine
+  - Backend
+    - Elias
+    - Sahil
+    - Xioye
+  - Frontend
+    - Naweed
+    - Mirai
+    - Lavanya
+  - Quality Assurance
+    - Johnny
+    - Likith
+
+**General Notes**
+
+**Topics for Next Meeting**
+
+**Duration** 3:00pm - :pm (mins)
