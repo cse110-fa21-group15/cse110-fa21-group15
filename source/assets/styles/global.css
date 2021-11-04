@@ -37,7 +37,7 @@ background-color: #FFD586;
 }
  
 .logo {
-    flex: 1;
+    flex: 0.01;
 }
  
 .resizeLogo {
@@ -45,11 +45,10 @@ background-color: #FFD586;
   height: auto;
   background-color: #FFD586;
   display: block;
- 
 }
  
 .searchbar {
-  flex: 3.5;
+  flex: 5.5;
 }
  
 form {
@@ -81,7 +80,7 @@ form.example i {
 }
  
 .profilePicture {
-    flex: 0.3;
+    flex: 0.2;
 }
  
 .iconify {
@@ -92,7 +91,7 @@ form.example i {
 }
  
 .signIn {
-  flex: 0.9;
+  flex: 0.4;
 }
  
 .signIn button {
