@@ -1,0 +1,122 @@
+/* Background color of entire webpage */
+*{
+    background-color: #FFE5B4;
+    margin: 0;
+}
+
+body {
+min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation bar styling */
+.navigationBar{
+    display: flex;
+}
+
+.navigationBar div{
+  background-color: #FFD586;
+}
+
+  .menu {
+      flex: 1;
+  }
+
+  .menuIcon {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+  
+  .menuButton {
+    background-color: #FFD586;
+  }
+
+  .logo {
+      flex: 1;
+  }
+
+  .resizeLogo {
+    width: 50px;
+    height: auto;
+    background-color: #FFD586;
+    display: block;
+
+  }
+
+  .searchbar {
+      flex: 3.5;
+  }
+
+  form {
+      background-color: #FFD586;
+  }
+
+  .search {
+    background-color: #FFD586;
+    display: block;
+    margin-top: 13px;
+    width: 60%
+  }
+  
+.searchbar i {
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 2px;
+    background-color: #FFD586;
+}
+
+  .profilePicture {
+      flex: 0.3;
+  }
+
+  .resizeProfilePicIcon {
+    width: 40px;
+    height: auto;
+    background-color: #FFD586;
+    margin-top: 4px;
+  }
+
+  .signIn {
+      flex: 0.9;
+  }
+  
+  .signIn button{
+    border: solid #FFD586;
+    background-color: #FFD586;
+  }
+
+  .resizeSignInIcon {
+    width: 75px;
+    height: auto;
+    background-color: #FFD586;
+    margin-top: 7px;
+  }
+
+
+  /* Copyright styling */
+  footer {
+    margin-top: auto;
+}
+  .copyright {
+      display: flex;
+  }
+
+  .copyright div{
+      background-color: #FFD586;
+  }
+
+  .copyrightBar {
+      flex: 1;
+  }
+
+  .copyrightText {
+    background-color: #FFD586;
+    text-align: center;
+    color: gray;
+
+  }
+
