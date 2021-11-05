@@ -18,7 +18,7 @@ min-height: 100vh;
 }
  
 .navigationBar div{
-background-color: #FFD586;
+background-color: #FFCF96;
 }
  
 .menu {
@@ -33,7 +33,7 @@ background-color: #FFD586;
 }
  
 .menuButton {
-  background-color: #FFD586;
+  background-color: #FFCF96;
 }
  
 .logo {
@@ -43,7 +43,7 @@ background-color: #FFD586;
 .resizeLogo {
   width: 50px;
   height: auto;
-  background-color: #FFD586;
+  background-color: #FFCF96;
   display: block;
 }
  
@@ -52,7 +52,7 @@ background-color: #FFD586;
 }
  
 form {
-  background-color: #FFD586;
+  background-color: #FFCF96;
 }
  
 form.example input[type=text] {
@@ -86,7 +86,7 @@ form.example i {
 .iconify {
   width: 40px;
   height: auto;
-  background-color: #FFD586;
+  background-color: #FFCF96;
   margin-top: 4px;
 }
  
@@ -97,7 +97,7 @@ form.example i {
 .signIn button {
   width: 75px;
   height: auto;
-  background-color: #FFD586;
+  background-color: #FFCF96;
   margin-top: 7px;
   border-radius: 12px;
 }
@@ -112,7 +112,7 @@ footer {
 }
  
 .copyright div{
-    background-color: #FFD586;
+    background-color: #FFCF96;
 }
  
 .copyrightBar {
@@ -120,7 +120,7 @@ footer {
 }
  
 .copyrightText {
-  background-color: #FFD586;
+  background-color: #FFCF96;
   text-align: center;
   color: gray;
  

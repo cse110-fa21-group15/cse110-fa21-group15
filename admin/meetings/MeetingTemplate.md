@@ -2,13 +2,15 @@
 
 **Date**:
 
+**Agenda**
+
 **Attendance**
 - Daryl Foo               -- Yes
 - Elias Arghand           -- Yes
 - Jasmine Wang            -- Yes
 - Jonathan Padungyothee   -- Yes
 - Lavanya Verma           -- Yes
-- Likitch Palabindela     -- Yes
+- Likith Palabindela      -- Yes
 - Madelyn Mirai Adams     -- Yes
 - Naweed Malal            -- Yes
 - Sahil Bhalla            -- Yes
@@ -27,7 +29,6 @@
 - Xiaoye Zuo:       
          
 **Project Updates/Issues**   
-
 
 **General Notes**
 
