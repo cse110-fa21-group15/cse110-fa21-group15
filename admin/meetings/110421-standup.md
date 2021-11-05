@@ -17,17 +17,12 @@
 **General Notes:**
 
 * Next steps:
-  - Specify target users
-  - Narrow down web features
-  - Identify feature-wise risks
-  - Implement UI road map/UML
-  - Create project timeline
-
-* Project pitch: (due Monday) read Shape Up, low-fidelity wireframe, present to TA by end of week
+* Backend:
+  - Research Spoonacular API and write API functions (return JSON file and filter recipes)
+  - Test out Postman API
+  - Practice sending data to Firebase
+  - Log in info
   
-* Recipe App Suggestion: voice-command, search box
-
-
 **Project Updates/Issues:**
 Design team: low fidelity wire frame
 
