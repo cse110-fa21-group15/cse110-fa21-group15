@@ -126,7 +126,7 @@
   }
 
   .dropdown > select {
-    width: 150px;
+    width: 180px;
     height: 30px;
     margin: 10px;
     border-radius: 12px;
@@ -148,7 +148,7 @@
     margin: 0 auto;
     padding: 15px 0 15px 20px;
     height: 60px;
-    width: 800px;
+    width: 700px;
   }
    
   form.example input[type=text] {
