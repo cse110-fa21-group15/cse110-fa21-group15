@@ -21,3 +21,5 @@ Detailed Description of Changes and Added Features:
 Future Work:
 - Documentation
 - Testing
+
+Note: Add to 'Recipe App' Project in the Project tab on the right
