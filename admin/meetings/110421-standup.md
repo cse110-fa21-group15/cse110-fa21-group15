@@ -43,6 +43,7 @@
   
 **Topics for Next Meeting:**
 
-* TBD
+* Finish up CI/CD workflow
+* Finish basic pages
 
-**Duration:** 30 minutes
+**Duration:** 35 minutes
