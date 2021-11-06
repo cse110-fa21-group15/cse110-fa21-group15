@@ -1,4 +1,4 @@
-# Allow multiple or single week planning
+# Allow Multiple or Single Week Meal Planning
 
 ## Context and Problem Statement
 
