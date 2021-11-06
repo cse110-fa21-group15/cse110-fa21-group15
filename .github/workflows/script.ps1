@@ -1,10 +1,10 @@
 # Define base variables
-$strOrgName     = 'cse110-sp21-group10';
+$strOrgName     = 'cse110-fa21-group15';
 $strRepoName    = $strOrgName;
 $strBaseURL     = ('https://api.github.com/repos/{0}/{1}' -f $strOrgName, $strRepoName);
 
 # Generate credentials from username and token
-$strCred        = ('{0}:{1}' -f 'maniacalhamster', $env:PERSONAL_TOKEN);
+$strCred        = ('{0}:{1}' -f 'JohnnyPadungyothee', $env:PERSONAL_TOKEN);
 $strAuthEncrypt = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($strCred));
 $strAuthBody    = ('Basic {0}' -f $strAuthEncrypt);
 $objHeader      = @{'Authorization'=$strAuthBody};
