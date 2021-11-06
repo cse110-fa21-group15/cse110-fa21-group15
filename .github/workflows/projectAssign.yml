@@ -1,21 +1,20 @@
 # Defaults to To-Do for issues and In Progress for pull requests
-name: Auto Assign to Project(s)
+name: Auto-assign to Recipe App Project
 
 on:
   issues:
     types: [opened]
-  pull_request_target:
+  pull_request:
     types: [opened]
+    
 env:
-  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
 jobs:
-  assign_one_project:
+  auto-assign:
     runs-on: ubuntu-latest
-    name: Assign to One Project
+    name: Assign project
     steps:
-    - name: Assign NEW issues and NEW pull requests to project 2
-      uses: srggrs/assign-one-project-github-action@1.2.1
-      if: github.event.action == 'opened'
-      with:
-        project: 'https://github.com/cse110-fa21-group15/cse110-fa21-group15/projects/1'
+      - uses: srggrs/assign-one-project-github-action@1.2.1
+        with:
+          project: 'https://github.com/cse110-fa21-group15/cse110-fa21-group15/projects/1'
