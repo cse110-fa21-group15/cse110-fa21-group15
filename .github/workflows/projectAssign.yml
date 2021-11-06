@@ -10,7 +10,8 @@ on:
 jobs:
   auto-assign:
     runs-on: ubuntu-latest
+    name: Assign project
     steps:
       - uses: srggrs/assign-one-project-github-action@1.2.1
         with:
-          project: https://github.com/cse110-fa21-group15/cse110-fa21-group15/projects/1
+          project: 'https://github.com/cse110-fa21-group15/cse110-fa21-group15/projects/1'
