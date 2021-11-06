@@ -55,5 +55,5 @@ jobs:
           
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_MARKDOWN: false
-          #FILTER_REGEX_EXCLUDE: ./source/assets/.*
+          FILTER_REGEX_EXCLUDE: ./source/assets/.*
           
