@@ -11,6 +11,7 @@
     flex-direction: column;
     background-color: #FFE0BB;
   }
+
    
   /* Navigation bar styling */
   .navigationBar{
@@ -22,7 +23,7 @@
   .navigationBar div{
     background-color: #FFCF96;
   }
-   
+
   .menu {
     flex: 1;
   }
@@ -145,8 +146,7 @@
   }
    
   .bigsearchbar {
-    display: flex;
-    justify-content: center;
+    
     margin-left: auto;
     margin-right: auto;
     background-color: #FFE0BB;
@@ -159,12 +159,11 @@
     width: 800px;
     font-size: 32px;
   }
- 
-  .bigsearchbar > .form {
-    margin: 0 auto;
-    padding: 15px 0 15px 20px;
-    height: 60px;
-    width: 700px;
+
+  form.bigexample {
+    background-color: #FFE0BB;
+    display: flex;
+    justify-content: center;
   }
    
   form.bigexample input[type=text] {
@@ -179,7 +178,7 @@
   }
    
   form.bigexample button:hover {
-    background: #0b7dda;
+    background: lightskyblue;
   }
    
   form.bigexample::after {
@@ -196,74 +195,22 @@
     float: right;
   }
 
-  .boxesTop {
+  section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-top: -30px; 
-  }
- 
-  .blankbox1 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
+    column-gap: 30px;
+    row-gap: 20px;
+    
   }
 
-  .blankbox2 {
-    width:250px;
-    height:180px;
+   section button {
+    width:20%;
+    height:200px;
     background-color: lightgrey;
-    margin: 20px;
+    /*flex: 1 0 21%;*/
   }
 
-  .blankbox3 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-
-  .blankbox4 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-
-  .boxesBottom {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
- 
-  .blankbox5 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-
-  .blankbox6 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-
-  .blankbox7 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-
-  .blankbox8 {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-  }
-   
   /* Copyright styling */
   footer {
     margin-top: auto;
