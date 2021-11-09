@@ -52,30 +52,74 @@
             <form class="recipeNameTextBox" method="get">
                 <input class="recipeNameText" type="text" placeholder="Enter recipe name ..." name="search">
             </form>
+            </div>
+            <div class="addIcon">
+                <input type="image" src="assets/images/addIcon.png" class="buttonClass" width="100px" />
+            </div>
+
+            <div class="favoriteIcon">
+                
+                <input type="image" src="assets/images/favorite.png" class="buttonClass" width="100px" />
+            </div>
+
             <div class="saveIcon">
                 
-                <!--<img src="assets/images/save.png" alt="save icon" width="100px">-->
+                <input type="image" src="assets/images/save.png" class="buttonClass" width="100px" />
             </div>
-        </div>
+            <div class="downloadIcon">
+                
+                <input type="image" src="assets/images/download.png" class="buttonClass" width="100px" />
+            </div>
+        
     </div>
 
+    <div class="middleArea">
         <div class="recipePicture">
             <img class="uploadImage" src="assets/images/upload.png" alt="upload icon">
             <p><center>Upload Recipe Image</center></p>
+            <br> <br> <br> <br> <br>
             <input type="file" accept="image/*">
         </div>
+
+        <div class="misc">
+            <div class="time">
+                <p>Time:</p>
+                <form class="timeBox" method="get">
+                    <input class="timeBoxInput" type="text" placeholder="Enter cooking time ..." name="search">
+                </form>
+            </div>
+            <div class="cost">
+                <p>Cost:</p>
+                <form class="costBox" method="get">
+                    <input class="costBoxInput" type="text" placeholder="Enter ingredient cost ..." name="search">
+                </form>
+            </div>
+
+            <div class="servings">
+                <p>Servings:</p>
+                <form class="servingsBox" method="get">
+                    <input class="servingsBoxInput" type="text" placeholder="Enter serving size ..." name="search">
+                </form>
+            </div>
+
+            <div class="tags">
+                <p>Tags:</p>
+                <input type="image" src="assets/images/addIconSmall.png" class="buttonClass" width="50px" />
+            </div>
+        </div>
+
+        </div>
+        
+    </div>
 
     <section class="description">
         <p class="descriptionText">Description:</p>
         <form class="descriptionBox" action="action_page.php">
-            <textarea id="w3review" name="w3review" rows="5" cols="200" placeholder="Enter recipe description ..."></textarea>
+            <textarea rows="7" cols="235" placeholder="Enter recipe description ..."></textarea>
             <input type="submit" id="descriptionSubmit">
         </form>
           
     </section>
-    </div>
-
-        
 
     </main>
         <footer>

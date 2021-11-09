@@ -130,19 +130,40 @@
   /* New Stuff */
   .container {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-around;
       
   }
 
-  /*.saveIcon {
-      width: 342px;
-      height: 344px;
-      background-color: tomato;
-  }*/
+
+  .addIcon input {
+      margin-top: 25px;
+      flex: 1
+  }
+
+  .buttonClass:hover {
+    border: 2px solid transparent;
+    transform: scale(1.05);
+  }
+
+  .favoriteIcon input {
+    margin-top: 25px;
+    flex: 1
+}
+
+  .saveIcon input{
+      margin-top: 23px;
+      flex: 1
+  }
+
+  .downloadIcon input {
+    margin-top: 25px;
+    margin-right: 100px;
+    flex: 1
+}
 
   .recipeName {
       margin-top: 50px;
-
+      flex: 4;
   }
   
   form.recipeNameTextBox input {
@@ -170,6 +191,10 @@
     border-radius: 5px;
   }
 
+  .recipePicture input {
+      margin-left: 0px;
+  }
+
   .uploadImage {
     display: block;
     margin-left: auto;
@@ -177,6 +202,88 @@
     width: 50%;
     margin-top: 60px;
   }
+
+  .middleArea {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .misc {
+      width: 465.91px;
+      height: 460px;
+      margin-top: 50px;
+      margin-right: 650px;
+  }
+
+  .misc p{
+    font-family: Capriola;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    
+    color: #505050;
+  }
+  
+  .time {
+      display: flex;
+  }
+
+  form.timeBox input {
+    background: #FFFCFC;
+    border: 1px solid #B3B3B3;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    width: 466px;
+    height: 61px;
+    margin-left: 20px;
+
+  }
+
+  .cost {
+      display: flex;
+      margin-top: 20px;
+  }
+
+  form.costBox input {
+    background: #FFFCFC;
+    border: 1px solid #B3B3B3;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    width: 466px;
+    height: 61px;
+    margin-left: 20px;
+
+  }
+
+  .servings {
+      display: flex;
+      margin-top: 20px;
+  }
+
+  form.servingsBox input {
+    background: #FFFCFC;
+    border: 1px solid #B3B3B3;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    width: 466px;
+    height: 61px;
+    margin-left: 20px;
+
+  }
+  
+  .tags{
+      display: flex;
+      margin-top: 20px;
+  }
+  
+  .tags input {
+      margin-left: 20px;
+  }
+
 
   .recipePicture center {   
     font-family: Capriola;
