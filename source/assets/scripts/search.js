@@ -1,21 +1,21 @@
-const API_KEY = "d97a6e5c0e914bed85a619b32c3aa047";
+const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
-//search recipes
-document.getElementById('search').addEventListener("click", getRecipe);
-
-async getRecipe(){
-    try{
-        await fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=d97a6e5c0e914bed85a619b32c3aa047&query='+input)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('img-output').src=""
-        });
-    }
-        catch(error){
-            console.log(error);
-        }
-    }
+function getRecipes(){
+    var forms = document.forms;
+    var input = "";                 
+    input = forms.searchbar.search.value;
+    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=pasta&number=2";
+    getData(url).then(x => alert(x));
+    
 }
+
+async function getData(url){
+    var response = (await fetch(url));
+    return response.json();
+}
+
+
+
 
 // function getSource(id){
 //     let input = document.getElementById('search').value;

@@ -11,7 +11,8 @@
     <!--Link to iconify, for user profile icon-->
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
-    
+    <!--Link to Javascript search file-->
+    <script src="assets/scripts/search.js"></script>
 
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/homepage.css" />
@@ -65,32 +66,34 @@
 
     <main>
         <div class="dropdown">
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
+            <form class = "dropdown" id="filters">
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+            </form>
         </div>
 
         <div class="searchbar">
-            <form class="example" action="/action_page.php">
-                <input type="text" placeholder="Search Recipes" name="search" class="round">
-                <button type="submit" id="search"><i class="fa fa-search"></i></button>
+            <form class="example" id="searchbar">
+                <input type="text" placeholder="Search Recipes" name="search" class="round" value = "">
+                <button type="submit" onclick = "getRecipes()"><i class="fa fa-search"></i></button>
             </form>
         </div>
 
@@ -104,8 +107,7 @@
         <a href="" id="sourceLink"></a>
 
         <div class="blankbox"></div>
-        <!--Link to Javascript search file-->
-    <script src="assets/scripts/search.js"></script>
+ 
 
     </main>
 
