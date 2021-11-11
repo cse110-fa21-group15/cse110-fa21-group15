@@ -1,4 +1,5 @@
 /* Background color of entire webpage */
+<<<<<<< Updated upstream
 *{
     margin: 0;
     box-sizing: border-box;
@@ -233,3 +234,244 @@
     color: gray;
    
   }
+=======
+ 
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Capriola', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFE0BB;
+}
+
+
+/* Navigation bar styling */
+
+.navigationBar {
+  display: flex;
+  background-color: #FFCF96;
+}
+
+.navigationBar div {
+  background-color: #FFCF96;
+}
+
+.menu {
+  flex: 1;
+}
+
+.menuIcon {
+  width: 35px;
+  height: 3px;
+  background-color: rgb(121, 120, 118);
+  margin: 8px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menuButton {
+  background-color: #FFF5EA;
+  height: 60px;
+  border-radius: 12px;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 70px;
+  border: none;
+}
+
+.logo {
+  flex: 0.1;
+}
+
+.resizeLogo {
+  width: 50px;
+  height: auto;
+  background-color: #FFCF96;
+  display: block;
+}
+
+.searchbar {
+  flex: 5.5;
+  margin-top: 10px;
+}
+
+.searchbar button {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  font-size: 30px;
+  height: 43px;
+}
+
+.round {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+form {
+  background-color: #FFCF96;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+form.example i {
+  font-size: 35px;
+  border-radius: 12px;
+}
+
+.profilePicture {
+  flex: 0.1;
+}
+
+.iconify {
+  width: 60px;
+  height: auto;
+  background-color: #FFCF96;
+  margin-top: 4px;
+  border: none;
+}
+
+.signIn {
+  flex: 0.55;
+}
+
+.signIn button {
+  width: 100px;
+  height: 45px;
+  background-color: #FFCF96;
+  margin-top: 12.5px;
+  border-radius: 20px;
+  border: none;
+  background-color: #FFF5EA;
+}
+
+
+/* Copyright styling */
+
+footer {
+  margin-top: auto;
+}
+
+.copyright {
+  display: flex;
+}
+
+.copyright div {
+  background-color: #FFCF96;
+}
+
+.copyrightBar {
+  flex: 1;
+}
+
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+}
+
+
+/* New page */
+
+.dropdown {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown>select {
+  width: 180px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 12px;
+}
+
+.bigsearchbar {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFE0BB;
+}
+
+.biground {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  height: 100px;
+  width: 800px;
+  font-size: 32px;
+}
+
+form.bigexample {
+  background-color: #FFE0BB;
+  display: flex;
+  justify-content: center;
+}
+
+form.bigexample input[type=text] {
+  padding: 10px;
+  font-size: 32px;
+  font-weight: 400;
+  border: 1px solid grey;
+  float: left;
+  width: 800px;
+  height: 60px;
+  background: #f1f1f1;
+}
+
+form.bigexample button:hover {
+  background: lightskyblue;
+}
+
+form.bigexample::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.bigsearchbar button {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  font-size: 60px;
+  height: 100px;
+  float: right;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 20px;
+}
+
+section button {
+  width: 20%;
+  height: 200px;
+  background-color: lightgrey;
+  /*flex: 1 0 21%;*/
+}
+>>>>>>> Stashed changes
