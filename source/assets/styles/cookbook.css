@@ -128,17 +128,15 @@
   }
   
   /* Personal Cookbook items */
-   .cookbookItems {
-     display: flex;
-     justify-content: flex-start;
-   }
-  
-   .addToCookbook {
-    width:250px;
-    height:180px;
-    background-color: lightgrey;
-    margin: 20px;
-   }
+  main {
+    column-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    max-width: 660px;
+    row-gap: 10px;
+    width: 100%;;
+  }
    
   /* Copyright styling */
   footer {
