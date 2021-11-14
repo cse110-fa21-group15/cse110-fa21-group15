@@ -198,26 +198,25 @@
     text-align: center;
   }
  
-   
-  /* Copyright styling */
-  footer {
-    margin-top: auto;
-  }
-  .copyright {
-      display: flex;
-  }
-   
-  .copyright div{
-      background-color: #FFCF96;
-  }
-   
-  .copyrightBar {
-      flex: 1;
-  }
-   
-  .copyrightText {
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+    display: flex;
+}
+ 
+.copyright div{
     background-color: #FFCF96;
-    text-align: center;
-    color: gray;
-   
-  }
+}
+ 
+.copyrightBar {
+    flex: 1;
+}
+ 
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+ 
+}

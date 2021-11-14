@@ -190,26 +190,26 @@
     margin-top: -20px;
   }
  
-  /* Copyright styling */
-  footer {
-    margin-top: auto;
-  }
-  .copyright {
-      display: flex;
-  }
-   
-  .copyright div{
-      background-color: #FFD586;
-  }
-   
-  .copyrightBar {
-      flex: 1;
-  }
-   
-  .copyrightText {
-    background-color: #FFD586;
-    text-align: center;
-    color: #909090;
-   
-  }
+ /* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+    display: flex;
+}
+ 
+.copyright div{
+    background-color: #FFCF96;
+}
+ 
+.copyrightBar {
+    flex: 1;
+}
+ 
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+ 
+}
 

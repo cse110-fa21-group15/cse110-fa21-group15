@@ -13,7 +13,7 @@ body {
 }
  
 /* Navigation bar styling */
-.navigationBar{
+.navigationBar{ 
   display: flex;
   background-color: #FFCF96;
 
@@ -48,6 +48,7 @@ body {
  
 .logo {
   flex: 0.1;
+  margin-top: 5px;
 }
  
 .resizeLogo {
