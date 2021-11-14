@@ -1,5 +1,8 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
+document.querySelector("button").addEventListener("onClick", getRecipes);
+
+//get recipes by searched keywords from database 
 async function getRecipes(event){
     console.log("button clicked");
     var forms = document.forms;
@@ -8,22 +11,41 @@ async function getRecipes(event){
     if (input == "") {
         return;
     }
-    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=2";
+    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8";
     // getData(url).then(x => alert(x));
-    const fetchPromise = fetch(url);
-    fetchPromise.then(response => {
+    const fetchPromise = fetch(url).then(response => {
         return response.json();
     }).then(results => {
-        console.log(results);
+        storeRecipe(results, input);
+        console.log(JSON.stringify(results['results'][0]));
     })
     event.preventDefault();
+    redirectPage();
+    retrieveRecipe(input);
 }
 
+//redirect to results page
 async function redirectPage(){
-    console.log("redirecting to result page");
-    
+    console.log("Redirecting to result page");
+    window.location.href = "searchresults.html";
 }
 
+//Store recipe data retrieved
+async function storeRecipe(results, input){
+    //store data for all sessions, string only
+    console.log("Storing recipes to local storage");
+    for(let i = 0; i < results['number']; i++){
+        localStorage.setItem(input+i, JSON.stringify(results['results'][i]));
+    }
+}
+
+//Retrieve results from local storage
+async function retrieveRecipe(input){
+    console.log("Retrieving recipes from local storage");
+    myStorage = window.localStorage;
+    const recipe_example = myStorage.getItem(input+"0");
+    console.log(recipe_example);
+}
 
 // function getSource(id){
 //     let input = document.getElementById('search').value;
