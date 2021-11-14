@@ -27,14 +27,14 @@ class RecipeCard extends HTMLElement {
         
         article {
           align-items: center;
-          border: 1px solid black;
+          /*border: 1px solid black;*/
           border-radius: 8px;
           display: grid;
           grid-template-rows: 118px 56px 14px 18px 15px 36px;
-          height: auto;
+          height: 86px;
           row-gap: 5px;
           padding: 0 16px 16px 16px;
-          width: 178px;
+          width: 200px;
         }
 
         article:hover{
