@@ -16,7 +16,6 @@ body {
 .navigationBar{ 
   display: flex;
   background-color: #FFCF96;
-
 }
  
 .navigationBar div{
@@ -40,8 +39,7 @@ body {
   background-color: #FFF5EA;
   height: 60px;
   border-radius: 12px;
-  margin-left: 5px;
-  margin-top: 5px;
+  margin: 5px;
   width: 70px;
   border: none;
 }
@@ -103,19 +101,8 @@ form.example i {
   border-radius: 12px;
 }
  
-.profilePicture {
-    flex: 0.;
-}
- 
-.iconify {
-  width: 60px;
-  height: auto;
-  background-color: #FFCF96;
-  margin-top: 4px;
-}
- 
 .signIn {
-  flex: 0.55;
+  flex: 0.5;
 }
  
 .signIn button {
