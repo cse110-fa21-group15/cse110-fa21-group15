@@ -28,7 +28,7 @@ body {
 }
  
 .menuIcon {
-  width: 35px;
+  width: 40px;
   height: 3px;
   background-color: rgb(121, 120, 118);
   margin: 8px 0;
@@ -38,10 +38,10 @@ body {
  
 .menuButton {
   background-color: #FFF5EA;
-  height: 60px;
+  height: 70px;
   border-radius: 12px;
   margin: 5px;
-  width: 70px;
+  width: 80px;
   border: none;
   cursor: pointer;
 }
@@ -53,19 +53,19 @@ body {
 }
  
 .resizeLogo {
-  width: 50px;
+  width: 60px;
   height: auto;
   background-color: #FFCF96;
   display: block;
 }
  
 .title {
-  flex: 1;
+  flex: 1.1;
   margin: 10px;
   background-color: #FFCF96;
   color: #000000;
-  font-family: 'Trebuchet MS', sans-serif;
   cursor: context-menu;
+  font-size: 22px;
 }
  
 .signIn {
@@ -74,9 +74,9 @@ body {
  
 .signIn button {
   width: 100px;
-  height: 45px;
+  height: 60px;
   background-color: #FFCF96;
-  margin-top: 12.5px;
+  margin-top: 10px;
   border-radius: 20px;
   border: none;
   background-color: #FFF5EA;
@@ -84,6 +84,10 @@ body {
 }
 
  /* Main page styling */
+
+ main {
+   padding-top: 100px;
+ }
 
  .emailbar {
   top: 25%;
@@ -175,7 +179,8 @@ footer {
   margin-top: auto;
 }
 .copyright {
-    display: flex;
+  display: flex;
+  justify-content: center;
 }
  
 .copyright div{
@@ -183,7 +188,7 @@ footer {
 }
  
 .copyrightBar {
-    flex: 1;
+  flex: 1
 }
  
 .copyrightText {
