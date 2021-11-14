@@ -1,0 +1,192 @@
+/* Background color of entire webpage */
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Capriola', sans-serif;
+}
+ 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFE0BB;
+}
+ 
+/* Navigation bar styling */
+.navigationBar{ 
+  display: flex;
+  background-color: #FFCF96;
+}
+ 
+.navigationBar div{
+  background-color: #FFCF96;
+}
+ 
+.menu {
+  flex: 1;
+  cursor: pointer;
+}
+ 
+.menuIcon {
+  width: 35px;
+  height: 3px;
+  background-color: rgb(121, 120, 118);
+  margin: 8px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+ 
+.menuButton {
+  background-color: #FFF5EA;
+  height: 60px;
+  border-radius: 12px;
+  margin: 5px;
+  width: 70px;
+  border: none;
+  cursor: pointer;
+}
+ 
+.logo {
+  flex: 0.05;
+  margin-top: 5px;
+  cursor: pointer;
+}
+ 
+.resizeLogo {
+  width: 50px;
+  height: auto;
+  background-color: #FFCF96;
+  display: block;
+}
+ 
+.title {
+  flex: 1;
+  margin: 10px;
+  background-color: #FFCF96;
+  color: #000000;
+  font-family: 'Trebuchet MS', sans-serif;
+  cursor: context-menu;
+}
+ 
+.signIn {
+  flex: 0.16;
+}
+ 
+.signIn button {
+  width: 100px;
+  height: 45px;
+  background-color: #FFCF96;
+  margin-top: 12.5px;
+  border-radius: 20px;
+  border: none;
+  background-color: #FFF5EA;
+  cursor: pointer;
+}
+
+  /* Main page styling */
+  .emailbar {
+    top: 25%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  }
+
+  .passwordbar {
+    top: 40%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  }
+
+  .confirmPasswordbar {  
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  }
+
+  .round{
+    border-radius: 50px;
+  }
+
+  .signUp {
+    display: flex;
+    justify-content: center;
+  }
+
+  .signUp button{
+    width: 180px;
+    height: 80px;
+    background-color: #FFF0E0;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .haveAccount {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .haveAccount p{
+    width: 420px;
+    height: 27px;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .haveAccount button{
+    font-size: 24px;
+    line-height: 30px;
+    color:  #2C3BBD;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    text-decoration-line: underline;
+    background-color: #FFE0BB;
+  }
+ 
+  .form {
+    margin: 0 auto;
+    padding: 15px 0 15px 20px;
+    height: 60px;
+    width: 700px;
+  }
+   
+  form.loginArea {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
+
+  form.loginArea input[type=text] {
+    padding: 10px;
+    font-size: 32px;
+    border: 1px solid black;
+    width: 650px;
+    height: 80px;
+    background: #f1f1f1;
+  }
+ 
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+    display: flex;
+}
+ 
+.copyright div{
+    background-color: #FFCF96;
+}
+ 
+.copyrightBar {
+    flex: 1;
+}
+ 
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+ 
+}
+
