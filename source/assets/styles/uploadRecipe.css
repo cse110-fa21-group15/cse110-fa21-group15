@@ -119,97 +119,89 @@
     background-color: #FFF5EA;
     cursor: pointer;
   }
- 
-  /* Personal cookbook list */
- 
-  .personalCookbook {
-    display: table;
-    background-color: #FFFFFF;
-    float: left;
-    width: 30%;
-    margin-left: 40px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
- 
-  .personalCookbook th {
-    background-color: #FFF5EA;
-    height: 60px;
-  }
- 
-  .personalCookbook td {
-    height: 740px;
-    min-height: 100px;
-  }
- 
-  .addButton {
-    margin-left: 20px;
-    font-size: 20px;
-  }
- 
-  /* Need to change this so it actually shows on screen */
-  .cookbookMeals {
-    background-color: black;
-    width: 100px;
-    height: 100px;
-  }
- 
-  /* Calendar */
- 
-  .calendar {
-    display: table;
-    float: right;
-    width: 60%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: 40px;
-  }
- 
-  .calendar th {
-    background-color: #FFF5EA;
-    height: 100px;
-    font-size: 30px;
-  }
- 
-  .calendar td {
-    background-color: #FFFFFF;
-    height: 700px;
-    text-align: center;
-  }
- 
-  .addToCookbook {
-    font-size: 60px;
-    margin-top: 10px;
-  }
- 
-  .cookbookItems {
-    margin-bottom: 70px;
-  }
- 
-  .calendarMeal {
-    font-size: 20px;
-    text-align: center;
-  }
- 
-/* Copyright styling */
-footer {
-  margin-top: auto;
+
+  .flex-container{
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+  padding-left:25%;
+  padding-top: 20px;
+    justify-content: space-between;   
+    gap: 15px;
 }
-.copyright {
-    display: flex;
+.row-flex{
+    display:flex;
+    flex-direction: row;
+    gap: 500px;
+    font-size:20px;
+    
+}
+.ing1{
+    font-size:25px;
+    color: #505050;
+}
+.row-flex2{
+    display:flex;
+    flex-direction: row;
+    margin-left: 0px;
+    text-align: left;
+    gap:100px;
+}
+.step{
+    color: #505050;
+    font-size:25px;
+    text-align: left;
+    margin-left: 0px;
+    border-left: 0px;
+    float:left;
+    padding-left:2px;
+}
+
+  .round2 {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width:800px;
+    height: 250px;
+    text-align: left;
+    padding: 30px 20px 20px  30px;
+  }
+  .textbox{
+    font-size:10px;
+  }
+  .ing{
+      text-align: left;
+      margin-left: 10px;
+      float:left;
+      padding-left:0px;
+  }
+.btTxt{
+    margin-right:auto;
+    margin-left:75%;
+    width:3%;
+    height:3%;
 }
  
-.copyright div{
+  /* Copyright styling */
+  footer {
+    margin-top: auto;
+  }
+  .copyright {
+      display: flex;
+  }
+   
+  .copyright div{
+      background-color: #FFCF96;
+  }
+   
+  .copyrightBar {
+      flex: 1;
+  }
+   
+  .copyrightText {
     background-color: #FFCF96;
-}
- 
-.copyrightBar {
-    flex: 1;
-}
- 
-.copyrightText {
-  background-color: #FFCF96;
-  text-align: center;
-  color: gray;
- 
-}
+    text-align: center;
+    color: gray;
+   
+  }
