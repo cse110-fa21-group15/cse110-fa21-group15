@@ -1,6 +1,10 @@
 **Type of Meeting**:
 
+- Sprint Review 1
+
 **Date**:
+
+- November 13, 2021
 
 **Agenda**
 
