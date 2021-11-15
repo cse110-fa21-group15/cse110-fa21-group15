@@ -35,6 +35,8 @@ class RecipeCard extends HTMLElement {
           row-gap: 5px;
           padding: 0 16px 16px 16px;
           width: 200px;
+          margin-top: 10px;
+          margin-left: 10px;
         }
 
         article:hover{
