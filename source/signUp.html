@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/homepage.css" />
+    <link rel="stylesheet" href="assets/styles/signUp.css" />
 
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
@@ -33,7 +33,9 @@
 
 
             <div class="logo">
-                <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                <a href="homepage.html">
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
             </div>
             <div class="title">
                 <a class="titlebutton">
@@ -49,49 +51,33 @@
         <!--End of navigation bar-->
     </header>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
 
     <main>
-        <div class="dropdown">
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-        </div>
-
-        <div class="searchbar">
-            <form class="example" action="/action_page.php">
-                <input type="text" placeholder="Search Recipes" name="search" class="round">
-                <button type="submit"><i class="fa fa-search"></i></button>
+        <div class="emailbar">
+            <form class="loginArea" action="/action_page.php">
+                <input type="text" placeholder="Email" name="email" class="round">
             </form>
         </div>
 
-        <br>
-        <br>
-        <br>
+        <div class="passwordbar">
+            <form class="loginArea" action="/action_page.php">
+                <input type="text" placeholder="Password" name="password" class="round">
+            </form>
+        </div>
 
-        <div class="blankbox"></div>
+        <div class="confirmPasswordbar">
+            <form class="loginArea" action="/action_page.php">
+                <input type="text" placeholder="Confirm Password" name="confirmpassword" class="round">
+            </form>
+        </div>
+
+        <div class="signUp">
+            <button style="font-size:28px">Sign Up</button>
+        </div>
+
+        <div class="haveAccount">
+            <p>Already have an account? <a href="signIn.html"><button>Sign In</button></a></p>
+        </div>
 
     </main>
 

@@ -84,76 +84,96 @@ body {
   cursor: pointer;
 }
 
-  /* Main page */
- 
-  .dropdown {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 10px;
-    display:flex;
-    justify-content: center;
+  /* Main page styling */
+
+  main {
+    padding-top: 60px;
   }
 
-  .dropdown > select {
-    width: 180px;
-    height: 30px;
-    margin: 15px;
-    margin-bottom: 20px;
-    border-radius: 12px;
+  .emailbar {
+    top: 25%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
   }
- 
-.searchbar {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+
+  .passwordbar {
+    top: 40%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  }
+
+  .confirmPasswordbar {  
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
   }
 
   .round{
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-  }
-   
-  form.example input[type=text] {
-    padding: 10px;
-    font-size: 32px;
-    font-weight: 400;
-    border: 1px solid grey;
-    float: left;
-    width: 800px;
-    height: 100px;
-    background: #f1f1f1;
-  }
-   
-  form.example button:hover {
-    background: #0b7dda;
-  }
-   
-  form.example::after {
-    content: "";
-    clear: both;
-    display: table;
+    border-radius: 50px;
   }
 
-  .searchbar button {
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    font-size: 60px;
-    height: 100px;
-    float: left;
+  .signUp {
+    display: flex;
+    justify-content: center;
+  }
+
+  .signUp button{
+    width: 180px;
+    height: 80px;
+    background-color: #FFF0E0;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .haveAccount {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .haveAccount p{
+    width: 420px;
+    height: 27px;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .haveAccount button{
+    font-size: 24px;
+    line-height: 30px;
+    color:  #2C3BBD;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    text-decoration-line: underline;
+    background-color: #FFE0BB;
   }
  
-  .blankbox {
-    width:800px;
-    height:300px;
-    border-radius: 37px;
-    background-color: lightgrey;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -20px;
+  .form {
+    margin: 0 auto;
+    padding: 15px 0 15px 20px;
+    height: 60px;
+    width: 700px;
+  }
+   
+  form.loginArea {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
+
+  form.loginArea input[type=text] {
+    padding: 10px;
+    font-size: 32px;
+    border: 1px solid black;
+    width: 650px;
+    height: 80px;
+    background: #f1f1f1;
   }
  
- /* Copyright styling */
+/* Copyright styling */
 footer {
   margin-top: auto;
 }
