@@ -4,6 +4,8 @@
 
 **Agenda**
 
+- Agile retrospective
+
 **Attendance**
 - Daryl Foo               -- Yes
 - Elias Arghand           -- Yes
