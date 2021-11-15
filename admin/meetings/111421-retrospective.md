@@ -2,6 +2,7 @@
 - Agile retrospective
 **Date**:
 - November 14, 2021
+
 **Agenda**
 
 - Discuss about the last sprint.
