@@ -14,6 +14,12 @@
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
 
+    <!--Recipe Card Custom Element-->
+    <script src="assets/scripts/RecipeCard.js" type="module"></script>
+
+    <!--Main Script-->
+    <script src="assets/scripts/main.js" type="module"></script>
+
 </head>
  
 <body>
@@ -28,28 +34,27 @@
                 </button>
             </div>
             <div class="logo">
-                <img class="resizeLogo" src="assets/images/Logo.png" alt="Website logo">
+                <a href="homepage.html">
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
             </div>
             <div class="searchbar">
-                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
+                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
                     <input type="text" placeholder="Search.." name="search" class="round">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-            </div>
-            <div class="profilePicture">
-                <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
+                </form>
             </div>
             <div class="signIn">
-                <button style="font-size:18px">Sign in</button>
+                <a href="signIn.html">
+                    <button style="font-size:22px">Sign in</button>
+                </a>
             </div>
         </div>
         <!--End of navigation bar-->
     </header>
  
     <main>
-        <div class="cookbookItems">
-            <button class="addToCookbook"> <i class="fa fa-plus" style="font-size:50px;"></i></button>
-        </div>
+        
     </main>
         <footer>
            <div class="copyright">
