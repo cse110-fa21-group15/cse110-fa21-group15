@@ -1,4 +1,5 @@
 /* Background color of entire webpage */
+/* Background color of entire webpage */
 *{
   margin: 0;
   box-sizing: border-box;
@@ -56,8 +57,9 @@ body {
   height: auto;
   background-color: #FFCF96;
   display: block;
-  margin-top: 5px;
+  cursor: pointer;
 }
+ 
 .searchbar {
   flex: 5.5;
   margin-top: 10px;
@@ -120,26 +122,37 @@ form.example i {
   background-color: #FFF5EA;
   cursor: pointer;
 }
- 
-/* Copyright styling */
-footer {
-  margin-top: auto;
-}
-.copyright {
+  
+  /* Personal Cookbook items */
+  main {
+    column-gap: 10px;
     display: flex;
-}
- 
-.copyright div{
+    flex-wrap: wrap;
+    height: auto;
+    max-width: 660px;
+    row-gap: 10px;
+    width: 100%;;
+  }
+   
+  /* Copyright styling */
+  footer {
+    margin-top: auto;
+  }
+  .copyright {
+      display: flex;
+  }
+   
+  .copyright div{
+      background-color: #FFCF96;
+  }
+   
+  .copyrightBar {
+      flex: 1;
+  }
+   
+  .copyrightText {
     background-color: #FFCF96;
-}
- 
-.copyrightBar {
-    flex: 1;
-}
- 
-.copyrightText {
-  background-color: #FFCF96;
-  text-align: center;
-  color: gray;
- 
-}
+    text-align: center;
+    color: gray;
+   
+  }
