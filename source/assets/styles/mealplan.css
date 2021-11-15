@@ -1,5 +1,10 @@
+<<<<<<< HEAD
   /* Background color of entire webpage */
   *{
+=======
+/* Background color of entire webpage */
+*{
+>>>>>>> main
     margin: 0;
     box-sizing: border-box;
     font-family: 'Capriola', sans-serif;
@@ -13,9 +18,16 @@
   }
    
   /* Navigation bar styling */
+<<<<<<< HEAD
   .navigationBar{ 
     display: flex;
     background-color: #FFCF96;
+=======
+  .navigationBar{
+    display: flex;
+    background-color: #FFCF96;
+ 
+>>>>>>> main
   }
    
   .navigationBar div{
@@ -24,17 +36,25 @@
    
   .menu {
     flex: 1;
+<<<<<<< HEAD
     cursor: pointer;
   }
    
   .menuIcon {
     width: 40px;
+=======
+  }
+   
+  .menuIcon {
+    width: 35px;
+>>>>>>> main
     height: 3px;
     background-color: rgb(121, 120, 118);
     margin: 8px 0;
     margin-left: auto;
     margin-right: auto;
   }
+<<<<<<< HEAD
   
   .menuButton {
     background-color: #FFF5EA;
@@ -44,10 +64,22 @@
     width: 80px;
     border: none;
     cursor: pointer;
+=======
+   
+  .menuButton {
+    background-color: #FFF5EA;
+    height: 60px;
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 70px;
+    border: none;
+>>>>>>> main
   }
    
   .logo {
     flex: 0.1;
+<<<<<<< HEAD
     margin-top: 5px;
   }
    
@@ -59,18 +91,39 @@
     cursor: pointer;
   }
    
+=======
+  }
+   
+  .resizeLogo {
+    width: 50px;
+    height: auto;
+    background-color: #FFCF96;
+    display: block;
+    margin-top: 5px;
+  }
+>>>>>>> main
   .searchbar {
     flex: 5.5;
     margin-top: 10px;
   }
+<<<<<<< HEAD
   
+=======
+ 
+>>>>>>> main
   .searchbar button {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     font-size: 30px;
+<<<<<<< HEAD
     height: 55px;
   }
   
+=======
+    height: 43px;
+  }
+ 
+>>>>>>> main
   .round {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -82,12 +135,19 @@
    
   form.example input[type=text] {
     padding: 10px;
+<<<<<<< HEAD
     font-size: 22px;
+=======
+    font-size: 17px;
+>>>>>>> main
     border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
+<<<<<<< HEAD
     height: 55px;
+=======
+>>>>>>> main
   }
    
   form.example button:hover {
@@ -105,12 +165,29 @@
     border-radius: 12px;
   }
    
+<<<<<<< HEAD
   .signIn {
     flex: 0.5;
+=======
+  .profilePicture {
+      flex: 0.;
+  }
+   
+  .iconify {
+    width: 60px;
+    height: auto;
+    background-color: #FFCF96;
+    margin-top: 4px;
+  }
+   
+  .signIn {
+    flex: 0.55;
+>>>>>>> main
   }
    
   .signIn button {
     width: 100px;
+<<<<<<< HEAD
     height: 60px;
     background-color: #FFCF96;
     margin-top: 10px;
@@ -118,6 +195,14 @@
     border: none;
     background-color: #FFF5EA;
     cursor: pointer;
+=======
+    height: 45px;
+    background-color: #FFCF96;
+    margin-top: 12.5px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFF5EA;
+>>>>>>> main
   }
  
   /* Personal cookbook list */
@@ -191,6 +276,7 @@
     text-align: center;
   }
  
+<<<<<<< HEAD
 /* Copyright styling */
 footer {
   margin-top: auto;
@@ -213,3 +299,28 @@ footer {
   color: gray;
  
 }
+=======
+   
+  /* Copyright styling */
+  footer {
+    margin-top: auto;
+  }
+  .copyright {
+      display: flex;
+  }
+   
+  .copyright div{
+      background-color: #FFCF96;
+  }
+   
+  .copyrightBar {
+      flex: 1;
+  }
+   
+  .copyrightText {
+    background-color: #FFCF96;
+    text-align: center;
+    color: gray;
+   
+  }
+>>>>>>> main

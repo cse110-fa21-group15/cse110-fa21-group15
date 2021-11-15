@@ -8,6 +8,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
+=======
+    <!--Link to iconify, for user profile icon-->
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+    <!--Link to Javascript search file-->
+    <script src="assets/scripts/search.js"></script>
+
+>>>>>>> main
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/homepage.css" />
 
@@ -58,40 +67,48 @@
 
     <main>
         <div class="dropdown">
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-        </div>
-
-        <div class="searchbar">
-            <form class="example" action="/action_page.php">
-                <input type="text" placeholder="Search Recipes" name="search" class="round">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form class = "dropdown" id="filters">
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
+                <select class="drop">
+                    <option>option1</option>
+                    <option>option2</option>
+                    <option>option3</option>
+                </select>
             </form>
         </div>
 
+        <div class="searchbar">
+            <form class="example" id="searchbar">
+                <input type="text" placeholder="Search Recipes" name="search" class="round" value = "" required>
+                <button type="submit" onclick="getRecipes(event)"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+<button onclick="getRecipes()">test</button>
         <br>
         <br>
         <br>
 
+        <!--Search output and source link -->
+        <div id="output"></div>
+        <img id="img-output" src="" width="400" height="280">
+        <a href="" id="sourceLink"></a>
+
         <div class="blankbox"></div>
+ 
 
     </main>
 

@@ -1,0 +1,32 @@
+{
+  "team2": {
+    "label": "T2 approval",
+    "members": [
+      "DarylFSN",
+      "JingxianW"
+    ]
+  },
+  "team3": {
+    "label": "T3 approval",
+    "members": [
+      "likithpala7",
+      "JohnnyPadungyothee"
+    ]
+  },
+  "team1": {
+    "label": "T1 approval",
+    "members": [
+      "Naweed-Malal",
+      "m5adams",
+      "FiendFyre5"
+    ]
+  },
+  "team4": {
+    "label": "T4 approval",
+    "members": [
+      "Earghand",
+      "LavitaZ",
+      "WanderingVagrant"
+    ]
+  }
+}
