@@ -1,10 +1,12 @@
 **Type of Meeting**:
-
+- Agile retrospective
 **Date**:
-
+- November 14, 2021
 **Agenda**
 
-- Agile retrospective
+- Discuss about the last sprint.
+- Discuss happy moments, sad moments, and frusturating issues.
+- Make changes if needed for the next sprint 
 
 **Attendance**
 - Daryl Foo               -- Yes
