@@ -1,90 +1,121 @@
 /* Background color of entire webpage */
 *{
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Capriola', sans-serif;
-}
- 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #FFE0BB;
-}
- 
-/* Navigation bar styling */
-.navigationBar{ 
-  display: flex;
-  background-color: #FFCF96;
-}
- 
-.navigationBar div{
-  background-color: #FFCF96;
-}
- 
-.menu {
-  flex: 1;
-  cursor: pointer;
-}
- 
-.menuIcon {
-  width: 40px;
-  height: 3px;
-  background-color: rgb(121, 120, 118);
-  margin: 8px 0;
-  margin-left: auto;
-  margin-right: auto;
-}
- 
-.menuButton {
-  background-color: #FFF5EA;
-  height: 70px;
-  border-radius: 12px;
-  margin: 5px;
-  width: 80px;
-  border: none;
-  cursor: pointer;
-}
- 
-.logo {
-  flex: 0.05;
-  margin-top: 5px;
-  cursor: pointer;
-}
- 
-.resizeLogo {
-  width: 60px;
-  height: auto;
-  background-color: #FFCF96;
-  display: block;
-}
- 
-.title {
-  flex: 1.1;
-  margin: 10px;
-  background-color: #FFCF96;
-  color: #000000;
-  cursor: context-menu;  
-  font-size: 22px;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Capriola', sans-serif;
+  }
+   
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFE0BB;
+  }
+   
+  /* Navigation bar styling */
+  .navigationBar {
+    display: flex;
+    background-color: #FFCF96;
 
-}
- 
-.signIn {
-  flex: 0.16;
-}
- 
-.signIn button {
-  width: 100px;
-  height: 60px;
+  }
+   
+  .navigationBar div {
   background-color: #FFCF96;
-  margin-top: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #FFF5EA;
-  cursor: pointer;
-}
-
-  /* Main page */
+  }
+  header {
+    width: 100%;
+    display: table;
+    background-color: #fde428;
+    margin-bottom: 50px;
+  }
+  
+  #logo {
+    float: left;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #002e5b;
+    font-weight: 600;
+    padding: 20px 0px;
+  }
+  
+ .menu {
+    flex: 1;
+  }
+   
+  .menuIcon {
+    width: 35px;
+    height: 3px;
+    background-color: rgb(121, 120, 118);
+    margin: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+   
+  .menuButton {
+    background-color: #FFF5EA;
+    height: 60px;
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 70px;
+    border: none;
+  }
+  
+  .logo {
+      flex: 0.1;
+  }
+   
+  .resizeLogo {
+    width: 50px;
+    height: auto;
+    background-color: #FFCF96;
+    display: block;
+   
+  }
+   
+  .title {
+    flex: 1;
+    margin-top: 10px;
+    background-color: #FFCF96;
+    color: #505050;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+ 
+  .titlebutton {
+    background-color: #FFCF96;
+    border: none;
+  }
+ 
+  .profilepicture {
+    flex: 0.1;
+  }
+ 
+  .profilebutton {
+    background-color: #FFCF96;
+    border: none;
+    color: #505050;
+  }
+   
+  .iconify {
+    width: 60px;
+    height: auto;
+    background-color: #FFCF96;
+    margin-top: 4px;
+  }
+   
+  .signIn {
+    flex: 0.2;
+  }
+   
+  .signIn button {
+    width: 100px;
+    height: 45px;
+    background-color: #FFCF96;
+    margin-top: 12.5px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFF5EA;
+  }
  
   .dropdown {
     margin-left: auto;
@@ -97,8 +128,7 @@ body {
   .dropdown > select {
     width: 180px;
     height: 30px;
-    margin: 15px;
-    margin-bottom: 20px;
+    margin: 10px;
     border-radius: 12px;
   }
  
@@ -112,6 +142,13 @@ body {
   .round{
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
+  }
+ 
+  .form {
+    margin: 0 auto;
+    padding: 15px 0 15px 20px;
+    height: 60px;
+    width: 700px;
   }
    
   form.example input[type=text] {
@@ -153,26 +190,26 @@ body {
     margin-top: -20px;
   }
  
- /* Copyright styling */
-footer {
-  margin-top: auto;
-}
-.copyright {
-    display: flex;
-}
- 
-.copyright div{
-    background-color: #FFCF96;
-}
- 
-.copyrightBar {
-    flex: 1;
-}
- 
-.copyrightText {
-  background-color: #FFCF96;
-  text-align: center;
-  color: gray;
- 
-}
+  /* Copyright styling */
+  footer {
+    margin-top: auto;
+  }
+  .copyright {
+      display: flex;
+  }
+   
+  .copyright div{
+      background-color: #FFD586;
+  }
+   
+  .copyrightBar {
+      flex: 1;
+  }
+   
+  .copyrightText {
+    background-color: #FFD586;
+    text-align: center;
+    color: #909090;
+   
+  }
 

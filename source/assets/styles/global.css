@@ -13,9 +13,10 @@ body {
 }
  
 /* Navigation bar styling */
-.navigationBar{ 
+.navigationBar{
   display: flex;
   background-color: #FFCF96;
+
 }
  
 .navigationBar div{
@@ -24,39 +25,36 @@ body {
  
 .menu {
   flex: 1;
-  cursor: pointer;
 }
  
 .menuIcon {
-  width: 40px;
+  width: 35px;
   height: 3px;
   background-color: rgb(121, 120, 118);
   margin: 8px 0;
   margin-left: auto;
   margin-right: auto;
 }
-
+ 
 .menuButton {
   background-color: #FFF5EA;
-  height: 70px;
+  height: 60px;
   border-radius: 12px;
-  margin: 5px;
-  width: 80px;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 70px;
   border: none;
-  cursor: pointer;
 }
-
+ 
 .logo {
   flex: 0.1;
-  margin-top: 5px;
 }
  
 .resizeLogo {
-  width: 60px;
+  width: 50px;
   height: auto;
   background-color: #FFCF96;
   display: block;
-  cursor: pointer;
 }
  
 .searchbar {
@@ -68,9 +66,7 @@ body {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   font-size: 30px;
-  cursor: pointer;
-  height: 55px;
-
+  height: 43px;
 }
 
 .round {
@@ -84,12 +80,11 @@ form {
  
 form.example input[type=text] {
   padding: 10px;
-  font-size: 22px;
+  font-size: 17px;
   border: 1px solid grey;
   float: left;
   width: 80%;
   background: #f1f1f1;
-  height: 55px;
 }
  
 form.example button:hover {
@@ -107,19 +102,29 @@ form.example i {
   border-radius: 12px;
 }
  
+.profilePicture {
+    flex: 0.;
+}
+ 
+.iconify {
+  width: 60px;
+  height: auto;
+  background-color: #FFCF96;
+  margin-top: 4px;
+}
+ 
 .signIn {
-  flex: 0.5;
+  flex: 0.55;
 }
  
 .signIn button {
   width: 100px;
-  height: 60px;
+  height: 45px;
   background-color: #FFCF96;
-  margin-top: 10px;
+  margin-top: 12.5px;
   border-radius: 20px;
   border: none;
   background-color: #FFF5EA;
-  cursor: pointer;
 }
  
  

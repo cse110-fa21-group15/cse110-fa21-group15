@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
 
-<head>
+     <!--Link to iconify, for user profile icon-->
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/global.css" />
+    <link rel="stylesheet" href="assets/styles/searchresults.css" />
 
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
 
 </head>
-
+ 
 <body>
     <header>
         <!--Beginning of navigation bar-->
@@ -26,34 +28,32 @@
                 </button>
             </div>
             <div class="logo">
-                <a href="homepage.html">
-                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
-                </a>
+                <img class="resizeLogo" src="assets/images/Logo.png" alt="Website logo">
             </div>
             <div class="searchbar">
-                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
+                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+                  </form>
+            </div>
+            <div class="profilePicture">
+                <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
             </div>
             <div class="signIn">
-                <a href="signIn.html">
-                    <button style="font-size:22px">Sign in</button>
-                </a>
+                <button style="font-size:18px">Sign in</button>
             </div>
         </div>
         <!--End of navigation bar-->
     </header>
-
+ 
     <main>
     </main>
-    <footer>
-        <div class="copyright">
-            <div class="copyrightBar">
-                <h3 class="copyrightText">@Copyright</h3>
+        <footer>
+           <div class="copyright">
+               <div class="copyrightBar">
+                   <h3 class="copyrightText">@Copyright</h3>
+               </div>
             </div>
-        </div>
-    </footer>
-</body>
-
+        </footer>
+    </body>
 </html>
