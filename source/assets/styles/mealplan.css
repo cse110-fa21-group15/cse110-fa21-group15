@@ -1,5 +1,5 @@
-/* Background color of entire webpage */
-*{
+  /* Background color of entire webpage */
+  *{
     margin: 0;
     box-sizing: border-box;
     font-family: 'Capriola', sans-serif;
@@ -13,10 +13,9 @@
   }
    
   /* Navigation bar styling */
-  .navigationBar{
+  .navigationBar{ 
     display: flex;
     background-color: #FFCF96;
- 
   }
    
   .navigationBar div{
@@ -25,50 +24,53 @@
    
   .menu {
     flex: 1;
+    cursor: pointer;
   }
    
   .menuIcon {
-    width: 35px;
+    width: 40px;
     height: 3px;
     background-color: rgb(121, 120, 118);
     margin: 8px 0;
     margin-left: auto;
     margin-right: auto;
   }
-   
+  
   .menuButton {
     background-color: #FFF5EA;
-    height: 60px;
+    height: 70px;
     border-radius: 12px;
-    margin-left: 5px;
-    margin-top: 5px;
-    width: 70px;
+    margin: 5px;
+    width: 80px;
     border: none;
+    cursor: pointer;
   }
    
   .logo {
     flex: 0.1;
+    margin-top: 5px;
   }
    
   .resizeLogo {
-    width: 50px;
+    width: 60px;
     height: auto;
     background-color: #FFCF96;
     display: block;
-    margin-top: 5px;
+    cursor: pointer;
   }
+   
   .searchbar {
     flex: 5.5;
     margin-top: 10px;
   }
- 
+  
   .searchbar button {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     font-size: 30px;
-    height: 43px;
+    height: 55px;
   }
- 
+  
   .round {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -80,11 +82,12 @@
    
   form.example input[type=text] {
     padding: 10px;
-    font-size: 17px;
+    font-size: 22px;
     border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
+    height: 55px;
   }
    
   form.example button:hover {
@@ -102,29 +105,19 @@
     border-radius: 12px;
   }
    
-  .profilePicture {
-      flex: 0.;
-  }
-   
-  .iconify {
-    width: 60px;
-    height: auto;
-    background-color: #FFCF96;
-    margin-top: 4px;
-  }
-   
   .signIn {
-    flex: 0.55;
+    flex: 0.5;
   }
    
   .signIn button {
     width: 100px;
-    height: 45px;
+    height: 60px;
     background-color: #FFCF96;
-    margin-top: 12.5px;
+    margin-top: 10px;
     border-radius: 20px;
     border: none;
     background-color: #FFF5EA;
+    cursor: pointer;
   }
  
   /* Personal cookbook list */
@@ -198,26 +191,25 @@
     text-align: center;
   }
  
-   
-  /* Copyright styling */
-  footer {
-    margin-top: auto;
-  }
-  .copyright {
-      display: flex;
-  }
-   
-  .copyright div{
-      background-color: #FFCF96;
-  }
-   
-  .copyrightBar {
-      flex: 1;
-  }
-   
-  .copyrightText {
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+    display: flex;
+}
+ 
+.copyright div{
     background-color: #FFCF96;
-    text-align: center;
-    color: gray;
-   
-  }
+}
+ 
+.copyrightBar {
+    flex: 1;
+}
+ 
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+ 
+}
