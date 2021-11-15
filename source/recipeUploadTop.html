@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+     <!--Link to iconify, for user profile icon-->
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+    <!--Link to CSS file-->
+    <link rel="stylesheet" href="assets/styles/recipeUploadTop.css" />
+
+    <!--Link to fa fa CSS for search icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Link to font style-->
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+
+</head>
+ 
+<body>
+    <header>
+        <!--Beginning of navigation bar-->
+        <div class="navigationBar">
+            <div class="menu">
+                <button class="menuButton">
+                    <p class="menuIcon"></p>
+                    <p class="menuIcon"></p>
+                    <p class="menuIcon"></p>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="homepage.html">
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
+            </div>
+            <div class="searchbar">
+                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
+                    <input type="text" placeholder="Search.." name="search" class="round">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="signIn">
+                <a href="signIn.html">
+                    <button style="font-size:22px">Sign in</button>
+                </a>
+            </div>
+        </div>
+        <!--End of navigation bar-->
+    </header>
+ 
+    <main>
+        <div class="container">
+        <div class="recipeName">
+            <form class="recipeNameTextBox" method="get">
+                <input class="recipeNameText" type="text" placeholder="Enter recipe name ..." name="search">
+            </form>
+            </div>
+            <div class="addIcon">
+                <input type="image" src="assets/images/oldAddIcon.png" class="buttonClass" width="100px" />
+            </div>
+
+            <div class="favoriteIcon">
+                
+                <input type="image" src="assets/images/oldFavorite.png" class="buttonClass" width="100px" />
+            </div>
+
+            <div class="saveIcon">
+                
+                <input type="image" src="assets/images/oldSave.png" class="buttonClass" width="100px" />
+            </div>
+            <div class="downloadIcon">
+                
+                <input type="image" src="assets/images/oldDownload.png" class="buttonClass" width="100px" />
+            </div>
+        
+    </div>
+
+    <div class="middleArea">
+        <div class="recipePicture">
+            <img class="uploadImage" src="assets/images/oldUpload.png" alt="upload icon">
+            <p><center>Upload Recipe Image</center></p>
+            <br> <br> <br> <br> <br>
+            <input type="file" accept="image/*">
+        </div>
+
+        <div class="misc">
+            <div class="time">
+                <p>Time:</p>
+                <form class="timeBox" method="get">
+                    <input class="timeBoxInput" type="text" placeholder="Enter cooking time ..." name="search">
+                </form>
+            </div>
+            <div class="cost">
+                <p>Cost:</p>
+                <form class="costBox" method="get">
+                    <input class="costBoxInput" type="text" placeholder="Enter ingredient cost ..." name="search">
+                </form>
+            </div>
+
+            <div class="servings">
+                <p>Servings:</p>
+                <form class="servingsBox" method="get">
+                    <input class="servingsBoxInput" type="text" placeholder="Enter serving size ..." name="search">
+                </form>
+            </div>
+
+            <div class="tags">
+                <p>Tags:</p>
+                <input type="image" src="assets/images/addIconSmall.png" class="buttonClass" width="50px" />
+            </div>
+        </div>
+
+        </div>
+        
+    </div>
+
+    <section class="description">
+        <p class="descriptionText">Description:</p>
+        <form class="descriptionBox" action="action_page.php">
+            <textarea rows="7" cols="235" placeholder="Enter recipe description ..."></textarea>
+            <input type="submit" id="descriptionSubmit">
+        </form>
+          
+    </section>
+
+    </main>
+        <footer>
+           <div class="copyright">
+               <div class="copyrightBar">
+                   <h3 class="copyrightText">@Copyright</h3>
+               </div>
+            </div>
+        </footer>
+    </body>
+</html>

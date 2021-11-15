@@ -1,0 +1,215 @@
+  /* Background color of entire webpage */
+  *{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Capriola', sans-serif;
+  }
+   
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFE0BB;
+  }
+   
+  /* Navigation bar styling */
+  .navigationBar{ 
+    display: flex;
+    background-color: #FFCF96;
+  }
+   
+  .navigationBar div{
+    background-color: #FFCF96;
+  }
+   
+  .menu {
+    flex: 1;
+    cursor: pointer;
+  }
+   
+  .menuIcon {
+    width: 40px;
+    height: 3px;
+    background-color: rgb(121, 120, 118);
+    margin: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .menuButton {
+    background-color: #FFF5EA;
+    height: 70px;
+    border-radius: 12px;
+    margin: 5px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+  }
+   
+  .logo {
+    flex: 0.1;
+    margin-top: 5px;
+  }
+   
+  .resizeLogo {
+    width: 60px;
+    height: auto;
+    background-color: #FFCF96;
+    display: block;
+    cursor: pointer;
+  }
+   
+  .searchbar {
+    flex: 5.5;
+    margin-top: 10px;
+  }
+  
+  .searchbar button {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 30px;
+    height: 55px;
+  }
+  
+  .round {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+   
+  form {
+    background-color: #FFCF96;
+  }
+   
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 22px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    height: 55px;
+  }
+   
+  form.example button:hover {
+    background: #0b7dda;
+  }
+   
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+   
+  form.example i {
+    font-size: 35px;
+    border-radius: 12px;
+  }
+   
+  .signIn {
+    flex: 0.5;
+  }
+   
+  .signIn button {
+    width: 100px;
+    height: 60px;
+    background-color: #FFCF96;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFF5EA;
+    cursor: pointer;
+  }
+ 
+  /* Personal cookbook list */
+ 
+  .personalCookbook {
+    display: table;
+    background-color: #FFFFFF;
+    float: left;
+    width: 30%;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+ 
+  .personalCookbook th {
+    background-color: #FFF5EA;
+    height: 60px;
+  }
+ 
+  .personalCookbook td {
+    height: 740px;
+    min-height: 100px;
+  }
+ 
+  .addButton {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+ 
+  /* Need to change this so it actually shows on screen */
+  .cookbookMeals {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+  }
+ 
+  /* Calendar */
+ 
+  .calendar {
+    display: table;
+    float: right;
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40px;
+  }
+ 
+  .calendar th {
+    background-color: #FFF5EA;
+    height: 100px;
+    font-size: 30px;
+  }
+ 
+  .calendar td {
+    background-color: #FFFFFF;
+    height: 700px;
+    text-align: center;
+  }
+ 
+  .addToCookbook {
+    font-size: 60px;
+    margin-top: 10px;
+  }
+ 
+  .cookbookItems {
+    margin-bottom: 70px;
+  }
+ 
+  .calendarMeal {
+    font-size: 20px;
+    text-align: center;
+  }
+ 
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+    display: flex;
+}
+ 
+.copyright div{
+    background-color: #FFCF96;
+}
+ 
+.copyrightBar {
+    flex: 1;
+}
+ 
+.copyrightText {
+  background-color: #FFCF96;
+  text-align: center;
+  color: gray;
+ 
+}
