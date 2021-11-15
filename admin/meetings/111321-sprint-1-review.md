@@ -107,6 +107,8 @@ Will be working on connecting pages together according to the high fidelity wire
 
 **Topics for Next Meeting**
 
+- Agile retrospective (discuss changes for next sprint)
+
 **Duration**
 
 - 45 Minutes
