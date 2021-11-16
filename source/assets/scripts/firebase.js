@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
-import { getFirestore, collection, addDoc, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, query, where, getDocs, updateDoc, arrayUnion, arrayRemove, doc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
 const firebaseConfig = {
@@ -21,7 +21,6 @@ const db = getFirestore();
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
 // document.querySelector('#signIn').addEventListener('click', signIn);
-
 /**
  * Signup function that creates new user and returns the user id
  */
@@ -84,6 +83,29 @@ async function addUser(email, id) {
 }
 
 /**
+ * 
+ * @param {id of user logged in} id 
+ * @param {name of recipe} name
+ * @param {Time it takes to cook the meal} time 
+ * @param {Cost of ingredients in the meal} cost 
+ * @param {Number of servings in the meal} servings 
+ * @param {Information regarding the meal} description 
+ * @param {Image of meal} image 
+ */
+ async function createRecipe() {
+  //  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+  // const users = doc(db, "users", "favoriteRecipes");
+  //  const q = await query(users, where("user_id", "==", id));
+  //  const querySnapshot = await getDocs(q);
+  //  await updateDoc(users, {
+  //    favoriteRecipes: arrayUnion("added")
+  //  })
+  //  console.log("added")
+}
+
+document.querySelector('#tester').addEventListener('click', createRecipe)
+
+/**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id 
  * @returns information regarding the user
@@ -100,4 +122,4 @@ async function getUser(id) {
   return userInformation;
 }
 
-document.querySelector('#add').addEventListener('click', getUser)
+// document.querySelector('#add').addEventListener('click', getUser)
