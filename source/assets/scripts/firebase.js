@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
-import { getFirestore, collection, addDoc, query, where, getDocs, updateDoc, arrayUnion, arrayRemove, doc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, arrayRemove, doc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
 const firebaseConfig = {
@@ -93,7 +93,7 @@ async function addUser(email, id) {
  * @param {Image of meal} image 
  */
  async function createRecipe() {
-  //  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
   // const users = doc(db, "users", "favoriteRecipes");
   //  const q = await query(users, where("user_id", "==", id));
   //  const querySnapshot = await getDocs(q);
@@ -101,6 +101,29 @@ async function addUser(email, id) {
   //    favoriteRecipes: arrayUnion("added")
   //  })
   //  console.log("added")
+  console.log(getUser(id));
+  const q = query(collection(db, "users"), where("user_id", "==", id));
+
+  // const users = collection(db, "users");
+  // const q = await query(users, where("user_id", "==", id));
+//   await updateDoc(q, {
+//     favoriteRecipes: arrayUnion("test")
+// });
+  // const q = await query(users, where("user_id", "==", id));
+  const querySnapshot = await getDocs(q);
+  const document = querySnapshot.docs[0];
+  console.log(document.id)
+  console.log(document)
+  const database = doc(db, "users", document.id);
+  // console.log(document.data())
+    await updateDoc(database, {
+      favoriteRecipes: arrayUnion({recipe: "pizza"})
+    })
+
+  // console.log(querySnapshot.listCollections());
+//   await updateDoc(q, {
+//     favoriteRecipes: arrayUnion("test")
+// });
 }
 
 document.querySelector('#tester').addEventListener('click', createRecipe)
@@ -111,7 +134,6 @@ document.querySelector('#tester').addEventListener('click', createRecipe)
  * @returns information regarding the user
  */
 async function getUser(id) {
-  console.log(id + "ID")
   const userInformation = {};
   const users = collection(db, "users");
   const q = await query(users, where("user_id", "==", id));
