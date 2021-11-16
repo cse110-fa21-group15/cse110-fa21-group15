@@ -47,5 +47,5 @@ Features planned for Phase 2 include code coverage reporting
 
 ## Diagram of Pipeline
 
-![Phase 1 CI/CD Pipeline Diagram](/cse110-fa21-group15/admin/cipipeline/phase1.drawio.png)
+![Phase 1 CI/CD Pipeline Diagram](./phase1drawio.png)
 
