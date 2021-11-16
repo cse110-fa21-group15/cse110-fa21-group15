@@ -21,21 +21,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: cse110-fa21-group15/cse110-fa21-group15.github.io
-          path: documentation-repo
+          path: doc-repo
           token: ${{ secrets.PUSH_TOKEN }}
 
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: main-repo/source
-          output_dir: documentation-repo/documentation
+          output_dir: doc-repo/docs
           recurse: true
           template: minami
-          front_page: documentation-repo/README.md
+          front_page: doc-repo/README.md
 
       - name: Commit and push documentation
         run: |
-          cd documentation-repo
+          cd doc-repo
           git add -A
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
