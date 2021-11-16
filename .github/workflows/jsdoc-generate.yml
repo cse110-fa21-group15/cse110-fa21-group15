@@ -6,6 +6,11 @@ on:
       - main
     paths:
       - source/**.js
+  pull_request:
+    branches:
+      - main
+    paths:
+      - source/**.js
 
 jobs:
   autocreate-docs:
