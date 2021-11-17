@@ -1,7 +1,5 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
-document.querySelector("button").addEventListener("onClick", getRecipes);
-
 //get recipes by searched keywords from database 
 async function getRecipes(event){
     console.log("button clicked");
@@ -20,8 +18,8 @@ async function getRecipes(event){
         console.log(JSON.stringify(results['results'][0]));
     })
     event.preventDefault();
-    redirectPage();
-    retrieveRecipe(input);
+    //redirectPage();
+    //retrieveRecipe(input);
 }
 
 //redirect to results page
