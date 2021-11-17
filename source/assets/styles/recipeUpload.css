@@ -78,10 +78,6 @@ body {
   border-bottom-left-radius: 12px;
 }
  
-form {
-  /*background-color: #FFCF96; */
-}
- 
 form.example input[type=text] {
   padding: 10px;
   font-size: 22px;
@@ -257,13 +253,6 @@ form.example i {
     gap: 15px;
 }
 
-.row-flex{
-    display:flex;
-    flex-direction: row;
-    gap: 500px;
-    font-size:20px;
-    
-}
 .word{
     font-size:25px;
     color: #505050;
