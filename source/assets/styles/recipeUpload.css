@@ -123,27 +123,10 @@ form.example i {
 }
 
   /* New Stuff */
-  .container {
-      display: flex;
-      justify-content: space-around;
-  }   
-
-  .icons  {
-    display: block;
-    float: right;
-    margin-top: -50px;
-    margin-right: 50px;
-
-  }
-
-  .buttonClass:hover {
-    border: 2px solid transparent;
-    transform: scale(1.05);
-  }
 
   .recipeName {
-      margin-top: 50px;
-      flex: 4;
+    margin-top: 50px;
+    margin-left: 5%;
   }
   
   form.recipeNameTextBox input {
@@ -153,7 +136,6 @@ form.example i {
     border-radius: 12px;
     width: 520px;
     height: 60px;
-    margin-left: 70px;
   }
 
   .recipePicture {
@@ -188,8 +170,8 @@ form.example i {
   }
 
   .misc {
-      margin-left: 100px;
-      margin-top: 120px;
+      margin-left: 120px;
+      margin-top: 100px;
       margin-right: 650px;
       display: block;
   }
