@@ -1,27 +1,44 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
-document.querySelector("button").addEventListener("onClick", getRecipes);
+//document.querySelector("button").addEventListener("onClick", fetchRecipes);
 
 //get recipes by searched keywords from database 
-async function getRecipes(event){
+async function fetchRecipes(event){
     console.log("button clicked");
     var forms = document.forms;
     var input = "";                 
+    var recipe_id;
     input = forms.searchbar.search.value;
     if (input == "") {
         return;
     }
     var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8";
     // getData(url).then(x => alert(x));
-    const fetchPromise = fetch(url).then(response => {
+    const fetchPromise = fetch(url);
+    fetchPromise.then(response => {
         return response.json();
     }).then(results => {
-        storeRecipe(results, input);
-        console.log(JSON.stringify(results['results'][0]));
+        //storeRecipe(results, input);
+        console.log(results['results'][0]['id']);
+        recipe_id = results['results'][0]['id'];
+        getRecipeCard(recipe_id);
     })
     event.preventDefault();
-    redirectPage();
-    retrieveRecipe(input);
+    //redirectPage();
+    //retrieveRecipe(input);
+}
+
+//get recipe card by recipe id
+async function getRecipeCard(id){
+    console.log("fetching recipe card from Spoonacular");
+    console.log("id = " + id);
+    var url = "https://api.spoonacular.com/recipes/" + id + "/card?" + API_KEY;
+    const cardPromise = fetch(url);
+    cardPromise.then(response => {
+        return response.json();
+    }).then(results => {
+        console.log(results['url']);
+    })
 }
 
 //redirect to results page
