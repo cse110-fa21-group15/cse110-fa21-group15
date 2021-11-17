@@ -56,9 +56,8 @@ body {
   height: auto;
   background-color: #FFCF96;
   display: block;
-  cursor: pointer;
+  margin-top: 5px;
 }
- 
 .searchbar {
   flex: 5.5;
   margin-top: 10px;
@@ -93,7 +92,7 @@ form.example input[type=text] {
 }
  
 form.example button:hover {
-  background: #0b7dda;
+  background: #868b8f;
 }
  
 form.example::after {
@@ -121,7 +120,6 @@ form.example i {
   background-color: #FFF5EA;
   cursor: pointer;
 }
- 
  
 /* Copyright styling */
 footer {
