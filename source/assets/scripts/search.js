@@ -11,7 +11,7 @@ async function getRecipes(event){
     if (input == "") {
         return;
     }
-    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8";
+    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8&instructionsRequired=true&addRecipeInformation=true";
     // getData(url).then(x => alert(x));
     const fetchPromise = fetch(url).then(response => {
         return response.json();
