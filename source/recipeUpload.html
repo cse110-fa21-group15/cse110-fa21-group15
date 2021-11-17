@@ -2,11 +2,8 @@
 <html lang="en">
     <head>
 
-     <!--Link to iconify, for user profile icon-->
-    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/recipeUploadTop.css" />
+    <link rel="stylesheet" href="assets/styles/recipeUpload.css" />
 
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,51 +51,41 @@
                 <input class="recipeNameText" type="text" placeholder="Enter recipe name ..." name="search">
             </form>
             </div>
-            <div class="addIcon">
-                <input type="image" src="assets/images/oldAddIcon.png" class="buttonClass" width="100px" />
-            </div>
+    </div>
 
-            <div class="favoriteIcon">
-                
-                <input type="image" src="assets/images/oldFavorite.png" class="buttonClass" width="100px" />
-            </div>
-
-            <div class="saveIcon">
-                
-                <input type="image" src="assets/images/oldSave.png" class="buttonClass" width="100px" />
-            </div>
-            <div class="downloadIcon">
-                
-                <input type="image" src="assets/images/oldDownload.png" class="buttonClass" width="100px" />
-            </div>
-        
+    <div class="icons">
+        <input type="image" src="assets/images/oldAddIcon.png" class="buttonClass" width="60px"/>
+        <input type="image" src="assets/images/oldFavorite.png" class="buttonClass" width="60px"/>
+        <input type="image" src="assets/images/oldSave.png" class="buttonClass" width="60px"/>
+        <input type="image" src="assets/images/oldDownload.png" class="buttonClass" width="60px"/>
     </div>
 
     <div class="middleArea">
         <div class="recipePicture">
             <img class="uploadImage" src="assets/images/oldUpload.png" alt="upload icon">
             <p><center>Upload Recipe Image</center></p>
-            <br> <br> <br> <br> <br>
+            
             <input type="file" accept="image/*">
         </div>
+        
 
         <div class="misc">
             <div class="time">
                 <p>Time:</p>
-                <form class="timeBox" method="get">
+                <form class="miscBox" method="get">
                     <input class="timeBoxInput" type="text" placeholder="Enter cooking time ..." name="search">
                 </form>
             </div>
             <div class="cost">
                 <p>Cost:</p>
-                <form class="costBox" method="get">
+                <form class="miscBox" method="get">
                     <input class="costBoxInput" type="text" placeholder="Enter ingredient cost ..." name="search">
                 </form>
             </div>
 
             <div class="servings">
                 <p>Servings:</p>
-                <form class="servingsBox" method="get">
+                <form class="miscBox" method="get">
                     <input class="servingsBoxInput" type="text" placeholder="Enter serving size ..." name="search">
                 </form>
             </div>
@@ -109,18 +96,22 @@
             </div>
         </div>
 
-        </div>
+      
         
     </div>
 
-    <section class="description">
-        <p class="descriptionText">Description:</p>
-        <form class="descriptionBox" action="action_page.php">
-            <textarea rows="7" cols="235" placeholder="Enter recipe description ..."></textarea>
-            <input type="submit" id="descriptionSubmit">
-        </form>
-          
-    </section>
+    <div class = "flex-container">
+        <div class="word"> Description:</div>
+        <div class="textbox"><textarea placeholder="Enter recipe description..." class = "round2"></textarea></div>
+        <div class = "row-flex"> <div class ="word">Ingredients: </div> <div class="custom-select"><select>
+         <option value="0">Serving Size:</option> </select> </div> </div>
+        <div class="textbox"><textarea placeholder="Enter Ingredients..." class = "round2"></textarea></div>
+        <div class="word">Steps:</div>
+        <div class="textbox"><textarea placeholder="Enter Steps..." class = "round2"></textarea></div>
+     </div>
+
+     <input type="image" src="assets/images/save.png" name="saveForm" class="btTxt" id="saveForm" />
+
 
     </main>
         <footer>
