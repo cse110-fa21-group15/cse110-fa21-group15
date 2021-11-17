@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, arrayRemove, doc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
 const firebaseConfig = {
@@ -92,10 +92,25 @@ async function addUser(email, id) {
  * @param {Cost of ingredients in the meal} cost 
  * @param {Number of servings in the meal} servings 
  * @param {Information regarding the meal} description 
- * @param {Image of meal} image 
+ * @param {Image of meal} image
+ * @param {tag of meal} tag
  */
- async function createRecipe() {
+ async function createRecipe(name, time, cost, servings, description) {
    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+  const q = query(collection(db, "users"), where("user_id", "==", id));
+  const querySnapshot = await getDocs(q);
+  const document = querySnapshot.docs[0];
+  console.log(document.id)
+  console.log(document)
+  const database = doc(db, "users", document.id);
+  // console.log(document.data())
+    await updateDoc(database, {
+      favoriteRecipes: arrayUnion({name: name, time: time, cost: cost, servings: servings, description: description})
+    })
+}
+
+async function removeRecipe() {
+  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
   const q = query(collection(db, "users"), where("user_id", "==", id));
   const querySnapshot = await getDocs(q);
   const document = querySnapshot.docs[0];
@@ -109,16 +124,11 @@ async function addUser(email, id) {
   const database = doc(db, "users", document.id);
   // console.log(document.data())
     await updateDoc(database, {
-      favoriteRecipes: arrayUnion({name: name, time: time, cost: cost, servings: servings, description: description})
+      favoriteRecipes: arrayRemove({name: "pizza"})
     })
-
-  // console.log(querySnapshot.listCollections());
-//   await updateDoc(q, {
-//     favoriteRecipes: arrayUnion("test")
-// });
 }
 
-document.querySelector('#tester').addEventListener('click', createRecipe)
+document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
