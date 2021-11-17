@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    <!--Link to CSS file-->
+    <link rel="stylesheet" href="assets/styles/recipeUpload.css" />
+
+    <!--Link to fa fa CSS for search icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Link to font style-->
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+
+</head>
+ 
+<body>
+    <header>
+        <!--Beginning of navigation bar-->
+        <div class="navigationBar">
+            <div class="menu">
+                <button class="menuButton">
+                    <p class="menuIcon"></p>
+                    <p class="menuIcon"></p>
+                    <p class="menuIcon"></p>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="homepage.html">
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
+            </div>
+            <div class="searchbar">
+                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
+                    <input type="text" placeholder="Search.." name="search" class="round">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="signIn">
+                <a href="signIn.html">
+                    <button style="font-size:22px">Sign in</button>
+                </a>
+            </div>
+        </div>
+        <!--End of navigation bar-->
+    </header>
+ 
+    <main>
+        <div class="recipeName">
+            <form class="recipeNameTextBox" method="get">
+                <input class="recipeNameText" type="text" placeholder="Enter recipe name ..." name="search">
+            </form>
+            </div>
+
+    <div class="middleArea">
+        <div class="recipePicture">
+            <img class="uploadImage" src="assets/images/oldUpload.png" alt="upload icon">
+            <p><center>Upload Recipe Image</center></p>
+            
+            <input type="file" accept="image/*">
+        </div>
+        
+
+        <div class="misc">
+            <div class="time">
+                <p>Time:</p>
+                <form class="miscBox" method="get">
+                    <input class="timeBoxInput" type="text" placeholder="Enter cooking time ..." name="search">
+                </form>
+            </div>
+            <div class="cost">
+                <p>Cost:</p>
+                <form class="miscBox" method="get">
+                    <input class="costBoxInput" type="text" placeholder="Enter ingredient cost ..." name="search">
+                </form>
+            </div>
+
+            <div class="servings">
+                <p>Servings:</p>
+                <form class="miscBox" method="get">
+                    <input class="servingsBoxInput" type="text" placeholder="Enter serving size ..." name="search">
+                </form>
+            </div>
+
+            <div class="tags">
+                <p>Tags:</p>
+                <input type="image" src="assets/images/addIconSmall.png" class="buttonClass" width="50px" />
+            </div>
+        </div>
+
+      
+        
+    </div> 
+
+    <div class = "flex-container">
+        <div class="word"> Description:</div>
+        <div id="descriptionBox" class="textbox"><textarea placeholder="Enter recipe description..."></textarea></div>
+        <div class = "row-flex"> <div class ="word">Ingredients: </div> <div class="custom-select"><select>
+         <option value="0">Serving Size:</option> </select> </div> </div>
+        <div id="ingredientsBox" class="textbox"><textarea placeholder="Enter Ingredients..." ></textarea></div>
+        <div class="word">Steps:</div>
+        <div id="stepsBox" class="textbox"><textarea placeholder="Enter Steps..." ></textarea></div>
+     </div>
+
+     <input type="image" src="assets/images/save.png" name="saveForm" class="btTxt" id="saveForm" />
+
+
+    </main>
+        <footer>
+           <div class="copyright">
+               <div class="copyrightBar">
+                   <h3 class="copyrightText">@Copyright</h3>
+               </div>
+            </div>
+        </footer>
+    </body>
+</html>
