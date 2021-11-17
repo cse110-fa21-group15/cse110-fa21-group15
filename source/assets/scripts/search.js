@@ -1,5 +1,7 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
+var button = document.querySelector("#searchbutton");
+button.addEventListener(onclick, getRecipes);
 
 //get recipes by searched keywords from database 
 async function getRecipes(event){
