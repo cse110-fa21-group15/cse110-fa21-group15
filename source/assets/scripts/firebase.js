@@ -82,6 +82,8 @@ async function addUser(email, id) {
   }
 }
 
+
+// DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
 /**
  * 
  * @param {id of user logged in} id 
@@ -94,30 +96,20 @@ async function addUser(email, id) {
  */
  async function createRecipe() {
    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
-  // const users = doc(db, "users", "favoriteRecipes");
-  //  const q = await query(users, where("user_id", "==", id));
-  //  const querySnapshot = await getDocs(q);
-  //  await updateDoc(users, {
-  //    favoriteRecipes: arrayUnion("added")
-  //  })
-  //  console.log("added")
-  console.log(getUser(id));
   const q = query(collection(db, "users"), where("user_id", "==", id));
-
-  // const users = collection(db, "users");
-  // const q = await query(users, where("user_id", "==", id));
-//   await updateDoc(q, {
-//     favoriteRecipes: arrayUnion("test")
-// });
-  // const q = await query(users, where("user_id", "==", id));
   const querySnapshot = await getDocs(q);
   const document = querySnapshot.docs[0];
   console.log(document.id)
   console.log(document)
+  let name = "pizza";
+  let time = "30";
+  let cost = "40";
+  let servings = "3";
+  let description = "testing";
   const database = doc(db, "users", document.id);
   // console.log(document.data())
     await updateDoc(database, {
-      favoriteRecipes: arrayUnion({recipe: "pizza"})
+      favoriteRecipes: arrayUnion({name: name, time: time, cost: cost, servings: servings, description: description})
     })
 
   // console.log(querySnapshot.listCollections());
