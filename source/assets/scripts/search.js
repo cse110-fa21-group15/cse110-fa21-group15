@@ -8,18 +8,19 @@ async function fetchRecipes(event){
     var forms = document.forms;
     var input = "";                 
     var recipe_id;
+    //get user input from search bar
     input = forms.searchbar.search.value;
     if (input == "") {
         return;
     }
+    //fetch API search results from Spoonacular
     var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8";
-    // getData(url).then(x => alert(x));
     const fetchPromise = fetch(url);
     fetchPromise.then(response => {
         return response.json();
     }).then(results => {
         //storeRecipe(results, input);
-        console.log(results['results'][0]['id']);
+        console.log("First recipe id is :" + results['results'][0]['id']);
         recipe_id = results['results'][0]['id'];
         getRecipeCard(recipe_id);
     })
@@ -37,7 +38,7 @@ async function getRecipeCard(id){
     cardPromise.then(response => {
         return response.json();
     }).then(results => {
-        console.log(results['url']);
+        console.log("Link to recipe image" + results['url']);
     })
 }
 
