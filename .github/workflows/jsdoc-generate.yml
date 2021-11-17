@@ -1,0 +1,51 @@
+name: JSDoc Generate
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - source/**.js
+  pull_request:
+    branches:
+      - main
+    paths:
+      - source/**.js
+
+jobs:
+  autocreate-docs:
+    runs-on: ubuntu-latest
+    name: Auto create and publish JSDoc
+    steps:
+      - name: Checkout main source repo
+        uses: actions/checkout@v2
+        with:
+          path: main-repo
+
+      - name: Checkout documentation repo
+        uses: actions/checkout@v2
+        with:
+          repository: cse110-fa21-group15/cse110-fa21-group15.github.io
+          path: doc-repo
+          token: ${{ secrets.PUSH_TOKEN }}
+
+      - name: JSDoc Action
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: main-repo/source
+          output_dir: doc-repo/docs
+          recurse: true
+          template: minami
+          front_page: doc-repo/README.md
+
+      - name: Commit and push documentation
+        run: |
+          cd doc-repo
+          git add -A
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "autogenerate JSDoc"
+          git push "https://$USERNAME:$REPO_KEY@github.com/cse110-fa21-group15/cse110-fa21-group15.github.io" main
+        env:
+          REPO_KEY: ${{ secrets.PUSH_TOKEN }}
+          USERNAME: github-actions[bot]

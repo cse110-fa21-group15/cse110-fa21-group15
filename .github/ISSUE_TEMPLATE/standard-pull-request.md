@@ -13,13 +13,10 @@ Summary of Changes:
 Summary of Added Features:
 
 Detailed Description of Changes and Added Features:
-- Change 1
-- Change 2
-- Feature 1
-   - Feature 1 detail
+- Change 1 Detail
+- Feature 1 Detail
 
 Future Work:
-- Documentation
-- Testing
+- Documentation, Testing, etc.
 
-Note: Add to 'Recipe App' Project in the Project tab on the right
+Note: Issue automatically added to project, no need to assign it
