@@ -95,19 +95,29 @@ async function addUser(email, id) {
  * @param {Image of meal} image
  * @param {tag of meal} tag
  */
- async function createRecipe(name, time, cost, servings, description) {
+
+ async function createRecipe(event) {
+   event.preventDefault();
+    const time = document.querySelector('.timeBoxInput').value
+    const name = document.querySelector('.recipeNameText').value
+    const cost = document.querySelector('.costBoxInput').value
+    const servings = document.querySelector('.servingsBoxInput').value
+    const description = document.querySelector('#descriptionBoxInput').value
    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
   const q = query(collection(db, "users"), where("user_id", "==", id));
   const querySnapshot = await getDocs(q);
-  const document = querySnapshot.docs[0];
-  console.log(document.id)
-  console.log(document)
-  const database = doc(db, "users", document.id);
-  // console.log(document.data())
+  const documents = querySnapshot.docs[0];
+  const database = doc(db, "users", documents.id);
     await updateDoc(database, {
-      favoriteRecipes: arrayUnion({name: name, time: time, cost: cost, servings: servings, description: description})
+      favoriteRecipes: arrayUnion({time: time, name: name, cost: cost, servings: servings, description: description})
     })
 }
+
+async function getRecipe(event) {
+
+}
+
+// document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
 
 async function removeRecipe() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
@@ -127,15 +137,16 @@ async function removeRecipe() {
       favoriteRecipes: arrayRemove({name: "pizza"})
     })
 }
-
-document.querySelector('#tester').addEventListener('click', removeRecipe)
+// document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id 
  * @returns information regarding the user
  */
-async function getUser(id) {
+async function getUser() {
+  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+
   const userInformation = {};
   const users = collection(db, "users");
   const q = await query(users, where("user_id", "==", id));
@@ -143,7 +154,8 @@ async function getUser(id) {
   querySnapshot.forEach((doc) => {
     userInformation["results"] = doc.data();
   });
+  console.log(userInformation);
   return userInformation;
 }
 
-// document.querySelector('#add').addEventListener('click', getUser)
+document.querySelector('#tester').addEventListener('click', getUser)
