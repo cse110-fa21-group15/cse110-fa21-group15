@@ -87,8 +87,8 @@ class RecipeCard extends HTMLElement {
     //set image src
     const image = document.createElement('img');
     //USE STOCK IMAGE FOR NOW
-   //let recipeImage = searchForKey(data, "image");
-    const recipeImage = "assets/images/spooky.png"
+    let recipeImage = searchForKey(data, "image");
+    //const recipeImage = "assets/images/spooky.png"
     image.setAttribute('src', recipeImage);
     console.log(image);
 
