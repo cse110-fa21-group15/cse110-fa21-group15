@@ -78,10 +78,6 @@ body {
   border-bottom-left-radius: 12px;
 }
  
-form {
-  /*background-color: #FFCF96; */
-}
- 
 form.example input[type=text] {
   padding: 10px;
   font-size: 22px;
@@ -275,7 +271,7 @@ form.example i {
     padding-left:2px;
 }
 
-  .round2 {
+  .textbox {
     border-radius: 12px;
     width:90%;
     height: 250px;
