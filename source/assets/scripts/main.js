@@ -138,25 +138,33 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
-async function getUser() {
-  const id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-  console.log("TEST");
+ async function getUser() {
+  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+
   const userInformation = {};
   const users = collection(db, "users");
   const q = await query(users, where("user_id", "==", id));
   const querySnapshot = await getDocs(q);
+  const createdRecipes = [];
   querySnapshot.forEach((doc) => {
     userInformation["results"] = doc.data();
   });
+  for(let i = 0; i<userInformation.results.favoriteRecipes.length; i+=1) {
+    createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+  }
+  userInformation.results.recipes = createdRecipes
+  console.log(userInformation);
   return userInformation;
 }
 
+//********************************************************************
 /* main.js STARTS HERE */
-
+//*********************************************************************
 //Get users' favorite recipes
 const user = await getUser();
+console.log(user)
 
-const recipes = user["results"].favoriteRecipes;
+const recipes = user["results"].recipes;
 
   let numRecipes;
   
