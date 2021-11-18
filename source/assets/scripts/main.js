@@ -5,8 +5,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
-// Here is where the recipes that you will fetch.
-// Feel free to add your own here for part 2, if they are local files simply add their path as a string.
 const firebaseConfig = {
   apiKey: "AIzaSyCwaLuRVV073aNbTB5EaLoZDIFXGzvqr3A",
   authDomain: "easy-chef-3eb03.firebaseapp.com",
@@ -23,7 +21,6 @@ const db = getFirestore();
 // UNCOMMENT THE 2 BELOW LINES WHEN BUTTONS ARE CONNECTED TO SIGNIN AND SIGNUP
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
-// document.querySelector('#signIn').addEventListener('click', signIn);
 /**
  * Signup function that creates new user and returns the user id
  */
@@ -86,31 +83,8 @@ async function addUser(email, id) {
 }
 
 
-// DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
-/**
- * 
- * @param {id of user logged in} id 
- * @param {name of recipe} name
- * @param {Time it takes to cook the meal} time 
- * @param {Cost of ingredients in the meal} cost 
- * @param {Number of servings in the meal} servings 
- * @param {Information regarding the meal} description 
- * @param {Image of meal} image
- * @param {tag of meal} tag
- */
- async function createRecipe(name, time, cost, servings, description) {
-   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
-  const q = query(collection(db, "users"), where("user_id", "==", id));
-  const querySnapshot = await getDocs(q);
-  const document = querySnapshot.docs[0];
-  console.log(document.id)
-  console.log(document)
-  const database = doc(db, "users", document.id);
-  // console.log(document.data())
-    await updateDoc(database, {
-      favoriteRecipes: arrayUnion({name: name, time: time, cost: cost, servings: servings, description: description})
-    })
-}
+
+// document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
 
 async function removeRecipe() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
@@ -130,15 +104,14 @@ async function removeRecipe() {
       favoriteRecipes: arrayRemove({name: "pizza"})
     })
 }
-
-//document.querySelector('#tester').addEventListener('click', removeRecipe)
+// document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id 
  * @returns information regarding the user
  */
- async function getUser() {
+async function getUser() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
 
   const userInformation = {};
@@ -156,6 +129,22 @@ async function removeRecipe() {
   console.log(userInformation);
   return userInformation;
 }
+
+
+
+async function getRecipe(recipe_id) {
+  const recipesRef = doc(db, "recipes", recipe_id);
+  const docSnap = await getDoc(recipesRef);
+  
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+}
+
+//document.querySelector('#tester').addEventListener('click', getUser);
 
 //********************************************************************
 /* main.js STARTS HERE */
