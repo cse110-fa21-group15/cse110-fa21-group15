@@ -20,7 +20,6 @@ const db = getFirestore();
 // UNCOMMENT THE 2 BELOW LINES WHEN BUTTONS ARE CONNECTED TO SIGNIN AND SIGNUP
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
-// document.querySelector('#signIn').addEventListener('click', signIn);
 /**
  * Signup function that creates new user and returns the user id
  */
@@ -130,6 +129,8 @@ async function getUser() {
   return userInformation;
 }
 
+
+
 async function getRecipe(recipe_id) {
   const recipesRef = doc(db, "recipes", recipe_id);
   const docSnap = await getDoc(recipesRef);
@@ -141,3 +142,6 @@ async function getRecipe(recipe_id) {
     console.log("No such document!");
   }
 }
+
+document.querySelector('#tester').addEventListener('click', getUser);
+
