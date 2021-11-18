@@ -83,39 +83,6 @@ async function addUser(email, id) {
 }
 
 
-// DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
-/**
- * 
- * @param {id of user logged in} id 
- * @param {name of recipe} name
- * @param {Time it takes to cook the meal} time 
- * @param {Cost of ingredients in the meal} cost 
- * @param {Number of servings in the meal} servings 
- * @param {Information regarding the meal} description 
- * @param {Image of meal} image
- * @param {tag of meal} tag
- */
-
- async function createRecipe(event) {
-   event.preventDefault();
-    const time = document.querySelector('.timeBoxInput').value
-    const name = document.querySelector('.recipeNameText').value
-    const cost = document.querySelector('.costBoxInput').value
-    const servings = document.querySelector('.servingsBoxInput').value
-    const description = document.querySelector('#descriptionBoxInput').value
-   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
-  const q = query(collection(db, "users"), where("user_id", "==", id));
-  const querySnapshot = await getDocs(q);
-  const documents = querySnapshot.docs[0];
-  const database = doc(db, "users", documents.id);
-    await updateDoc(database, {
-      favoriteRecipes: arrayUnion({time: time, name: name, cost: cost, servings: servings, description: description})
-    })
-}
-
-async function getRecipe(event) {
-
-}
 
 // document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
 
@@ -151,11 +118,26 @@ async function getUser() {
   const users = collection(db, "users");
   const q = await query(users, where("user_id", "==", id));
   const querySnapshot = await getDocs(q);
+  const createdRecipes = [];
   querySnapshot.forEach((doc) => {
     userInformation["results"] = doc.data();
   });
+  for(let i = 0; i<userInformation.results.favoriteRecipes.length; i+=1) {
+    createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+  }
+  userInformation.results.recipes = createdRecipes
   console.log(userInformation);
   return userInformation;
 }
 
-document.querySelector('#tester').addEventListener('click', getUser)
+async function getRecipe(recipe_id) {
+  const recipesRef = doc(db, "recipes", recipe_id);
+  const docSnap = await getDoc(recipesRef);
+  
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+}
