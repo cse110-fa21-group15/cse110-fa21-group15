@@ -150,16 +150,14 @@ async function getRecipe(recipe_id) {
 /* main.js STARTS HERE */
 //*********************************************************************
 //Get users' favorite recipes
+
 const user = await getUser();
 console.log(user)
 
 const recipes = user["results"].recipes;
 
   let numRecipes;
-  
-  // Once all of the recipes that were specified above have been fetched, their
-  // data will be added to this object below. You may use whatever you like for the
-  // keys as long as it's unique, one suggestion might but the URL itself
+
   const recipeData = {}
   
   //Call this to begin getting recipe cards
@@ -176,22 +174,13 @@ const recipes = user["results"].recipes;
     };
     // Add the first three recipe cards to the page
     createRecipeCards();
-    // Make the "Show more" button functional
+
     bindShowMore();
+
   }
   async function fetchRecipes() {
     return new Promise((resolve, reject) => {
-      // This function is called for you up above
-      // From this function, you are going to fetch each of the recipes in the 'recipes' array above.
-      // Once you have that data, store it in the 'recipeData' object. You can use whatever you like
-      // for the keys. Once everything in the array has been successfully fetched, call the resolve(true)
-      // callback function to resolve this promise. If there's any error fetching any of the items, call
-      // the reject(false) function.
   
-      // For part 2 - note that you can fetch local files as well, so store any JSON files you'd like to fetch
-      // in the recipes folder and fetch them from there. You'll need to add their paths to the recipes array.
-  
-      // Part 1 Expose - TODO
         numRecipes = recipes.length;
 
         console.log(recipes);
@@ -206,13 +195,6 @@ const recipes = user["results"].recipes;
   }
   
   function createRecipeCards() {
-    // This function is called for you up above.
-    // From within this function you can access the recipe data from the JSON 
-    // files with the recipeData Object above. Make sure you only display the 
-    // three recipes we give you, you'll use the bindShowMore() function to
-    // show any others you've added when the user clicks on the "Show more" button.
-  
-    // Part 1 Expose - TODO
     for(let i = 0; i < numRecipes; ++i){
       let recipeCard = document.createElement("recipe-card");
       recipeCard.data = recipeData[i.toString()];
@@ -221,6 +203,7 @@ const recipes = user["results"].recipes;
     }
   
   }
+  
   
   function bindShowMore() {
     // This function is also called for you up above.
@@ -231,6 +214,10 @@ const recipes = user["results"].recipes;
     // in the recipeData object where you stored them/
   
     // Part 2 Explore - TODO
+    let recipeCard = document.querySelector("recipe-card");
+    recipeCard.addEventListener("click", function (){
+      alert("hello");
+    })
   }
 
     /**
