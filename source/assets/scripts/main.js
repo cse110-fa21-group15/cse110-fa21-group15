@@ -214,10 +214,13 @@ const recipes = user["results"].recipes;
     // in the recipeData object where you stored them/
   
     // Part 2 Explore - TODO
-    let recipeCard = document.querySelector("recipe-card");
-    recipeCard.addEventListener("click", function (){
-      alert("hello");
-    })
+    let recipeCard = document.querySelectorAll("recipe-card");
+    
+    for(let i = 0; i < recipeCard.length; ++i){
+      recipeCard[i].addEventListener("click", function (){
+        window.open("recipePage.html", '_top');
+      })
+    }
   }
 
     /**
