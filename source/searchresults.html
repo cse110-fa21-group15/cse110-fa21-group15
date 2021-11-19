@@ -14,6 +14,8 @@
 
     <!--Link to JS file-->
     <script src="assets/scripts/searchresults.js" type="module"></script>
+    <!--Log In Script-->
+    <script src="assets/scripts/firebase.js" type="module"></script>
 
 </head>
 
@@ -28,18 +30,19 @@
                     <p class="menuIcon"></p>
                 </button>
             </div>
+
+
             <div class="logo">
                 <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
             </div>
-            <div class="searchbar">
-                <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
-                    <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+            <div class="title">
+                <a class="titlebutton">
+                    <h1>EasyChef</h1>
+                </a>
             </div>
             <div class="signIn">
                 <a href="signIn.html">
-                    <button style="font-size:22px">Sign in</button>
+                    <button id="signedIn" style="font-size:22px">Sign In</button>
                 </a>
             </div>
         </div>
