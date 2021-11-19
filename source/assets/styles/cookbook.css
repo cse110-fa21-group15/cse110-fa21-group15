@@ -130,7 +130,6 @@ form.example i {
     flex-wrap: wrap;
     justify-content: space-between;
 
-
   }
    
   /* Copyright styling */
@@ -154,9 +153,4 @@ form.example i {
     text-align: center;
     color: gray;
    
-  }
-
-
-  recipe-card {
-
   }
