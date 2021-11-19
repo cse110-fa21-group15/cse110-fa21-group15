@@ -17,26 +17,38 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
+if (window.location.href == window.location.origin + '/source/signUp.html') {
+  document.querySelector('#sbutton').addEventListener('click', signUp);
+}
+
+if (window.location.href == window.location.origin + '/source/signIn.html') {
+  document.querySelector('#lbutton').addEventListener('click', signIn);
+}
+
 // UNCOMMENT THE 2 BELOW LINES WHEN BUTTONS ARE CONNECTED TO SIGNIN AND SIGNUP
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
 /**
  * Signup function that creates new user and returns the user id
  */
-async function signUp() {
+ async function signUp(event) {
+  event.preventDefault();
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
   var user_id;
   createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
+  .then(async (userCredential) => {
+    console.log('SIGNED UP');
     const user = userCredential.user;
     user_id = user.uid;
-    addUser(email, user.uid);
+    await addUser(email, user.uid);
+    location.href = 'homepage.html';
     const userInformation = getUser(user.uid);
-    console.log(userInformation);
+    //console.log(userInformation);
     return userInformation;
   })
   .catch((error) => {
+    console.log('INVALID SIGN UP');
     const errorCode = error.code;
     const errorMessage = error.message;
   });
@@ -45,20 +57,23 @@ async function signUp() {
 /**
  * Sign in function that returns a user ID
  */
-async function signIn() {
+ async function signIn(event) {
+  event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  console.log(email);
-  console.log(password);
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
+      console.log('SIGNED IN');
       const user = userCredential.user;
+      location.href = 'homepage.html';
       // UID specifies which user we are talking about
       const userInformation = getUser(user.uid);
       return userInformation;
     })
     .catch((error) => {
+      document.querySelector('#invalidLogin').innerHTML = 'Invalid Log In';
+      console.log('WRONG LOG IN INFO');
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -143,5 +158,23 @@ async function getRecipe(recipe_id) {
   }
 }
 
-document.querySelector('#tester').addEventListener('click', getUser);
-
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+      const uid = user.uid;
+      const signedInButton = document.querySelector('#signedIn');
+      
+      signedInButton.innerHTML = "Sign Out";
+      signedInButton.addEventListener('click', () => {
+          signOut(auth).then(() => {
+              location.href = 'homepage.html';
+              console.log('SIGNED OUT');
+          }).catch((error) => {
+              console.log('ERROR SIGNING OUT');
+          });
+      });
+  } else {
+      window.onload = function() {
+          location.href = 'signIn.html';
+      }
+  }
+});
