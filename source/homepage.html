@@ -8,12 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Link to iconify, for user profile icon-->
-    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-
-    <!--Link to Javascript search file-->
-    <script src="assets/scripts/search.js"></script>
-
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/homepage.css" />
 
@@ -39,19 +33,17 @@
 
 
             <div class="logo">
-                <img class="resizeLogo" src="assets/images/Logo.png" alt="Website logo">
+                <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
             </div>
             <div class="title">
                 <a class="titlebutton">
                     <h1>EasyChef</h1>
                 </a>
             </div>
-            <div class="profilepicture">
-                <button class="profilebutton"><span class="iconify"
-                        data-icon="carbon:user-avatar-filled-alt"></span></button>
-            </div>
             <div class="signIn">
-                <button style="font-size:18px">Sign in</button>
+                <a href="signIn.html">
+                    <button style="font-size:22px">Sign in</button>
+                </a>
             </div>
         </div>
         <!--End of navigation bar-->
@@ -66,48 +58,40 @@
 
     <main>
         <div class="dropdown">
-            <form class = "dropdown" id="filters">
-                <select class="drop">
-                    <option>option1</option>
-                    <option>option2</option>
-                    <option>option3</option>
-                </select>
-                <select class="drop">
-                    <option>option1</option>
-                    <option>option2</option>
-                    <option>option3</option>
-                </select>
-                <select class="drop">
-                    <option>option1</option>
-                    <option>option2</option>
-                    <option>option3</option>
-                </select>
-                <select class="drop">
-                    <option>option1</option>
-                    <option>option2</option>
-                    <option>option3</option>
-                </select>
-            </form>
+            <select class="drop">
+                <option>option1</option>
+                <option>option2</option>
+                <option>option3</option>
+            </select>
+            <select class="drop">
+                <option>option1</option>
+                <option>option2</option>
+                <option>option3</option>
+            </select>
+            <select class="drop">
+                <option>option1</option>
+                <option>option2</option>
+                <option>option3</option>
+            </select>
+            <select class="drop">
+                <option>option1</option>
+                <option>option2</option>
+                <option>option3</option>
+            </select>
         </div>
 
         <div class="searchbar">
             <form class="example" id="searchbar">
-                <input type="text" placeholder="Search Recipes" name="search" class="round" value = "" required>
+                <input type="text" placeholder="Search Recipes" name="search" class="round">
                 <button type="submit" onclick="fetchRecipes(event)"><i class="fa fa-search"></i></button>
             </form>
         </div>
-<button onclick="getRecipes()">test</button>
-        <br>
-        <br>
-        <br>
 
-        <!--Search output and source link -->
-        <div id="output"></div>
-        <img id="img-output" src="" width="400" height="280">
-        <a href="" id="sourceLink"></a>
+        <br>
+        <br>
+        <br>
 
         <div class="blankbox"></div>
- 
 
     </main>
 

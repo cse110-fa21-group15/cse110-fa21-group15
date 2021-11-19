@@ -22,7 +22,7 @@
 - Jasmine Wang:            
 - Jonathan Padungyothee:   
 - Lavanya Verma:           
-- Likitch Palabindela:     
+- Likith Palabindela:     
 - Madelyn Mirai Adams:     
 - Naweed Malal:            
 - Sahil Bhalla:            
