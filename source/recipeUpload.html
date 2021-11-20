@@ -11,8 +11,15 @@
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
 
+      <!-- Link to script file -->
+    <script type="module" src="assets/scripts/recipeUpload.js"></script>
+
+    <!--Log In Script-->
+    <script src="assets/scripts/firebase.js" type="module"></script>
+
+
 </head>
- 
+
 <body>
     <header>
         <!--Beginning of navigation bar-->
@@ -23,6 +30,10 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+                <div class="dropdown-content">
+                    <a href="recipeUpload.html">Create Recipe</a>
+                    <a href="cookbook.html">Personal Cookbook</a>
+                </div>
             </div>
             <div class="logo">
                 <a href="homepage.html">
@@ -37,13 +48,13 @@
             </div>
             <div class="signIn">
                 <a href="signIn.html">
-                    <button style="font-size:22px">Sign in</button>
+                    <button id="signedIn" style="font-size:22px">Sign In</button>
                 </a>
             </div>
         </div>
         <!--End of navigation bar-->
     </header>
- 
+
     <main>
         <div class="recipeName">
             <form class="recipeNameTextBox" method="get">
@@ -55,10 +66,10 @@
         <div class="recipePicture">
             <img class="uploadImage" src="assets/images/oldUpload.png" alt="upload icon">
             <p><center>Upload Recipe Image</center></p>
-            
-            <input type="file" accept="image/*">
+
+            <input id="imageUpload" type="file" accept="image/*">
         </div>
-        
+
 
         <div class="misc">
             <div class="time">
@@ -87,17 +98,17 @@
             </div>
         </div>
 
-      
-        
-    </div> 
+
+
+    </div>
 
     <div class = "flex-container">
         <div class="word"> Description:</div>
-        <div id="descriptionBox" class="textbox"><textarea placeholder="Enter recipe description..."></textarea></div>
+        <div id="descriptionBox" ><textarea id="descriptionBoxInput" placeholder="Enter recipe description..." class="textbox"></textarea></div>
         <div class ="word">Ingredients: </div>
-        <div id="ingredientsBox" class="textbox"><textarea placeholder="Enter Ingredients..." ></textarea></div>
+        <div id="ingredientsBox" ><textarea id="ingredientsBoxInput" placeholder="Enter Ingredients..." class="textbox"></textarea></div>
         <div class="word">Steps:</div>
-        <div id="stepsBox" class="textbox"><textarea placeholder="Enter Steps..." ></textarea></div>
+        <div id="stepsBox"><textarea id="stepsBoxInput" placeholder="Enter Steps..." class="textbox"></textarea></div>
      </div>
 
      <input type="image" src="assets/images/save.png" name="saveForm" class="btTxt" id="saveForm" />

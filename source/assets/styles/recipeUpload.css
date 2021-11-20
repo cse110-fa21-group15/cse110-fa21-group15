@@ -4,29 +4,29 @@
   box-sizing: border-box;
   font-family: 'Capriola', sans-serif;
 }
- 
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #FFE0BB;
 }
- 
+
 /* Navigation bar styling */
-.navigationBar{ 
+.navigationBar{
   display: flex;
   background-color: #FFCF96;
 }
- 
+
 .navigationBar div{
   background-color: #FFCF96;
 }
- 
+
 .menu {
   flex: 1;
   cursor: pointer;
 }
- 
+
 .menuIcon {
   width: 40px;
   height: 3px;
@@ -35,7 +35,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
+/* Drop down button */
 .menuButton {
   background-color: #FFF5EA;
   height: 70px;
@@ -46,11 +46,47 @@ body {
   cursor: pointer;
 }
 
+/* The container <div> - needed to position the dropdown content */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #FFF5EA;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.menu:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.menu:hover .dropbtn {background-color: #3e8e41;}
+
+
 .logo {
   flex: 0.1;
   margin-top: 5px;
 }
- 
+
 .resizeLogo {
   width: 60px;
   height: auto;
@@ -58,7 +94,7 @@ body {
   display: block;
   cursor: pointer;
 }
- 
+
 .searchbar {
   flex: 5.5;
   margin-top: 10px;
@@ -77,7 +113,7 @@ body {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
- 
+
 form.example input[type=text] {
   padding: 10px;
   font-size: 22px;
@@ -87,26 +123,26 @@ form.example input[type=text] {
   background: #f1f1f1;
   height: 55px;
 }
- 
+
 form.example button:hover {
   background: #0b7dda;
 }
- 
+
 form.example::after {
   content: "";
   clear: both;
   display: table;
 }
- 
+
 form.example i {
   font-size: 35px;
   border-radius: 12px;
 }
- 
+
 .signIn {
   flex: 0.5;
 }
- 
+
 .signIn button {
   width: 100px;
   height: 60px;
@@ -124,7 +160,7 @@ form.example i {
     margin-top: 50px;
     margin-left: 5%;
   }
-  
+
   form.recipeNameTextBox input {
     background: #FFFCFC;
     border: 1px solid #B3B3B3;
@@ -138,8 +174,8 @@ form.example i {
     margin-top: 50px;
     margin-left: 5%;
     height: 500px;
-    
-    
+
+
     background: #FFFFFF;
     border: 1px solid #B3B3B3;
     box-sizing: border-box;
@@ -177,7 +213,7 @@ form.example i {
     line-height: 45px;
     color: #505050;
   }
-  
+
   .time {
     display: flex;
     margin-top: 20px;
@@ -216,18 +252,18 @@ form.example i {
     margin-left: 20px;
 
   }
-  
+
   .tags{
       display: flex;
       margin-top: 20px;
   }
-  
+
   .tags input {
       margin-left: 20px;
   }
 
 
-  .recipePicture center {   
+  .recipePicture center {
     font-size: 28px;
     line-height: 45px;
     color: rgba(0, 0, 0, 0.4);
@@ -249,7 +285,7 @@ form.example i {
     flex-direction: column;
     align-items: left;
     padding-top: 20px;
-    justify-content: space-between;   
+    justify-content: space-between;
     gap: 15px;
 }
 
@@ -280,7 +316,7 @@ form.example i {
     width: 4%;
     height: 4%;
 }
-   
+
   /* Copyright styling */
   footer {
     margin-top: auto;
@@ -288,18 +324,18 @@ form.example i {
   .copyright {
       display: flex;
   }
-   
+
   .copyright div{
       background-color: #FFCF96;
   }
-   
+
   .copyrightBar {
       flex: 1;
   }
-   
+
   .copyrightText {
     background-color: #FFCF96;
     text-align: center;
     color: gray;
-   
+
   }
