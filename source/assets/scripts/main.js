@@ -132,6 +132,8 @@ async function getUser() {
 
 
 
+
+
 async function getRecipe(recipe_id) {
   const recipesRef = doc(db, "recipes", recipe_id);
   const docSnap = await getDoc(recipesRef);
@@ -152,7 +154,8 @@ async function getRecipe(recipe_id) {
 //Get users' favorite recipes
 
 const user = await getUser();
-console.log(user)
+console.log("GETUSER()");
+
 
 const recipes = user["results"].recipes;
 

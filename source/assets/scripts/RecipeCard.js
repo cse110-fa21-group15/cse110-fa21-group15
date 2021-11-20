@@ -90,7 +90,6 @@ class RecipeCard extends HTMLElement {
     let recipeImage = searchForKey(data, "image");
     //const recipeImage = "assets/images/spooky.png"
     image.setAttribute('src', recipeImage);
-    console.log(image);
 
     //set image alt
     /*
