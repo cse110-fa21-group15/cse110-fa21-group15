@@ -10,9 +10,10 @@
 
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-    \
+    
     <!--Link to script-->
     <script src="assets/scripts/firebase.js"></script>
+    <script src="assets/scripts/editRecipe.js" type="module"></script>
 
 </head>
  
@@ -96,7 +97,7 @@
 
     <div class = "flex-container">
         <div class="word"> Description:</div>
-        <div class="textbox"><textarea placeholder="Enter recipe description..." class = "round2"></textarea></div>
+        <div class="textbox"><textarea id="descriptionBoxInput" placeholder="Enter recipe description..." class = "round2"></textarea></div>
         <div class = "row-flex"> <div class ="word">Ingredients: </div> <div class="custom-select"><select>
          <option value="0">Serving Size:</option> </select> </div> </div>
         <div class="textbox"><textarea placeholder="Enter Ingredients..." class = "round2"></textarea></div>
