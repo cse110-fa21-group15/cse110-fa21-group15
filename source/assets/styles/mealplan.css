@@ -7,9 +7,15 @@
    
   body {
     min-height: 100vh;
+    position: relative;
+    min-width: 960px;
     display: flex;
     flex-direction: column;
     background-color: #FFE0BB;
+  }
+
+  main {
+    position: relative;
   }
    
   /* Navigation bar styling */
@@ -158,15 +164,18 @@
   }
  
   /* Personal cookbook list */
- 
-  .personalCookbook {
-    display: table;
-    background-color: #FFFFFF;
-    float: left;
-    width: 30%;
-    margin-left: 40px;
+
+  .container table {
+    position: absolute;
     margin-top: 30px;
     margin-bottom: 30px;
+    background-color: #FFFFFF;
+    display: table;
+  }
+
+  .personalCookbook {
+    width: 20%;
+    margin-left: 10%;
   }
  
   .personalCookbook th {
@@ -175,7 +184,7 @@
   }
  
   .personalCookbook td {
-    height: 740px;
+    height: 590px;
     min-height: 100px;
   }
  
@@ -194,12 +203,9 @@
   /* Calendar */
  
   .calendar {
-    display: table;
-    float: right;
-    width: 60%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: 40px;
+    width: 55%;
+    margin-right: 10%;
+    margin-left: 35%;
   }
  
   .calendar th {
@@ -209,8 +215,7 @@
   }
  
   .calendar td {
-    background-color: #FFFFFF;
-    height: 700px;
+    height: 550px;
     text-align: center;
   }
  
@@ -220,7 +225,7 @@
   }
  
   .cookbookItems {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
  
   .calendarMeal {
@@ -230,10 +235,13 @@
  
 /* Copyright styling */
 footer {
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 .copyright {
-    display: flex;
+  display: flex;
 }
  
 .copyright div{
@@ -248,5 +256,4 @@ footer {
   background-color: #FFCF96;
   text-align: center;
   color: gray;
- 
 }
