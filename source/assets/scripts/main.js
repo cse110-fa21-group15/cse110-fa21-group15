@@ -111,21 +111,21 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
-async function getUser() {
-  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
-
-  const userInformation = {};
-  const users = collection(db, "users");
-  const q = await query(users, where("user_id", "==", id));
-  const querySnapshot = await getDocs(q);
+ async function getUser() {
+  console.log("test")
+  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
+  const user = doc(db, "users", id)
+  const userDoc = await getDoc(user);
   const createdRecipes = [];
-  querySnapshot.forEach((doc) => {
-    userInformation["results"] = doc.data();
-  });
-  for(let i = 0; i<userInformation.results.favoriteRecipes.length; i+=1) {
-    createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+  const userData = userDoc.data();
+  for(let i = 0; i<userData.favoriteRecipes.length; i+=1) {
+    createdRecipes.push( await getRecipe(userData.favoriteRecipes[i]));
   }
-  userInformation.results.recipes = createdRecipes
+  const userInformation = {
+    "user_email" : userData["user_email"],
+    "user_id" : userData["user_id"],
+    "recipes": createdRecipes
+  };
   console.log(userInformation);
   return userInformation;
 }
@@ -157,7 +157,7 @@ const user = await getUser();
 console.log("GETUSER()");
 
 
-const recipes = user["results"].recipes;
+const recipes = user.recipes;
 
   let numRecipes;
 
