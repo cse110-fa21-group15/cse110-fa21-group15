@@ -16,7 +16,9 @@
     <script src="assets/scripts/searchresults.js" type="module"></script>
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
+    
+     <!--Link to Javascript search file-->
+     <script src="assets/scripts/search.js"></script>
 </head>
 
 <body>
@@ -50,23 +52,18 @@
     </header>
 
     <main>
-        <div class="dropdown">
-            <select class="drop">
+        <div class="filters">
+            <select class="dropdown">
                 <option>option1</option>
                 <option>option2</option>
                 <option>option3</option>
             </select>
-            <select class="drop">
+            <select class="dropdown">
                 <option>option1</option>
                 <option>option2</option>
                 <option>option3</option>
             </select>
-            <select class="drop">
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
-            </select>
-            <select class="drop">
+            <select class="dropdown">
                 <option>option1</option>
                 <option>option2</option>
                 <option>option3</option>
@@ -76,7 +73,7 @@
         <div class="bigsearchbar">
             <form class="bigexample">
                 <input type="bigtext" placeholder="Food" name="search" class="biground">
-                <button id = "searchbutton" type="bigsearch"><i class="fa fa-search"></i></button>
+                <button onclick = "getRecipes(event, true)" id = "searchbutton" type="bigsearch"><i class="fa fa-search"></i></button>
             </form>
         </div>
 
@@ -102,7 +99,5 @@
     </footer>
 </body>
 
-    
-     <!--Link to Javascript search file-->
-     <script src="assets/scripts/search.js"></script>
+
 </html>
