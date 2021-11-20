@@ -1,7 +1,7 @@
 //editRecipe.js
 
 const recipeNameInput = document.querySelector(".recipeNameText");
-const recipeImageInput = document.querySelector(".uploadImage");
+const recipeImageInput = document.querySelector(".recipeImage");
 const recipeTimeInput = document.querySelector(".timeBoxInput");
 const recipeCostInput = document.querySelector(".costBoxInput");
 const recipeServingsInput = document.querySelector(".servingsBoxInput");
@@ -21,12 +21,12 @@ const recipeDescription = sessionStorage.getItem("recipeDescription");
 const recipeSteps = sessionStorage.getItem("recipeSteps");*/
 
 recipeNameInput.value = recipeName;
-recipeImageInput.value = recipeImage;
+//recipeImageInput.value = recipeImage;
 recipeTimeInput.value = recipeTime;
 recipeCostInput.value = recipeCost;
 recipeServingsInput.value = recipeServings;
 recipeDescriptionInput.value = recipeDescription;
-console.log(recipeDescription);
+console.log(recipeImage);
 /*recipeIngredientsInput = recipeIngredients
 recipeStepsInput = recipeSteps*/
 

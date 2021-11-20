@@ -8,7 +8,7 @@ editBtn.addEventListener("click", function(){
     sessionStorage.setItem("recipeName",recipeName.textContent);
 
     let recipeImage = document.querySelector("#recipeImage");
-    sessionStorage.setItem("recipeImage",recipeImage.textContent);
+    sessionStorage.setItem("recipeImage",recipeImage.getAttribute('src'));
 
     let recipeTime = document.querySelector("#recipeTime");
     sessionStorage.setItem("recipeTime",recipeTime.textContent);
