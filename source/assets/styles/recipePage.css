@@ -128,7 +128,8 @@
     gap: 500px;
     padding:10px 30px 30px 10px  ;
     }
-     .name{
+    
+  .name{
     margin-top:10px;
     margin-left: 70px;
     float:left;
@@ -139,11 +140,14 @@
     .icons{
     margin-top:10px;
     float:right;
+    /*margin-left: 900px;*/
    }
+
    .plus, .star, .edit, .download{
     width: 46px;
     height: 46px;
    }
+
    #details{
        display:flex;
        padding: 0px 100px 20px 30px;
