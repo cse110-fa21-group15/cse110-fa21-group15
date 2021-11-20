@@ -137,6 +137,13 @@ form.loginArea input[type=text] {
   background: #f1f1f1;
 }
 
+.invalidLogIn {
+  display: flex;
+  margin-left: 200px;
+  color: #FF0000;
+  font-weight: bold;
+}
+
 .forgotPassword {
   display: flex;
   justify-content: center;
