@@ -12,6 +12,9 @@
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
 
+    <!--Edit recipe script-->
+    <script src="assets/scripts/recipePage.js" type="module"></script>
+
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
 
@@ -55,11 +58,11 @@
     <main>
         <!--Recipe name-->
         <div class="RecTitle">
-            <h2 class="name">Spooky Ghost Cookies</h2>
+            <h2 class="name" id="recipeName"></h2>
             <div class="icons">
                 <img class="icon" src="assets/images/add.png" alt="Add">
                 <img class="icon" src="assets/images/star.png" alt="Favourite">
-                <img class="icon" src="assets/images/edit.png" alt="Edit">
+                <img id="edit" class="icon" src="assets/images/edit.png" alt="Edit">
                 <img class="icon" src="assets/images/download.png" alt="Download">
             </div>
         </div>
@@ -67,74 +70,43 @@
         <!-- Image-->
         <span id="details">
             <span id="one">
-                <img class="recImg" src="assets/images/spooky.png" alt="Recipe Image">
+                <img class="recImg" id="recipeImage" src="https://www.slashgear.com/wp-content/uploads/2019/11/google_Main-1280x720.jpg" alt="Recipe Image">
             </span>
-            <p class="para">
+            <div class="para">
                 <br>
                 <br>
-                Time: 2 hours 0 mins <br>
-                Cost: $58
-                Servings: 3 <br>
-                Tags: <button id="sweet">Sweet</button> <button id="long">Long</button> <button id="med">Medium</button>
+                <span>Time: <span id="recipeTime"></span> </span>
                 <br>
-                <a href="https://google.com">Nutritional Information</a>
-
-            </p>
+                <span>Cost: <span id="recipeCost"></span></span>
+                <br>
+                <span>Servings: <span id="recipeServings"></span></span> 
+                <br>
+                <!--Tags: <button id="sweet">Sweet</button> <button id="long">Long</button> <button id="med">Medium</button>-->
+                <span>Tags: <span id="recipeTags"></span></span> 
+                <br>
+                <!--<a href="https://google.com">Nutritional Information</a>-->
+                </div>
         </span>
         <!-- Description-->
         <h2 id="des">Description:</h2>
-        <p class="desPara"> The best way to never be afraid of ghosts? Turn them into cute little sugar cdookies.
-            These spooky ghosts will be a hit at every halloween party and are far easier to amke than they look!
-            Here's our best tips and tricks we have for decorating sugar cookies.
-        </p>
+        <p class="desPara" id="recipeDescription"></p>
 
-        <div class="flex-container">
-            <div class="row-flex">
-                <div class="ing1">Ingredients </div>
-                <select class="custom-select">
-                    <option value="" disabled selected>Serving Size</option>
-                    <option>1x</option>
-                    <option>2x</option>
-                    <option>3x</option>
-                    <option>4x</option>
-                </select>
+        <div class = "flex-container">
+            <div class = "row-flex"> <div class ="ing1">Ingredients </div></div>
+            <div id="lst">
+                <ul id="recipeIngredients">
+
+                </ul>
             </div>
-        <div id="lst">
-            <ul>
-                <li> 3 c, all-purpose flour</li>
-                <li> 1 tsp baking powder</li>
-                <li> 1/2 tsp baking powder </li>
-                <li> 1c (2 sticks) butter</li>
-                <li> 1c granulated sugar</li>
-                <li> 1 large egg</li>
-                <li> 1 tbsp milk</li>
-                <li> 1 tbsp pure vanilla extract</li>
-            </ul>
-        </div>
-        <br>
-        <div class="row-flex">
-            <div class="step">Steps</div>
-        </div>
-        <div id="lst2">
-            <ol>
-                <li> In a large bowl, whisk together flour, baking powder
-                    and salt.
-                </li>
-                <li> In another large bowl, beat butter and sugar together. Add egg,milk
-                    and vanilla and beat until combined, then add flour mixture gradually
-                    until just combined. Shape into dish and wrap in plastic. Refrigrate 1 hour.
-                </li>
-                <li> 1/2 tsp baking powder </li>
-                <li> 1c (2 sticks) butter</li>
-                <li> When ready to roll, preheat oven to 350F and line two baking sheets with parchment.
-                    lightly flour a clean work surface and roll out dough until 1/8th" thick.
-                    Using a ghost cookie cutter, cut out cookies. Re-roll scraps and cut out more cookies.
-                    Transfer to prepared baking sheets and freee for 10 minutes.
-                </li>
-            </ol>
-        </div>
-
-        </div>
+            <br>
+            <div class = "row-flex"> <div class="step">Steps</div></div>
+            <div id="lst2">
+             <ol id="recipeList">
+ 
+             </ol>
+         </div>
+                
+         </div>
         <!-- <div id="imgC">
         <div id="one"> <img class="recImg" src="assets/images/spooky.png" alt="Recipe Image" ></div>
             
