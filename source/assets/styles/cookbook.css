@@ -161,13 +161,12 @@ form.example i {
   
   /* Personal Cookbook items */
   main {
-    column-gap: 10px;
+
+    row-gap: 15px;
     display: flex;
     flex-wrap: wrap;
-    height: auto;
-    max-width: 660px;
-    row-gap: 10px;
-    width: 100%;;
+    justify-content: space-between;
+
   }
    
   /* Copyright styling */
