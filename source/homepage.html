@@ -64,24 +64,27 @@
 
 
     <main>
-        <div class="filters">
-            <select class="time">
-                <option selected value = "-1">No Selection<option>
+        <div name = "filters" class="dropdown">
+            <select id = "time" class = "drop">
+                <option value = "-1">Time</option>
                 <option value = "20">Less than 20 mins</option>
                 <option value = "40">Under 40mins</option>
                 <option value = "60">Under 1hr</option>
             </select>
-            <select class="cost">
-                <option selected value = "-1">No Selection<option>
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
+            <select id = "cost" class="drop">
+                <option value = "-1">Cost</option>
+                <option value = "1">Super Cheap</option>
+                <option value = "2">Pretty Cheap</option>
+                <option value = "3">Kinda Cheap</option>
             </select>
-            <select class="dietary">
-                <option selected value = "-1">No Selection<option>
-                <option>option1</option>
-                <option>option2</option>
-                <option>option3</option>
+            <select id = "dietary" class="drop">
+                <option value = "-1">Dietary</option>
+                <option>Gluten Free</option>
+                <option>Ketogenic</option>
+                <option>Vegetarian</option>
+                <option>Vegan</option>
+                <option>Paleo</option>
+                <option>Whole30</option>
             </select>
         </div>
 

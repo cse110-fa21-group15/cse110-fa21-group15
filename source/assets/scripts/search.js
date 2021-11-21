@@ -1,29 +1,81 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
+const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
 
 //get recipes by searched keywords from database 
-async function getRecipes(event, filters){
-    console.log("button clicked");
-    
+async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
     var input = document.querySelector("input[name = 'search']").value;                 
     if (input == "") {
         return;
     }
-    var url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=818daa16f8f44a6790d7e444c55f92b8&query=" + input + "&number=8&instructionsRequired=true&addRecipeInformation=true";
-    if(filters = true)
+    var url = "https://api.spoonacular.com/recipes/complexSearch?"+API_KEY_ALT +"&query=" + input + "&number="+(number*3)+ "&instructionsRequired=true&addRecipeInformation=true&offset=" + offset;
+    if(filters == true)
     {
-        
+        var time = document.getElementById("time").value;
+        var dietary = document.getElementById("dietary").value;
+        if(time != "-1"){
+            url+= ("&maxReadyTime=" + time);
+        }
+        if(dietary != "-1"){
+            url+= ("&diet=" + dietary);
+        }
     }
     // getData(url).then(x => alert(x));
     const fetchPromise = fetch(url);
-    fetchPromise.then(response => {
+    const final = fetchPromise.then(response => {
         return response.json();
     }).then(results => {
-        //storeRecipe(results, input);
-        console.log(JSON.stringify(results['results'][0]));
+        //storeRecipe(results, input);    
+        var recipes = results['results'];    
+        var output = [];
+        if(filters == true){
+            var cost = document.getElementById("cost").value;
+            output =  filterCost(recipes, Number(cost));
+        }
+        else{
+            output = recipes;
+        }
+        return output;
     })
-    event.preventDefault();
+    if(event != undefined){
+        event.preventDefault();
+    }
+    var real = await final;
+    if(recurse == 5){
+        return real.slice(0, number);
+    }
+    if(real.length + currsize < number){
+        var temp = await getRecipes(event,filters, number, offset+number, (currsize +real.length), recurse + 1);
+        real = real.concat(temp);
+    }
+    
     //redirectPage();
     //retrieveRecipe(input);
+    return real.slice(0, number);
+}
+
+function filterCost(recipes, cost){
+    if(cost == "-1"){
+        return recipes;
+    }
+    else {
+        var output = [];
+        for(var i = 0; i < recipes.length; i++){
+            if(recipes[i].pricePerServing > 250){
+                if(cost == 3){
+                    output.push(recipes[i]);
+                }
+            }
+            else if(recipes[i].pricePerServing > 125){
+                if(cost == 2){
+                    output.push(recipes[i]);
+                }
+            }
+            else if(cost == 1){
+                output.push(recipes[i]);
+            }
+        }
+    }
+    return output;
 }
 
 //redirect to results page
