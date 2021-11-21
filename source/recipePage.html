@@ -27,11 +27,15 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+                <div class="dropdown-content">
+                    <a href="recipeUpload.html">Create Recipe</a>
+                    <a href="cookbook.html">Personal Cookbook</a>
+                </div>
             </div>
             <div class="logo">
                 <a href="homepage.html">
-                <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
-            </a>
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
             </div>
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
@@ -53,10 +57,10 @@
         <div class="RecTitle">
             <h2 class="name">Spooky Ghost Cookies</h2>
             <div class="icons">
-                <img class="plus" src="assets/images/add.png" alt="Add">
-                <img class="star" src="assets/images/star.png" alt="Favourite">
-                <img class="edit" src="assets/images/edit.png" alt="Edit">
-                <img class="download" src="assets/images/download.png" alt="Download">
+                <img class="icon" src="assets/images/add.png" alt="Add">
+                <img class="icon" src="assets/images/star.png" alt="Favourite">
+                <img class="icon" src="assets/images/edit.png" alt="Edit">
+                <img class="icon" src="assets/images/download.png" alt="Download">
             </div>
         </div>
 
@@ -84,43 +88,53 @@
             Here's our best tips and tricks we have for decorating sugar cookies.
         </p>
 
-        <div class = "flex-container">
-            <div class = "row-flex"> <div class ="ing1">Ingredients </div> <div class="custom-select"><select>
-             <option value="0">Serving Size:</option> </select> </div> </div>
-            <div id="lst">
-                <ul>
-                    <li> 3 c, all-purpose flour</li>
-                    <li> 1 tsp baking powder</li>
-                    <li> 1/2 tsp baking powder </li>
-                    <li> 1c (2 sticks) butter</li>
-                    <li> 1c granulated sugar</li>
-                    <li> 1 large egg</li>
-                    <li> 1 tbsp milk</li>
-                    <li> 1 tbsp pure vanilla extract</li>
-                </ul>
+        <div class="flex-container">
+            <div class="row-flex">
+                <div class="ing1">Ingredients </div>
+                <select class="custom-select">
+                    <option value="" disabled selected>Serving Size</option>
+                    <option>1x</option>
+                    <option>2x</option>
+                    <option>3x</option>
+                    <option>4x</option>
+                </select>
             </div>
-            <br>
-            <div class = "row-flex"> <div class="step">Steps</div></div>
-            <div id="lst2">
-             <ol>
-                 <li> In a large bowl, whisk together flour, baking powder
-                     and salt.
-                 </li>
-                 <li> In another large bowl, beat butter and sugar together. Add egg,milk
-                     and vanilla and beat until combined, then add flour mixture gradually
-                     until just combined. Shape into dish and wrap in plastic. Refrigrate 1 hour.
-                 </li>
-                 <li> 1/2 tsp baking powder </li>
-                 <li> 1c (2 sticks) butter</li>
-                 <li> When  ready to roll, preheat oven to 350F and  line two baking sheets with parchment.
-                     lightly flour a clean work surface and roll out dough until 1/8th" thick.
-                     Using a ghost cookie cutter, cut out cookies. Re-roll scraps and cut out more cookies.
-                     Transfer to prepared baking sheets and freee for 10 minutes.
-                 </li>
-             </ol>
-         </div>
-                
-         </div>
+        <div id="lst">
+            <ul>
+                <li> 3 c, all-purpose flour</li>
+                <li> 1 tsp baking powder</li>
+                <li> 1/2 tsp baking powder </li>
+                <li> 1c (2 sticks) butter</li>
+                <li> 1c granulated sugar</li>
+                <li> 1 large egg</li>
+                <li> 1 tbsp milk</li>
+                <li> 1 tbsp pure vanilla extract</li>
+            </ul>
+        </div>
+        <br>
+        <div class="row-flex">
+            <div class="step">Steps</div>
+        </div>
+        <div id="lst2">
+            <ol>
+                <li> In a large bowl, whisk together flour, baking powder
+                    and salt.
+                </li>
+                <li> In another large bowl, beat butter and sugar together. Add egg,milk
+                    and vanilla and beat until combined, then add flour mixture gradually
+                    until just combined. Shape into dish and wrap in plastic. Refrigrate 1 hour.
+                </li>
+                <li> 1/2 tsp baking powder </li>
+                <li> 1c (2 sticks) butter</li>
+                <li> When ready to roll, preheat oven to 350F and line two baking sheets with parchment.
+                    lightly flour a clean work surface and roll out dough until 1/8th" thick.
+                    Using a ghost cookie cutter, cut out cookies. Re-roll scraps and cut out more cookies.
+                    Transfer to prepared baking sheets and freee for 10 minutes.
+                </li>
+            </ol>
+        </div>
+
+        </div>
         <!-- <div id="imgC">
         <div id="one"> <img class="recImg" src="assets/images/spooky.png" alt="Recipe Image" ></div>
             
