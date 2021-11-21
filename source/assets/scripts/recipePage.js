@@ -1,5 +1,5 @@
 //Grab edit button
-const editBtn = document.querySelector(".edit");
+const editBtn = document.querySelector("#edit");
 console.log(editBtn);
 
 //Get recipe ingredients
