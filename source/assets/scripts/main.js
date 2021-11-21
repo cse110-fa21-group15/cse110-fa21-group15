@@ -111,9 +111,7 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
- async function getUser() {
-  console.log("test")
-  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
+ async function getUser(id) {
   const user = doc(db, "users", id)
   const userDoc = await getDoc(user);
   const createdRecipes = [];
@@ -213,7 +211,8 @@ const recipes = user.recipes;
     
     for(let i = 0; i < recipeCard.length; ++i){
       recipeCard[i].addEventListener("click", function (){
-        window.open("recipePage.html", '_top');
+        localStorage.recipe = JSON.stringify(recipes[i]);
+        location.href = "recipePage.html";
       })
     }
   }
