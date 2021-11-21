@@ -178,7 +178,7 @@ const recipes = user.recipes;
     // Add the first three recipe cards to the page
     createRecipeCards();
 
-    bindShowMore();
+    recipePage();
 
   }
   async function fetchRecipes() {
@@ -207,16 +207,8 @@ const recipes = user.recipes;
   
   }
   
-  
-  function bindShowMore() {
-    // This function is also called for you up above.
-    // Use this to add the event listener to the "Show more" button, from within 
-    // that listener you can then create recipe cards for the rest of the .json files
-    // that were fetched. You should fetch every recipe in the beginning, whether you
-    // display it or not, so you don't need to fetch them again. Simply access them
-    // in the recipeData object where you stored them/
-  
-    // Part 2 Explore - TODO
+  //Go to recipePage upon clicking recipe card
+  function recipePage() {
     let recipeCard = document.querySelectorAll("recipe-card");
     
     for(let i = 0; i < recipeCard.length; ++i){
