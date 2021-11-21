@@ -1,4 +1,4 @@
-  /* Background color of entire webpage */
+    /* Background color of entire webpage */
   *{
     margin: 0;
     box-sizing: border-box;
@@ -14,12 +14,12 @@
   }
    
   /* Navigation bar styling */
-  .navigationBar{ 
+  .navigationBar { 
     display: flex;
     background-color: #FFCF96;
   }
    
-  .navigationBar div{
+  .navigationBar div {
     background-color: #FFCF96;
   }
    
@@ -234,6 +234,13 @@
   .calendarMeal {
     font-size: 20px;
     text-align: center;
+  }
+
+  .icon {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 60px;
   }
  
 /* Copyright styling */
