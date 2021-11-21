@@ -1,7 +1,8 @@
 //editRecipe.js
 
+//Get all input elements 
 const recipeNameInput = document.querySelector(".recipeNameText");
-const recipeImageInput = document.querySelector(".recipeImage");
+const recipeImageInput = document.querySelector(".uploadImage");
 const recipeTimeInput = document.querySelector(".timeBoxInput");
 const recipeCostInput = document.querySelector(".costBoxInput");
 const recipeServingsInput = document.querySelector(".servingsBoxInput");
@@ -10,15 +11,9 @@ const recipeIngredientsInput = document.querySelector("#ingredientsBoxInput");
 const recipeStepsInput = document.querySelector("#stepsBoxInput");
 console.log(recipeStepsInput);
 
-recipeDescriptionInput.addEventListener("click", function(){
-    alert("hey");
-    console.log(recipeImageInput.value);
-})
-
-
-
+//Get data from the recipe page
 const recipeName = sessionStorage.getItem("recipeName");
-//const recipeImage = sessionStorage.getItem("recipeImage");
+const recipeImage = sessionStorage.getItem("recipeImage");
 const recipeTime = sessionStorage.getItem("recipeTime");
 const recipeCost = sessionStorage.getItem("recipeCost");
 const recipeServings = sessionStorage.getItem("recipeServings");
@@ -26,8 +21,9 @@ const recipeDescription = sessionStorage.getItem("recipeDescription");
 const recipeIngredients = JSON.parse(localStorage.ingredients)
 const recipeSteps = JSON.parse(localStorage.steps)
 
+//Fill in the data in the recipe upload page
 recipeNameInput.value = recipeName;
-//recipeImageInput.value = recipeImage;
+recipeImageInput.setAttribute("src", recipeImage)
 recipeTimeInput.value = recipeTime;
 recipeCostInput.value = recipeCost;
 recipeServingsInput.value = recipeServings;
