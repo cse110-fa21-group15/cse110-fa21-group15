@@ -111,24 +111,26 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
-async function getUser() {
-  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
-
-  const userInformation = {};
-  const users = collection(db, "users");
-  const q = await query(users, where("user_id", "==", id));
-  const querySnapshot = await getDocs(q);
+ async function getUser() {
+  console.log("test")
+  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
+  const user = doc(db, "users", id)
+  const userDoc = await getDoc(user);
   const createdRecipes = [];
-  querySnapshot.forEach((doc) => {
-    userInformation["results"] = doc.data();
-  });
-  for(let i = 0; i<userInformation.results.favoriteRecipes.length; i+=1) {
-    createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+  const userData = userDoc.data();
+  for(let i = 0; i<userData.favoriteRecipes.length; i+=1) {
+    createdRecipes.push( await getRecipe(userData.favoriteRecipes[i]));
   }
-  userInformation.results.recipes = createdRecipes
+  const userInformation = {
+    "user_email" : userData["user_email"],
+    "user_id" : userData["user_id"],
+    "recipes": createdRecipes
+  };
   console.log(userInformation);
   return userInformation;
 }
+
+
 
 
 
@@ -152,9 +154,10 @@ async function getRecipe(recipe_id) {
 //Get users' favorite recipes
 
 const user = await getUser();
-console.log(user)
+console.log("GETUSER()");
 
-const recipes = user["results"].recipes;
+
+const recipes = user.recipes;
 
   let numRecipes;
 
@@ -175,7 +178,7 @@ const recipes = user["results"].recipes;
     // Add the first three recipe cards to the page
     createRecipeCards();
 
-    bindShowMore();
+    recipePage();
 
   }
   async function fetchRecipes() {
@@ -204,16 +207,8 @@ const recipes = user["results"].recipes;
   
   }
   
-  
-  function bindShowMore() {
-    // This function is also called for you up above.
-    // Use this to add the event listener to the "Show more" button, from within 
-    // that listener you can then create recipe cards for the rest of the .json files
-    // that were fetched. You should fetch every recipe in the beginning, whether you
-    // display it or not, so you don't need to fetch them again. Simply access them
-    // in the recipeData object where you stored them/
-  
-    // Part 2 Explore - TODO
+  //Go to recipePage upon clicking recipe card
+  function recipePage() {
     let recipeCard = document.querySelectorAll("recipe-card");
     
     for(let i = 0; i < recipeCard.length; ++i){
