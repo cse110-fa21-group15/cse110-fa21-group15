@@ -1,13 +1,26 @@
 //Grab edit button
 const editBtn = document.querySelector(".edit");
 console.log(editBtn);
+
+//Get recipe ingredients
 let recipeIngredients = document.querySelectorAll("#recipeIngredients li");
 console.log(recipeIngredients);
 let recipeIngredientsList = [];
+if(recipeIngredients > 0){
 for(let i = 0; i < recipeIngredients.length; ++i){
     recipeIngredientsList[i] = recipeIngredients[i].textContent;
+    }
 }
-console.log(recipeIngredientsList);
+
+//Get recipe steps
+let recipeSteps = document.querySelectorAll("#recipeList li");
+console.log(recipeSteps);
+let recipeStepsList = [];
+if(recipeSteps.length > 0){ 
+for(let i = 0; i < recipeIngredients.length; ++i){
+    recipeStepsList[i] = recipeSteps[i].textContent;
+    }
+}
 
 //Send data from recipe page to upload recipe page
 editBtn.addEventListener("click", function(){
@@ -29,10 +42,9 @@ editBtn.addEventListener("click", function(){
     let recipeDescription = document.querySelector("#recipeDescription");
     sessionStorage.setItem("recipeDescription",recipeDescription.textContent);
 
-    sessionStorage.setItem("recipeIngredients",recipeIngredientsList);
-
-    /*let recipeSteps = document.querySelector("#recipeSteps");
-    sessionStorage.setItem("recipeSteps",recipeSteps.textContent);*/
+    localStorage.ingredients = JSON.stringify(recipeIngredientsList);
+    
+    localStorage.steps = JSON.stringify(recipeStepsList);
 
     location.href = "recipeUpload.html";
 })
