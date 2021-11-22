@@ -6,7 +6,7 @@ import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, update
 
 const firebaseConfig = {
     apiKey: "AIzaSyCwaLuRVV073aNbTB5EaLoZDIFXGzvqr3A",
-    authDomain: "festive-minsky-ab51a6.netlify.app",
+    authDomain: "easy-chef-3eb03.firebaseapp.com",
     projectId: "easy-chef-3eb03",
     storageBucket: "easy-chef-3eb03.appspot.com",
     messagingSenderId: "744097831580",
