@@ -1,4 +1,4 @@
-const personalCookbook = document.querySelector("#personalCookbook");
+const personalCookbook = document.querySelector("#recipeUpload");
 
 personalCookbook.addEventListener("click", function(){
     sessionStorage.setItem("recipeName","");
