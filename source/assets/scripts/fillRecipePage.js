@@ -5,8 +5,8 @@ const recipeTime = document.querySelector("#recipeTime");
 const recipeCost = document.querySelector("#recipeCost");
 const recipeServings = document.querySelector("#recipeServings");
 const recipeDescription = document.querySelector("#recipeDescription");
-const recipeIngredients = document.querySelectorAll("#recipeIngredients");
-const recipeSteps = document.querySelectorAll("#recipeList");
+const recipeIngredients = document.querySelector("#recipeIngredients");
+const recipeSteps = document.querySelector("#recipeList");
 
 //Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
@@ -26,6 +26,32 @@ recipeTime.textContent = time;
 recipeCost.textContent = cost;
 recipeServings.textContent = servings;
 recipeDescription.textContent = description;
+
+//Get recipe ingredients into an array to append them the ul element
+let ingredientsArr = [];
+let tempRecipes = ingredients;
+ingredientsArr = tempRecipes.split("\n");
+
+for(let i = 0; i < ingredientsArr.length; ++i){
+  let tempElem = document.createElement("li");
+  tempElem.textContent = ingredientsArr[i];
+  recipeIngredients.appendChild(tempElem);
+}
+
+//Get recipe steps into an array to append them the ul element
+let stepsArr = [];
+let tempSteps = steps;
+stepsArr = tempSteps.split("\n");
+
+for(let i = 0; i < stepsArr.length; ++i){
+  let tempElem = document.createElement("li");
+  tempElem.textContent = stepsArr[i];
+  if(tempElem.textContent == ""){
+    continue;
+  }
+  recipeSteps.appendChild(tempElem);
+}
+
 
 
 

@@ -2,7 +2,7 @@
 const editBtn = document.querySelector("#edit");
 console.log(editBtn);
 
-//Get recipe ingredients
+/*//Get recipe ingredients
 let recipeIngredients = document.querySelectorAll("#recipeIngredients li");
 console.log(recipeIngredients);
 let recipeIngredientsList = [];
@@ -20,10 +20,30 @@ if(recipeSteps.length > 0){
 for(let i = 0; i < recipeIngredients.length; ++i){
     recipeStepsList[i] = recipeSteps[i].textContent;
     }
-}
+}*/
 
 //Send data from recipe page to upload recipe page
 editBtn.addEventListener("click", function(){
+//Get recipe ingredients
+    let recipeIngredients = document.querySelectorAll("#recipeIngredients li");
+    console.log(recipeIngredients);
+    let recipeIngredientsList = [];
+    if(recipeIngredients.length > 0){
+        for(let i = 0; i < recipeIngredients.length; ++i){
+         recipeIngredientsList[i] = recipeIngredients[i].textContent;
+         }
+    }
+
+    //Get recipe steps
+    let recipeSteps = document.querySelectorAll("#recipeList li");
+    console.log(recipeSteps);
+    let recipeStepsList = [];
+    if(recipeSteps.length > 0){ 
+        for(let i = 0; i < recipeSteps.length; ++i){
+            recipeStepsList[i] = recipeSteps[i].textContent;
+        }
+    }
+
     let recipeName = document.querySelector("#recipeName");
     sessionStorage.setItem("recipeName",recipeName.textContent);
 

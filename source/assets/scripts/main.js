@@ -111,7 +111,8 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
- async function getUser(id) {
+ async function getUser() {
+  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
   const user = doc(db, "users", id)
   const userDoc = await getDoc(user);
   const createdRecipes = [];
