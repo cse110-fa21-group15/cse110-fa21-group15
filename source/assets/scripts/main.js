@@ -213,7 +213,8 @@ const recipes = user.recipes;
     
     for(let i = 0; i < recipeCard.length; ++i){
       recipeCard[i].addEventListener("click", function (){
-        window.open("recipePage.html", '_top');
+        localStorage.recipe = JSON.stringify(recipeCard[i]);
+        location.href = "recipePage.html";
       })
     }
   }

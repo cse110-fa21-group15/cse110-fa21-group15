@@ -57,11 +57,6 @@ for(let i = 0; i < stepsArr.length; ++i){
 
 
 
-
-
-
-
-
 //Search for keys in JSON file
 function searchForKey(object, key) {
     var value;

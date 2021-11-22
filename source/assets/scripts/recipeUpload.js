@@ -30,33 +30,33 @@ const firebaseConfig = {
  * @param {tag of meal} tag
  */
  async function createRecipe(event) {
-    event.preventDefault();
-    console.log("test")
-     const time = document.querySelector('.timeBoxInput').value
-     const name = document.querySelector('.recipeNameText').value
-     const cost = document.querySelector('.costBoxInput').value
-     const servings = document.querySelector('.servingsBoxInput').value
-     const description = document.querySelector('#descriptionBoxInput').value
-     const ingredients = document.querySelector('#ingredientsBoxInput').value
-     const steps = document.querySelector('#stepsBoxInput').value
-     const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-    let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
-   const q = query(collection(db, "users"), where("user_id", "==", id));
-   const querySnapshot = await getDocs(q);
-   const documents = querySnapshot.docs[0];
-   const database = doc(db, "users", documents.id);
-   try {
-    const docRef = await addDoc(collection(db, "recipes"), {
-        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
+  event.preventDefault();
+  console.log("test")
+   const time = document.querySelector('.timeBoxInput').value
+   const name = document.querySelector('.recipeNameText').value
+   const cost = document.querySelector('.costBoxInput').value
+   const servings = document.querySelector('.servingsBoxInput').value
+   const description = document.querySelector('#descriptionBoxInput').value
+   const ingredients = document.querySelector('#ingredientsBoxInput').value
+   const steps = document.querySelector('#stepsBoxInput').value
+   const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
+  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
+ const database = doc(db, "users", id);
+ try {
+  const docRef = await addDoc(collection(db, "recipes"), {
+      time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
+  })
+  await updateDoc(docRef, {
+    recipe_id : docRef.id
+  })
+  console.log(docRef.id)
+  await updateDoc(database, {
+      favoriteRecipes: arrayUnion(docRef.id)
     })
-    console.log(docRef.id)
-    await updateDoc(database, {
-        favoriteRecipes: arrayUnion(docRef.id)
-      })
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
- }
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+}
 
 
  async function addUser(email, id) {

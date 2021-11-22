@@ -1,26 +1,7 @@
+Recipepage.js
 //Grab edit button
 const editBtn = document.querySelector("#edit");
 console.log(editBtn);
-
-/*//Get recipe ingredients
-let recipeIngredients = document.querySelectorAll("#recipeIngredients li");
-console.log(recipeIngredients);
-let recipeIngredientsList = [];
-if(recipeIngredients > 0){
-for(let i = 0; i < recipeIngredients.length; ++i){
-    recipeIngredientsList[i] = recipeIngredients[i].textContent;
-    }
-}
-
-//Get recipe steps
-let recipeSteps = document.querySelectorAll("#recipeList li");
-console.log(recipeSteps);
-let recipeStepsList = [];
-if(recipeSteps.length > 0){ 
-for(let i = 0; i < recipeIngredients.length; ++i){
-    recipeStepsList[i] = recipeSteps[i].textContent;
-    }
-}*/
 
 //Send data from recipe page to upload recipe page
 editBtn.addEventListener("click", function(){
