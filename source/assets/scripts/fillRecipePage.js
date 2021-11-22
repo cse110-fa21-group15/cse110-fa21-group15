@@ -35,6 +35,9 @@ ingredientsArr = tempRecipes.split("\n");
 for(let i = 0; i < ingredientsArr.length; ++i){
   let tempElem = document.createElement("li");
   tempElem.textContent = ingredientsArr[i];
+  if(tempElem.textContent == ""){
+    continue;
+  }
   recipeIngredients.appendChild(tempElem);
 }
 
