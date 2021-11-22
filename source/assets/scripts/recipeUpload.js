@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
@@ -15,6 +15,7 @@ const firebaseConfig = {
   };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
+  console.log("NEW STUFF");
   const db = getFirestore();
 
   // DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
@@ -32,30 +33,40 @@ const firebaseConfig = {
  async function createRecipe(event) {
   event.preventDefault();
   console.log("test")
-   const time = document.querySelector('.timeBoxInput').value
-   const name = document.querySelector('.recipeNameText').value
-   const cost = document.querySelector('.costBoxInput').value
-   const servings = document.querySelector('.servingsBoxInput').value
-   const description = document.querySelector('#descriptionBoxInput').value
-   const ingredients = document.querySelector('#ingredientsBoxInput').value
-   const steps = document.querySelector('#stepsBoxInput').value
-   const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
- const database = doc(db, "users", id);
- try {
-  const docRef = await addDoc(collection(db, "recipes"), {
-      time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
-  })
-  await updateDoc(docRef, {
-    recipe_id : docRef.id
-  })
-  console.log(docRef.id)
-  await updateDoc(database, {
-      favoriteRecipes: arrayUnion(docRef.id)
-    })
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
+  onAuthStateChanged (auth, async (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const id = user.uid;
+      const time = document.querySelector('.timeBoxInput').value
+      const name = document.querySelector('.recipeNameText').value
+      const cost = document.querySelector('.costBoxInput').value
+      const servings = document.querySelector('.servingsBoxInput').value
+      const description = document.querySelector('#descriptionBoxInput').value
+      const ingredients = document.querySelector('#ingredientsBoxInput').value
+      const steps = document.querySelector('#stepsBoxInput').value
+      const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
+    const database = doc(db, "users", id);
+    try {
+     const docRef = await addDoc(collection(db, "recipes"), {
+         time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
+     })
+     await updateDoc(docRef, {
+       recipe_id : docRef.id
+     })
+     console.log(docRef.id)
+     await updateDoc(database, {
+         favoriteRecipes: arrayUnion(docRef.id)
+       })
+   } catch (e) {
+     console.error("Error adding document: ", e);
+   }
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
 }
 
 
@@ -104,4 +115,17 @@ const firebaseConfig = {
 
  //Event listeners for creating a recipe and displaying preview when image is uploaded.
  document.querySelector('#saveForm').addEventListener('click', createRecipe);
- document.querySelector("#imageUpload").addEventListener('change', imagePreview)
+ document.querySelector("#imageUpload").addEventListener('change', imagePreview);
+
+ onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+  

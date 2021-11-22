@@ -1,4 +1,3 @@
-Recipepage.js
 //Grab edit button
 const editBtn = document.querySelector("#edit");
 console.log(editBtn);
