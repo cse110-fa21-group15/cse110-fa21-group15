@@ -24,6 +24,21 @@ editBtn.addEventListener("click", function(){
         }
     }
 
+    function searchForKey(object, key) {
+        var value;
+        Object.keys(object).some(function (k) {
+          if (k === key) {
+            value = object[k];
+            return true;
+          }
+          if (object[k] && typeof object[k] === 'object') {
+            value = searchForKey(object[k], key);
+            return value !== undefined;
+          }
+        });
+        return value;
+      }
+
     let recipeName = document.querySelector("#recipeName");
     sessionStorage.setItem("recipeName",recipeName.textContent);
 
@@ -42,9 +57,15 @@ editBtn.addEventListener("click", function(){
     let recipeDescription = document.querySelector("#recipeDescription");
     sessionStorage.setItem("recipeDescription",recipeDescription.textContent);
 
+   
+    let recipe = JSON.parse(localStorage.recipe);
+
+    let recipe_id = searchForKey(recipe, "recipe_id")
+    sessionStorage.setItem("recipe_id", recipe_id)
+    
     localStorage.ingredients = JSON.stringify(recipeIngredientsList);
     
     localStorage.steps = JSON.stringify(recipeStepsList);
 
-    location.href = "recipeUpload.html";
+    location.href = "recipeUpdate.html";
 })

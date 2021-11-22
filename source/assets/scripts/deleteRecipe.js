@@ -32,6 +32,7 @@ async function deleteRecipe(recipe_id, user_id) {
     await updateDoc(database, {
         favoriteRecipes: arrayRemove(recipe_id)
       })
+      location.href = 'cookbook.html';
 }
 
 const deleteBtn = document.querySelector("#delete");
@@ -49,6 +50,7 @@ deleteBtn.addEventListener("click", function(){
     console.log("onlick is working");
     deleteRecipe(recipe_id, user_id);
 })
+
 
 //Search for keys in JSON file
 function searchForKey(object, key) {

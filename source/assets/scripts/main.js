@@ -86,13 +86,12 @@ async function removeRecipe() {
 // document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 
-let id;
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    id = user.uid;
-    
+    const uid = user.uid;
+    loadRecipes(uid);
     // ...
   } else {
     // User is signed out
@@ -150,23 +149,25 @@ async function getRecipe(recipe_id) {
 /*const user = await getUser();
 console.log("GETUSER()");*/
 
-console.log(id);
 
-let userFile = await getUser(id);
+async function loadRecipes(id) {
+  const userFile = await getUser(id);
+  const recipes = userFile.recipes;
+  init(recipes);
+}
 
-const recipes = userFile.recipes;
 
   let numRecipes;
 
   const recipeData = {}
   
   //Call this to begin getting recipe cards
-  init();
+
   
   // This is the first function to be called, so when you are tracing your code start here.
-  async function init() {
+  async function init(recipes) {
     // fetch the recipes and wait for them to load
-    let fetchSuccessful = await fetchRecipes();
+    let fetchSuccessful = await fetchRecipes(recipes);
     // if they didn't successfully load, quit the function
     if (!fetchSuccessful) {
       console.log('Recipe fetch unsuccessful');
@@ -175,10 +176,10 @@ const recipes = userFile.recipes;
     // Add the first three recipe cards to the page
     createRecipeCards();
 
-    recipePage();
+    recipePage(recipes);
 
   }
-  async function fetchRecipes() {
+  async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {
   
         numRecipes = recipes.length;
@@ -205,7 +206,7 @@ const recipes = userFile.recipes;
   }
   
   //Go to recipePage upon clicking recipe card
-  function recipePage() {
+  function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
     console.log(recipes)
     
