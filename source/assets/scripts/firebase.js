@@ -17,40 +17,48 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-// if (window.location.href == window.location.origin + '/source/signUp.html') {
+if (document.querySelector('#sbutton')) {
   document.querySelector('#sbutton').addEventListener('click', signUp);
-// }
+}
 
-// if (window.location.href == window.location.origin + '/source/signIn.html') {
+if (document.querySelector('#lbutton')) {
   document.querySelector('#lbutton').addEventListener('click', signIn);
-// }
+}
 
 /**
  * Signup function that creates new user and returns the user id
  */
- async function signUp(event) {
+async function signUp(event) {
   event.preventDefault();
-  console.log("test")
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmpassword").value;
   var user_id;
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(async (userCredential) => {
-    console.log('SIGNED UP');
-    const user = userCredential.user;
-    user_id = user.uid;
-    await addUser(email, user.uid);
-    location.href = 'homepage.html';
-    const userInformation = getUser(user.uid);
-    //console.log(userInformation);
-    return userInformation;
-  })
-  .catch((error) => {
-    console.log('INVALID SIGN UP');
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+  if (password === confirmPassword) {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      console.log('SIGNED UP');
+      const user = userCredential.user;
+      user_id = user.uid;
+      await addUser(email, user.uid);
+      location.href = 'homepage.html';
+      const userInformation = getUser(user.uid);
+      //console.log(userInformation);
+      return userInformation;
+    })
+    .catch((error) => {
+      document.querySelector('#invalidSignUp').innerHTML = 'Invalid Sign Up';
+      console.log('INVALID SIGN UP');
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  } 
+  else {
+    document.querySelector('#invalidSignUp').innerHTML = 'Passwords Do Not Match';
+    console.log('INVALID SIGN UP');  
+  }
 }
+
 /**
  * Sign in function that returns a user ID
  */
@@ -175,13 +183,12 @@ onAuthStateChanged(auth, (user) => {
       });
 
       console.log(uid);
-      if (window.location.href == window.location.origin + '/source/cookbook.html') {
+      if (document.querySelector('.cookbookTemp')) {
         // Get user using id and get recipes
       } 
   } else {
-      if (window.location.href == window.location.origin + '/source/recipeUpload.html' || 
-          window.location.href == window.location.origin + '/source/cookbook.html' ||
-          window.location.href == window.location.origin + '/source/mealplan.html') {
+      if (document.querySelector('.timeBoxInput') || document.querySelector('.cookbookTemp')||
+          document.querySelector('.mealplanTemp')) {
         location.href = 'signIn.html';   
       }
   }
