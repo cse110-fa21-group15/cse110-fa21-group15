@@ -17,13 +17,13 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-if (window.location.href == window.location.origin + '/source/signUp.html') {
+// if (window.location.href == window.location.origin + '/source/signUp.html') {
   document.querySelector('#sbutton').addEventListener('click', signUp);
-}
+// }
 
-if (window.location.href == window.location.origin + '/source/signIn.html') {
+// if (window.location.href == window.location.origin + '/source/signIn.html') {
   document.querySelector('#lbutton').addEventListener('click', signIn);
-}
+// }
 
 /**
  * Signup function that creates new user and returns the user id
