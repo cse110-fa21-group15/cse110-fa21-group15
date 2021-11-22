@@ -40,7 +40,7 @@ const firebaseConfig = {
      const ingredients = document.querySelector('#ingredientsBoxInput').value
      const steps = document.querySelector('#stepsBoxInput').value
      const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+    let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
    const q = query(collection(db, "users"), where("user_id", "==", id));
    const querySnapshot = await getDocs(q);
    const documents = querySnapshot.docs[0];
