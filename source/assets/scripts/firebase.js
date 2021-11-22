@@ -25,58 +25,63 @@ if (window.location.href == window.location.origin + '/source/signIn.html') {
   document.querySelector('#lbutton').addEventListener('click', signIn);
 }
 
-// UNCOMMENT THE 2 BELOW LINES WHEN BUTTONS ARE CONNECTED TO SIGNIN AND SIGNUP
-
-// document.querySelector('#signUp').addEventListener('click', signUp);
 /**
  * Signup function that creates new user and returns the user id
  */
- async function signUp(event) {
+async function signUp(event) {
   event.preventDefault();
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmpassword").value;
   var user_id;
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(async (userCredential) => {
-    console.log('SIGNED UP');
-    const user = userCredential.user;
-    user_id = user.uid;
-    await addUser(email, user.uid);
-    location.href = 'homepage.html';
-    const userInformation = getUser(user.uid);
-    //console.log(userInformation);
-    return userInformation;
-  })
-  .catch((error) => {
-    console.log('INVALID SIGN UP');
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+  if (password === confirmPassword) {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      console.log('SIGNED UP');
+      const user = userCredential.user;
+      user_id = user.uid;
+      await addUser(email, user.uid);
+      location.href = 'homepage.html';
+      const userInformation = getUser(user.uid);
+      //console.log(userInformation);
+      return userInformation;
+    })
+    .catch((error) => {
+      document.querySelector('#invalidSignUp').innerHTML = 'Invalid Sign Up';
+      console.log('INVALID SIGN UP');
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  } 
+  else {
+    document.querySelector('#invalidSignUp').innerHTML = 'Invalid Sign Up';
+    console.log('INVALID SIGN UP');  
+  }
 }
 
 /**
  * Sign in function that returns a user ID
  */
- async function signIn(event) {
+async function signIn(event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      console.log('SIGNED IN');
-      const user = userCredential.user;
-      location.href = 'homepage.html';
-      // UID specifies which user we are talking about
-      const userInformation = getUser(user.uid);
-      return userInformation;
-    })
-    .catch((error) => {
-      document.querySelector('#invalidLogin').innerHTML = 'Invalid Log In';
-      console.log('WRONG LOG IN INFO');
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+  .then((userCredential) => {
+    // Signed in 
+    console.log('SIGNED IN');
+    const user = userCredential.user;
+    location.href = 'homepage.html';
+    // UID specifies which user we are talking about
+    const userInformation = getUser(user.uid);
+    return userInformation;
+  })
+  .catch((error) => {
+    document.querySelector('#invalidLogin').innerHTML = 'Invalid Log In';
+    console.log('WRONG LOG IN INFO');
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 }
 
 /**
@@ -158,6 +163,9 @@ async function getRecipe(recipe_id) {
   }
 }
 
+/**
+ * Checks if user is logged in and behaves accordingly
+ */
 onAuthStateChanged(auth, (user) => {
   if (user) {
       const uid = user.uid;
@@ -172,9 +180,16 @@ onAuthStateChanged(auth, (user) => {
               console.log('ERROR SIGNING OUT');
           });
       });
+
+      console.log(uid);
+      if (window.location.href == window.location.origin + '/source/cookbook.html') {
+        // Get user using id and get recipes
+      } 
   } else {
-      window.onload = function() {
-          location.href = 'signIn.html';
+      if (window.location.href == window.location.origin + '/source/recipeUpload.html' || 
+          window.location.href == window.location.origin + '/source/cookbook.html' ||
+          window.location.href == window.location.origin + '/source/mealplan.html') {
+        location.href = 'signIn.html';   
       }
   }
 });
