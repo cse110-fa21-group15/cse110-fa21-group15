@@ -1,7 +1,7 @@
 // main.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
@@ -21,27 +21,6 @@ const db = getFirestore();
 // UNCOMMENT THE 2 BELOW LINES WHEN BUTTONS ARE CONNECTED TO SIGNIN AND SIGNUP
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
-/**
- * Signup function that creates new user and returns the user id
- */
-async function signUp() {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var user_id;
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    user_id = user.uid;
-    addUser(email, user.uid);
-    const userInformation = getUser(user.uid);
-    console.log(userInformation);
-    return userInformation;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-}
 
 /**
  * Sign in function that returns a user ID
@@ -106,29 +85,43 @@ async function removeRecipe() {
 }
 // document.querySelector('#tester').addEventListener('click', removeRecipe)
 
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    loadRecipes(uid);
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+
+
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id 
  * @returns information regarding the user
  */
- async function getUser() {
-  console.log("test")
-  let id = "XAMVHtevNUXGs9MCRBDUKMCBwdK2"
-  const user = doc(db, "users", id)
-  const userDoc = await getDoc(user);
-  const createdRecipes = [];
-  const userData = userDoc.data();
-  for(let i = 0; i<userData.favoriteRecipes.length; i+=1) {
-    createdRecipes.push( await getRecipe(userData.favoriteRecipes[i]));
+ async function getUser(id) {
+      const user = doc(db, "users", id)
+      const userDoc = await getDoc(user);
+      const createdRecipes = [];
+      const userData = userDoc.data();
+      for(let i = 0; i<userData.favoriteRecipes.length; i+=1) {
+        createdRecipes.push( await getRecipe(userData.favoriteRecipes[i]));
+      }
+      const userInformation = {
+        "user_email" : userData["user_email"],
+        "user_id" : userData["user_id"],
+        "recipes": createdRecipes
+      };
+      console.log(userInformation);
+      return userInformation;
   }
-  const userInformation = {
-    "user_email" : userData["user_email"],
-    "user_id" : userData["user_id"],
-    "recipes": createdRecipes
-  };
-  console.log(userInformation);
-  return userInformation;
-}
 
 
 
@@ -153,23 +146,28 @@ async function getRecipe(recipe_id) {
 //*********************************************************************
 //Get users' favorite recipes
 
-const user = await getUser();
-console.log("GETUSER()");
+/*const user = await getUser();
+console.log("GETUSER()");*/
 
 
-const recipes = user.recipes;
+async function loadRecipes(id) {
+  const userFile = await getUser(id);
+  const recipes = userFile.recipes;
+  init(recipes);
+}
+
 
   let numRecipes;
 
   const recipeData = {}
   
   //Call this to begin getting recipe cards
-  init();
+
   
   // This is the first function to be called, so when you are tracing your code start here.
-  async function init() {
+  async function init(recipes) {
     // fetch the recipes and wait for them to load
-    let fetchSuccessful = await fetchRecipes();
+    let fetchSuccessful = await fetchRecipes(recipes);
     // if they didn't successfully load, quit the function
     if (!fetchSuccessful) {
       console.log('Recipe fetch unsuccessful');
@@ -178,10 +176,10 @@ const recipes = user.recipes;
     // Add the first three recipe cards to the page
     createRecipeCards();
 
-    recipePage();
+    recipePage(recipes);
 
   }
-  async function fetchRecipes() {
+  async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {
   
         numRecipes = recipes.length;
@@ -208,12 +206,14 @@ const recipes = user.recipes;
   }
   
   //Go to recipePage upon clicking recipe card
-  function recipePage() {
+  function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
+    console.log(recipes)
     
     for(let i = 0; i < recipeCard.length; ++i){
       recipeCard[i].addEventListener("click", function (){
-        window.open("recipePage.html", '_top');
+        localStorage.recipe = JSON.stringify(recipes[i]);
+        location.href = "recipePage.html";
       })
     }
   }

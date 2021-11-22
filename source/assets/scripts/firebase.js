@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, setDoc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 
 
 const firebaseConfig = {
@@ -28,37 +28,29 @@ if (window.location.href == window.location.origin + '/source/signIn.html') {
 /**
  * Signup function that creates new user and returns the user id
  */
-async function signUp(event) {
+ async function signUp(event) {
   event.preventDefault();
+  console.log("test")
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  var confirmPassword = document.getElementById("confirmpassword").value;
   var user_id;
-  if (password === confirmPassword) {
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(async (userCredential) => {
-      console.log('SIGNED UP');
-      const user = userCredential.user;
-      user_id = user.uid;
-      await addUser(email, user.uid);
-      location.href = 'homepage.html';
-      const userInformation = getUser(user.uid);
-      //console.log(userInformation);
-      return userInformation;
-    })
-    .catch((error) => {
-      document.querySelector('#invalidSignUp').innerHTML = 'Invalid Sign Up';
-      console.log('INVALID SIGN UP');
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-  } 
-  else {
-    document.querySelector('#invalidSignUp').innerHTML = 'Invalid Sign Up';
-    console.log('INVALID SIGN UP');  
-  }
+  createUserWithEmailAndPassword(auth, email, password)
+  .then(async (userCredential) => {
+    console.log('SIGNED UP');
+    const user = userCredential.user;
+    user_id = user.uid;
+    await addUser(email, user.uid);
+    location.href = 'homepage.html';
+    const userInformation = getUser(user.uid);
+    //console.log(userInformation);
+    return userInformation;
+  })
+  .catch((error) => {
+    console.log('INVALID SIGN UP');
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 }
-
 /**
  * Sign in function that returns a user ID
  */
@@ -89,9 +81,10 @@ async function signIn(event) {
  * @param {string} email 
  * @param {string} id 
  */
-async function addUser(email, id) {
+ async function addUser(email, id) {
   try {
-    const docRef = await addDoc(collection(db, "users"), {
+    console.log(id + "ID")
+    await setDoc(doc(db, "users", id), {
       user_email: email,
       user_id: id,
       favoriteRecipes: [],

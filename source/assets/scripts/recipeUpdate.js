@@ -15,21 +15,21 @@ const firebaseConfig = {
   };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
+  console.log(auth);
   const db = getFirestore();
 
 
 
 
 // PUT ID OF BUTTON THAT SAVES CHANGES UNDER THE FOLLOWING LINE
-//  document.querySelector('#tester').addEventListener('click', updateRecipe);
 
 /**
  * 
  * @param {Event that occurs when recipe save button is clicked} event 
  * @param {ID of recipe that needs to be updated} recipe_id 
  */
- async function updateRecipe(event, recipe_id) {
-    event.preventDefault();
+ async function updateRecipe() {
+    const recipe_id = sessionStorage.getItem("recipe_id");
      const time = document.querySelector('.timeBoxInput').value
      const name = document.querySelector('.recipeNameText').value
      const cost = document.querySelector('.costBoxInput').value
@@ -37,11 +37,12 @@ const firebaseConfig = {
      const description = document.querySelector('#descriptionBoxInput').value
      const ingredients = document.querySelector('#ingredientsBoxInput').value
      const steps = document.querySelector('#stepsBoxInput').value
-     const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
+    //  const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
     const docRef = doc(db, "recipes", recipe_id);
     await updateDoc(docRef, {
-        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
-    });
+        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+    })
+    location.href = 'cookbook.html';
  }
 
  /**
@@ -75,3 +76,6 @@ const firebaseConfig = {
 
  //Event listeners for creating a recipe and displaying preview when image is uploaded.
 //  document.querySelector("#imageUpload").addEventListener('change', imagePreview)
+document.querySelector('#saveForm').addEventListener('click', updateRecipe);
+document.querySelector("#imageUpload").addEventListener('change', imagePreview);
+

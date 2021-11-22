@@ -20,7 +20,11 @@ const recipeServings = sessionStorage.getItem("recipeServings");
 const recipeDescription = sessionStorage.getItem("recipeDescription");
 const recipeIngredients = JSON.parse(localStorage.ingredients)
 const recipeSteps = JSON.parse(localStorage.steps)
+// console.log(localStorage);
+const recipe_id = sessionStorage.getItem("recipe_id");
+console.log(recipe_id)
 
+console.log("testing routing");
 //Fill in the data in the recipe upload page
 recipeNameInput.value = recipeName;
 recipeImageInput.setAttribute("src", recipeImage)
