@@ -1,4 +1,4 @@
-**Type of Meeting**:
+**Type of Meeting**: 
 - Agile retrospective
 
 **Date**:
