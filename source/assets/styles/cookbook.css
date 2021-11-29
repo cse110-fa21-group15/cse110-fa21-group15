@@ -162,10 +162,10 @@ form.example i {
   /* Personal Cookbook items */
   main {
     margin-left: 178px;
+    row-gap: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-
 
   }
    
