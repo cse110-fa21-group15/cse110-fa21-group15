@@ -1,4 +1,11 @@
 ---
+
+# Title: Super-Linter
+# Author: Lukas Gravley
+# Date: 2021
+# Availability: https://github.com/github/super-linter
+
+
 #################################
 #################################
 ## Super Linter GitHub Actions ##
@@ -55,5 +62,6 @@ jobs:
           
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_MARKDOWN: false
+          FILTER_REGEX_INCLUDE: ./source/.*
           FILTER_REGEX_EXCLUDE: ./source/assets/.*
           
