@@ -16,22 +16,15 @@ class RecipeCard extends HTMLElement {
         margin: 0;
         padding: 0;
       }
-      
-      a {
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
 
       article {
         align-items: center;
         border: 1px solid black;
         border-radius: 8px;
         display: grid;
-        grid-template-rows: 118px 56px 14px 18px 15px 36px;
-        height: 170px;
-        row-gap: 5px;
+        grid-template-rows: 118px 56px 56px 56px 0px 0px;
+        height: 300px;
+
         padding: 0 16px 16px 16px;
         background-color: #303030;
         width: 178px;
@@ -51,9 +44,30 @@ class RecipeCard extends HTMLElement {
         width: calc(100% + 32px);
       }
       
-      p.title {
+      h1.title {
+        display: -webkit-box;
+        height: 30px;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: white;
+      }
+
+      p.description{
         display: -webkit-box;
         font-size: 16px;
+        overflow: hidden;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        color: white;
+        font-family: Capriola;
+        font-style: normal;
+        font-weight: normal;
+      }
+
+      p.time{
+        display: -webkit-box;
+        font-size: 12px;
         height: 36px;
         line-height: 18px;
         overflow: hidden;
@@ -86,26 +100,32 @@ class RecipeCard extends HTMLElement {
 
     //set image src
     const image = document.createElement('img');
-    //USE STOCK IMAGE FOR NOW
     let recipeImage = searchForKey(data, "image");
-    //const recipeImage = "assets/images/spooky.png"
     image.setAttribute('src', recipeImage);
-
     //set image alt
-    /*
-    let altText = searchForKey(data, 'headline');
-    */
     image.setAttribute('alt', "Can't find alt text");
     card.appendChild(image);
 
     //set title
-    const title = document.createElement('p');
+    const title = document.createElement('h1');
     title.classList.add('title');
     const titleName = searchForKey(data, "name");
     title.textContent = titleName;
     card.appendChild(title);
 
-
+    const description = document.createElement('p');
+    description.classList.add("description");
+    const descriptionValue = searchForKey(data , "description");
+    description.textContent = descriptionValue;
+    card.appendChild(description);
+    
+    //set time
+    const time = document.createElement('p');
+    time.classList.add("time");
+    const timeValue = searchForKey(data,"time");
+    time.textContent = "Time: " + timeValue;
+    card.appendChild(time);
+    
 
     this.shadowRoot.appendChild(card);
     
@@ -237,3 +257,4 @@ function createIngredientList(ingredientArr) {
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
 customElements.define('recipe-card', RecipeCard);
+
