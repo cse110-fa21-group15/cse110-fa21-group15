@@ -1,3 +1,9 @@
+
+# Title: jsdoc-action
+# Author: andstor
+# Date: 2020
+# Availability: https://github.com/andstor/jsdoc-action
+
 name: JSDoc Generate
 
 on:
