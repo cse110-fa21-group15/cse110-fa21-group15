@@ -1,8 +1,9 @@
 const puppeteer = require("puppeteer");
 
+let page;
+
 describe("Basic user flow for website", () => {
     beforeAll(async () => {
-        let page;
         await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
     }, 10000);
 
@@ -27,10 +28,10 @@ describe("Basic user flow for website", () => {
         const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
         const button = await page.$("#lbutton");
         await button.click();
-        console.log("here2");
+        // console.log("here2");
         let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
-        console.log("here1");
-        console.log(error);
+        // console.log("here1");
+        // console.log(error);
         await browser.close();
         expect(error).toBe("Invalid Log In");
     }, 10000);
@@ -88,7 +89,7 @@ describe("Basic user flow for website", () => {
         await page.waitForNavigation();
         const input = await page.$eval(".recipeNameText", (e) => e.value = "Omelette");
         const uploader = await page.$("input[type=file]");
-        // uploader.uploadFile("img.jpeg");
+        uploader.uploadFile("./ ");
 
         const time = await page.$eval(".timeBoxInput", (e) => e.value = "10 mins");
         const cost = await page.$eval(".costBoxInput", (e) => e.value = "$5");
@@ -97,5 +98,5 @@ describe("Basic user flow for website", () => {
         const ings = await page.$eval("#ingredientsBox", (e) => e.value = "eggs, chili powder, salt, oil");
         
         await browser.close();
-    }, 100000)
+    }, 100000);
 });
