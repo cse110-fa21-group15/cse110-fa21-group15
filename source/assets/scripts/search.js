@@ -2,26 +2,20 @@ const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
 
 //get recipes by searched keywords from database 
-async function getRecipes(event, filters = false, number = 8, offset = 0, recurse = 0){  
-    
-    //Get Search Query
+async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
     var input = document.querySelector("input[name = 'search']").value;                 
     if (input == "") {
         return;
     }
-
-    //Assemble the url
     var url = "https://api.spoonacular.com/recipes/complexSearch?"+API_KEY_ALT +"&query=" + input + "&number="+(number*3)+ "&instructionsRequired=true&addRecipeInformation=true&offset=" + offset;
-
-    //Apply Dietary and time filters
     if(filters == true)
     {
         var time = document.getElementById("time").value;
         var dietary = document.getElementById("dietary").value;
-        if(time != ""){
+        if(time != "-1"){
             url+= ("&maxReadyTime=" + time);
         }
-        if(dietary != ""){
+        if(dietary != "-1"){
             url+= ("&diet=" + dietary);
         }
     }
@@ -50,7 +44,7 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, recurs
         return real.slice(0, number);
     }
     if(real.length + currsize < number){
-        var temp = await getRecipes(event,filters, number, offset+number, recurse + 1);
+        var temp = await getRecipes(event,filters, number, offset+number, (currsize +real.length), recurse + 1);
         real = real.concat(temp);
     }
     
@@ -60,7 +54,7 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, recurs
 }
 
 function filterCost(recipes, cost){
-    if(cost == ""){
+    if(cost == "-1"){
         return recipes;
     }
     else {
