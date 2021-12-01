@@ -23,15 +23,15 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
         var dietary = document.getElementById("dietary").value;
         var cost = document.getElementById("cost").value;
         if(time != ""){
-            //console.log("There is a time filter =" + time)
+            console.log("There is a time filter =" + time)
             url+= ("&maxReadyTime=" + time);
         }
         if(dietary != ""){
-            //console.log("There is a dietary filter =" + dietary)
+            console.log("There is a dietary filter =" + dietary)
             url+= ("&diet=" + dietary);
         }
         if(cost != ""){
-            //console.log("There is a cost filter =" + cost)
+            console.log("There is a cost filter =" + cost)
             url+= "&addRecipeInformation=true";
         }
 
