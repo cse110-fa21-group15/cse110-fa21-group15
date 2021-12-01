@@ -1,4 +1,5 @@
 //RecipeCard.js
+//USED FROM LAB 6
 class RecipeCard extends HTMLElement {
   constructor() {
     // Part 1 Expose - TODO
@@ -67,7 +68,7 @@ class RecipeCard extends HTMLElement {
 
       p.time{
         display: -webkit-box;
-        font-size: 12px;
+        font-size: 16px;
         height: 36px;
         line-height: 18px;
         overflow: hidden;
@@ -113,11 +114,15 @@ class RecipeCard extends HTMLElement {
     title.textContent = titleName;
     card.appendChild(title);
 
+    //set description
     const description = document.createElement('p');
     description.classList.add("description");
     const descriptionValue = searchForKey(data , "description");
     description.textContent = descriptionValue;
     card.appendChild(description);
+
+    let br = document.createElement('br');
+    card.appendChild(br);
     
     //set time
     const time = document.createElement('p');
@@ -136,8 +141,6 @@ class RecipeCard extends HTMLElement {
 
 /*********************************************************************/
 /***                       Helper Functions:                       ***/
-/***          Below are some functions I used when making          ***/
-/***     the solution, feel free to use them or not, up to you     ***/
 /*********************************************************************/
 
 /**
