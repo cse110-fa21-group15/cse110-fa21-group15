@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, setDoc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
-module.exports = {getUser};
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, setDoc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
+//module.exports = {getUser};
 
 const firebaseConfig = {
   apiKey: "AIzaSyCwaLuRVV073aNbTB5EaLoZDIFXGzvqr3A",
@@ -131,9 +131,9 @@ async function removeRecipe() {
  * @param {String} id 
  * @returns information regarding the user
  */
-async function getUser(ID) {
-  let id = ID;
-
+async function getUser() {
+  let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
+  
   const userInformation = {};
   const users = collection(db, "users");
   const q = await query(users, where("user_id", "==", id));
