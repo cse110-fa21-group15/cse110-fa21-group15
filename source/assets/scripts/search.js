@@ -1,6 +1,7 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
+const DAY_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=818daa16f8f44a6790d7e444c55f92b8&number=1"
 
 //get recipes by searched keywords from database 
 async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
@@ -134,6 +135,12 @@ async function retrieveRecipe(input){
     console.log(recipe_example);
 }
 
+async function randomRecipe(){
+    var recipeData = await fetch(DAY_RECIPE_URL).then(response =>{
+        return response.json();
+    });
+    return recipeData['recipes'][0];
+}
 // function getSource(id){
 //     let input = document.getElementById('search').value;
 //     $.ajax({
