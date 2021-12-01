@@ -20,6 +20,9 @@
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
 
+    <!--Other scripts-->
+    <script src="assets/scripts/createRecipe.js" type="module"></script>
+
 </head>
 
 <body>
@@ -32,6 +35,11 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+                <div class="dropdown-content">
+                    <a id="recipeUpload" href="recipeUpload.html">Create Recipe</a>
+                    <a href="cookbook.html">Personal Cookbook</a>
+                    <a href="mealplan.html">Meal Plan</a>
+                </div>
             </div>
 
 
@@ -64,14 +72,18 @@
 
         <div class="passwordbar">
             <form class="loginArea" action="/action_page.php">
-                <input type="text" placeholder="Password" name="password" class="round" id="password">
+                <input type="password" placeholder="Password" name="password" class="round" id="password">
             </form>
         </div>
 
         <div class="confirmPasswordbar">
             <form class="loginArea" action="/action_page.php">
-                <input type="text" placeholder="Confirm Password" name="confirmpassword" class="round" id="confirmpassword">
+                <input type="password" placeholder="Confirm Password" name="confirmpassword" class="round" id="confirmpassword">
             </form>
+        </div>
+
+        <div class="invalidSignUp">
+            <p id="invalidSignUp"></p>
         </div>
 
         <div class="signUp">

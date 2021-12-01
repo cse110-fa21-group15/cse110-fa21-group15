@@ -11,7 +11,7 @@ The CI/CD pipeline is currently able to auto-assign issues/pull requests to the 
     - Pull requests are placed in In progress
     - Approval of pull requests moves them to Reviewer approved
     - Issues and Pull Requests that are closed are moved to Done
-- Linting and Code Style enforement
+- Linting and Code Style enforcement
   - Utilized GitHub's superlinter GitHub actions in the workflow in order to automate the linting and code style enforcement of any code that is pushed to main.
   - Badge from the Lint Code Base is shown on README.me.
 - Code quality via tool

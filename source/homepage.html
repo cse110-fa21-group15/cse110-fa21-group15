@@ -17,6 +17,9 @@
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!--Scripts-->
+    <script src="assets/scripts/createRecipe.js" type="module"></script>
+
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
 
@@ -36,11 +39,17 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+                <div class="dropdown-content">
+                    <a id="recipeUpload" href="recipeUpload.html">Create Recipe</a>
+                    <a href="cookbook.html">Personal Cookbook</a>
+                    <a href="mealplan.html">Meal Plan</a>
+                </div>
             </div>
 
-
             <div class="logo">
-                <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                <a href="homepage.html">
+                    <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
+                </a>
             </div>
             <div class="title">
                 <a class="titlebutton">
@@ -49,7 +58,7 @@
             </div>
             <div class="signIn">
                 <a href="signIn.html">
-                    <button id="signedIn" style="font-size:22px">Sign In</button>
+                    <button id="signedIn" style="font-size:22px">Sign in</button>
                 </a>
             </div>
         </div>
@@ -64,27 +73,29 @@
 
 
     <main>
-        <div name = "filters" class="dropdown">
-            <select id = "time" class = "drop">
-                <option value = "-1">Time</option>
-                <option value = "20">Less than 20 mins</option>
-                <option value = "40">Under 40mins</option>
-                <option value = "60">Under 1hr</option>
-            </select>
-            <select id = "cost" class="drop">
-                <option value = "-1">Cost</option>
-                <option value = "1">Super Cheap</option>
-                <option value = "2">Pretty Cheap</option>
-                <option value = "3">Kinda Cheap</option>
-            </select>
-            <select id = "dietary" class="drop">
-                <option value = "-1">Dietary</option>
+        <div class="flexcontainer">
+        <div class="dropdown">
+            <select class="drop">
+                <option value="" disabled selected>Dietary</option>
                 <option>Gluten Free</option>
-                <option>Ketogenic</option>
+                <option>Nut Free</option>
                 <option>Vegetarian</option>
                 <option>Vegan</option>
                 <option>Paleo</option>
                 <option>Whole30</option>
+            </select>
+            <select class="drop">
+                <option value="" disabled selected>Time</option>
+                <option>0-30 min</option>
+                <option>31-60 min</option>
+                <option>61-99 min</option>
+                <option>100+ min</option>
+            </select>
+            <select class="drop">
+                <option value="" disabled selected>Cost</option>
+                <option>$</option>
+                <option>$$</option>
+                <option>$$$</option>
             </select>
         </div>
 
@@ -95,11 +106,9 @@
             </form>
         </div>
 
-        <br>
-        <br>
-        <br>
-
         <div class="blankbox"></div>
+    </div>
+
 
     </main>
 

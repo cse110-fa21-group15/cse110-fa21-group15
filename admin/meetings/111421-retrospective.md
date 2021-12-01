@@ -1,5 +1,6 @@
 **Type of Meeting**:
 - Agile retrospective
+
 **Date**:
 - November 14, 2021
 
