@@ -1,10 +1,12 @@
 const puppeteer = require("puppeteer");
 
-let page;
+(async () => {
+    let page = await browser.newPage();
+});
 
 describe("Basic user flow for website", () => {
     beforeAll(async () => {
-        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        await page.goto('https://festive-minsky-ab51a6.netlify.app/source/signin');
     }, 10000);
 
     it("Checking email bar placeholder value ", async () => {
