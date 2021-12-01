@@ -75,7 +75,7 @@
     <main>
         <div class="flexcontainer">
         <div class="dropdown">
-            <select class="drop">
+            <select id = "dietary" class="drop">
                 <option value="" disabled selected>Dietary</option>
                 <option>Gluten Free</option>
                 <option>Nut Free</option>
@@ -84,18 +84,17 @@
                 <option>Paleo</option>
                 <option>Whole30</option>
             </select>
-            <select class="drop">
+            <select id = "time" class="drop">
                 <option value="" disabled selected>Time</option>
-                <option>0-30 min</option>
-                <option>31-60 min</option>
-                <option>61-99 min</option>
-                <option>100+ min</option>
+                <option value =30>Under 30 min</option>
+                <option value = 60>Under 60 min</option>
+                <option value = 100>Under 100 min</option>
             </select>
-            <select class="drop">
+            <select id="cost" class="drop">
                 <option value="" disabled selected>Cost</option>
-                <option>$</option>
-                <option>$$</option>
-                <option>$$$</option>
+                <option value = 1>$</option>
+                <option value = 2>$$</option>
+                <option value = 3>$$$</option>
             </select>
         </div>
 
