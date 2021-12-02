@@ -1,26 +1,47 @@
 const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
+const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
+const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=818daa16f8f44a6790d7e444c55f92b8&number=1"
 
 //get recipes by searched keywords from database 
 async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
-    var input = document.querySelector("input[name = 'search']").value;                 
+    
+    //Get User Input
+    var input = document.querySelector("input[name = 'search']").value;    
+    
+    //If no query, then no need to do anything
     if (input == "") {
         return;
     }
-    var url = "https://api.spoonacular.com/recipes/complexSearch?"+API_KEY_ALT +"&query=" + input + "&number="+(number*3)+ "&instructionsRequired=true&addRecipeInformation=true&offset=" + offset;
+
+    //Build Base Url
+    var url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset;
+    
+    //If there are filters, then add time and dietary parameters to url
     if(filters == true)
     {
         var time = document.getElementById("time").value;
         var dietary = document.getElementById("dietary").value;
-        if(time != "-1"){
+        var cost = document.getElementById("cost").value;
+        if(time != ""){
+            //console.log("There is a time filter =" + time)
             url+= ("&maxReadyTime=" + time);
         }
-        if(dietary != "-1"){
+        if(dietary != ""){
+            //console.log("There is a dietary filter =" + dietary)
             url+= ("&diet=" + dietary);
         }
+        if(cost != ""){
+            //console.log("There is a cost filter =" + cost)
+            url+= "&addRecipeInformation=true";
+        }
+
     }
-    // getData(url).then(x => alert(x));
+    
+    //Fetch the recipes into a promise
     const fetchPromise = fetch(url);
+
+    //Get the final list of recipes after applying the cost filtering as needed
     const final = fetchPromise.then(response => {
         return response.json();
     }).then(results => {
@@ -28,7 +49,6 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
         var recipes = results['results'];    
         var output = [];
         if(filters == true){
-            var cost = document.getElementById("cost").value;
             output =  filterCost(recipes, Number(cost));
         }
         else{
@@ -36,13 +56,21 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
         }
         return output;
     })
+    
+    //Prevent search button from automatically reloading the page
     if(event != undefined){
         event.preventDefault();
     }
+
+    //Extract the actual list of recipes from the final promise
     var real = await final;
+
+    //Maximum 5 recursive searches
     if(recurse == 5){
         return real.slice(0, number);
     }
+
+    //If not enough recipes after applying the filters recursively call this function again
     if(real.length + currsize < number){
         var temp = await getRecipes(event,filters, number, offset+number, (currsize +real.length), recurse + 1);
         real = real.concat(temp);
@@ -50,11 +78,17 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
     
     //redirectPage();
     //retrieveRecipe(input);
+
+    //Return up to the "number" amount of recipes
+    //console.log(real.slice(0, number));
     return real.slice(0, number);
 }
 
+
+
+//Takes a list of recipes and filters them by cost, and returns the filtered list
 function filterCost(recipes, cost){
-    if(cost == "-1"){
+    if(cost == ""){
         return recipes;
     }
     else {
@@ -101,6 +135,20 @@ async function retrieveRecipe(input){
     console.log(recipe_example);
 }
 
+async function randomRecipe(){
+    var recipeData = await fetch(RANDOM_RECIPE_URL).then(response =>{
+        return response.json();
+    });
+    return recipeData['recipes'][0];
+}
+
+async function recipeInfo(id){
+    var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
+    var recipeData = await fetch(url).then(response =>{
+        return response.json();
+    });
+    return recipeData;
+}
 // function getSource(id){
 //     let input = document.getElementById('search').value;
 //     $.ajax({
