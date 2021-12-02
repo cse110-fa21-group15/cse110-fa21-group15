@@ -20,7 +20,7 @@ async function recipeOfTheDay(){
 }
 
 
-async function setDaily(){
+async function initDaily(){
     if(newDay()){
         await recipeOfTheDay();
     }
@@ -28,6 +28,10 @@ async function setDaily(){
     var daily = document.getElementById("recipeOfDay");
     (daily.querySelector("img")).src = JSON.parse(localStorage.recipeOfDay).image;
     (daily.querySelector("div")).textContent = JSON.parse(localStorage.recipeOfDay).title;
+    daily.addEventListener("click", () => {
+        localStorage.recipe = localStorage.recipeOfDay;
+        window.location.href = "recipePage.html";
+    })
 }
 
-setDaily();
+initDaily();
