@@ -196,12 +196,14 @@ async function loadRecipes(id) {
   }
   
   function createRecipeCards() {
+    let parentDiv = document.querySelector(".parentDiv");
+    let mainElement = document.querySelector("main");
     for(let i = 0; i < numRecipes; ++i){
       let recipeCard = document.createElement("recipe-card");
       recipeCard.data = recipeData[i.toString()];
-      let mainElement = document.querySelector("main");
-      mainElement.appendChild(recipeCard);
+      parentDiv.appendChild(recipeCard);
     }
+    mainElement.appendChild(parentDiv);
   
   }
   
