@@ -192,7 +192,15 @@ body {
     border-radius: 37px;
     background-color: lightgrey;
     margin-top: 50px;
+    position:relative
   }
+  .centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+  }
+
  
  /* Copyright styling */
 footer {
