@@ -22,8 +22,9 @@
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
-
+      
+     <!--Link to Javascript search file-->
+     <script src="assets/scripts/search.js"></script>
 </head>
 
 <body>
@@ -50,7 +51,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button onclick = "getRecipes(event)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
