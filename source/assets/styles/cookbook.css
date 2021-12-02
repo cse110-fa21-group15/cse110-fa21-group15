@@ -160,14 +160,12 @@ form.example i {
 }
   
   /* Personal Cookbook items */
-  main {
-
-    row-gap: 15px;
-    column-gap: 1px;
+  .parentDiv {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-
+    text-align: center;
+    margin-left: 59px;
+    gap: 3em;
   }
    
   /* Copyright styling */

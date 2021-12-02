@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-     <!--Link to iconify, for user profile icon-->
-    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    
+    <title>Easy Chef</title>
 
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/cookbook.css" />
-
+    <link rel="stylesheet" href="assets/styles/cookbook.css">
+    
     <!--Link to fa fa icons CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,6 +23,9 @@
     <!--Other scripts-->
     <script src="assets/scripts/createRecipe.js" type="module"></script>
 
+      
+     <!--Link to Javascript search file-->
+     <script src="assets/scripts/search.js"></script>
 </head>
  
 <body>
@@ -50,7 +52,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px;">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button onclick = "getRecipes(event)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
@@ -63,7 +65,7 @@
     </header>
  
     <main>  
-        <div class="cookbookTemp"></div>
+        <div class="parentDiv"></div>
     </main>
         <footer>
            <div class="copyright">
