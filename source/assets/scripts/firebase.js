@@ -86,6 +86,12 @@ async function signIn(event) {
       user_email: email,
       user_id: id,
       favoriteRecipes: [],
+      favorites: [],
+      monday: null,
+      tuesday: null, 
+      wednesday: null,
+      thursday: null,
+      friday: null
     });
   } catch (e) {
     console.error("Error adding document: ", e);
