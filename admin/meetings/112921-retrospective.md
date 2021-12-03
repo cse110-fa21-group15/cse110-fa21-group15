@@ -2,7 +2,7 @@
 - Agile retrospective
 
 **Date**:
-- November 30, 2021
+- November 29, 2021
 
 **Agenda**
 
