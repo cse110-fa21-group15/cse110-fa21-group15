@@ -23,6 +23,10 @@
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
 
+      
+     <!--Link to Javascript search file-->
+     <script src="assets/scripts/search.js"></script>
+
 </head>
 
 <body>
@@ -71,8 +75,8 @@
     <main>
         <div class="flexcontainer">
         <div class="dropdown">
-            <select class="drop">
-                <option value="" disabled selected>Dietary</option>
+            <select id = "dietary" class="drop">
+                <option value="" selected>Dietary</option>
                 <option>Gluten Free</option>
                 <option>Nut Free</option>
                 <option>Vegetarian</option>
@@ -80,25 +84,24 @@
                 <option>Paleo</option>
                 <option>Whole30</option>
             </select>
-            <select class="drop">
-                <option value="" disabled selected>Time</option>
-                <option>0-30 min</option>
-                <option>31-60 min</option>
-                <option>61-99 min</option>
-                <option>100+ min</option>
+            <select id = "time" class="drop">
+                <option value="" selected>Time</option>
+                <option value =30>Under 30 min</option>
+                <option value = 60>Under 60 min</option>
+                <option value = 100>Under 100 min</option>
             </select>
-            <select class="drop">
-                <option value="" disabled selected>Cost</option>
-                <option>$</option>
-                <option>$$</option>
-                <option>$$$</option>
+            <select id="cost" class="drop">
+                <option value="" selected>Cost</option>
+                <option value = 1>$</option>
+                <option value = 2>$$</option>
+                <option value = 3>$$$</option>
             </select>
         </div>
 
         <div class="searchbar">
             <form class="example" action="/action_page.php">
                 <input type="text" placeholder="Search Recipes" name="search" class="round">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <button onclick = "getRecipes(event, true)" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
 
