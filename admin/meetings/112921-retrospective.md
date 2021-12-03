@@ -40,11 +40,12 @@
   - Can't change this constraint too much due to structure of the class and quarter system but we are on a good pace with our MVP
 - Sad: Not enough pair programming / group work
   - There was one coding session but as we wind down to the end of the quarter it is tough to schedule more
-  - Group coding sessio was very productive and paired programming is just as effective
+  - Group coding session was very productive and paired programming is just as effective
 - Mad: Bugs
   - image bugs
 - Sad: Meeting Attendance
   - Notify a team lead if you cannot make zoom or in-person
+  - Try to make the group coding sessions
 - Glad: Communication
   - Communication has improved between teams, especially during connection of frontend to backend for MVP
 - Mad: Being told about discussion plans late
@@ -58,11 +59,13 @@
   - No issues so far
 - Glad: Website flow
   - Deployment of site was smooth and most of the functionality is there
+  - Rest of the features should not affect the website functionality.
 - Glad: On track
   - Hitting deadline and well on track to get our final product
   - Could get stretch features done
 - Sad: People being on different pages
-  - Communicate to a team lead or other group members to discuss it and clarify any details
+  - Communicate to a team lead or other group members to discuss it and clarify any details.
+  - Communicate with your team (frontend or backend) on the specific issues.
 - Sad: Merge issues
   - Some code got undid when a branch was merged
 
@@ -74,6 +77,7 @@
 - Last push in the quarter
 - Comment code
 - Perform merge conflicts correctly
+- Get rid of dead branches.
 
 **Duration**
 - 1 hour
