@@ -42,27 +42,13 @@ const database = doc(db, "users", user_id);
     }
 }
 
-const deleteBtn = document.querySelector("#delete");
-const recipe = JSON.parse(localStorage.recipe);
-const user_id = searchForKey(recipe, "user_id");
-const recipe_id = searchForKey(recipe, "recipe_id");
-
-//console.log("TEST");
-//console.log(user_id);
-//console.log(recipe_id);
-
-deleteBtn.addEventListener("click", function() {
-    //console.log("onlick is working");
-    deleteRecipe(recipe_id, user_id);
-})
-
 /**
  * Recursively search for a key nested somewhere inside an object
  * @param {Object} object the object with which you'd like to search
  * @param {String} key the key that you are looking for in the object
  * @returns {*} the value of the found key
  */
-function searchForKey(object, key) {
+ function searchForKey(object, key) {
     let value;
     Object.keys(object).some(function (k) {
         if (k === key) {
@@ -76,3 +62,17 @@ function searchForKey(object, key) {
     });
     return value;
 }
+
+const deleteBtn = document.querySelector("#delete");
+const recipe = JSON.parse(localStorage.recipe);
+const user_id = searchForKey(recipe, "user_id");
+const recipe_id = searchForKey(recipe, "recipe_id");
+
+//console.log("TEST");
+//console.log(user_id);
+//console.log(recipe_id);
+
+deleteBtn.addEventListener("click", function() {
+    //console.log("onlick is working");
+    deleteRecipe(recipe_id, user_id);
+})

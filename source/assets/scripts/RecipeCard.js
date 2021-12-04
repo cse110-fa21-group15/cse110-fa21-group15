@@ -180,14 +180,14 @@ function getUrl(data) {
  * @returns {string} If found, it retuns the name of the org as a string, otherwise null
  */
 function getOrganization(data) {
-    if (data.publisher?.name) return data.publisher?.name;
+    if (data.publisher.name) return data.publisher.name;
     if (data["@graph"]) {
         for (let i = 0; i < data["@graph"].length; i++) {
             if (data["@graph"][i]["@type"] == "Organization") {
                 return data["@graph"][i].name;
             }
         }
-    };
+    }
 return null;
 }
 
@@ -206,13 +206,17 @@ function convertTime(time) {
     let timeArr = time.split("");
     if (time.includes("H")) {
         for (let i = 0; i < timeArr.length; i++) {
-            if (timeArr[i] == "H") return `${timeStr} hr`;
+            if (timeArr[i] === "H") {
+                return `${timeStr} hr`;
+            }
             timeStr += timeArr[i];
         }
     } 
     else {
         for (let i = 0; i < timeArr.length; i++) {
-            if (timeArr[i] == "M") return `${timeStr} min`;
+            if (timeArr[i] === "M") {
+                return `${timeStr} min`;
+            }
             timeStr += timeArr[i];
         }
     }

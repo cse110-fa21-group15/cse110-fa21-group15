@@ -73,7 +73,7 @@ let stepTemp = newSteps.querySelector("body").textContent;
 let stepsArr = newSteps.querySelectorAll("li");
 console.log(stepsArr);
 
-if (stepsArr.length != 0) {
+if (stepsArr.length !== 0) {
     for (let i = 0; i < stepsArr.length; i++) {
         recipeSteps.appendChild(stepsArr[i]);
     }

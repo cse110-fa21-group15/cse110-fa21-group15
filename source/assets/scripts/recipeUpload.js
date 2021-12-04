@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js"
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js"
-import { firebaseConfig } from "./api.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -38,7 +38,7 @@ async function createRecipe(event) {
                 try {
                     const docRef = await addDoc(collection(db, "recipes"), {
                         time, name, cost, servings, description, ingredients, steps, image, user_id : id
-                    })
+                    });
                     await updateDoc(docRef, {
                         recipe_id : docRef.id
                     })
@@ -97,36 +97,36 @@ function convertToBase64(image) {
  * Creates the preview for the image on the upload recipe page.
  */
 function imagePreview() {
-  let reader = new FileReader();
-  const preview = document.querySelector(".uploadImage");
-  const image = document.querySelector("#imageUpload").files[0];
-  const fileType = image["type"];
-  const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
-  if (!validImageTypes.includes(fileType)) {
-      document.querySelector(".recipePictureText").innerHTML = "Invalid File Type. Please use .PNG or .JPEG!";
-      document.querySelector(".recipePictureText").classList.add("recipePictureTextRed");
-  }
-  else {
-      if (document.querySelector(".recipePictureTextRed")) {
-          document.querySelector(".recipePictureText").innerHTML = "Upload Recipe Image";
-          document.querySelector(".recipePictureText").classList.remove("recipePictureTextRed");
-      }
-  }
-  reader.onloadend = function() {
-      console.log(reader.result);
-      preview.src = reader.result;
-  }
-  reader.readAsDataURL(image);
- }
+    let reader = new FileReader();
+    const preview = document.querySelector(".uploadImage");
+    const image = document.querySelector("#imageUpload").files[0];
+    const fileType = image["type"];
+    const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+    if (!validImageTypes.includes(fileType)) {
+        document.querySelector(".recipePictureText").innerHTML = "Invalid File Type. Please use .PNG or .JPEG!";
+        document.querySelector(".recipePictureText").classList.add("recipePictureTextRed");
+    }
+    else {
+        if (document.querySelector(".recipePictureTextRed")) {
+            document.querySelector(".recipePictureText").innerHTML = "Upload Recipe Image";
+            document.querySelector(".recipePictureText").classList.remove("recipePictureTextRed");
+        }
+    }
+    reader.onloadend = function() {
+        console.log(reader.result);
+        preview.src = reader.result;
+    };
+    reader.readAsDataURL(image);
+}
 
- // Event listeners for creating a recipe and displaying preview when image is uploaded.
- document.querySelector("#saveForm").addEventListener("click", createRecipe);
- document.querySelector("#imageUpload").addEventListener("change", imagePreview);
+// Event listeners for creating a recipe and displaying preview when image is uploaded.
+document.querySelector("#saveForm").addEventListener("click", createRecipe);
+document.querySelector("#imageUpload").addEventListener("change", imagePreview);
 
- /**
+/**
  * Checks if user is logged in and behaves accordingly
  */
- onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -138,4 +138,3 @@ function imagePreview() {
         // ...
     }
 });
-  

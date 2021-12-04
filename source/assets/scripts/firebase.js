@@ -2,7 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import { firebaseConfig } from "./api.js"
+import { firebaseConfig } from "./api.js";
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
@@ -13,6 +14,30 @@ if (document.querySelector("#sbutton")) {
 
 if (document.querySelector("#lbutton")) {
     document.querySelector("#lbutton").addEventListener("click", signIn);
+}
+
+/**
+ * Returns the information of a signed user such as favorite recipes, email, ID
+ * @param {string} id 
+ * @return {Object} information regarding the user
+ */
+ async function getUser() {
+    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
+
+    const userInformation = {};
+    const users = collection(db, "users");
+    const q = await query(users, where("user_id", "==", id));
+    const querySnapshot = await getDocs(q);
+    const createdRecipes = [];
+    querySnapshot.forEach((doc) => {
+        userInformation["results"] = doc.data();
+    });
+    for (let i = 0; i<userInformation.results.favoriteRecipes.length; i++) {
+        createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+    }
+    userInformation.results.recipes = createdRecipes;
+    console.log(userInformation);
+    return userInformation;
 }
 
 /**
@@ -108,12 +133,12 @@ async function addUser(email, id) {
  * Remove recipe from recipe book
  */
 async function removeRecipe() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
+    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
     const q = query(collection(db, "users"), where("user_id", "==", id));
     const querySnapshot = await getDocs(q);
     const document = querySnapshot.docs[0];
-    console.log(document.id)
-    console.log(document)
+    console.log(document.id);
+    console.log(document);
     let name = "pizza";
     let time = "30";
     let cost = "40";
@@ -123,32 +148,9 @@ async function removeRecipe() {
     // console.log(document.data())
     await updateDoc(database, {
         favoriteRecipes: arrayRemove({name: "pizza"})
-    })
+    });
 }
 // document.querySelector("#tester").addEventListener("click", removeRecipe)
-
-/**
- * Returns the information of a signed user such as favorite recipes, email, ID
- * @return {Object} information regarding the user
- */
-async function getUser() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-
-    const userInformation = {};
-    const users = collection(db, "users");
-    const q = await query(users, where("user_id", "==", id));
-    const querySnapshot = await getDocs(q);
-    const createdRecipes = [];
-    querySnapshot.forEach((doc) => {
-        userInformation["results"] = doc.data();
-    });
-    for (let i = 0; i<userInformation.results.favoriteRecipes.length; i++) {
-        createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
-    }
-    userInformation.results.recipes = createdRecipes;
-    console.log(userInformation);
-    return userInformation;
-}
 
 /**
  * Returns the desired recipe

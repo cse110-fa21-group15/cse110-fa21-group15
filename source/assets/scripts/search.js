@@ -1,91 +1,14 @@
 const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
-const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
-const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
-const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1"
+const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0";
+const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?";
+const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1";
 
 /**
- * Get recipes by searched keywords from database
- * @param event 
- * @param {Boolean} filters 
- * @param {Number} number 
- * @param {Number} offset 
- * @param {Number} currsize 
- * @param {Number} recurse 
- * return list of recipes
+ * Redirect to results page
  */
-async function getRecipes(event, filters = false, number = 14, offset = 0, currsize = 0, recurse = 0) {    
-    // Get User Input
-    let input = document.querySelector("input[name = 'search']").value;    
-    
-    // If no query, then no need to do anything
-    // if (input == "") {
-    //   return;
-    // }
-
-    //Build Base Url
-    let url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number=" + number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
-    
-    //If there are filters, then add time and dietary parameters to url
-    if (filters == true) {
-        let time = document.getElementById("time").value;
-        let dietary = document.getElementById("dietary").value;
-        let cost = document.getElementById("cost").value;
-        if (time != "") {
-            console.log("There is a time filter =" + time);
-            url += ("&maxReadyTime=" + time);
-        }
-        if (dietary != "") {
-            console.log("There is a dietary filter =" + dietary);
-            url += ("&diet=" + dietary);
-        }
-        if (cost != "") {
-            console.log("There is a cost filter =" + cost);
-        }
-    }
-
-    // Fetch the recipes into a promise
-    const fetchPromise = fetch(url);
-
-    // Get the final list of recipes after applying the cost filtering as needed
-    const final = fetchPromise.then((response) => {
-        return response.json();
-    }).then((results) => {
-        //storeRecipe(results, input);    
-        let recipes = results["results"];    
-        let output = [];
-        if (filters == true) {
-            output =  filterCost(recipes, Number(cost));
-        }
-        else{
-            output = recipes;
-        }
-        return output;
-    })
-    
-    // Prevent search button from automatically reloading the page
-    if (event != undefined) {
-        event.preventDefault();
-    }
-
-    // Extract the actual list of recipes from the final promise
-    let real = await final;
-
-    // Maximum 5 recursive searches
-    if (recurse == 5) {
-        return real.slice(0, number);
-    }
-
-    // If not enough recipes after applying the filters recursively call this function again
-    if (real.length + currsize < number) {
-        let temp = await getRecipes(event,filters, number, offset+number, (currsize + real.length), recurse + 1);
-        real = real.concat(temp);
-    }
-    
-    //retrieveRecipe(input);
-    storeRecipe(real.slice(0, number));
-    redirectPage();
-    //Return up to the "number" amount of recipes
-    //console.log(real.slice(0, number));
+ async function redirectPage() {
+    console.log("Redirecting to result page");
+    window.location.href = "searchresults.html";
 }
 
 /**
@@ -95,36 +18,29 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
  * @return list of recipe with filter applied
  */
 function filterCost(recipes, cost) {
-    if (cost == "") {
+    let output;
+    if (cost === "") {
         return recipes;
     }
     else {
-        let output = [];
+        output = [];
         for(let i = 0; i < recipes.length; i++) {
             if(recipes[i].pricePerServing > 250){
-                if (cost == 3) {
+                if (cost === 3) {
                     output.push(recipes[i]);
                 }
             }
             else if (recipes[i].pricePerServing > 125) {
-                if (cost == 2) {
+                if (cost === 2) {
                     output.push(recipes[i]);
                 }
             }
-            else if (cost == 1) {
+            else if (cost === 1) {
                 output.push(recipes[i]);
             }
         }
     }
     return output;
-}
-
-/**
- * Redirect to results page
- */
-async function redirectPage() {
-    console.log("Redirecting to result page");
-    window.location.href = "searchresults.html";
 }
 
 /**
@@ -145,7 +61,7 @@ async function storeRecipe(results, input) {
  */
 async function retrieveRecipe(input) {
     console.log("Retrieving recipes from local storage");
-    myStorage = window.localStorage;
+    let myStorage = window.localStorage;
     const recipe_example = myStorage.getItem(input + "0");
     console.log(recipe_example);
 }
@@ -154,7 +70,7 @@ async function retrieveRecipe(input) {
  * Fetches a random recipe
  * @returns random recipe
  */
-async function randomRecipe(){
+async function randomRecipe() {
     let recipeData = await fetch(RANDOM_RECIPE_URL).then((response) => {
         return response.json();
     });
@@ -173,6 +89,92 @@ async function recipeInfo(id) {
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
     console.log(recipeData);
+}
+
+/**
+ * Get recipes by searched keywords from database
+ * @param event 
+ * @param {Boolean} filters 
+ * @param {Number} number 
+ * @param {Number} offset 
+ * @param {Number} currsize 
+ * @param {Number} recurse 
+ * return list of recipes
+ */
+ async function getRecipes(event, filters = false, number = 14, offset = 0, currsize = 0, recurse = 0) {    
+    // Get User Input
+    let input = document.querySelector("input[name = 'search']").value;    
+    
+    // If no query, then no need to do anything
+    // if (input == "") {
+    //   return;
+    // }
+
+    //Build Base Url
+    let url = SEARCH_URL + API_KEY_ALT +"&query=" + input + "&number=" + number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
+    let cost;
+
+    //If there are filters, then add time and dietary parameters to url
+    if (filters === true) {
+        let time = document.getElementById("time").value;
+        let dietary = document.getElementById("dietary").value;
+        cost = document.getElementById("cost").value;
+        if (time !== "") {
+            console.log("There is a time filter =" + time);
+            url += ("&maxReadyTime=" + time);
+        }
+        if (dietary !== "") {
+            console.log("There is a dietary filter =" + dietary);
+            url += ("&diet=" + dietary);
+        }
+        if (cost !== "") {
+            console.log("There is a cost filter =" + cost);
+        }
+    }
+
+    // Fetch the recipes into a promise
+    const fetchPromise = fetch(url);
+
+    // Get the final list of recipes after applying the cost filtering as needed
+    const final = fetchPromise.then((response) => {
+        return response.json();
+    }).then((results) => {
+        //storeRecipe(results, input);    
+        let recipes = results["results"];    
+        let output = [];
+        if (filters === true) {
+            output =  filterCost(recipes, Number(cost));
+        }
+        else{
+            output = recipes;
+        }
+        return output;
+    });
+    
+    // Prevent search button from automatically reloading the page
+    if (event !== undefined) {
+        event.preventDefault();
+    }
+
+    // Extract the actual list of recipes from the final promise
+    let real = await final;
+
+    // Maximum 5 recursive searches
+    if (recurse === 5) {
+        return real.slice(0, number);
+    }
+
+    // If not enough recipes after applying the filters recursively call this function again
+    if (real.length + currsize < number) {
+        let temp = await getRecipes(event,filters, number, offset+number, (currsize + real.length), recurse + 1);
+        real = real.concat(temp);
+    }
+    
+    //retrieveRecipe(input);
+    storeRecipe(real.slice(0, number));
+    redirectPage();
+    //Return up to the "number" amount of recipes
+    //console.log(real.slice(0, number));
 }
 
 // function getSource(id){
