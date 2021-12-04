@@ -39,7 +39,7 @@ jobs:
         run: npm -v
 
       - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.0
         with:
           source_dir: main-repo/source
           output_dir: doc-repo/docs
