@@ -15,7 +15,7 @@ import { firebaseConfig } from './api.js'
 // PUT ID OF BUTTON THAT SAVES CHANGES UNDER THE FOLLOWING LINE
 
 /**
- * 
+ * Update existing recipe
  * @param event Event that occurs when recipe save button is clicked
  * @param {string} recipe_id ID of recipe that needs to be updated
  */

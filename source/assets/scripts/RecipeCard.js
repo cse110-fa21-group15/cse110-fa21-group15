@@ -1,4 +1,5 @@
 //RecipeCard.js
+module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 //USED FROM LAB 6
 class RecipeCard extends HTMLElement {
   constructor() {
@@ -137,7 +138,6 @@ class RecipeCard extends HTMLElement {
 
   }
 }
-
 
 /*********************************************************************/
 /***                       Helper Functions:                       ***/
