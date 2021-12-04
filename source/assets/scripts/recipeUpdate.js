@@ -36,6 +36,12 @@ async function updateRecipe() {
                 time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
             })
         }
+        else {
+            const docRef = doc(db, "recipes", recipe_id);
+            await updateDoc(docRef, {
+                time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+            })
+        }
     }
     else {
         const docRef = doc(db, "recipes", recipe_id);
