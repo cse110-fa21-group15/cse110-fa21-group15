@@ -10,7 +10,7 @@ import { firebaseConfig } from './api.js'
 
 /**
  * Deletes recipe from database
- * @param {ID of recipe to be deleted} recipe_id 
+ * @param {string} recipe_id ID of recipe to be deleted
  */
 async function deleteRecipe(recipe_id, user_id) {
     
@@ -43,7 +43,12 @@ deleteBtn.addEventListener("click", function(){
 })
 
 
-//Search for keys in JSON file
+/**
+ * Recursively search for a key nested somewhere inside an object
+ * @param {Object} object the object with which you'd like to search
+ * @param {String} key the key that you are looking for in the object
+ * @returns {*} the value of the found key
+ */
 function searchForKey(object, key) {
   var value;
   Object.keys(object).some(function (k) {

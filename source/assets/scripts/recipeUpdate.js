@@ -16,8 +16,8 @@ import { firebaseConfig } from './api.js'
 
 /**
  * 
- * @param {Event that occurs when recipe save button is clicked} event 
- * @param {ID of recipe that needs to be updated} recipe_id 
+ * @param event Event that occurs when recipe save button is clicked
+ * @param {string} recipe_id ID of recipe that needs to be updated
  */
  async function updateRecipe() {
     const recipe_id = sessionStorage.getItem("recipe_id");
@@ -38,7 +38,7 @@ import { firebaseConfig } from './api.js'
 
  /**
   * Converts an image to data url to store in the database.
-  * @param {Image file uploaded when creating recipe} image 
+  * @param {string} image Image file uploaded when creating recipe
   * @returns 
   */
  function convertToBase64(image) {
