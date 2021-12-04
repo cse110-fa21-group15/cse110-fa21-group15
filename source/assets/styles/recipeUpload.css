@@ -187,7 +187,8 @@ form.example i {
   }
 
   .recipePictureText {
-    margin-left: 140px;
+    position: absolute;
+    margin-left: 9%;
   }
 
   .uploadImage {
