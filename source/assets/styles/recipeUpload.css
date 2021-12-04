@@ -120,7 +120,7 @@ form.example input[type=text] {
     border: 1px solid grey;
     float: left;
     width: 80%;
-    background: #f1f1f1;
+    background: #F1F1F1;
     height: 55px;
 }
 
@@ -277,7 +277,7 @@ textarea {
 }
 
 .flex-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: left;
     padding-top: 20px;
@@ -286,7 +286,7 @@ textarea {
 }
 
 .word {
-    font-size:25px;
+    font-size: 25px;
     color: #505050;
     margin-left: 90px;
 }
@@ -297,8 +297,8 @@ textarea {
     text-align: left;
     margin-left: 0px;
     border-left: 0px;
-    float:left;
-    padding-left:2px;
+    float: left;
+    padding-left: 2px;
 }
 
 .textbox textarea {
