@@ -1,5 +1,4 @@
 //RecipeCard.js
-module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 //USED FROM LAB 6
 class RecipeCard extends HTMLElement {
   constructor() {
@@ -260,4 +259,6 @@ function createIngredientList(ingredientArr) {
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
 customElements.define('recipe-card', RecipeCard);
+
+module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 
