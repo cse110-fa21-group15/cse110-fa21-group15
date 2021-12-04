@@ -75,7 +75,7 @@ init(recipes);
       recipeCard[i].addEventListener("click", function (){
         localStorage.recipe = JSON.stringify(recipes[i]);
         localStorage.recipeID = JSON.stringify(recipes[i].id);
-        location.href = "recipePage.html";
+        location.href = "recipePageSpoonacular.html";
       })
     }
   }
