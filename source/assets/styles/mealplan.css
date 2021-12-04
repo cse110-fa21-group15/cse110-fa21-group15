@@ -234,6 +234,8 @@
 
   .saveButton {
     position: relative;
+    margin-top: 700px;
+    margin-right: 20px;
   }
 
   .icon {
@@ -264,3 +266,4 @@
   text-align: center;
   color: gray;
 }
+ 
