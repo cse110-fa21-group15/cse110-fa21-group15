@@ -18,6 +18,7 @@
         "verbose": true
     },
     "dependencies": {
-        "@types/jest": "^27.0.3"
+        "@types/jest": "^27.0.3",
+        "minami": "^1.2.3"
     }
 }
