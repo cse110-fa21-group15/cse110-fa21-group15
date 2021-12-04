@@ -47,6 +47,7 @@ async function addUser(email, id) {
       user_email: email,
       user_id: id,
       favoriteRecipes: [],
+      favorites: []
     });
   } catch (e) {
     console.error("Error adding document: ", e);

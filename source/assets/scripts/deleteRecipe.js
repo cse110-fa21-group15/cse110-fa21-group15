@@ -26,6 +26,24 @@ async function deleteRecipe(recipe_id, user_id) {
       location.href = "cookbook.html";
 }
 
+/**
+ * Function adds favorite Recipe to the database based on the current recipe_id and user_id.
+ * Function works on recipes that were already saved to the users personal cookbook
+ * @param {id of recipe in DB} recipe_id 
+ * @param {ID of current user} user_id 
+ */
+async function favoriteRecipe(recipe_id, user_id) {
+  const database = doc(db, "users", user_id);
+  try {
+  await updateDoc(database, {
+    favorites: arrayUnion(recipe_id)
+  })
+  } catch (e) {
+  console.error("Error adding favorite recipe")
+  }
+}
+
+
 const deleteBtn = document.querySelector("#delete");
 
 const recipe = JSON.parse(localStorage.recipe);
