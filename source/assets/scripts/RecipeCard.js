@@ -146,7 +146,7 @@ class RecipeCard extends HTMLElement {
 /**
  * Recursively search for a key nested somewhere inside an object
  * @param {Object} object the object with which you'd like to search
- * @param {String} key the key that you are looking for in the object
+ * @param {string} key the key that you are looking for in the object
  * @returns {*} the value of the found key
  */
 function searchForKey(object, key) {
@@ -167,7 +167,7 @@ function searchForKey(object, key) {
 /**
  * Extract the URL from the given recipe schema JSON object
  * @param {Object} data Raw recipe JSON to find the URL of
- * @returns {String} If found, it returns the URL as a string, otherwise null
+ * @returns {string} If found, it returns the URL as a string, otherwise null
  */
 function getUrl(data) {
   if (data.url) return data.url;
@@ -183,7 +183,7 @@ function getUrl(data) {
  * Similar to getUrl(), this function extracts the organizations name from the
  * schema JSON object. It's not in a standard location so this function helps.
  * @param {Object} data Raw recipe JSON to find the org string of
- * @returns {String} If found, it retuns the name of the org as a string, otherwise null
+ * @returns {string} If found, it retuns the name of the org as a string, otherwise null
  */
 function getOrganization(data) {
   if (data.publisher?.name) return data.publisher?.name;
@@ -200,8 +200,8 @@ function getOrganization(data) {
 /**
  * Converts ISO 8061 time strings to regular english time strings.
  * Not perfect but it works for this lab
- * @param {String} time time string to format
- * @return {String} formatted time string
+ * @param {string} time time string to format
+ * @return {string} formatted time string
  */
 function convertTime(time) {
   let timeStr = '';
@@ -230,7 +230,7 @@ function convertTime(time) {
  * formatted comma separated list.
  * @param {Array} ingredientArr The raw unprocessed array of ingredients from the
  *                              imported data
- * @return {String} the string comma separate list of ingredients from the array
+ * @return {string} the string comma separate list of ingredients from the array
  */
 function createIngredientList(ingredientArr) {
   let finalIngredientList = '';
@@ -240,8 +240,8 @@ function createIngredientList(ingredientArr) {
    * This isn't perfect, it makes the assumption that there will always be a quantity
    * (sometimes there isn't, so this would fail on something like '2 apples' or 'Some olive oil').
    * For the purposes of this lab you don't have to worry about those cases.
-   * @param {String} ingredient the raw ingredient string you'd like to process
-   * @return {String} the ingredient without the measurement & quantity 
+   * @param {string} ingredient the raw ingredient string you'd like to process
+   * @return {string} the ingredient without the measurement & quantity 
    * (e.g. '1 cup flour' returns 'flour')
    */
   function _removeQtyAndMeasurement(ingredient) {

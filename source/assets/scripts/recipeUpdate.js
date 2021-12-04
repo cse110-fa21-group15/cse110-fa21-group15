@@ -2,17 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { firebaseConfig } from './api.js'
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCwaLuRVV073aNbTB5EaLoZDIFXGzvqr3A",
-    authDomain: "easy-chef-3eb03.firebaseapp.com",
-    projectId: "easy-chef-3eb03",
-    storageBucket: "easy-chef-3eb03.appspot.com",
-    messagingSenderId: "744097831580",
-    appId: "1:744097831580:web:ef9a05d277c2b1785b2b59",
-    measurementId: "G-JKV8H3SLTR"
-  };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
   console.log(auth);
@@ -25,34 +16,49 @@ const firebaseConfig = {
 
 /**
  * 
- * @param {Event that occurs when recipe save button is clicked} event 
- * @param {ID of recipe that needs to be updated} recipe_id 
+ * @param event Event that occurs when recipe save button is clicked
+ * @param {string} recipe_id ID of recipe that needs to be updated
  */
  async function updateRecipe() {
     const recipe_id = sessionStorage.getItem("recipe_id");
-     const time = document.querySelector('.timeBoxInput').value
-     const name = document.querySelector('.recipeNameText').value
-     const cost = document.querySelector('.costBoxInput').value
-     const servings = document.querySelector('.servingsBoxInput').value
-     const description = document.querySelector('#descriptionBoxInput').value
-     const ingredients = document.querySelector('#ingredientsBoxInput').value
-     const steps = document.querySelector('#stepsBoxInput').value
-    //  const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-    const docRef = doc(db, "recipes", recipe_id);
-    await updateDoc(docRef, {
-        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
-    })
+     const time = document.querySelector('.timeBoxInput').value;
+     const name = document.querySelector('.recipeNameText').value;
+     const cost = document.querySelector('.costBoxInput').value;
+     const servings = document.querySelector('.servingsBoxInput').value;
+     const description = document.querySelector('#descriptionBoxInput').value;
+     const ingredients = document.querySelector('#ingredientsBoxInput').value;
+     const steps = document.querySelector('#stepsBoxInput').value;
+     const imageFile = document.querySelector("#imageUpload").files[0];
+    const fileType = imageFile['type'];
+    const validImageTypes = ['image/png', 'image/jpeg', 'image/gif'];
+    if (imageFile) {
+        if (validImageTypes.includes(fileType)) {
+            const image = await convertToBase64(imageFile);
+            const docRef = doc(db, "recipes", recipe_id);
+            await updateDoc(docRef, {
+                time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
+            })
+        }
+        else {
+            console.log('invalid file type')
+        }
+    }
+    else {
+        const docRef = doc(db, "recipes", recipe_id);
+        await updateDoc(docRef, {
+            time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+        })
+    }
     location.href = 'cookbook.html';
  }
 
  /**
   * Converts an image to data url to store in the database.
-  * @param {Image file uploaded when creating recipe} image 
-  * @returns 
+  * @param {string} image Image file uploaded when creating recipe
   */
  function convertToBase64(image) {
      var reader = new FileReader();
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
         reader.onload = () => {
             resolve(reader.result);
         };
@@ -67,6 +73,18 @@ const firebaseConfig = {
     var reader = new FileReader();
     const preview = document.querySelector(".uploadImage");
     const image = document.querySelector("#imageUpload").files[0];
+    const fileType = image["type"];
+    const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+    if (!validImageTypes.includes(fileType)) {
+        document.querySelector(".recipePictureText").innerHTML = "Invalid File Type. Please use .PNG or .JPEG!";
+        document.querySelector(".recipePictureText").classList.add("recipePictureTextRed");
+    }
+    else {
+        if (document.querySelector(".recipePictureTextRed")) {
+            document.querySelector(".recipePictureText").innerHTML = "Upload Recipe Image";
+            document.querySelector(".recipePictureText").classList.remove("recipePictureTextRed");
+        }
+    }
     reader.onloadend = function() {
         console.log(reader.result);
         preview.src = reader.result;

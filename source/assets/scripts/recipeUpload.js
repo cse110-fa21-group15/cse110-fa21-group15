@@ -2,33 +2,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { firebaseConfig } from './api.js'
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCwaLuRVV073aNbTB5EaLoZDIFXGzvqr3A",
-    authDomain: "easy-chef-3eb03.firebaseapp.com",
-    projectId: "easy-chef-3eb03",
-    storageBucket: "easy-chef-3eb03.appspot.com",
-    messagingSenderId: "744097831580",
-    appId: "1:744097831580:web:ef9a05d277c2b1785b2b59",
-    measurementId: "G-JKV8H3SLTR"
-  };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
   console.log("NEW STUFF");
   const db = getFirestore();
 
   // DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
+
 /**
- * 
- * @param {id of user logged in} id 
- * @param {name of recipe} name
- * @param {Time it takes to cook the meal} time 
- * @param {Cost of ingredients in the meal} cost 
- * @param {Number of servings in the meal} servings 
- * @param {Information regarding the meal} description 
- * @param {Image of meal} image
- * @param {tag of meal} tag
+ * Create a user recipe
+ * @param event Event that occurs when recipe save button is clicked
  */
  async function createRecipe(event) {
   event.preventDefault();
@@ -70,7 +55,11 @@ const firebaseConfig = {
   });
 }
 
-
+/**
+ * Adds a user to the FireStore Database
+ * @param {string} email email of user
+ * @param {string} id id of user
+ */
  async function addUser(email, id) {
     try {
       const docRef = await addDoc(collection(db, "users"), {
@@ -87,12 +76,11 @@ const firebaseConfig = {
 
  /**
   * Converts an image to data url to store in the database.
-  * @param {Image file uploaded when creating recipe} image 
-  * @returns 
+  * @param {string} image Image file uploaded when creating recipe
   */
  function convertToBase64(image) {
      var reader = new FileReader();
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
         reader.onload = () => {
             resolve(reader.result);
         };
@@ -118,6 +106,9 @@ const firebaseConfig = {
  document.querySelector('#saveForm').addEventListener('click', createRecipe);
  document.querySelector("#imageUpload").addEventListener('change', imagePreview);
 
+ /**
+ * Checks if user is logged in and behaves accordingly
+ */
  onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties

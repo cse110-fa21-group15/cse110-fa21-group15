@@ -35,13 +35,15 @@ jobs:
           path: doc-repo
           token: ${{ secrets.PUSH_TOKEN }}
 
+      - name: Check npm version
+        run: npm -v
+
       - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.0
         with:
           source_dir: main-repo/source
           output_dir: doc-repo/docs
           recurse: true
-          template: minami
           front_page: doc-repo/README.md
 
       - name: Commit and push documentation
