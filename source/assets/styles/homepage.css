@@ -142,6 +142,7 @@ body {
     width: 200px;
     height: 30px;
     margin: 15px;
+    margin-top: -20px;
     margin-bottom: 30px;
     border-radius: 12px;
     font-size: 20px;
@@ -184,7 +185,8 @@ form.example button:hover {
     height:300px;
     border-radius: 37px;
     background-color: lightgrey;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /* Copyright styling */
