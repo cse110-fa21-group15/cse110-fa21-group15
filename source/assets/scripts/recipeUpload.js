@@ -59,8 +59,7 @@ import { firebaseConfig } from './api.js'
  * Create a user recipe
  * @param event Event that occurs when recipe save button is clicked
  */
- async function downloadSpoonacularRecipe(event, time, name, cost, servings, description, ingredients, steps, image) {
-  event.preventDefault();
+ async function downloadSpoonacularRecipe(time, name, cost, servings, description, ingredients, steps, image) {
   console.log("test")
   onAuthStateChanged (auth, async (user) => {
     if (user) {
@@ -85,8 +84,7 @@ import { firebaseConfig } from './api.js'
    }
       // ...
     } else {
-      // User is signed out
-      // ...
+      location.href = "signIn.html"
     }
   });
 }
