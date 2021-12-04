@@ -24,12 +24,12 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      #- name: Run Jest
-      #  run: yarn jest env=@happy-dom/jest-environment coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
+      - name: Run Jest
+        run: yarn run unitTest coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
 
       - name: Run Coverage Action  
         uses: mattallty/jest-github-action@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: yarn run unitTest env=@happy-dom/jest-environment unit.test.js
+          test-command: yarn run unitTest unit.test.js
