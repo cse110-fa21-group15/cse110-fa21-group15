@@ -7,14 +7,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-if (document.querySelector('#sbutton')) {
-  document.querySelector('#sbutton').addEventListener('click', signUp);
-}
-
-if (document.querySelector('#lbutton')) {
-  document.querySelector('#lbutton').addEventListener('click', signIn);
-}
-
 /**
  * Signup function that creates new user and returns the user id
  * @param event Event that occurs when recipe save button is clicked
@@ -76,6 +68,14 @@ async function signIn(event) {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
+}
+
+if (document.querySelector('#sbutton')) {
+  document.querySelector('#sbutton').addEventListener('click', signUp);
+}
+
+if (document.querySelector('#lbutton')) {
+  document.querySelector('#lbutton').addEventListener('click', signIn);
 }
 
 /**
