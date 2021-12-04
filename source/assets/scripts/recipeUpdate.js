@@ -73,6 +73,18 @@ import { firebaseConfig } from './api.js'
     var reader = new FileReader();
     const preview = document.querySelector(".uploadImage");
     const image = document.querySelector("#imageUpload").files[0];
+    const fileType = image["type"];
+    const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+    if (!validImageTypes.includes(fileType)) {
+        document.querySelector(".recipePictureText").innerHTML = "Invalid File Type. Please use .PNG or .JPEG!";
+        document.querySelector(".recipePictureText").classList.add("recipePictureTextRed");
+    }
+    else {
+        if (document.querySelector(".recipePictureTextRed")) {
+            document.querySelector(".recipePictureText").innerHTML = "Upload Recipe Image";
+            document.querySelector(".recipePictureText").classList.remove("recipePictureTextRed");
+        }
+    }
     reader.onloadend = function() {
         console.log(reader.result);
         preview.src = reader.result;
