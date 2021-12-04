@@ -1,6 +1,6 @@
-//editRecipe.js
+// editRecipe.js
 
-//Get all input elements 
+// Get all input elements 
 const recipeNameInput = document.querySelector(".recipeNameText");
 const recipeImageInput = document.querySelector(".uploadImage");
 const recipeTimeInput = document.querySelector(".timeBoxInput");
@@ -11,7 +11,7 @@ const recipeIngredientsInput = document.querySelector("#ingredientsBoxInput");
 const recipeStepsInput = document.querySelector("#stepsBoxInput");
 //console.log(recipeStepsInput);
 
-//Get data from the recipe page
+// Get data from the recipe page
 const recipeName = sessionStorage.getItem("recipeName");
 const recipeImage = sessionStorage.getItem("recipeImage");
 const recipeTime = sessionStorage.getItem("recipeTime");
@@ -25,22 +25,21 @@ const recipe_id = sessionStorage.getItem("recipe_id");
 //console.log(recipe_id)
 
 //console.log("testing routing");
-//Fill in the data in the recipe upload page
+
+// Fill in the data in the recipe upload page
 recipeNameInput.value = recipeName;
 recipeImageInput.setAttribute("src", recipeImage);
 recipeTimeInput.value = recipeTime;
 recipeCostInput.value = recipeCost;
 recipeServingsInput.value = recipeServings;
 recipeDescriptionInput.value = recipeDescription;
-for(let i = 0; i < recipeIngredients.length; ++i){
+
+for (let i = 0; i < recipeIngredients.length; i++) {
     recipeIngredientsInput.value += recipeIngredients[i];
     recipeIngredientsInput.value += "\n";
 }
-for(let i = 0; i < recipeSteps.length; ++i){
+
+for (let i = 0; i < recipeSteps.length; i++) {
     recipeStepsInput.value += recipeSteps[i];
     recipeStepsInput.value += "\n";
 }
-
-
-
-

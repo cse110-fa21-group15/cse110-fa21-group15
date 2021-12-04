@@ -205,6 +205,15 @@ body {
       background-color: lightgrey;
       /*flex: 1 0 21%;*/
     }
+
+  /* Personal Cookbook items */
+  .parentDiv {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: 59px;
+    gap: 3em;
+  }
   
     /* Copyright styling */
     footer {
