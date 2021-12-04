@@ -6,12 +6,12 @@ const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=818
 //get recipes by searched keywords from database 
 /**
  * Get recipes by searched keywords from database
- * @param {*} event 
- * @param {*} filters 
- * @param {*} number 
- * @param {*} offset 
- * @param {*} currsize 
- * @param {*} recurse 
+ * @param event 
+ * @param {Boolean} filters 
+ * @param {Number} number 
+ * @param {Number} offset 
+ * @param {Number} currsize 
+ * @param {Number} recurse 
  * @returns 
  */
 async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    

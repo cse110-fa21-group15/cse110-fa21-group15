@@ -77,7 +77,6 @@ import { firebaseConfig } from './api.js'
  /**
   * Converts an image to data url to store in the database.
   * @param {Image file uploaded when creating recipe} image Image file uploaded when creating recipe
-  * @returns 
   */
  function convertToBase64(image) {
      var reader = new FileReader();
