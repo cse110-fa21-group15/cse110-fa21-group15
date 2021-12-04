@@ -24,8 +24,10 @@ jobs:
       - name: Install npm
         run: npm ci
 
-      - name: Jest Coverage Action
+      - name: Run Jest
         run: npm run test -- --coverage
+        
+      - name: Run Coverage Action  
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
