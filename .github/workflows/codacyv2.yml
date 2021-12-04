@@ -1,7 +1,5 @@
 name: Codacy v2
 
-export CODACY_PROJECT_TOKEN = ${{ secrets.CODACY_PROJECT_TOKEN }}
-
 on:
   pull_request:
     branches: main
@@ -18,4 +16,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run script
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        run: |
+          export CODACY_PROJECT_TOKEN = ${{ secrets.CODACY_PROJECT_TOKEN }}
+          bash <(curl -Ls https://coverage.codacy.com/get.sh)
