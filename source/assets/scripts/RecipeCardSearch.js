@@ -1,22 +1,22 @@
-//RecipeCard.js
-//USED FROM LAB 6
+// RecipeCard.js
+// USED FROM LAB 6
 class RecipeCard extends HTMLElement {
     constructor() {
         // Part 1 Expose - TODO
         super();
         // You'll want to attach the shadow DOM here
-        this.attachShadow({mode: "open"});
+        this.attachShadow({mode: "open"}); 
     }
-
+  
     set data(data) {
         // This is the CSS that you'll use for your recipe cards
         const styleElem = document.createElement("style");
         const styles = `
             * {
-              margin: 0;
-              padding: 0;
+                margin: 0;
+                padding: 0;
             }
-
+      
             article {
                 align-items: center;
                 border: 1px solid black;
@@ -24,16 +24,17 @@ class RecipeCard extends HTMLElement {
                 display: grid;
                 grid-template-rows: 118px 56px 56px 56px 0px 0px;
                 height: 300px;
+        
                 padding: 0 16px 16px 16px;
                 background-color: #303030;
                 width: 178px;
                 filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.35));
             }
-
+      
             article:hover{
                 transform: scale(1.05);
             }
-
+      
             article > img {
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
@@ -51,7 +52,7 @@ class RecipeCard extends HTMLElement {
                 -webkit-box-orient: vertical;
                 color: white;
             }
-
+      
             p.description{
                 display: -webkit-box;
                 font-size: 16px;
@@ -63,7 +64,7 @@ class RecipeCard extends HTMLElement {
                 font-style: normal;
                 font-weight: normal;
             }
-
+      
             p.time{
                 display: -webkit-box;
                 font-size: 16px;
@@ -79,10 +80,10 @@ class RecipeCard extends HTMLElement {
             }
         `;
         styleElem.innerHTML = styles;
-
+      
         // Here's the root element that you'll want to attach all of your other elements to
         const card = document.createElement("article");
-
+    
         // Some functions that will be helpful here:
         //    document.createElement()
         //    document.querySelector()
@@ -90,13 +91,13 @@ class RecipeCard extends HTMLElement {
         //    element.setAttribute()
         //    element.appendChild()
         //    & All of the helper functions below
-
+    
         // Make sure to attach your root element and styles to the shadow DOM you
         // created in the constructor()
-
+    
         // Part 1 Expose - TODO
         this.shadowRoot.appendChild(styleElem);
-
+    
         //set image src
         const image = document.createElement("img");
         let recipeImage = searchForKey(data, "image");
@@ -104,35 +105,38 @@ class RecipeCard extends HTMLElement {
         //set image alt
         image.setAttribute("alt", "Can't find alt text");
         card.appendChild(image);
-
+    
         //set title
         const title = document.createElement("h1");
         title.classList.add("title");
-        const titleName = searchForKey(data, "name");
+        const titleName = searchForKey(data, "title");
         title.textContent = titleName;
         card.appendChild(title);
-
+    
         //set description
         const description = document.createElement("p");
         description.classList.add("description");
-        const descriptionValue = searchForKey(data , "description");
+        const descriptionValue = searchForKey(data , "summary");
+        console.log(data.summary);
+        console.log("******************************");
+        console.log(descriptionValue);
         description.textContent = descriptionValue;
         card.appendChild(description);
-
+    
         let br = document.createElement("br");
         card.appendChild(br);
         
         //set time
         const time = document.createElement("p");
         time.classList.add("time");
-        const timeValue = searchForKey(data,"time");
-        time.textContent = "Time: " + timeValue;
+        const timeValue = searchForKey(data,"readyInMinutes");
+        time.textContent = "Time: " + timeValue + " min";
         card.appendChild(time);
         
         this.shadowRoot.appendChild(card);
     }
 }
-
+  
 /*********************************************************************/
 /***                       Helper Functions:                       ***/
 /*********************************************************************/
@@ -140,11 +144,11 @@ class RecipeCard extends HTMLElement {
 /**
  * Recursively search for a key nested somewhere inside an object
  * @param {Object} object the object with which you'd like to search
- * @param {string} key the key that you are looking for in the object
+ * @param {String} key the key that you are looking for in the object
  * @returns {*} the value of the found key
  */
 function searchForKey(object, key) {
-    var value;
+    let value;
     Object.keys(object).some(function (k) {
         if (k === key) {
             value = object[k];
@@ -161,10 +165,12 @@ function searchForKey(object, key) {
 /**
  * Extract the URL from the given recipe schema JSON object
  * @param {Object} data Raw recipe JSON to find the URL of
- * @returns {string} If found, it returns the URL as a string, otherwise null
+ * @returns {String} If found, it returns the URL as a string, otherwise null
  */
 function getUrl(data) {
-    if (data.url) return data.url;
+    if (data.url) {
+        return data.url;
+    }
     if (data["@graph"]) {
         for (let i = 0; i < data["@graph"].length; i++) {
             if (data["@graph"][i]["@type"] == "Article") return data["@graph"][i]["@id"];
@@ -175,32 +181,34 @@ function getUrl(data) {
 
 /**
  * Similar to getUrl(), this function extracts the organizations name from the
- * schema JSON object. It"s not in a standard location so this function helps.
+ * schema JSON object. It's not in a standard location so this function helps.
  * @param {Object} data Raw recipe JSON to find the org string of
- * @returns {string} If found, it retuns the name of the org as a string, otherwise null
+ * @returns {String} If found, it retuns the name of the org as a string, otherwise null
  */
 function getOrganization(data) {
-    if (data.publisher.name) return data.publisher.name;
+    if (data.publisher.name) {
+        return data.publisher.name;
+    }   
     if (data["@graph"]) {
         for (let i = 0; i < data["@graph"].length; i++) {
-            if (data["@graph"][i]["@type"] == "Organization") {
+            if (data["@graph"][i]["@type"] === "Organization") {
                 return data["@graph"][i].name;
             }
         }
-    }
-return null;
+    };
+    return null;
 }
 
 /**
  * Converts ISO 8061 time strings to regular english time strings.
  * Not perfect but it works for this lab
- * @param {string} time time string to format
- * @return {string} formatted time string
+ * @param {String} time time string to format
+ * @return {String} formatted time string
  */
 function convertTime(time) {
     let timeStr = "";
 
-    // Remove the 'PT'
+    // Remove the "PT"
     time = time.slice(2);
 
     let timeArr = time.split("");
@@ -211,8 +219,7 @@ function convertTime(time) {
             }
             timeStr += timeArr[i];
         }
-    } 
-    else {
+    } else {
         for (let i = 0; i < timeArr.length; i++) {
             if (timeArr[i] === "M") {
                 return `${timeStr} min`;
@@ -228,7 +235,7 @@ function convertTime(time) {
  * formatted comma separated list.
  * @param {Array} ingredientArr The raw unprocessed array of ingredients from the
  *                              imported data
- * @return {string} the string comma separate list of ingredients from the array
+ * @return {String} the string comma separate list of ingredients from the array
  */
 function createIngredientList(ingredientArr) {
     let finalIngredientList = "";
@@ -238,8 +245,8 @@ function createIngredientList(ingredientArr) {
      * This isn't perfect, it makes the assumption that there will always be a quantity
      * (sometimes there isn't, so this would fail on something like '2 apples' or 'Some olive oil').
      * For the purposes of this lab you don't have to worry about those cases.
-     * @param {string} ingredient the raw ingredient string you'd like to process
-     * @return {string} the ingredient without the measurement & quantity 
+     * @param {String} ingredient the raw ingredient string you'd like to process
+     * @return {String} the ingredient without the measurement & quantity 
      * (e.g. '1 cup flour' returns 'flour')
      */
     function _removeQtyAndMeasurement(ingredient) {
@@ -251,12 +258,13 @@ function createIngredientList(ingredientArr) {
         finalIngredientList += `${ingredient}, `;
     });
 
-    // The .slice(0,-2) here gets ride of the extra ", " added to the last ingredient
+    // The .slice(0,-2) here gets ride of the extra ', ' added to the last ingredient
     return finalIngredientList.slice(0, -2);
 }
-
-// Need this for unit tests please do not remove
-module.exports = {searchForKey, getUrl, getOrganization, convertTime};
+  
+function removeMD(desString) {
+    let ret = desString.replace("<b>","").replace("</b>","").replace("<a href=>");
+}
 
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
