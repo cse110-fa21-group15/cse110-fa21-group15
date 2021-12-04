@@ -37,5 +37,4 @@ jobs:
     - name: Run Tests
       run: |
         npm ci
-        npm run test
-      # npm run test -- --coverage
+        npm run test -- --coverage unit.test.js
