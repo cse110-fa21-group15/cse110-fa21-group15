@@ -8,6 +8,8 @@ name: Jest Code Coverage
 on:
   pull_request:
     branches: main
+  push:
+    branches: main
 
 jobs:
   build:
@@ -27,7 +29,7 @@ jobs:
 
       - name: Run Coverage Action  
         uses: mattallty/jest-github-action@v1
-        env:
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           test-command: yarn jest env=@happy-dom/jest-environment unit.test.js
