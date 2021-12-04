@@ -168,34 +168,39 @@ form.example i {
     border: 1px solid #B3B3B3;
     box-sizing: border-box;
     border-radius: 12px;
-    width: 26%;
+    width: 31%;
     height: 60px;
   }
 
   .recipePicture {
     margin-top: 50px;
     margin-left: 5%;
-    height: 500px;
-    width: 25%;
-
     background: #FFFFFF;
     border: 1px solid #B3B3B3;
-    box-sizing: border-box;
     border-radius: 12px;
+    width: 30%;
   }
 
   .recipePicture input {
     margin-left: 20px;
     margin-top: 90px;
-    
+  }
+
+  .recipePictureText {
+    margin-left: 140px;
   }
 
   .uploadImage {
     display: block;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
-    margin-top: 60px;
+    width: 50%;
+    margin-top: 50px;
+  }
+
+  #imageUpload {
+    margin-bottom: 40px;
   }
 
   .middleArea {
@@ -204,8 +209,9 @@ form.example i {
   }
 
   .misc {
-      margin-top: 5%;
-      margin-right: 25%;
+      margin-left: 120px;
+      margin-top: 80px;
+      margin-right: 300px;
       display: block;
   }
 
@@ -226,7 +232,7 @@ form.example i {
     box-sizing: border-box;
     border-radius: 5px;
 
-    width: 466px;
+    width: 300px;
     height: 61px;
     margin-left: 20px;
 
@@ -242,6 +248,13 @@ form.example i {
       margin-top: 20px;
   }
 
+  form.servingsBox input {
+    background: #FFFCFC;
+    border: 1px solid #B3B3B3;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
 
   .tags{
       display: flex;
@@ -261,10 +274,10 @@ form.example i {
 
 
   textarea {
+    resize: none;
     margin-left: 5%;
-    margin-right: 5%;
     border-radius: 12px;
-    width:85%;
+    width:90%;
     height: 250px;
     text-align: left;
     padding: 30px 20px 20px  30px;
@@ -273,8 +286,9 @@ form.example i {
   .flex-container{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: left;
     padding-top: 20px;
+    justify-content: space-between;
     gap: 15px;
 }
 
@@ -298,11 +312,12 @@ form.example i {
     font-size: 20px;
 }
 
-.saveButton{
-    margin-top: 15px;
-    margin-bottom: 15px;
+.btTxt{
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left:90%;
-    width: 60px;
+    width: 4%;
+    height: 4%;
 }
 
   /* Copyright styling */
