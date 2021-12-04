@@ -6,7 +6,7 @@
 name: codacy-coverage-reporter
 
 on:
-  pull_request:
+  pull_request: 
     branches: main
 
 jobs:
