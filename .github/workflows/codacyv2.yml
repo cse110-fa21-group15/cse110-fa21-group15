@@ -1,0 +1,21 @@
+name: Codacy Coverage Upload
+
+on:
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+    name: Codacy Script
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run script
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+
+
