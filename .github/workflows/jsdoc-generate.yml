@@ -44,7 +44,6 @@ jobs:
           source_dir: main-repo/source
           output_dir: doc-repo/docs
           recurse: true
-          template: docdash
           front_page: doc-repo/README.md
 
       - name: Commit and push documentation
