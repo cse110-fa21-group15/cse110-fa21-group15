@@ -5,7 +5,7 @@
 
 name: Jest Code Coverage
 
-on:
+on: 
   pull_request:
     branches: main
 
