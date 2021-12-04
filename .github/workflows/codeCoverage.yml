@@ -1,0 +1,29 @@
+# Title: jest-annotations-coverage
+# Author: mattallty
+# Date: 2021
+# Availability: https://github.com/mattallty/jest-github-action
+
+name: Jest Code Coverage
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Jest Coverage Action
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
