@@ -17,6 +17,8 @@ if (document.querySelector('#lbutton')) {
 
 /**
  * Signup function that creates new user and returns the user id
+ * @param event Event that occurs when recipe save button is clicked
+ * @return {Object} information regarding the user
  */
 async function signUp(event) {
   event.preventDefault();
@@ -51,6 +53,8 @@ async function signUp(event) {
 
 /**
  * Sign in function that returns a user ID
+ * @param event Event that occurs when recipe save button is clicked
+ * @return {Object} information regarding the user
  */
 async function signIn(event) {
   event.preventDefault();
@@ -75,9 +79,9 @@ async function signIn(event) {
 }
 
 /**
- * addUser function that adds a user to the FireStore Database after creating an account
- * @param {string} email 
- * @param {string} id 
+ * Adds a user to the FireStore Database after creating an account
+ * @param {string} email email of user
+ * @param {string} id id of user
  */
  async function addUser(email, id) {
   try {
@@ -95,6 +99,10 @@ async function signIn(event) {
 
 
 // document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
+
+/**
+ * Remove recipe from recipe book
+ */
 
 async function removeRecipe() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
@@ -118,8 +126,8 @@ async function removeRecipe() {
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {String} id 
- * @returns information regarding the user
+ * @param {string} id 
+ * @return {Object} information regarding the user
  */
 async function getUser() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
@@ -140,7 +148,11 @@ async function getUser() {
   return userInformation;
 }
 
-
+/**
+ * Returns the desired recipe
+ * @param {string} recipe_id ID of recipe to be fetched
+ * @return recipe data
+ */
 
 async function getRecipe(recipe_id) {
   const recipesRef = doc(db, "recipes", recipe_id);
