@@ -11,12 +11,12 @@
     "puppeteer": "^12.0.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "unitTest": "jest --env=@happy-dom/jest-environment"
   },
   "jest": {
     "preset": "jest-puppeteer",
-    "verbose": true,
-    "testEnvironment": "@happy-dom/jest-environment"
+    "verbose": true
   },
   "dependencies": {
     "happy-dom": "^2.24.4",
