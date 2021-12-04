@@ -20,13 +20,12 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       - name: Install npm
         run: npm ci
 
       - name: Jest Coverage Action
+        run: npm run test -- --coverage
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
