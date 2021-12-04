@@ -190,8 +190,9 @@ onAuthStateChanged(auth, (user) => {
         console.log(uid);
     } 
     else {
-        if (document.querySelector(".timeBoxInput") || document.querySelector(".cookbookTemp")||
-            document.querySelector(".mealplanTemp")) {
+        // If not signed in, redirect to homepage.html if on createRecipe.html, cookbook.html, mealplan.html
+        if (document.querySelector(".timeBoxInput") || document.querySelector(".parentDiv")||
+            document.querySelector(".calendar")) {
             location.href = "signIn.html";   
         }
     }
