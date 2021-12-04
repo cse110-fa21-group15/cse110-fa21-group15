@@ -9,7 +9,7 @@ jobs:
     name: Codacy Script
 
     runs-on: ubuntu-latest
- 
+
     steps:
 
       - name: Checkout repo
@@ -17,5 +17,3 @@ jobs:
 
       - name: Run script
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
-
-
