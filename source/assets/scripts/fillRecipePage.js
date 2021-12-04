@@ -1,3 +1,5 @@
+const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
+
 //Grab elements from recipe page to fill in
 const recipeName = document.querySelector("#recipeName");
 const recipeImage = document.querySelector("#recipeImage");
@@ -8,17 +10,20 @@ const recipeDescription = document.querySelector("#recipeDescription");
 const recipeIngredients = document.querySelector("#recipeIngredients");
 const recipeSteps = document.querySelector("#recipeList");
 
+recipeInfo(localStorage.recipeID);
+
 //Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
-const name = searchForKey(recipe, "name");
+const extraRecipeInfo = JSON.parse(localStorage.extraRecipeInfo);
+console.log(extraRecipeInfo);
+const name = searchForKey(recipe, "title");
 const image = searchForKey(recipe, "image");
-const time  = searchForKey(recipe, "time");
-const cost = searchForKey(recipe, "cost");
+const time  = searchForKey(recipe, "readyInMinutes");
+const cost = searchForKey(recipe, "pricePerServing");
 const servings = searchForKey(recipe, "servings");
-const description = searchForKey(recipe, "description");
-const ingredients = searchForKey(recipe, "ingredients");
-const steps = searchForKey(recipe, "steps");
-
+const description = searchForKey(recipe, "summary");
+const ingredients = searchForKey(extraRecipeInfo, "extendedIngredients");
+const steps = searchForKey(extraRecipeInfo, "instructions");
 
 recipeName.textContent = name;
 recipeImage.setAttribute("src",image);
@@ -28,7 +33,7 @@ recipeServings.textContent = servings;
 recipeDescription.textContent = description;
 
 //Get recipe ingredients into an array to append them the ul element
-let ingredientsArr = [];
+/*let ingredientsArr = [];
 let tempRecipes = ingredients;
 ingredientsArr = tempRecipes.split("\n");
 
@@ -39,10 +44,16 @@ for(let i = 0; i < ingredientsArr.length; ++i){
     continue;
   }
   recipeIngredients.appendChild(tempElem);
+}*/
+
+for(let i = 0 ; i < ingredients.length; ++i){
+  let tempElem = document.createElement("li");
+  tempElem.textContent = ingredients[i].original;
+  recipeIngredients.appendChild(tempElem);
 }
 
 //Get recipe steps into an array to append them the ul element
-let stepsArr = [];
+/*let stepsArr = [];
 let tempSteps = steps;
 stepsArr = tempSteps.split("\n");
 
@@ -53,6 +64,15 @@ for(let i = 0; i < stepsArr.length; ++i){
     continue;
   }
   recipeSteps.appendChild(tempElem);
+}*/
+let newSteps = new DOMParser().parseFromString(steps, "text/html");
+console.log(newSteps.firstChild);
+let stepsArr = newSteps.querySelectorAll("li");
+console.log(stepsArr);
+
+
+for(let i = 0; i < stepsArr.length; ++i){
+  recipeSteps.appendChild(stepsArr[i]);
 }
 
 
@@ -72,3 +92,13 @@ function searchForKey(object, key) {
     });
     return value;
   }
+
+
+  async function recipeInfo(id){
+    var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
+    var recipeData = await fetch(url).then(response =>{
+        return response.json();
+    });
+    localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
+
+}

@@ -74,6 +74,7 @@ init(recipes);
     for(let i = 0; i < recipeCard.length; ++i){
       recipeCard[i].addEventListener("click", function (){
         localStorage.recipe = JSON.stringify(recipes[i]);
+        localStorage.recipeID = JSON.stringify(recipes[i].id);
         location.href = "recipePage.html";
       })
     }
@@ -99,11 +100,4 @@ init(recipes);
       });
       return value;
     }
-
-
-
-// document.querySelector('#add').addEventListener('click', getUser)
-
-
-
 

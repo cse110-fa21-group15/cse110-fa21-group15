@@ -1,7 +1,7 @@
-const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
+const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
 const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
-const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=818daa16f8f44a6790d7e444c55f92b8&number=1"
+const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1"
 
 //get recipes by searched keywords from database 
 async function getRecipes(event, filters = false, number = 14, offset = 0, currsize = 0, recurse = 0){    
@@ -144,7 +144,8 @@ async function recipeInfo(id){
     var recipeData = await fetch(url).then(response =>{
         return response.json();
     });
-    localStorage.setItem("recipe", recipeData);
+    localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
+    console.log(recipeData);
 }
 // function getSource(id){
 //     let input = document.getElementById('search').value;
