@@ -23,8 +23,8 @@ jobs:
         run: npm ci
 
       - name: Run Jest
-        run: npm run test -- --coverage unit.test.js
-        
+        run: npm test -- --coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
+
       - name: Run Coverage Action  
         uses: mattallty/jest-github-action@v1
         env:
