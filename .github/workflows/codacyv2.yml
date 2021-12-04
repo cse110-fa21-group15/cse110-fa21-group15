@@ -1,4 +1,4 @@
-name: Codacy Coverage Upload
+name: Codacy v2
 
 on:
   pull_request:
@@ -17,3 +17,5 @@ jobs:
 
       - name: Run script
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        env:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
