@@ -14,7 +14,7 @@ const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d
  * @param {Number} recurse 
  * return list of recipes
  */
-async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
+async function getRecipes(event, filters = false, number = 14, offset = 0, currsize = 0, recurse = 0){    
     
     //Get User Input
     var input = document.querySelector("input[name = 'search']").value;    
