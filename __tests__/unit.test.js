@@ -2,7 +2,7 @@ const functions = require("../source/assets/scripts/RecipeCard.js");
 
 test('basic add test', () => {
     expect(1+2).toBe(3);
-});
+}); 
 
 let testRecipeData = {
     "@graph": [
