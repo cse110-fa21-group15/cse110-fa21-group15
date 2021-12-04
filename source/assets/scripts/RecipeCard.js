@@ -133,7 +133,6 @@ class RecipeCard extends HTMLElement {
     }
 }
 
-
 /*********************************************************************/
 /***                       Helper Functions:                       ***/
 /*********************************************************************/
@@ -251,6 +250,8 @@ function createIngredientList(ingredientArr) {
     // The .slice(0,-2) here gets ride of the extra ", " added to the last ingredient
     return finalIngredientList.slice(0, -2);
 }
+
+module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it

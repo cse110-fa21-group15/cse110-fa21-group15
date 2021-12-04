@@ -129,7 +129,6 @@ async function removeRecipe() {
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {string} id 
  * @return {Object} information regarding the user
  */
 async function getUser() {
