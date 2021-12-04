@@ -23,11 +23,9 @@ jobs:
         run: yarn install
 
       - name: Run Jest
-        run: npm test -- --coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
+        run: yarn jest -- --coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
 
       - name: Run Coverage Action  
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: npm test -- --unit.test.js
