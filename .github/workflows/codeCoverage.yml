@@ -23,6 +23,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install npm
+        run: npm ci
+
       - name: Jest Coverage Action
         uses: mattallty/jest-github-action@v1
         env:
