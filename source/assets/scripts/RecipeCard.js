@@ -255,6 +255,9 @@ function createIngredientList(ingredientArr) {
     return finalIngredientList.slice(0, -2);
 }
 
+// Need this for unit tests please do not remove
+module.exports = {searchForKey, getUrl, getOrganization, convertTime};
+
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
 customElements.define("recipe-card", RecipeCard);
