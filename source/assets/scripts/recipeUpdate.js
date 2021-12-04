@@ -21,18 +21,34 @@ import { firebaseConfig } from './api.js'
  */
  async function updateRecipe() {
     const recipe_id = sessionStorage.getItem("recipe_id");
-     const time = document.querySelector('.timeBoxInput').value
-     const name = document.querySelector('.recipeNameText').value
-     const cost = document.querySelector('.costBoxInput').value
-     const servings = document.querySelector('.servingsBoxInput').value
-     const description = document.querySelector('#descriptionBoxInput').value
-     const ingredients = document.querySelector('#ingredientsBoxInput').value
-     const steps = document.querySelector('#stepsBoxInput').value
-    //  const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-    const docRef = doc(db, "recipes", recipe_id);
-    await updateDoc(docRef, {
-        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
-    })
+     const time = document.querySelector('.timeBoxInput').value;
+     const name = document.querySelector('.recipeNameText').value;
+     const cost = document.querySelector('.costBoxInput').value;
+     const servings = document.querySelector('.servingsBoxInput').value;
+     const description = document.querySelector('#descriptionBoxInput').value;
+     const ingredients = document.querySelector('#ingredientsBoxInput').value;
+     const steps = document.querySelector('#stepsBoxInput').value;
+     const imageFile = document.querySelector("#imageUpload").files[0];
+    const fileType = imageFile['type'];
+    const validImageTypes = ['image/png', 'image/jpeg', 'image/gif'];
+    if (imageFile) {
+        if (validImageTypes.includes(fileType)) {
+            const image = await convertToBase64(imageFile);
+            const docRef = doc(db, "recipes", recipe_id);
+            await updateDoc(docRef, {
+                time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
+            })
+        }
+        else {
+            console.log('invalid file type')
+        }
+    }
+    else {
+        const docRef = doc(db, "recipes", recipe_id);
+        await updateDoc(docRef, {
+            time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+        })
+    }
     location.href = 'cookbook.html';
  }
 
