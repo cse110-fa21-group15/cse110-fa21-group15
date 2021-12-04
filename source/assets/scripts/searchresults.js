@@ -10,7 +10,7 @@ console.log("GETUSER()");*/
 
 let recipes = JSON.parse(localStorage.recipes);
 let numRecipes;
-const recipeData = {}
+const recipeData = {};
 
 init(recipes);
 
@@ -66,7 +66,7 @@ function recipePage(recipes) {
             localStorage.recipe = JSON.stringify(recipes[i]);
             localStorage.recipeID = JSON.stringify(recipes[i].id);
             location.href = "recipePageSpoonacular.html";
-        })
+        });
     }
 }
 

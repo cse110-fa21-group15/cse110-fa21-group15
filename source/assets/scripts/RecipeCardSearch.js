@@ -168,12 +168,14 @@ function searchForKey(object, key) {
  * @returns {String} If found, it returns the URL as a string, otherwise null
  */
 function getUrl(data) {
-    if (data.url) return data.url;
+    if (data.url) {
+        return data.url;
+    }
     if (data["@graph"]) {
         for (let i = 0; i < data["@graph"].length; i++) {
             if (data["@graph"][i]["@type"] == "Article") return data["@graph"][i]["@id"];
         }
-    };
+    }
     return null;
 }
 
@@ -184,10 +186,12 @@ function getUrl(data) {
  * @returns {String} If found, it retuns the name of the org as a string, otherwise null
  */
 function getOrganization(data) {
-    if (data.publisher?.name) return data.publisher?.name;
+    if (data.publisher.name) {
+        return data.publisher.name;
+    }   
     if (data["@graph"]) {
         for (let i = 0; i < data["@graph"].length; i++) {
-            if (data["@graph"][i]["@type"] == "Organization") {
+            if (data["@graph"][i]["@type"] === "Organization") {
                 return data["@graph"][i].name;
             }
         }
@@ -210,12 +214,16 @@ function convertTime(time) {
     let timeArr = time.split("");
     if (time.includes("H")) {
         for (let i = 0; i < timeArr.length; i++) {
-            if (timeArr[i] == "H") return `${timeStr} hr`;
+            if (timeArr[i] === "H") {
+                return `${timeStr} hr`;
+            }
             timeStr += timeArr[i];
         }
     } else {
         for (let i = 0; i < timeArr.length; i++) {
-            if (timeArr[i] == "M") return `${timeStr} min`;
+            if (timeArr[i] === "M") {
+                return `${timeStr} min`;
+            }
             timeStr += timeArr[i];
         }
     }
