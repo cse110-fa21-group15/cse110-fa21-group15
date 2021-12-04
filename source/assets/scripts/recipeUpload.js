@@ -31,14 +31,13 @@ async function createRecipe(event) {
             const imageFile = document.querySelector("#imageUpload").files[0];
             if (!time || !name || !cost || !servings || !description || !ingredients || !steps || !imageFile) {
                 document.querySelector(".uploadError").innerHTML = "Please make sure all fields are filled!";  
-              console.log("PLEASE");
             }
             else {
                 const image = await convertToBase64(imageFile);
                 const database = doc(db, "users", id);
                 try {
                     const docRef = await addDoc(collection(db, "recipes"), {
-                        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
+                        time, name, cost, servings, description, ingredients, steps, image, user_id : id
                     })
                     await updateDoc(docRef, {
                         recipe_id : docRef.id

@@ -47,9 +47,9 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     const fetchPromise = fetch(url);
 
     // Get the final list of recipes after applying the cost filtering as needed
-    const final = fetchPromise.then(response => {
+    const final = fetchPromise.then((response) => {
         return response.json();
-    }).then(results => {
+    }).then((results) => {
         //storeRecipe(results, input);    
         let recipes = results["results"];    
         let output = [];
@@ -155,7 +155,7 @@ async function retrieveRecipe(input) {
  * @returns random recipe
  */
 async function randomRecipe(){
-    let recipeData = await fetch(RANDOM_RECIPE_URL).then(response => {
+    let recipeData = await fetch(RANDOM_RECIPE_URL).then((response) => {
         return response.json();
     });
     return recipeData["recipes"][0];
@@ -168,7 +168,7 @@ async function randomRecipe(){
  */
 async function recipeInfo(id) {
     let url = "https://api.spoonacular.com/recipes/" + id + "/information?" + API_KEY;
-    let recipeData = await fetch(url).then(response => {
+    let recipeData = await fetch(url).then((response) => {
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));

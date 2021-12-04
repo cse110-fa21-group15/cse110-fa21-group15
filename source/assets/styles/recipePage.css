@@ -221,10 +221,7 @@ form.example i {
     display: flex;
     flex-direction: column;
     align-items: left;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px 100px 30px 100px;
     justify-content: space-between;   
     gap: 15px;
 }

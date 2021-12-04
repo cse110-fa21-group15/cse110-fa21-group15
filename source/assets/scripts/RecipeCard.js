@@ -243,7 +243,7 @@ function createIngredientList(ingredientArr) {
         return ingredient.split(" ").splice(2).join(" ");
     }
 
-    ingredientArr.forEach(ingredient => {
+    ingredientArr.forEach((ingredient) => {
         ingredient = _removeQtyAndMeasurement(ingredient);
         finalIngredientList += `${ingredient}, `;
     });

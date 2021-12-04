@@ -105,7 +105,7 @@ function searchForKey(object, key) {
 
 async function recipeInfo(id){
     var url = "https://api.spoonacular.com/recipes/" + id + "/information?" + API_KEY;
-    var recipeData = await fetch(url).then(response => {
+    var recipeData = await fetch(url).then((response) => {
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));

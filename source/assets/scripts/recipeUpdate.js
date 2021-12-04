@@ -33,20 +33,20 @@ async function updateRecipe() {
             const image = await convertToBase64(imageFile);
             const docRef = doc(db, "recipes", recipe_id);
             await updateDoc(docRef, {
-                time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image
+                time, name, cost, servings, description, ingredients, steps, image: image
             })
         }
         else {
             const docRef = doc(db, "recipes", recipe_id);
             await updateDoc(docRef, {
-                time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+                time, name, cost, servings, description, ingredients, steps
             })
         }
     }
     else {
         const docRef = doc(db, "recipes", recipe_id);
         await updateDoc(docRef, {
-            time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps
+            time, name, cost, servings, description, ingredients, steps
         })
     }
     location.href = "cookbook.html";
