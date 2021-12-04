@@ -15,6 +15,7 @@ const db = getFirestore();
 
 /**
  * Sign in function that returns a user ID
+ * @return information regarding the user
  */
 async function signIn() {
   const email = document.getElementById("email").value;
@@ -36,9 +37,9 @@ async function signIn() {
 }
 
 /**
- * addUser function that adds a user to the FireStore Database after creating an account
- * @param {string} email 
- * @param {string} id 
+ * Adds a user to the FireStore Database after creating an account
+ * @param {string} email user's email
+ * @param {string} id user's id
  */
 async function addUser(email, id) {
   try {
@@ -56,6 +57,8 @@ async function addUser(email, id) {
 
 
 // document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
+
+// test function
 
 async function removeRecipe() {
   let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53"
@@ -78,6 +81,9 @@ async function removeRecipe() {
 // document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 
+/**
+ * Checks if user is logged in and behaves accordingly
+ */
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
@@ -95,7 +101,7 @@ onAuthStateChanged(auth, async (user) => {
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {String} id 
+ * @param {String} id  user's id
  * @returns information regarding the user
  */
  async function getUser(id) {
@@ -117,7 +123,11 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-
+/**
+ * Returns the desired recipe
+ * @param {string} recipe_id ID of recipe to be fetched
+ * @return recipe data
+ */
 
 async function getRecipe(recipe_id) {
   const recipesRef = doc(db, "recipes", recipe_id);
@@ -141,6 +151,10 @@ async function getRecipe(recipe_id) {
 /*const user = await getUser();
 console.log("GETUSER()");*/
 
+/**
+ * Load the desired recipes
+ * @param {string} id id of recipe
+ */
 
 async function loadRecipes(id) {
   const userFile = await getUser(id);
@@ -155,6 +169,11 @@ async function loadRecipes(id) {
   
   //Call this to begin getting recipe cards
 
+  
+  /**
+   * Initial function to populate page with recipes
+   * @param {Array} recipes recipes to display
+   */
   
   // This is the first function to be called, so when you are tracing your code start here.
   async function init(recipes) {
@@ -171,6 +190,11 @@ async function loadRecipes(id) {
     recipePage(recipes);
 
   }
+
+  /**
+   * Fetch recipes and populate them into recipeData
+   * @param {Array} recipes recipes to fetch
+   */
   async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {
   
@@ -187,6 +211,9 @@ async function loadRecipes(id) {
     });
   }
   
+  /**
+   * Create recipe cards to be displayed 
+   */
   function createRecipeCards() {
     let parentDiv = document.querySelector(".parentDiv");
     let mainElement = document.querySelector("main");
@@ -200,6 +227,10 @@ async function loadRecipes(id) {
   }
   
   //Go to recipePage upon clicking recipe card
+  /**
+   * Go to recipePage upon clicking recipe card
+   * @param {Array} recipes recipes to navigate to
+   */
   function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
     console.log(recipes)

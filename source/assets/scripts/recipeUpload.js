@@ -10,16 +10,10 @@ import { firebaseConfig } from './api.js'
   const db = getFirestore();
 
   // DELETE COMMENT WHEN DONE! ADD PARAMETERS!!
+
 /**
- * 
- * @param {id of user logged in} id 
- * @param {name of recipe} name
- * @param {Time it takes to cook the meal} time 
- * @param {Cost of ingredients in the meal} cost 
- * @param {Number of servings in the meal} servings 
- * @param {Information regarding the meal} description 
- * @param {Image of meal} image
- * @param {tag of meal} tag
+ * Create a user recipe
+ * @param event Event that occurs when recipe save button is clicked
  */
  async function createRecipe(event) {
   event.preventDefault();
@@ -61,7 +55,11 @@ import { firebaseConfig } from './api.js'
   });
 }
 
-
+/**
+ * Adds a user to the FireStore Database
+ * @param {string} email email of user
+ * @param {string} id id of user
+ */
  async function addUser(email, id) {
     try {
       const docRef = await addDoc(collection(db, "users"), {
@@ -78,12 +76,11 @@ import { firebaseConfig } from './api.js'
 
  /**
   * Converts an image to data url to store in the database.
-  * @param {Image file uploaded when creating recipe} image 
-  * @returns 
+  * @param {string} image Image file uploaded when creating recipe
   */
  function convertToBase64(image) {
      var reader = new FileReader();
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
         reader.onload = () => {
             resolve(reader.result);
         };
@@ -109,6 +106,9 @@ import { firebaseConfig } from './api.js'
  document.querySelector('#saveForm').addEventListener('click', createRecipe);
  document.querySelector("#imageUpload").addEventListener('change', imagePreview);
 
+ /**
+ * Checks if user is logged in and behaves accordingly
+ */
  onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties

@@ -9,7 +9,7 @@ const recipeServingsInput = document.querySelector(".servingsBoxInput");
 const recipeDescriptionInput = document.querySelector("#descriptionBoxInput");
 const recipeIngredientsInput = document.querySelector("#ingredientsBoxInput");
 const recipeStepsInput = document.querySelector("#stepsBoxInput");
-console.log(recipeStepsInput);
+//console.log(recipeStepsInput);
 
 //Get data from the recipe page
 const recipeName = sessionStorage.getItem("recipeName");
@@ -18,16 +18,16 @@ const recipeTime = sessionStorage.getItem("recipeTime");
 const recipeCost = sessionStorage.getItem("recipeCost");
 const recipeServings = sessionStorage.getItem("recipeServings");
 const recipeDescription = sessionStorage.getItem("recipeDescription");
-const recipeIngredients = JSON.parse(localStorage.ingredients)
-const recipeSteps = JSON.parse(localStorage.steps)
+const recipeIngredients = JSON.parse(localStorage.ingredients);
+const recipeSteps = JSON.parse(localStorage.steps);
 // console.log(localStorage);
 const recipe_id = sessionStorage.getItem("recipe_id");
-console.log(recipe_id)
+//console.log(recipe_id)
 
-console.log("testing routing");
+//console.log("testing routing");
 //Fill in the data in the recipe upload page
 recipeNameInput.value = recipeName;
-recipeImageInput.setAttribute("src", recipeImage)
+recipeImageInput.setAttribute("src", recipeImage);
 recipeTimeInput.value = recipeTime;
 recipeCostInput.value = recipeCost;
 recipeServingsInput.value = recipeServings;

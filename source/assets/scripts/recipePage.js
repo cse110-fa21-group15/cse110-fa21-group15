@@ -24,6 +24,13 @@ editBtn.addEventListener("click", function(){
         }
     }
 
+
+    /**
+     * Recursively search for a key nested somewhere inside an object
+     * @param {Object} object the object with which you'd like to search
+     * @param {String} key the key that you are looking for in the object
+     * @returns {string} the value of the found key
+     */
     function searchForKey(object, key) {
         var value;
         Object.keys(object).some(function (k) {
