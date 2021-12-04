@@ -8,7 +8,7 @@
       "babel-jest": "^27.4.0",
       "jest": "^27.4.0",
       "jest-puppeteer": "^6.0.2",
-      "puppeteer": "^11.0.0"
+      "puppeteer": "^12.0.1"
   },
   "scripts": {
       "test": "jest"
@@ -16,8 +16,5 @@
   "jest": {
       "preset": "jest-puppeteer",
       "verbose": true
-  },
-  "dependencies": {
-      "minami": "^1.2.3"
   }
 }
