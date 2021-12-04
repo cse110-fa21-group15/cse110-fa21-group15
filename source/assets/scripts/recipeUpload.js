@@ -28,25 +28,32 @@ async function createRecipe(event) {
             const description = document.querySelector("#descriptionBoxInput").value;
             const ingredients = document.querySelector("#ingredientsBoxInput").value;
             const steps = document.querySelector("#stepsBoxInput").value;
-            const image = await convertToBase64(document.querySelector("#imageUpload").files[0]);
-            const database = doc(db, "users", id);
-            try {
-                const docRef = await addDoc(collection(db, "recipes"), {
-                    time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
-                })
-                await updateDoc(docRef, {
-                    recipe_id : docRef.id
-                })
-                console.log(docRef.id);
-                await updateDoc(database, {
-                    favoriteRecipes: arrayUnion(docRef.id)
-                })
-                location.href = "cookbook.html";
-            } 
-            catch (e) {
-                console.error("Error adding document: ", e);
+            const imageFile = document.querySelector("#imageUpload").files[0];
+            if (!time || !name || !cost || !servings || !description || !ingredients || !steps || !imageFile) {
+                document.querySelector(".uploadError").innerHTML = "Please make sure all fields are filled!";  
+              console.log("PLEASE");
             }
-            // ...
+            else {
+                const image = await convertToBase64(imageFile);
+                const database = doc(db, "users", id);
+                try {
+                    const docRef = await addDoc(collection(db, "recipes"), {
+                        time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
+                    })
+                    await updateDoc(docRef, {
+                        recipe_id : docRef.id
+                    })
+                    console.log(docRef.id);
+                    await updateDoc(database, {
+                        favoriteRecipes: arrayUnion(docRef.id)
+                    })
+                    location.href = "cookbook.html";
+                } 
+                catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+                // ...
+            }
         } 
         else {
             // User is signed out
@@ -91,14 +98,26 @@ function convertToBase64(image) {
  * Creates the preview for the image on the upload recipe page.
  */
 function imagePreview() {
-    let reader = new FileReader();
-    const preview = document.querySelector(".uploadImage");
-    const image = document.querySelector("#imageUpload").files[0];
-    reader.onloadend = function() {
-        console.log(reader.result);
-        preview.src = reader.result;
-    }
-    reader.readAsDataURL(image);
+  let reader = new FileReader();
+  const preview = document.querySelector(".uploadImage");
+  const image = document.querySelector("#imageUpload").files[0];
+  const fileType = image["type"];
+  const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+  if (!validImageTypes.includes(fileType)) {
+      document.querySelector(".recipePictureText").innerHTML = "Invalid File Type. Please use .PNG or .JPEG!";
+      document.querySelector(".recipePictureText").classList.add("recipePictureTextRed");
+  }
+  else {
+      if (document.querySelector(".recipePictureTextRed")) {
+          document.querySelector(".recipePictureText").innerHTML = "Upload Recipe Image";
+          document.querySelector(".recipePictureText").classList.remove("recipePictureTextRed");
+      }
+  }
+  reader.onloadend = function() {
+      console.log(reader.result);
+      preview.src = reader.result;
+  }
+  reader.readAsDataURL(image);
  }
 
  // Event listeners for creating a recipe and displaying preview when image is uploaded.

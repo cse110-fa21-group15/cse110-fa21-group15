@@ -313,6 +313,13 @@ textarea {
     height: 4%;
 }
 
+.uploadError {
+    font-size: 20px;
+    color: #FF0000;
+    text-align: right;
+    margin-right: 80px;
+}
+
 /* Copyright styling */
 footer {
     margin-top: auto;
