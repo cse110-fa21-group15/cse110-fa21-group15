@@ -27,8 +27,6 @@ const steps = searchForKey(extraRecipeInfo, "instructions");
 
 let newDescription = new DOMParser().parseFromString(description, "text/html");
 
-
-
 recipeName.textContent = name;
 recipeImage.setAttribute("src",image);
 recipeTime.textContent = time;
@@ -50,10 +48,10 @@ for(let i = 0; i < ingredientsArr.length; ++i){
   recipeIngredients.appendChild(tempElem);
 }*/
 
-for(let i = 0 ; i < ingredients.length; ++i){
-  let tempElem = document.createElement("li");
-  tempElem.textContent = ingredients[i].original;
-  recipeIngredients.appendChild(tempElem);
+for (let i = 0; i < ingredients.length; i++) {
+    let tempElem = document.createElement("li");
+    tempElem.textContent = ingredients[i].original;
+    recipeIngredients.appendChild(tempElem);
 }
 
 //Get recipe steps into an array to append them the ul element
@@ -69,49 +67,46 @@ for(let i = 0; i < stepsArr.length; ++i){
   }
   recipeSteps.appendChild(tempElem);
 }*/
+
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;
 let stepsArr = newSteps.querySelectorAll("li");
 console.log(stepsArr);
 
-if(stepsArr.length != 0){
-    for(let i = 0; i < stepsArr.length; ++i){
+if (stepsArr.length != 0) {
+    for (let i = 0; i < stepsArr.length; i++) {
         recipeSteps.appendChild(stepsArr[i]);
-      }
+    }
 }
-else{
+else {
     stepsArr = stepTemp.split(".");
-    for(let i = 0 ; i < stepsArr.length - 1; ++i){
+    for (let i = 0 ; i < stepsArr.length - 1; i++) {
         let tempElem = document.createElement("li");
         tempElem.textContent = stepsArr[i];
         recipeSteps.appendChild(tempElem);
-      }
+    }
 }
-
-
 
 //Search for keys in JSON file
 function searchForKey(object, key) {
     var value;
     Object.keys(object).some(function (k) {
-      if (k === key) {
-        value = object[k];
-        return true;
-      }
-      if (object[k] && typeof object[k] === 'object') {
-        value = searchForKey(object[k], key);
-        return value !== undefined;
-      }
+        if (k === key) {
+            value = object[k];
+            return true;
+        }
+        if (object[k] && typeof object[k] === "object") {
+            value = searchForKey(object[k], key);
+            return value !== undefined;
+        }
     });
     return value;
-  }
+}
 
-
-  async function recipeInfo(id){
-    var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
-    var recipeData = await fetch(url).then(response =>{
+async function recipeInfo(id){
+    var url = "https://api.spoonacular.com/recipes/" + id + "/information?" + API_KEY;
+    var recipeData = await fetch(url).then((response) => {
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
-
 }

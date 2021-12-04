@@ -62,7 +62,7 @@ function searchForKey(object, key) {
             value = object[k];
             return true;
         }
-        if (object[k] && typeof object[k] === 'object') {
+        if (object[k] && typeof object[k] === "object") {
             value = searchForKey(object[k], key);
             return value !== undefined;
         }

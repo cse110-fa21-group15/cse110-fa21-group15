@@ -23,9 +23,12 @@ body {
     background-color: #FFCF96;
 }
 
+/* The container <div> - needed to position the dropdown content */
 .menu {
     flex: 1;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
 .menuIcon {
@@ -46,12 +49,6 @@ body {
     width: 80px;
     border: none;
     cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.menu {
-    position: relative;
-    display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -120,7 +117,7 @@ form.example input[type=text] {
     border: 1px solid grey;
     float: left;
     width: 80%;
-    background: #f1f1f1;
+    background: #F1F1F1;
     height: 55px;
 }
 
@@ -146,7 +143,6 @@ form.example i {
 .signIn button {
     width: 100px;
     height: 60px;
-    background-color: #FFCF96;
     margin-top: 10px;
     border-radius: 20px;
     border: none;
@@ -277,7 +273,7 @@ textarea {
 }
 
 .flex-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: left;
     padding-top: 20px;
@@ -286,7 +282,7 @@ textarea {
 }
 
 .word {
-    font-size:25px;
+    font-size: 25px;
     color: #505050;
     margin-left: 90px;
 }
@@ -297,8 +293,8 @@ textarea {
     text-align: left;
     margin-left: 0px;
     border-left: 0px;
-    float:left;
-    padding-left:2px;
+    float: left;
+    padding-left: 2px;
 }
 
 .textbox textarea {
@@ -311,6 +307,13 @@ textarea {
     margin-left:90%;
     width: 4%;
     height: 4%;
+}
+
+.uploadError {
+    font-size: 20px;
+    color: #FF0000;
+    text-align: right;
+    margin-right: 80px;
 }
 
 /* Copyright styling */
