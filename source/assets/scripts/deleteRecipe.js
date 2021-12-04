@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, deleteDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import { firebaseConfig } from './api.js';
+import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -38,7 +38,7 @@ const database = doc(db, "users", user_id);
             favorites: arrayUnion(recipe_id)
         })
     } catch (e) {
-        console.error("Error adding favorite recipe")
+        console.error("Error adding favorite recipe");
     }
 }
 
@@ -55,7 +55,6 @@ deleteBtn.addEventListener("click", function() {
     //console.log("onlick is working");
     deleteRecipe(recipe_id, user_id);
 })
-
 
 /**
  * Recursively search for a key nested somewhere inside an object

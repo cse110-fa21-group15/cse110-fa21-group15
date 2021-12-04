@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
-import { firebaseConfig } from './api.js'
+import { firebaseConfig } from "./api.js"
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -47,7 +47,8 @@ async function addUser(email, id) {
             favoriteRecipes: [],
             favorites: []
         });
-    } catch (e) {
+    } 
+    catch (e) {
         console.error("Error adding document: ", e);
     }
 }
@@ -84,7 +85,8 @@ onAuthStateChanged(auth, async (user) => {
         const uid = user.uid;
         loadRecipes(uid);
         // ...
-    } else {
+    } 
+    else {
         // User is signed out
         // ...
     }
@@ -123,7 +125,8 @@ async function getRecipe(recipe_id) {
   
     if (docSnap.exists()) {
         return docSnap.data();
-    } else {
+    } 
+    else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
     }
@@ -164,7 +167,7 @@ async function init(recipes) {
     let fetchSuccessful = await fetchRecipes(recipes);
     // if they didn't successfully load, quit the function
     if (!fetchSuccessful) {
-        console.log('Recipe fetch unsuccessful');
+        console.log("Recipe fetch unsuccessful");
         return;
     };
     // Add the first three recipe cards to the page
@@ -183,7 +186,7 @@ async function fetchRecipes(recipes) {
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
             recipeData[i] = recipes[i];
-            if(i == numRecipes - 1) {
+            if (i == numRecipes - 1) {
                 resolve(true);
             }
         }
@@ -213,7 +216,7 @@ function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
     console.log(recipes);    
     for (let i = 0; i < recipeCard.length; i++) {
-        recipeCard[i].addEventListener("click", function (){
+        recipeCard[i].addEventListener("click", function () {
             localStorage.recipe = JSON.stringify(recipes[i]);
             location.href = "recipePage.html";
         })
@@ -233,7 +236,7 @@ function searchForKey(object, key) {
             value = object[k];
             return true;
         }
-        if (object[k] && typeof object[k] === 'object') {
+        if (object[k] && typeof object[k] === "object") {
             value = searchForKey(object[k], key);
             return value !== undefined;
         }

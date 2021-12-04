@@ -9,7 +9,7 @@ editBtn.addEventListener("click", function() {
     console.log(recipeIngredients);
     let recipeIngredientsList = [];
     if (recipeIngredients.length > 0) {
-        for (let i = 0; i < recipeIngredients.length; ++i) {
+        for (let i = 0; i < recipeIngredients.length; i++) {
             recipeIngredientsList[i] = recipeIngredients[i].textContent;
         }
     }
