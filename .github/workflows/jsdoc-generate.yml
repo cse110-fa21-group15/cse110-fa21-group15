@@ -35,6 +35,9 @@ jobs:
           path: doc-repo
           token: ${{ secrets.PUSH_TOKEN }}
 
+      - name: Check npm version
+        run: npm -v
+
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1
         with:
