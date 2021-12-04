@@ -4,6 +4,16 @@ const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
 const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=818daa16f8f44a6790d7e444c55f92b8&number=1"
 
 //get recipes by searched keywords from database 
+/**
+ * Get recipes by searched keywords from database
+ * @param {*} event 
+ * @param {*} filters 
+ * @param {*} number 
+ * @param {*} offset 
+ * @param {*} currsize 
+ * @param {*} recurse 
+ * @returns 
+ */
 async function getRecipes(event, filters = false, number = 8, offset = 0, currsize = 0, recurse = 0){    
     
     //Get User Input
@@ -87,6 +97,12 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
 
 
 //Takes a list of recipes and filters them by cost, and returns the filtered list
+/**
+ * Filter recipes by cost
+ * @param {Array} recipes list of recipes
+ * @param {string} cost set cost
+ * @returns 
+ */
 function filterCost(recipes, cost){
     if(cost == ""){
         return recipes;
@@ -113,12 +129,20 @@ function filterCost(recipes, cost){
 }
 
 //redirect to results page
+/**
+ * Redirect to results page
+ */
 async function redirectPage(){
     console.log("Redirecting to result page");
     window.location.href = "searchresults.html";
 }
 
 //Store recipe data retrieved
+/**
+ * Store recipe data retrieved
+ * @param {Array} results recipe list
+ * @param {string} input  where to store data
+ */
 async function storeRecipe(results, input){
     //store data for all sessions, string only
     console.log("Storing recipes to local storage");
@@ -128,6 +152,10 @@ async function storeRecipe(results, input){
 }
 
 //Retrieve results from local storage
+/**
+ * Retrieve results from local storage
+ * @param {string} input where to retrieve data
+ */
 async function retrieveRecipe(input){
     console.log("Retrieving recipes from local storage");
     myStorage = window.localStorage;
@@ -135,6 +163,10 @@ async function retrieveRecipe(input){
     console.log(recipe_example);
 }
 
+/**
+ * Fetches a random recipe
+ * @returns random recipe
+ */
 async function randomRecipe(){
     var recipeData = await fetch(RANDOM_RECIPE_URL).then(response =>{
         return response.json();
@@ -142,6 +174,11 @@ async function randomRecipe(){
     return recipeData['recipes'][0];
 }
 
+/**
+ * Fetch information about the recipe
+ * @param {string} id 
+ * @returns 
+ */
 async function recipeInfo(id){
     var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
     var recipeData = await fetch(url).then(response =>{

@@ -16,4 +16,4 @@ personalCookbook.addEventListener("click", function(){
     localStorage.ingredients = JSON.stringify("");
     
     localStorage.steps = JSON.stringify("");
-})
+});
