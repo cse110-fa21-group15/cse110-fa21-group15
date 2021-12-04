@@ -101,7 +101,7 @@ async function getRecipes(event, filters = false, number = 8, offset = 0, currsi
  * Filter recipes by cost
  * @param {Array} recipes list of recipes
  * @param {string} cost set cost
- * @returns 
+ * @return list of recipe with filter applied
  */
 function filterCost(recipes, cost){
     if(cost == ""){
@@ -177,7 +177,7 @@ async function randomRecipe(){
 /**
  * Fetch information about the recipe
  * @param {string} id 
- * @returns 
+ * @returns data about the recipe
  */
 async function recipeInfo(id){
     var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
