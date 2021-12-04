@@ -26,9 +26,9 @@ async function updateRecipe() {
     const ingredients = document.querySelector("#ingredientsBoxInput").value;
     const steps = document.querySelector("#stepsBoxInput").value;
     const imageFile = document.querySelector("#imageUpload").files[0];
-    const fileType = imageFile["type"];
-    const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
     if (imageFile) {
+        const fileType = imageFile["type"];
+        const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
         if (validImageTypes.includes(fileType)) {
             const image = await convertToBase64(imageFile);
             const docRef = doc(db, "recipes", recipe_id);
