@@ -1,0 +1,33 @@
+# Title: jest-annotations-coverage
+# Author: mattallty
+# Date: 2021
+# Availability: https://github.com/mattallty/jest-github-action
+
+name: Jest Code Coverage
+
+on:
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Run Jest
+        run: yarn run unitTest coverage unit.test.js json outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
+
+      - name: Run Coverage Action  
+        uses: mattallty/jest-github-action@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          test-command: yarn run unitTest unit.test.js
