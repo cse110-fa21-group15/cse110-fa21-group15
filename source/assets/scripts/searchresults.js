@@ -25,7 +25,7 @@ async function init(recipes) {
     if (!fetchSuccessful) {
         console.log("Recipe fetch unsuccessful");
         return;
-    };
+    }
     // Add the first three recipe cards to the page
     createRecipeCards();
     recipePage(recipes);

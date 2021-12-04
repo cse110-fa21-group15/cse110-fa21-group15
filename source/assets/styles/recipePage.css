@@ -25,6 +25,8 @@ body {
 .menu {
     flex: 1;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
   
 .menuIcon {
@@ -112,7 +114,6 @@ form.example i {
 .signIn button {
     width: 100px;
     height: 60px;
-    background-color: #FFCF96;
     margin-top: 10px;
     border-radius: 20px;
     border: none;

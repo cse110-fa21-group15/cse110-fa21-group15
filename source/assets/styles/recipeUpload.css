@@ -23,9 +23,12 @@ body {
     background-color: #FFCF96;
 }
 
+/* The container <div> - needed to position the dropdown content */
 .menu {
     flex: 1;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
 .menuIcon {
@@ -46,12 +49,6 @@ body {
     width: 80px;
     border: none;
     cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.menu {
-    position: relative;
-    display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -146,7 +143,6 @@ form.example i {
 .signIn button {
     width: 100px;
     height: 60px;
-    background-color: #FFCF96;
     margin-top: 10px;
     border-radius: 20px;
     border: none;

@@ -95,7 +95,7 @@ class RecipeCard extends HTMLElement {
         // created in the constructor()
 
         // Part 1 Expose - TODO
-        this.shadowRoot.appendChild(styleElem);;
+        this.shadowRoot.appendChild(styleElem);
 
         //set image src
         const image = document.createElement("img");
@@ -170,7 +170,7 @@ function getUrl(data) {
         for (let i = 0; i < data["@graph"].length; i++) {
             if (data["@graph"][i]["@type"] == "Article") return data["@graph"][i]["@id"];
         }
-    };
+    }
     return null;
 }
 
