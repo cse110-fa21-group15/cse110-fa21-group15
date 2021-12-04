@@ -76,11 +76,11 @@ import { firebaseConfig } from './api.js'
 
  /**
   * Converts an image to data url to store in the database.
-  * @param {Image file uploaded when creating recipe} image Image file uploaded when creating recipe
+  * @param {string} image Image file uploaded when creating recipe
   */
  function convertToBase64(image) {
      var reader = new FileReader();
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
         reader.onload = () => {
             resolve(reader.result);
         };
