@@ -32,4 +32,4 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: yarn jest env=@happy-dom/jest-environment unit.test.js
+          test-command: yarn run unitTest env=@happy-dom/jest-environment unit.test.js
