@@ -149,15 +149,12 @@ form.example i {
   border-radius: 12px;
 }
 
-.signIn {
-  flex: 0.85;
-}
-
 .signIn button {
   width: 100px;
   height: 60px;
-  background-color: #ffcf96;
+  background-color: #fff5ea;
   margin-top: 10px;
+  margin-right: 5px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
