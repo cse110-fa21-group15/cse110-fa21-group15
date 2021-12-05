@@ -1,9 +1,8 @@
 /* Background color of entire webpage */
-*{
+* {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Capriola', sans-serif;
-  
+  font-family: "Capriola", sans-serif; 
 }
 
 body {
@@ -11,17 +10,17 @@ body {
   min-width: 960px;
   display: flex;
   flex-direction: column;
-  background-color: #FFE0BB;
+  background-color: #ffe0bb;
 }
 
 /* Navigation bar styling */
-.navigationBar{
+.navigationBar {
   display: flex;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
-.navigationBar div{
-  background-color: #FFCF96;
+.navigationBar div {
+  background-color: #ffcf96;
 }
 
 .menu {
@@ -37,9 +36,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* Drop down button */
 .menuButton {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 70px;
   border-radius: 12px;
   margin: 5px;
@@ -59,7 +59,7 @@ body {
   display: none;
   position: absolute;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-top: -10px;
   margin-left: 5px;
@@ -71,18 +71,17 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover { background-color: #ddd; }
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content {display: block;}
+.menu:hover .dropdown-content { display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn {background-color: #3e8e41;}
-
+.menu:hover .dropbtn { background-color: #3e8e41; }
 
 .logo {
   flex: 0.1;
@@ -92,7 +91,7 @@ body {
 .resizeLogo {
   width: 60px;
   height: auto;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
   display: block;
   cursor: pointer;
 }
@@ -108,7 +107,6 @@ body {
   font-size: 30px;
   cursor: pointer;
   height: 55px;
-
 }
 
 .round {
@@ -148,198 +146,191 @@ form.example i {
 .signIn button {
   width: 100px;
   height: 60px;
-  background-color: #FFCF96;
   margin-top: 10px;
   border-radius: 20px;
   border: none;
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   cursor: pointer;
 }
 
-  /* New Stuff */
+/* New Stuff */
+.recipeName {
+  margin-top: 50px;
+  margin-left: 5%;
+}
 
-  .recipeName {
-    margin-top: 50px;
-    margin-left: 5%;
-  }
+form.recipeNameTextBox input {
+  background: #fffcfc;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  border-radius: 12px;
+  width: 31%;
+  height: 60px;
+}
 
-  form.recipeNameTextBox input {
-    background: #FFFCFC;
-    border: 1px solid #B3B3B3;
-    box-sizing: border-box;
-    border-radius: 12px;
-    width: 31%;
-    height: 60px;
-  }
+.recipePicture {
+  margin-top: 50px;
+  margin-left: 5%;
+  background: #fff;
+  border: 1px solid #b3b3b3;
+  border-radius: 12px;
+  width: 30%;
+}
 
-  .recipePicture {
-    margin-top: 50px;
-    margin-left: 5%;
-    background: #FFFFFF;
-    border: 1px solid #B3B3B3;
-    border-radius: 12px;
-    width: 30%;
-  }
+.recipePicture input {
+  margin-left: 20px;
+  margin-top: 90px;
+}
 
-  .recipePicture input {
-    margin-left: 20px;
-    margin-top: 90px;
-  }
+.recipePictureText {
+  position: relative;
+  margin-left: 25%;
+}
 
-  .recipePictureText {
-    position: relative;
-    margin-left: 25%;
-  }
+.uploadImage {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 50px;
+}
 
-  .uploadImage {
-    display: block;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-top: 50px;
-  }
+#imageUpload {
+  margin-bottom: 40px;
+}
 
-  #imageUpload {
-    margin-bottom: 40px;
-  }
+.middleArea {
+    display: flex;
+    justify-content: space-between;
+}
 
-  .middleArea {
-      display: flex;
-      justify-content: space-between;
-  }
+.misc {
+  margin-left: 120px;
+  margin-top: 80px;
+  margin-right: 300px;
+  display: block;
+}
 
-  .misc {
-      margin-left: 120px;
-      margin-top: 80px;
-      margin-right: 300px;
-      display: block;
-  }
+.misc p{
+  font-size: 30px;
+  line-height: 45px;
+  color: #505050;
+}
 
-  .misc p{
-    font-size: 30px;
-    line-height: 45px;
-    color: #505050;
-  }
+.time {
+  display: flex;
+  margin-top: 20px;
+}
 
-  .time {
+form.miscBox input {
+  background: #fffcfc;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 300px;
+  height: 61px;
+  margin-left: 20px;
+}
+
+.cost {
     display: flex;
     margin-top: 20px;
-  }
-
-  form.miscBox input {
-    background: #FFFCFC;
-    border: 1px solid #B3B3B3;
-    box-sizing: border-box;
-    border-radius: 5px;
-
-    width: 300px;
-    height: 61px;
-    margin-left: 20px;
-
-  }
-
-  .cost {
-      display: flex;
-      margin-top: 20px;
-  }
-
-  .servings {
-      display: flex;
-      margin-top: 20px;
-  }
-
-  form.servingsBox input {
-    background: #FFFCFC;
-    border: 1px solid #B3B3B3;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-left: 20px;
-  }
-
-  .tags{
-      display: flex;
-      margin-top: 20px;
-  }
-
-  .tags input {
-      margin-left: 20px;
-  }
-
-
-  .recipePicture center {
-    font-size: 28px;
-    line-height: 45px;
-    color: rgba(0, 0, 0, 0.4);
-  }
-
-
-  textarea {
-    resize: none;
-    margin-left: 5%;
-    border-radius: 12px;
-    width:90%;
-    height: 250px;
-    text-align: left;
-    padding: 30px 20px 20px  30px;
-  }
-
-  .flex-container{
-    display:flex;
-    flex-direction: column;
-    align-items: left;
-    padding-top: 20px;
-    justify-content: space-between;
-    gap: 15px;
 }
 
-.word{
-    font-size:25px;
-    color: #505050;
-    margin-left: 90px;
+.servings {
+    display: flex;
+    margin-top: 20px;
 }
 
-.step{
-    color: #505050;
-    font-size:25px;
-    text-align: left;
-    margin-left: 0px;
-    border-left: 0px;
-    float:left;
-    padding-left:2px;
+form.servingsBox input {
+  background: #fffcfc;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
-.textbox textarea{
-    font-size: 20px;
+.tags {
+  display: flex;
+  margin-top: 20px;
+}
+
+.tags input {
+  margin-left: 20px;
+}
+
+.recipePicture center {
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+textarea {
+  resize: none;
+  margin-left: 5%;
+  border-radius: 12px;
+  width:90%;
+  height: 250px;
+  text-align: left;
+  padding: 30px 20px 20px  30px;
+}
+
+.flex-container {
+  display:f lex;
+  flex-direction: column;
+  align-items: left;
+  padding-top: 20px;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.word {
+  font-size: 25px;
+  color: #505050;
+  margin-left: 90px;
+}
+
+.step {
+  color: #505050;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 0;
+  border-left: 0;
+  float: left;
+  padding-left: 2px;
+}
+
+.textbox textarea {
+  font-size: 20px;
 }
 
 .btTxt{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left:90%;
-    width: 4%;
-    height: 4%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left:90%;
+  width: 4%;
+  height: 4%;
 }
 
-  /* Copyright styling */
-  footer {
-    margin-top: auto;
-  }
-  .copyright {
-      display: flex;
-  }
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+.copyright {
+  display: flex;
+}
 
-  .copyright div{
-      background-color: #FFCF96;
-  }
+.copyright div{
+  background-color: #ffcf96;
+}
 
-  .copyrightBar {
-      flex: 1;
-  }
+.copyrightBar {
+  flex: 1;
+}
 
-  .copyrightText {
-    background-color: #FFCF96;
-    text-align: center;
-    color: gray;
-
-  }
+.copyrightText {
+  background-color: #ffcf96;
+  text-align: center;
+  color: gray;
+}

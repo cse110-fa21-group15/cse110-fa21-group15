@@ -1,245 +1,244 @@
 /* Background color of entire webpage */
-*{
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Capriola", sans-serif;
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Capriola", sans-serif;
 }
- 
+
 body {
-    min-height: 100vh;
-    min-width: 960px;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFE0BB;
+  min-height: 100vh;
+  min-width: 960px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffe0bb;
 }
- 
+
 /* Navigation bar styling */
 .navigationBar{ 
-    display: flex;
-    background-color: #FFCF96;
+  display: flex;
+  background-color: #ffcf96;
 }
- 
+
 .navigationBar div{
-    background-color: #FFCF96;
+  background-color: #ffcf96;
 }
- 
+
 /* The container <div> - needed to position the dropdown content */
 .menu {
-    flex: 1;
-    cursor: pointer;
-    position: relative;
-    display: inline-block; 
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
 }
- 
+
 .menuIcon {
-    width: 40px;
-    height: 3px;
-    background-color: rgb(121, 120, 118);
-    margin: 8px 0;
-    margin-left: auto;
-    margin-right: auto;
+  width: 40px;
+  height: 3px;
+  background-color: rgb(121, 120, 118);
+  margin: 8px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
- 
+
 /* Drop down button */
 .menuButton {
-    background-color: #FFF5EA;
-    height: 70px;
-    border-radius: 12px;
-    margin: 5px;
-    width: 80px;
-    border: none;
-    cursor: pointer;
+  background-color: #fff5ea;
+  height: 70px;
+  border-radius: 12px;
+  margin: 5px;
+  width: 80px;
+  border: none;
+  cursor: pointer;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin-top: -10px;
-    margin-left: 5px;  
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: -10px;
+  margin-left: 5px;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: #FFF5EA;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #fff5ea;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #DDDDDD; }
+.dropdown-content a:hover { background-color: #ddd; }
 
 /* Show the dropdown menu on hover */
 .menu:hover .dropdown-content { display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3E8E41; }
+.menu:hover .dropbtn { background-color: #3e8e41; }
 
 .logo {
-    flex: 0.05;
-    margin-top: 5px;
-    cursor: pointer;
+  flex: 0.05;
+  margin-top: 5px;
+  cursor: pointer;
 }
- 
+
 .resizeLogo {
-    width: 60px;
-    height: auto;
-    background-color: #FFCF96;
-    display: block;
+  width: 60px;
+  height: auto;
+  background-color: #ffcf96;
+  display: block;
 }
- 
+
 .title {
-    flex: 1.1;
-    margin: 10px;
-    background-color: #FFCF96;
-    color: #000000;
-    cursor: context-menu;  
-    font-size: 22px;
+  flex: 1.1;
+  margin: 10px;
+  background-color: #ffcf96;
+  color: #000;
+  cursor: context-menu;
+  font-size: 22px;
 }
- 
+
 .signIn {
-    flex: 0.16;
+  flex: 0.16;
 }
- 
+
 .signIn button {
-    width: 100px;
-    height: 60px;
-    margin-top: 10px;
-    border-radius: 20px;
-    border: none;
-    background-color: #FFF5EA;
-    cursor: pointer;
+  width: 100px;
+  height: 60px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #fff5ea;
+  cursor: pointer;
 }
 
 /* Main page styling */
-
 main {
-    padding-top: 60px;
+  padding-top: 60px;
 }
 
 .emailbar {
-    top: 25%;
-    left: 35%;
-    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  top: 25%;
+  left: 35%;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
 
 .passwordbar {
-    top: 40%;
-    left: 35%;
-    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  top: 40%;
+  left: 35%;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
 
 .confirmPasswordbar {  
-    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
-  
+
 .invalidSignUp {
-    display: flex;
-    margin-left: 450px;
-    color: #FF0000;
-    font-weight: bold;
+  display: flex;
+  margin-left: 450px;
+  color: #f00;
+  font-weight: bold;
 }
 
 .round {
-    border-radius: 50px;
+  border-radius: 50px;
 }
 
 .signUp {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .signUp button {
-    width: 180px;
-    height: 80px;
-    background-color: #FFF0E0;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+  width: 180px;
+  height: 80px;
+  background-color: #fff0e0;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
 }
 
 .haveAccount {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .haveAccount p {
-    width: 420px;
-    height: 27px;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000000;
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  height: 27px;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .haveAccount button {
-    font-size: 24px;
-    line-height: 30px;
-    color:  #2C3BBD;
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    cursor: pointer;
-    text-decoration-line: underline;
-    background-color: #FFE0BB;
+  font-size: 24px;
+  line-height: 30px;
+  color:  #2c3bbd;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  text-decoration-line: underline;
+  background-color: #ffe0bb;
 }
 
 .form {
-    margin: 0 auto;
-    padding: 15px 0 15px 20px;
-    height: 60px;
-    width: 700px;
+  margin: 0 auto;
+  padding: 15px 0 15px 20px;
+  height: 60px;
+  width: 700px;
 }
-  
+
 form.loginArea {
-    display: flex;
-    justify-content: center;
-    margin: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
 }
 
 form.loginArea input[type=text] {
-    padding: 10px;
-    font-size: 32px;
-    border: 1px solid black;
-    width: 650px;
-    height: 80px;
-    background: #F1F1F1;
+  padding: 10px;
+  font-size: 32px;
+  border: 1px solid black;
+  width: 650px;
+  height: 80px;
+  background: #f1f1f1;
 }
 
 form.loginArea input[type=password] {
-    padding: 20px;
-    font-size: 32px;
-    border: 1px solid black;
-    width: 650px;
-    height: 80px;
-    background: #F1F1F1;
+  padding: 20px;
+  font-size: 32px;
+  border: 1px solid black;
+  width: 650px;
+  height: 80px;
+  background: #f1f1f1;
 }
 
 /* Copyright styling */
 footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .copyright {
-    display: flex;
+  display: flex;
 }
 
 .copyright div {
-    background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
 .copyrightBar {
-    flex: 1;
+  flex: 1;
 }
 
 .copyrightText {
-    background-color: #FFCF96;
-    text-align: center;
-    color: gray;
+  background-color: #ffcf96;
+  text-align: center;
+  color: gray;
 }
