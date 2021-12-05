@@ -128,7 +128,7 @@ class RecipeCard extends HTMLElement {
     const time = document.createElement('p');
     time.classList.add("time");
     const timeValue = searchForKey(data,"time");
-    time.textContent = "Time: " + timeValue;
+    time.textContent = "Time: " + timeValue + " min";
     card.appendChild(time);
     
 
