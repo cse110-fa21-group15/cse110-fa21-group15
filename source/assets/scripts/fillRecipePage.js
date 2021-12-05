@@ -64,7 +64,7 @@ stepsArr = tempSteps.split("\n");
 for (let i = 0; i < stepsArr.length; i++) {
     let tempElem = document.createElement("li");
     tempElem.textContent = stepsArr[i];
-    if (tempElem.textContent == "") {
+    if (tempElem.textContent === "") {
         continue;
     }
     recipeSteps.appendChild(tempElem);
