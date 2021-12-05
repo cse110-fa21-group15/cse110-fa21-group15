@@ -118,10 +118,9 @@ class RecipeCard extends HTMLElement {
       const description = document.createElement('p');
       description.classList.add("description");
       const descriptionValue = searchForKey(data , "summary");
-      console.log(data.summary);
-      console.log("******************************");
-      console.log(descriptionValue);
-      description.textContent = descriptionValue;
+      let newDescription = new DOMParser().parseFromString(descriptionValue, "text/html");
+      let descriptionText = newDescription.querySelector("body").textContent;
+      description.textContent = descriptionText;
       card.appendChild(description);
   
       let br = document.createElement('br');
