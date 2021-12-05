@@ -114,6 +114,7 @@ onAuthStateChanged(auth, async (user) => {
         "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
+    console.log("test");
     return userInformation;
 }
 
@@ -150,6 +151,10 @@ console.log("GETUSER()");*/
  */
 async function loadRecipes(id) {
     const userFile = await getUser(id);
+    console.log(userFile);
+    const favoriteRecipes = userFile.favoriteRecipes;
+    localStorage.favoriteRecipes = JSON.stringify(Array.from(favoriteRecipes));
+    console.log(userFile.favoriteRecipes);
     const recipes = userFile.recipes;
     init(recipes);
 }

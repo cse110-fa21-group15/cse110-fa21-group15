@@ -33,12 +33,32 @@ async function deleteRecipe(recipe_id, user_id) {
  */
 async function favoriteRecipe(recipe_id, user_id) {
 const database = doc(db, "users", user_id);
-    try {
-        await updateDoc(database, {
-            favorites: arrayUnion(recipe_id)
-        })
-    } catch (e) {
-        console.error("Error adding favorite recipe")
+    let favoriteRecipesList = JSON.parse(localStorage.favoriteRecipes);
+    let isFavorite = false;
+    for(let i = 0; i < favoriteRecipesList.length; ++i){
+        if(recipe_id == favoriteRecipesList[i].recipe_id){
+            isFavorite = true;
+            break;
+        }
+    }
+    if(!isFavorite){
+        try {
+            await updateDoc(database, {
+                favorites: arrayUnion(recipe_id)
+            })
+        } catch (e) {
+            console.error("Error adding favorite recipe")
+        }
+    }
+    else{
+        console.log("TEST");
+        try {
+            await updateDoc(database, {
+                favorites: arrayRemove(recipe_id)
+            })
+        } catch (e) {
+            console.error("Error removing favorite recipe")
+        }
     }
     location.href = "cookbook.html";
 }
