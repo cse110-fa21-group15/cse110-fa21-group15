@@ -16,7 +16,23 @@
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
+    <!--Log In Script-->
+    <!-- <script src="assets/scripts/mealPlan.js" ></script> -->
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
 </head>
 
 <body>
@@ -58,13 +74,20 @@
     <main>
         <div class="mealplanTemp"></div>
         <table class="personalCookbook">
-            <tr>
+            <tr >
                 <th>Personal Cookbook</th>
             </tr>
-            <tr>
+            <tr class="row">
                 <td>
                     <span class="cookbookMeals"></span>
                     <button class="addButton">Add+</button>
+                </td>
+                
+            </tr>
+            <tr class="row">
+                <td>
+                    <img src = assets/images/spooky.png  id="drag1" draggable="true"
+                    ondragstart="drag(event)" width="36" height="36" >
                 </td>
             </tr>
         </table>
@@ -83,11 +106,13 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <!-- <button class="addToCookbook"> <i class="fa fa-plus"></i></button> -->
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                        <!-- <button class="addToCookbook" ondrop="drop(event)" ondragover="allowDrop(event) > <i class="fa fa-plus"> </i></button> -->
+                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
