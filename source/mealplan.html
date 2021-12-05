@@ -16,23 +16,7 @@
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-    <!--Log In Script-->
-    <!-- <script src="assets/scripts/mealPlan.js" ></script> -->
-    <script>
-        function allowDrop(ev) {
-          ev.preventDefault();
-        }
-        
-        function drag(ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
-        }
-        
-        function drop(ev) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          ev.target.appendChild(document.getElementById(data));
-        }
-        </script>
+  
 </head>
 
 <body>
@@ -220,5 +204,6 @@
         </div>
     </footer>
 </body>
-
+  <!--Log In Script-->
+  <script src="assets/scripts/mealPlan.js"></script>
 </html>
