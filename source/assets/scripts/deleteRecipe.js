@@ -36,7 +36,7 @@ const database = doc(db, "users", user_id);
     try {
         await updateDoc(database, {
             favorites: arrayUnion(recipe_id)
-        })
+        });
     } catch (e) {
         console.error("Error adding favorite recipe");
     }
