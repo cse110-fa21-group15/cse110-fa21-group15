@@ -263,7 +263,7 @@ class RecipeCard extends HTMLElement {
 }
 
 // Need this for unit tests please do not remove
-//module.exports = {searchForKey, getUrl, getOrganization, convertTime};
+module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
