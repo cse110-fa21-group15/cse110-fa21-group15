@@ -40,6 +40,7 @@ const database = doc(db, "users", user_id);
     } catch (e) {
         console.error("Error adding favorite recipe")
     }
+    location.href = "cookbook.html";
 }
 
 const deleteBtn = document.querySelector("#delete");
@@ -59,6 +60,13 @@ deleteBtn.addEventListener("click", function() {
     //console.log("onlick is working");
     deleteRecipe(recipe_id, user_id);
 })
+
+
+favoriteBtn.addEventListener("click", function() {
+    //console.log("onlick is working");
+    favoriteRecipe(recipe_id, user_id);
+})
+
 
 
 /**

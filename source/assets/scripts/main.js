@@ -95,23 +95,23 @@ onAuthStateChanged(auth, async (user) => {
  * @param {String} id  user's id
  * @returns information regarding the user
  */
-async function getUser(id) {
+ async function getUser(id) {
     const user = doc(db, "users", id)
     const userDoc = await getDoc(user);
     const createdRecipes = [];
-    const favorites = []
+    const favoriteRecipes = new Set();
     const userData = userDoc.data();
     for (let i = 0; i<userData.favoriteRecipes.length; i++) {
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
-    for(let i = 0; i<userData.favorites.lengbth; i++) {
-        favorites.push(await getRecipe(userData.favorites[i]));
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
     }
     const userInformation = {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
         "recipes": createdRecipes,
-        "favorites": favorites
+        "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
     return userInformation;
