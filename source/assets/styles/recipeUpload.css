@@ -2,7 +2,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Capriola", sans-serif; 
+  font-family: "Capriola", sans-serif;
 }
 
 body {
@@ -75,13 +75,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.1;
@@ -201,8 +207,8 @@ form.recipeNameTextBox input {
 }
 
 .middleArea {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .misc {
@@ -212,7 +218,7 @@ form.recipeNameTextBox input {
   display: block;
 }
 
-.misc p{
+.misc p {
   font-size: 30px;
   line-height: 45px;
   color: #505050;
@@ -234,13 +240,13 @@ form.miscBox input {
 }
 
 .cost {
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 .servings {
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 form.servingsBox input {
@@ -270,14 +276,14 @@ textarea {
   resize: none;
   margin-left: 5%;
   border-radius: 12px;
-  width:90%;
+  width: 90%;
   height: 250px;
   text-align: left;
-  padding: 30px 20px 20px  30px;
+  padding: 30px 20px 20px 30px;
 }
 
 .flex-container {
-  display:f lex;
+  display: f lex;
   flex-direction: column;
   align-items: left;
   padding-top: 20px;
@@ -305,10 +311,10 @@ textarea {
   font-size: 20px;
 }
 
-.btTxt{
+.btTxt {
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left:90%;
+  margin-left: 90%;
   width: 4%;
   height: 4%;
 }
@@ -317,11 +323,12 @@ textarea {
 footer {
   margin-top: auto;
 }
+
 .copyright {
   display: flex;
 }
 
-.copyright div{
+.copyright div {
   background-color: #ffcf96;
 }
 
