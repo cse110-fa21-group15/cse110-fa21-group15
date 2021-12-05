@@ -14,12 +14,12 @@ body {
 }
 
 /* Navigation bar styling */
-.navigationBar{ 
+.navigationBar {
   display: flex;
   background-color: #ffcf96;
 }
 
-.navigationBar div{
+.navigationBar div {
   background-color: #ffcf96;
 }
 
@@ -72,13 +72,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.05;
@@ -133,7 +139,7 @@ main {
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
 
-.confirmPasswordbar {  
+.confirmPasswordbar {
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
 
@@ -167,6 +173,7 @@ main {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .haveAccount p {
@@ -181,7 +188,7 @@ main {
 .haveAccount button {
   font-size: 24px;
   line-height: 30px;
-  color:  #2c3bbd;
+  color: #2c3bbd;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border: none;
   cursor: pointer;

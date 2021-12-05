@@ -76,13 +76,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.05;
@@ -141,6 +147,7 @@ body {
   width: 200px;
   height: 30px;
   margin: 15px;
+  margin-top: -20px;
   margin-bottom: 30px;
   border-radius: 12px;
   font-size: 20px;
@@ -179,11 +186,12 @@ form.example button:hover {
 }
 
 .blankbox {
-  width:800px;
-  height:300px;
+  width: 800px;
+  height: 300px;
   border-radius: 37px;
   background-color: lightgrey;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 /* Copyright styling */
