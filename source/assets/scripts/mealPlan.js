@@ -91,6 +91,8 @@ async function loadRecipes(id) {
     localStorage.favoriteRecipes = JSON.stringify(Array.from(favoriteRecipes));
     console.log(userFile.favoriteRecipes);
     const recipes = userFile.recipes;
+    console.log("user recipes");
+    console.log(recipes);
     init(recipes);
 }
 
@@ -134,17 +136,49 @@ async function fetchRecipes(recipes) {
         }
     });
 }
-  
+
 /**
  * Create recipe cards to be displayed 
  */
 function createRecipeCards() {
     let parentDiv = document.querySelector("table");
+    
     for (let i = 0; i < numRecipes; i++) {
+        // let row = document.createElement("tr");
+        // let content = document.createElement("td");
         let recipeCard = document.createElement("recipe-card");
+        let div = document.createElement("div");
         recipeCard.data = recipeData[i.toString()];
-        parentDiv.appendChild(recipeCard);
+        let img = document.createElement("img");
+        let recImg = searchForKey(recipeData[i.toString()],"image");
+        img.setAttribute("src",recImg);
+        
+        let title = document.createElement("h4");
+        let recTitle = searchForKey(recipeData[i.toString()],"name");
+        title.textContent=recTitle;
+        div.appendChild(title);
+        div.appendChild(img);
+        div.setAttribute("draggable","true");
+        div.classList.add("ele");
+        //document.getElementById("div").addEventListener("dragstart", drag, true);
+        // let dragged;
+        // document.addEventListener("dragstart", function(event) {
+        //     console.log("event",event);
+        //     event.dataTransfer.setData("text", event.target.id);
+        //     // store a ref. on the dragged elem
+        //     dragged = event.target;
+        //     // make it half transparent
+        //     event.target.style.opacity = .5;
+        //   }, false);
+        // div.classList.add(i.toString());
+       
+        parentDiv.appendChild(div);
+        
+        // content.appendChild(recipeCard);
+        // row.appendChild(content);
+        // parentDiv.appendChild(row);
     }
+    
 }
   
 // Go to recipePage upon clicking recipe card
@@ -184,5 +218,49 @@ function searchForKey(object, key) {
     return value;
 }
 
+let dragged;
+document.addEventListener("dragstart",function(event){
+    //console.log("event",event);
+    
+    // store a ref. on the dragged elem
+    if (event.target.className == "ele") {
+        console.log("called");
+        event.dataTransfer.setData("text", event.target.id);
+        dragged = event.target;
+    }
+    // // make it half transparent
+    // event.target.style.opacity = .5;
+  }, false);
 
-// document.querySelector('#add').addEventListener('click', getUser)
+/* events fired on the drop targets */
+document.addEventListener("dragover", function(event) {
+    // prevent default to allow drop
+    if (event.target.className == "drag2") {
+    event.preventDefault();}
+
+  }, false);
+
+document.addEventListener("drop", function(event) {
+    console.log("event",event);
+    console.log("dragged",dragged);
+    console.log("target", event.target)
+    // prevent default action (open as link for some elements)
+    event.preventDefault();
+    // move dragged elem to the selected drop target
+    if (event.target.className == "drag2") {
+        //console.log(event.target);
+        event.target.style.background = "";
+        let title = event.target.querySelector("h4");
+        let img = event.target.querySelector("img");
+        console.log("title",title)
+        console.log("img",img)
+        let srcTitle = dragged.querySelector("h4").textContent;
+        let srcImage = dragged.querySelector("img").src;
+        console.log("srcTi",srcTitle)
+        console.log("img",srcImage)
+        title.textContent=srcTitle;
+        img.setAttribute("src",srcImage);
+        //dragged.parentNode.removeChild( dragged );
+        //event.target.appendChild( dragged );
+    }
+  }, false);

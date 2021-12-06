@@ -16,7 +16,21 @@
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
+     <!--Log In Script-->
+    
+    <script>
+    async function getRecipe(recipe_id) {
+    const recipesRef = doc(db, "recipes", recipe_id);
+    const docSnap = await getDoc(recipesRef);
   
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+    </script>
 </head>
 
 <body>
@@ -85,7 +99,7 @@
                     <img src = assets/images/Edit.png  id="drag3" draggable="true"
                     ondragstart="drag(event)" width="36" height="36" >
                 </td>
-            </tr>
+            </tr>  
         </table>
 
         <table class="calendar">
@@ -102,119 +116,185 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                         <!-- <button class="addToCookbook"> <i class="fa fa-plus"></i></button> -->
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <!-- <button class="addToCookbook" ondrop="drop(event)" ondragover="allowDrop(event) > <i class="fa fa-plus"> </i></button> -->
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class="drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png   width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
+                        
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                 </td>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                         <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <img src = assets/images/Add.png  id="drag2"  ondrop="drop(event)" ondragover="allowDrop(event)" width="36" height="36" >
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
+                        <div class = "drag2">
+                            <h4>recipeTitle</h4>
+                            <img src = assets/images/Add.png  width="36" height="36" >
+                        </div>
                         <div id="v1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     </div>
                 </td>
@@ -236,8 +316,8 @@
     </footer>
 </body>
   <!--Drag and Drop Script-->
-  <script src="assets/scripts/dragdrop.js"></script>
+  <!--<script src="assets/scripts/dragdrop.js"></script>-->
    <!--User Recipe Cards Script-->
    <script src="assets/scripts/mealPlan.js" type = "module"></script>
-
+   <script src="assets/scripts/RecipeCard.js" type="module"></script>
 </html>

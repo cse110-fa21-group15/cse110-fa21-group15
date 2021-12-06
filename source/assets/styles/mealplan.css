@@ -192,6 +192,28 @@
     margin-left: 20px;
     font-size: 20px;
   }
+  table h4{
+    font-size:20px;
+  }
+  table img{
+    width:30px;
+    height:30px;
+  }
+  /* recipe-card article{
+
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 8px;
+      display: grid;
+      grid-template-rows: 118px 56px 56px 56px 0px 0px;
+      height: 30px;
+
+      padding: 0 6px 6px 6px;
+      background-color: pink;
+      width: 20px;
+      filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.35));
+    
+  } */
  
   /* Need to change this so it actually shows on screen */
   .cookbookMeals {
@@ -251,7 +273,9 @@
   height: 100px;
   border: 1px solid #aaaaaa;
   }
- 
+ .drag2{
+  
+ }
 /* Copyright styling */
 footer {
   margin-top: auto;
