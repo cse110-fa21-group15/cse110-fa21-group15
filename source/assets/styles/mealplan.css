@@ -207,10 +207,10 @@ form.example i {
 }
 
 .addButton {
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 20px;
+  height: 30px;
 }
-
 table h4 {
   font-size: 20px;
 }
@@ -219,7 +219,9 @@ table img {
   width: 30px;
   height: 30px;
 }
-
+.row td{
+  padding-top:20px;
+}
 /* Calendar */
 
 .calendar {
@@ -271,7 +273,7 @@ table img {
 }
 
 .ele {
-  margin-left: 35px;
+  margin-left: 10px;
   padding-bottom: 30px;
 }
 
@@ -293,6 +295,9 @@ table img {
   bottom: 0;
   right: 0;
   margin-bottom: 10px;
+}
+.drag2 h4{
+  font-size: 15px;
 }
 
 /* Copyright styling */
