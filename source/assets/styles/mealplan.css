@@ -176,16 +176,22 @@
     display: table;
     width: 250px;
     margin-left: 10%;
+    
   }
  
   .personalCookbook th {
     background-color: #FFF5EA;
     height: 60px;
+    
   }
  
   .personalCookbook td {
     height: 100px;
     padding-left: 40px;
+  }
+  scroll{
+    overflow:scroll;
+    height: 100px;
   }
  
   .addButton {
@@ -273,8 +279,19 @@
   height: 100px;
   border: 1px solid #aaaaaa;
   }
- .drag2{
-  
+ .ele{
+  margin-left: 35px;
+  padding-bottom: 30px;
+ }
+ .ele h4{
+  font-size: 15px;
+ }
+ .ele img{
+   width:40px;
+   height:40px;
+ }
+ .personalCookbook tr{
+   padding-bottom: 30px;
  }
 /* Copyright styling */
 footer {

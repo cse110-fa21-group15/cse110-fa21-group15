@@ -144,8 +144,8 @@ function createRecipeCards() {
     let parentDiv = document.querySelector("table");
     
     for (let i = 0; i < numRecipes; i++) {
-        // let row = document.createElement("tr");
-        // let content = document.createElement("td");
+        let row = document.createElement("tr");
+        let td = document.createElement("td");
         let recipeCard = document.createElement("recipe-card");
         let div = document.createElement("div");
         recipeCard.data = recipeData[i.toString()];
@@ -171,8 +171,9 @@ function createRecipeCards() {
         //     event.target.style.opacity = .5;
         //   }, false);
         // div.classList.add(i.toString());
-       
-        parentDiv.appendChild(div);
+        td.appendChild(div);
+        row.appendChild(td);
+        parentDiv.appendChild(row);
         
         // content.appendChild(recipeCard);
         // row.appendChild(content);
