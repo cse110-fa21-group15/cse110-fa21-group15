@@ -45,8 +45,8 @@ describe("Basic user flow for website", () => {
         });
         const page = await browser.newPage();
         await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
-        const ebar = await page.$eval("#email", (e) => e.value = "lpalabin@ucsd.edu");
-        const pbar = await page.$eval("#password", (e) => e.value = "Deatheater8+");
+        const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
         const button = await page.$("#lbutton");
         await button.click();
         await page.waitForNavigation();
@@ -62,8 +62,8 @@ describe("Basic user flow for website", () => {
         });
         const page = await browser.newPage();
         await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
-        const ebar = await page.$eval("#email", (e) => e.value = "lpalabin@ucsd.edu");
-        const pbar = await page.$eval("#password", (e) => e.value = "Deatheater8+");
+        const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
         const button = await page.$("#lbutton");
         await button.click();
         await page.waitForNavigation();
@@ -79,8 +79,8 @@ describe("Basic user flow for website", () => {
         });
         const page = await browser.newPage();
         await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
-        const ebar = await page.$eval("#email", (e) => e.value = "lpalabin@ucsd.edu");
-        const pbar = await page.$eval("#password", (e) => e.value = "Deatheater8+");
+        const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
         const button = await page.$("#lbutton");
         await button.click();
         await page.waitForNavigation();
