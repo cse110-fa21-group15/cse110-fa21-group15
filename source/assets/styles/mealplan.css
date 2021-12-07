@@ -1,43 +1,43 @@
-    /* Background color of entire webpage */
-  *{
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Capriola', sans-serif;
-  }
-   
-  body {
-    min-height: 100vh;
-    min-width: 1500px;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFE0BB;
-  }
-   
-  /* Navigation bar styling */
-  .navigationBar { 
-    display: flex;
-    background-color: #FFCF96;
-  }
-   
-  .navigationBar div {
-    background-color: #FFCF96;
-  }
-   
-  .menu {
-    flex: 1;
-    cursor: pointer;
-  }
-   
-  .menuIcon {
-    width: 40px;
-    height: 3px;
-    background-color: rgb(121, 120, 118);
-    margin: 8px 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
- /* Drop down button */
+/* Background color of entire webpage */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Capriola', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFE0BB;
+}
+
+/* Navigation bar styling */
+.navigationBar {
+  display: flex;
+  background-color: #FFCF96;
+}
+
+.navigationBar div {
+  background-color: #FFCF96;
+}
+
+.menu {
+  flex: 1;
+  cursor: pointer;
+}
+
+.menuIcon {
+  width: 40px;
+  height: 3px;
+  background-color: rgb(121, 120, 118);
+  margin: 8px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Drop down button */
 .menuButton {
   background-color: #FFF5EA;
   height: 70px;
@@ -51,18 +51,18 @@
 /* The container <div> - needed to position the dropdown content */
 .menu {
   position: relative;
-  display: inline-block; 
-} 
+  display: inline-block;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-top: -10px;
-  margin-left: 5px;  
+  margin-left: 5px;
 }
 
 /* Links inside the dropdown */
@@ -75,92 +75,98 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content {display: block;}
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn {background-color: #3e8e41;}
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
-   
-  .logo {
-    flex: 0.1;
-    margin-top: 5px;
-  }
-   
-  .resizeLogo {
-    width: 60px;
-    height: auto;
-    background-color: #FFCF96;
-    display: block;
-    cursor: pointer;
-  }
-   
-  .searchbar {
-    flex: 5.5;
-    margin-top: 10px;
-  }
-  
-  .searchbar button {
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    font-size: 30px;
-    height: 55px;
-  }
-  
-  .round {
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-  }
-   
-  form {
-    background-color: #FFCF96;
-  }
-   
-  form.example input[type=text] {
-    padding: 10px;
-    font-size: 22px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
-    height: 55px;
-  }
-   
-  form.example button:hover {
-    background: #0b7dda;
-  }
-   
-  form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-   
-  form.example i {
-    font-size: 35px;
-    border-radius: 12px;
-  }
-   
-  .signIn {
-    flex: 0.5;
-  }
-   
-  .signIn button {
-    width: 100px;
-    height: 60px;
-    background-color: #FFCF96;
-    margin-top: 10px;
-    border-radius: 20px;
-    border: none;
-    background-color: #FFF5EA;
-    cursor: pointer;
-  }
- 
-  /* Personal cookbook list */
 
- /* .container table {
+.logo {
+  flex: 0.1;
+  margin-top: 5px;
+}
+
+.resizeLogo {
+  width: 60px;
+  height: auto;
+  background-color: #FFCF96;
+  display: block;
+  cursor: pointer;
+}
+
+.searchbar {
+  flex: 5.5;
+  margin-top: 10px;
+}
+
+.searchbar button {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  font-size: 30px;
+  height: 55px;
+}
+
+.round {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+form {
+  background-color: #FFCF96;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 22px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  height: 55px;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+form.example i {
+  font-size: 35px;
+  border-radius: 12px;
+}
+
+.signIn {
+  flex: 0.5;
+}
+
+.signIn button {
+  width: 100px;
+  height: 60px;
+  background-color: #FFCF96;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #FFF5EA;
+  cursor: pointer;
+}
+
+/* Personal cookbook list */
+
+/* .container table {
     position: absolute;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -168,131 +174,127 @@
     display: table;
   }*/
 
-  .personalCookbook {
-    position: absolute;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #FFFFFF;
-    display: table;
-    width: 250px;
-    margin-left: 10%;
-    
-  }
- 
-  .personalCookbook th {
-    background-color: #FFF5EA;
-    height: 60px;
-    
-  }
- 
-  .personalCookbook td {
-    height: 100px;
-    padding-left: 40px;
-  }
-  .scrollable{
-    overflow:scroll;
-    height: 100px;
-  }
- 
-  .addButton {
-    margin-left: 20px;
-    font-size: 20px;
-  }
-  table h4{
-    font-size:20px;
-  }
-  table img{
-    width:30px;
-    height:30px;
-  }
-  /* recipe-card article{
+.personalCookbook {
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  display: table;
+  width: 20%;
+  height: 70%;
+  margin-left: 10%;
+  overflow-y: scroll;
+  display: inline-block;
+}
 
-      align-items: center;
-      border: 1px solid black;
-      border-radius: 8px;
-      display: grid;
-      grid-template-rows: 118px 56px 56px 56px 0px 0px;
-      height: 30px;
+.personalCookbook th {
+  background-color: #FFF5EA;
+  height: 60px;
+  width: 20%;
 
-      padding: 0 6px 6px 6px;
-      background-color: pink;
-      width: 20px;
-      filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.35));
-    
-  } */
- 
-  /* Need to change this so it actually shows on screen */
-  .cookbookMeals {
-    background-color: black;
-    width: 100px;
-    height: 100px;
-  }
-  #recipeImg{
-    width:40px;
-    height: 40px;
-  }
-  /* Calendar */
- 
-  .calendar {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #FFFFFF;
-    display: table;
-    width: 900px;
-    margin-right: 10%;
-    margin-left: 35%;
-  }
- 
-  .calendar th {
-    background-color: #FFF5EA;
-    height: 100px;
-    font-size: 30px;
-  }
- 
-  .calendar td {
-    height: 550px;
-    text-align: center;
-  }
- 
-  .addToCookbook {
-    font-size: 60px;
-  }
- 
-  .cookbookItems {
-    margin-bottom: 50px;
-  }
- 
-  .calendarMeal {
-    font-size: 20px;
-    text-align: center;
-  }
+}
 
-  .icon {
-    float: right;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    width: 60px;
-  }
-  #div1{
-    width:100px;
+.personalCookbook td {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.scrollable {
+  overflow-y: scroll;
+  height: 100px;
+}
+
+.addButton {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+table h4 {
+  font-size: 20px;
+}
+
+table img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Calendar */
+
+.calendar {
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  display: table;
+  width: 60%;
+  height: 70%;
+  margin-right: 10%;
+  margin-left: 35%;
+}
+
+.calendar th {
+  background-color: #FFF5EA;
+  height: 100px;
+  font-size: 30px;
+}
+
+.calendar td {
+  text-align: center;
+}
+
+.addToCookbook {
+  font-size: 60px;
+}
+
+.cookbookItems {
+  margin-bottom: 50px;
+}
+
+.calendarMeal {
+  font-size: 20px;
+  text-align: center;
+}
+
+.icon {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 60px;
+}
+
+#div1 {
+  width: 100px;
   height: 100px;
   border: 1px solid #aaaaaa;
-  }
- .ele{
+}
+
+.ele {
   margin-left: 35px;
   padding-bottom: 30px;
- }
- .ele h4{
+}
+
+.ele h4 {
   font-size: 15px;
- }
- .ele img{
-   width:40px;
-   height:40px;
- }
- .personalCookbook tr{
-   padding-bottom: 30px;
- }
+}
+
+.ele img {
+  width: 40px;
+  height: 40px;
+}
+
+.personalCookbook tr {
+  padding-bottom: 30px;
+}
+
+.saveButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 10px;
+}
+
 /* Copyright styling */
 footer {
   margin-top: auto;
@@ -301,15 +303,15 @@ footer {
 .copyright {
   display: flex;
 }
- 
-.copyright div{
-    background-color: #FFCF96;
+
+.copyright div {
+  background-color: #FFCF96;
 }
- 
+
 .copyrightBar {
-    flex: 1;
+  flex: 1;
 }
- 
+
 .copyrightText {
   background-color: #FFCF96;
   text-align: center;
