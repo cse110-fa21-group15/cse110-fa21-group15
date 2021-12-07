@@ -9,7 +9,7 @@ editBtn.addEventListener("click", function() {
     console.log(recipeIngredients);
     let recipeIngredientsList = [];
     if (recipeIngredients.length > 0) {
-        for (let i = 0; i < recipeIngredients.length; i++) {
+        for (let i = 0; i < recipeIngredients.length; ++i) {
             recipeIngredientsList[i] = recipeIngredients[i].textContent;
         }
     }
@@ -37,7 +37,7 @@ editBtn.addEventListener("click", function() {
                 value = object[k];
                 return true;
             }
-            if (object[k] && typeof object[k] === "object") {
+            if (object[k] && typeof object[k] === 'object') {
                 value = searchForKey(object[k], key);
                 return value !== undefined;
             }
@@ -49,7 +49,7 @@ editBtn.addEventListener("click", function() {
     sessionStorage.setItem("recipeName",recipeName.textContent);
 
     let recipeImage = document.querySelector("#recipeImage");
-    sessionStorage.setItem("recipeImage",recipeImage.getAttribute("src"));
+    sessionStorage.setItem("recipeImage",recipeImage.getAttribute('src'));
 
     let recipeTime = document.querySelector("#recipeTime");
     sessionStorage.setItem("recipeTime",recipeTime.textContent);
@@ -73,4 +73,4 @@ editBtn.addEventListener("click", function() {
     localStorage.steps = JSON.stringify(recipeStepsList);
 
     location.href = "recipeUpdate.html";
-});
+})
