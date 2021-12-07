@@ -189,7 +189,7 @@
     height: 100px;
     padding-left: 40px;
   }
-  scroll{
+  .scrollable{
     overflow:scroll;
     height: 100px;
   }
