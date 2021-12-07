@@ -25,7 +25,7 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     //}
 
     //Build Base Url
-    var url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
+    var url = SEARCH_URL+API_KEY +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
     
     //If there are filters, then add time and dietary parameters to url
     if(filters == true)
