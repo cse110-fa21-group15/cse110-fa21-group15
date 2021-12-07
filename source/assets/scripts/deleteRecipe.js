@@ -22,8 +22,12 @@ async function deleteRecipe(recipe_id, user_id) {
     await updateDoc(database, {
         favoriteRecipes: arrayRemove(recipe_id)
     });
+    await updateDoc(database, {
+        favorites: arrayRemove(recipe_id)
+    });
     location.href = "cookbook.html";
 }
+
 
 /**
  * Function adds favorite Recipe to the database based on the current recipe_id and user_id.
@@ -32,6 +36,7 @@ async function deleteRecipe(recipe_id, user_id) {
  * @param {ID of current user} user_id 
  */
 async function favoriteRecipe(recipe_id, user_id) {
+    console.log("recipe_id" + recipe_id)
 const database = doc(db, "users", user_id);
     let favoriteRecipesList = JSON.parse(localStorage.favoriteRecipes);
     let isFavorite = false;
@@ -51,8 +56,9 @@ const database = doc(db, "users", user_id);
         }
     }
     else{
-        console.log("TEST");
         try {
+            console.log("REMOVING FAVORITE");
+            console.log(recipe_id + "RECIPE TO REMOVE")
             await updateDoc(database, {
                 favorites: arrayRemove(recipe_id)
             })

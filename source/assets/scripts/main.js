@@ -107,7 +107,7 @@ onAuthStateChanged(auth, async (user) => {
     }
     for (let i = 0; i<userData.favorites.length; i++) {
         //favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
-        favoriteRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
+        favoriteRecipes.push(await getRecipe(userData.favorites[i]));
     }
     const userInformation = {
         "user_email" : userData["user_email"],
