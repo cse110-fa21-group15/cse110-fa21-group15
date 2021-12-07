@@ -59,12 +59,6 @@ for(let i = 0; i < ingredientsArr.length; ++i){
   recipeIngredients.appendChild(tempElem);
 }*/
 
-<<<<<<< HEAD
-for (let i = 0; i < ingredients.length; i++) {
-    let tempElem = document.createElement("li");
-    tempElem.textContent = ingredients[i].original;
-    recipeIngredients.appendChild(tempElem);
-=======
 let ingredientsString = "";
 //Add ingredients to recipe page
 for(let i = 0 ; i < ingredients.length; ++i){
@@ -73,7 +67,6 @@ for(let i = 0 ; i < ingredients.length; ++i){
   ingredientsString += tempElem.textContent;
   ingredientsString += "\n";
   recipeIngredients.appendChild(tempElem);
->>>>>>> apiFile
 }
 
 console.log(ingredientsString);
@@ -94,10 +87,7 @@ for(let i = 0; i < stepsArr.length; ++i){
   recipeSteps.appendChild(tempElem);
 }*/
 
-<<<<<<< HEAD
-=======
 //Output recipe steps
->>>>>>> apiFile
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;
 let stepsArr = newSteps.querySelectorAll("li");
@@ -107,13 +97,9 @@ let stepsString = "";
 if (stepsArr.length !== 0) {
     for (let i = 0; i < stepsArr.length; i++) {
         recipeSteps.appendChild(stepsArr[i]);
-<<<<<<< HEAD
-    }
-=======
         stepsString += stepsArr[i].textContent;
         stepsString += "\n";
       }
->>>>>>> apiFile
 }
 else {
     stepsArr = stepTemp.split(".");
@@ -126,8 +112,6 @@ else {
     }
 }
 
-<<<<<<< HEAD
-=======
 //Upon clicking the "+" icon, save recipe to cookbook
 const addBtn = document.querySelector("#add");
 addBtn.addEventListener("click", function(){
@@ -135,7 +119,6 @@ addBtn.addEventListener("click", function(){
 })
 
 
->>>>>>> apiFile
 //Search for keys in JSON file
 function searchForKey(object, key) {
     var value;
@@ -158,9 +141,6 @@ async function recipeInfo(id){
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
-<<<<<<< HEAD
-}
-=======
 
 }
 
@@ -198,4 +178,3 @@ async function recipeInfo(id){
     }
   });
 }
->>>>>>> apiFile

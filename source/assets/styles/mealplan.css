@@ -176,29 +176,6 @@ form.example i {
 .personalCookbook th {
     background-color: #FFF5EA;
     height: 60px;
-<<<<<<< HEAD
-}
-
-.personalCookbook td {
-    height: 590px;
-}
-
-.addButton {
-    margin-left: 20px;
-    font-size: 20px;
-}
-
-/* Need to change this so it actually shows on screen */
-.cookbookMeals {
-    background-color: black;
-    width: 100px;
-    height: 100px;
-}
-
-/* Calendar */
-
-.calendar {
-=======
   }
  
   .personalCookbook td {
@@ -246,7 +223,6 @@ form.example i {
   /* Calendar */
  
   .calendar {
->>>>>>> drag
     position: relative;
     margin: 20px 10% 20px 35%;
     background-color: #FFFFFF;
@@ -283,10 +259,6 @@ form.example i {
     margin-right: 20px;
     margin-bottom: 20px;
     width: 60px;
-<<<<<<< HEAD
-}
-
-=======
   }
   #div1{
     width:100px;
@@ -296,7 +268,6 @@ form.example i {
  .drag2{
   
  }
->>>>>>> drag
 /* Copyright styling */
 footer {
     margin-top: auto;

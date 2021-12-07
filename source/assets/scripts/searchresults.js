@@ -34,15 +34,6 @@ async function init(recipes) {
 async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {
         numRecipes = recipes.length;
-<<<<<<< HEAD
-        console.log(recipes);
-        //Parse recipes from JSON to recipeData
-        for(let i = 0; i < numRecipes; i++) {
-            recipeData[i] = recipes[i];
-            if (i == numRecipes - 1) {
-                resolve(true);
-            }
-=======
         let numNull = 0;
         let numRealRecipes = 0;
         console.log(recipes)
@@ -59,7 +50,6 @@ async function fetchRecipes(recipes) {
         numRecipes = numRecipes - numNull;
         if(numRealRecipes == numRecipes){
           resolve(true);
->>>>>>> apiFile
         }
     });
 }

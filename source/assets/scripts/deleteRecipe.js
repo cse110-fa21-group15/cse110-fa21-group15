@@ -43,8 +43,6 @@ const database = doc(db, "users", user_id);
     location.href = "cookbook.html";
 }
 
-<<<<<<< HEAD
-=======
 const deleteBtn = document.querySelector("#delete");
 const favoriteBtn = document.querySelector("#favorite")
 const recipe = JSON.parse(localStorage.recipe);
@@ -71,7 +69,6 @@ favoriteBtn.addEventListener("click", function() {
 
 
 
->>>>>>> apiFile
 /**
  * Recursively search for a key nested somewhere inside an object
  * @param {Object} object the object with which you'd like to search
