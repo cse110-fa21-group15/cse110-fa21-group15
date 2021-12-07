@@ -84,14 +84,19 @@ async function getUser(id) {
     const user = doc(db, "users", id);
     const userDoc = await getDoc(user);
     const createdRecipes = [];
+    const favoriteRecipes = new Set();
     const userData = userDoc.data();
     for (let i = 0; i<userData.favoriteRecipes.length; i++) {
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
+    }
     const userInformation = {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
-        "recipes": createdRecipes
+        "recipes": createdRecipes,
+        "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
     return userInformation;

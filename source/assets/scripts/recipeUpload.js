@@ -65,8 +65,7 @@ async function createRecipe(event) {
  * Create a user recipe
  * @param event Event that occurs when recipe save button is clicked
  */
- async function downloadSpoonacularRecipe(event, time, name, cost, servings, description, ingredients, steps, image) {
-  event.preventDefault();
+ async function downloadSpoonacularRecipe(time, name, cost, servings, description, ingredients, steps, image) {
   console.log("test")
   onAuthStateChanged (auth, async (user) => {
     if (user) {
@@ -91,8 +90,7 @@ async function createRecipe(event) {
    }
       // ...
     } else {
-      // User is signed out
-      // ...
+      location.href = "signIn.html"
     }
   });
 }
