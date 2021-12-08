@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove, deleteDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import { firebaseConfig } from './api.js';
+import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -32,12 +32,12 @@ async function deleteRecipe(recipe_id, user_id) {
 /**
  * Function adds favorite Recipe to the database based on the current recipe_id and user_id.
  * Function works on recipes that were already saved to the users personal cookbook
- * @param {id of recipe in DB} recipe_id 
- * @param {ID of current user} user_id 
+ * @param {string} recipe_id id of recipe in database
+ * @param {string} user_id id of current user
  */
 async function favoriteRecipe(recipe_id, user_id) {
     console.log("recipe_id" + recipe_id)
-const database = doc(db, "users", user_id);
+    const database = doc(db, "users", user_id);
     let favoriteRecipesList = JSON.parse(localStorage.favoriteRecipes);
     let isFavorite = false;
     for(let i = 0; i < favoriteRecipesList.length; ++i){
@@ -65,9 +65,18 @@ const database = doc(db, "users", user_id);
         } catch (e) {
             console.error("Error removing favorite recipe")
         }
+
+    try {
+        await updateDoc(database, {
+            favorites: arrayUnion(recipe_id)
+        });
+    } catch (e) {
+        console.error("Error adding favorite recipe");
+
     }
     location.href = "cookbook.html";
 }
+
 
 const deleteBtn = document.querySelector("#delete");
 const favoriteBtn = document.querySelector("#favorite")
@@ -101,7 +110,7 @@ favoriteBtn.addEventListener("click", function() {
  * @param {String} key the key that you are looking for in the object
  * @returns {*} the value of the found key
  */
-function searchForKey(object, key) {
+ function searchForKey(object, key) {
     let value;
     Object.keys(object).some(function (k) {
         if (k === key) {
@@ -115,3 +124,17 @@ function searchForKey(object, key) {
     });
     return value;
 }
+
+const deleteBtn = document.querySelector("#delete");
+const recipe = JSON.parse(localStorage.recipe);
+const user_id = searchForKey(recipe, "user_id");
+const recipe_id = searchForKey(recipe, "recipe_id");
+
+//console.log("TEST");
+//console.log(user_id);
+//console.log(recipe_id);
+
+deleteBtn.addEventListener("click", function() {
+    //console.log("onlick is working");
+    deleteRecipe(recipe_id, user_id);
+})

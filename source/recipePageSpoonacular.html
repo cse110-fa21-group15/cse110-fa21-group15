@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <title>Easy Chef</title>
 
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/recipePage.css" />
-
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Link to font style-->
-    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-
-    <!--Edit recipe script-->
-    <!--<script src="assets/scripts/recipePage.js" type="module"></script>-->
-
-    <!--Fill recipe page script-->
-    <script src="assets/scripts/fillRecipePageSpoonacular.js" type="module"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Capriola&display=swap">
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
-    <!--Other scripts-->
+    <!--Recipe Scripts-->
+    <script src="assets/scripts/fillRecipePageSpoonacular.js" type="module"></script>
     <script src="assets/scripts/createRecipe.js" type="module"></script>
     <script src="assets/scripts/deleteRecipe.js" type="module"></script>
-
 </head>
 
 <body>
@@ -38,23 +29,27 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+
                 <div class="dropdown-content">
                     <a id="recipeUpload" href="recipeUpload.html">Create Recipe</a>
                     <a href="cookbook.html">Personal Cookbook</a>
                     <a href="mealplan.html">Meal Plan</a>
                 </div>
             </div>
+
             <div class="logo">
                 <a href="homepage.html">
                     <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
                 </a>
             </div>
+
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
+
             <div class="signIn">
                 <a href="signIn.html">
                     <button id="signedIn" style="font-size:22px">Sign In</button>
@@ -78,6 +73,7 @@
             <span id="one">
                 <img class="recImg" id="recipeImage" src="assets/images/oldUpload.png" alt="Recipe Image">
             </span>
+
             <div class="para">
                 <br>
                 <br>
@@ -85,34 +81,40 @@
                 <br>
                 <span>Cost: <span id="recipeCost"></span></span>
                 <br>
-                <span>Servings: <span id="recipeServings"></span></span> 
+                <span>Servings: <span id="recipeServings"></span></span>
                 <br>
                 <!--Tags: <button id="sweet">Sweet</button> <button id="long">Long</button> <button id="med">Medium</button>-->
-                <span>Tags: <span id="recipeTags"></span></span> 
+                <span>Tags: <span id="recipeTags"></span></span>
                 <br>
                 <!--<a href="https://google.com">Nutritional Information</a>-->
-                </div>
+            </div>
         </span>
+
         <!-- Description-->
         <h2 id="des">Description:</h2>
         <p class="desPara" id="recipeDescription"></p>
 
-        <div class = "flex-container">
-            <div class = "row-flex"> <div class ="ing1">Ingredients </div></div>
+        <div class="flex-container">
+            <div class="row-flex">
+                <div class="ing1">Ingredients</div>
+            </div>
+
             <div id="lst">
                 <ul id="recipeIngredients">
-
                 </ul>
             </div>
+
             <br>
-            <div class = "row-flex"> <div class="step">Steps</div></div>
+
+            <div class="row-flex">
+                <div class="step">Steps</div>
+            </div>
+
             <div id="lst2">
-             <ol id="recipeList">
- 
-             </ol>
-         </div>
-                
-         </div>
+                <ol id="recipeList">
+                </ol>
+            </div>
+        </div>
         <!-- <div id="imgC">
         <div id="one"> <img class="recImg" src="assets/images/spooky.png" alt="Recipe Image" ></div>
             
@@ -136,8 +138,8 @@
             </div> -->
 
         <!-- </div> -->
-
     </main>
+
     <footer>
         <div class="copyright">
             <div class="copyrightBar">

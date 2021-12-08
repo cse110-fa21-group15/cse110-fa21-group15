@@ -1,34 +1,36 @@
 /* Background color of entire webpage */
-/* Background color of entire webpage */
-*{
+* {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Capriola', sans-serif;
+  font-family: "Capriola", sans-serif;
 }
- 
+
 body {
   min-height: 100vh;
   min-width: 960px;
   display: flex;
   flex-direction: column;
-  background-color: #FFE0BB;
+  background-color: #ffe0bb;
 }
- 
+
 /* Navigation bar styling */
-.navigationBar{ 
+.navigationBar {
   display: flex;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
- 
-.navigationBar div{
-  background-color: #FFCF96;
+
+.navigationBar div {
+  background-color: #ffcf96;
 }
- 
+
+/* The container <div> - needed to position the dropdown content */
 .menu {
   flex: 1;
   cursor: pointer;
+  position: relative;
+  display: inline-block;
 }
- 
+
 .menuIcon {
   width: 40px;
   height: 3px;
@@ -40,7 +42,7 @@ body {
 
 /* Drop down button */
 .menuButton {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 70px;
   border-radius: 12px;
   margin: 5px;
@@ -49,21 +51,15 @@ body {
   cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.menu {
-  position: relative;
-  display: inline-block; 
-} 
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-top: -10px;
-  margin-left: 5px;  
+  margin-left: 5px;
 }
 
 /* Links inside the dropdown */
@@ -72,30 +68,37 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content {display: block;}
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn {background-color: #3e8e41;}
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.1;
   margin-top: 5px;
 }
- 
+
 .resizeLogo {
   width: 60px;
   height: auto;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
   display: block;
   margin-top: 5px;
 }
+
 .searchbar {
   flex: 5.5;
   margin-top: 10px;
@@ -107,18 +110,17 @@ body {
   font-size: 30px;
   cursor: pointer;
   height: 55px;
-
 }
 
 .round {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
- 
+
 form {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
- 
+
 form.example input[type=text] {
   padding: 10px;
   font-size: 22px;
@@ -128,65 +130,64 @@ form.example input[type=text] {
   background: #f1f1f1;
   height: 55px;
 }
- 
+
 form.example button:hover {
   background: #868b8f;
 }
- 
+
 form.example::after {
   content: "";
   clear: both;
   display: table;
 }
- 
+
 form.example i {
   font-size: 35px;
   border-radius: 12px;
 }
- 
+
 .signIn {
   flex: 0.5;
 }
- 
+
 .signIn button {
   width: 100px;
   height: 60px;
-  background-color: #FFCF96;
   margin-top: 10px;
   border-radius: 20px;
   border: none;
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   cursor: pointer;
 }
-  
-  /* Personal Cookbook items */
-  .parentDiv {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    margin-left: 59px;
-    gap: 3em;
-  }
-   
-  /* Copyright styling */
-  footer {
-    margin-top: auto;
-  }
-  .copyright {
-      display: flex;
-  }
-   
-  .copyright div{
-      background-color: #FFCF96;
-  }
-   
-  .copyrightBar {
-      flex: 1;
-  }
-   
-  .copyrightText {
-    background-color: #FFCF96;
-    text-align: center;
-    color: gray;
-   
-  }
+
+/* Personal Cookbook items */
+.parentDiv {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-left: 59px;
+  gap: 3em;
+}
+
+/* Copyright styling */
+footer {
+  margin-top: auto;
+}
+
+.copyright {
+  display: flex;
+}
+
+.copyright div {
+  background-color: #ffcf96;
+}
+
+.copyrightBar {
+  flex: 1;
+}
+
+.copyrightText {
+  background-color: #ffcf96;
+  text-align: center;
+  color: gray;
+}
