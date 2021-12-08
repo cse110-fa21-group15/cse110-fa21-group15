@@ -8,6 +8,7 @@ import { firebaseConfig } from "./api.js"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+let favoriteRecipesSet = new Set();
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
 
@@ -80,20 +81,27 @@ async function removeRecipe() {
  * @param {String} id  user's id
  * @returns information regarding the user
  */
-async function getUser(id) {
-    const user = doc(db, "users", id);
+
+ async function getUser(id) {
+    const user = doc(db, "users", id)
     const userDoc = await getDoc(user);
     const createdRecipes = [];
+    const favoriteRecipes = new Set();
     const userData = userDoc.data();
     for (let i = 0; i<userData.favoriteRecipes.length; i++) {
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
+    }
     const userInformation = {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
-        "recipes": createdRecipes
+        "recipes": createdRecipes,
+        "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
+    console.log("test");
     return userInformation;
 }
 
@@ -131,6 +139,14 @@ console.log("GETUSER()");*/
  */
 async function loadRecipes(id) {
     const userFile = await getUser(id);
+    console.log(userFile);
+    const favoriteRecipes = userFile.favoriteRecipes;
+    let tempFavorites = Array.from(favoriteRecipes);
+    localStorage.favoriteRecipes = JSON.stringify(tempFavorites);
+    console.log(userFile.favoriteRecipes);
+    for(let i = 0; i < tempFavorites.length; ++i){
+        favoriteRecipesSet.add(tempFavorites[i].recipe_id);
+    }
     const recipes = userFile.recipes;
     init(recipes);
 }
@@ -197,12 +213,18 @@ async function fetchRecipes(recipes) {
  * Create recipe cards to be displayed 
  */
 function createRecipeCards() {
-    let parentDiv = document.querySelector(".parentDiv");
+    let parentDiv = document.querySelector("#regularDiv");
+    let favoritesDiv = document.querySelector("#favoritesDiv");
     let mainElement = document.querySelector("main");
     for (let i = 0; i < numRecipes; i++) {
         let recipeCard = document.createElement("recipe-card");
         recipeCard.data = recipeData[i.toString()];
-        parentDiv.appendChild(recipeCard);
+        if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
+            favoritesDiv.appendChild(recipeCard);
+        }
+        else{
+            parentDiv.appendChild(recipeCard); 
+        }
     }
     mainElement.appendChild(parentDiv);
 }

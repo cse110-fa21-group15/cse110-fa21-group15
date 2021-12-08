@@ -32,17 +32,27 @@ async function init(recipes) {
 }
 
 async function fetchRecipes(recipes) {
-    return new Promise((resolve, reject) => {
-        numRecipes = recipes.length;
-        console.log(recipes);
-        //Parse recipes from JSON to recipeData
-        for(let i = 0; i < numRecipes; i++) {
-            recipeData[i] = recipes[i];
-            if (i == numRecipes - 1) {
-                resolve(true);
-            }
+  return new Promise((resolve, reject) => {
+
+      numRecipes = recipes.length;
+      let numNull = 0;
+      let numRealRecipes = 0;
+      console.log(recipes)
+      //Parse recipes from JSON to recipeData
+      for(let i = 0; i < numRecipes; ++i){
+        if(recipes[i] == null){
+          console.log(i);
+          ++numNull;
+          continue;
         }
-    });
+        recipeData[i] = recipes[i];
+        ++numRealRecipes;
+      }
+      numRecipes = numRecipes - numNull;
+      if(numRealRecipes == numRecipes){
+        resolve(true);
+      }
+  });
 }
   
 function createRecipeCards() {
