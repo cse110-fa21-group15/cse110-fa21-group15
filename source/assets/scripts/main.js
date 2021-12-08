@@ -54,28 +54,6 @@ async function addUser(email, id) {
     }
 }
 
-// document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
-
-async function removeRecipe() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-    const q = query(collection(db, "users"), where("user_id", "==", id));
-    const querySnapshot = await getDocs(q);
-    const document = querySnapshot.docs[0];
-    console.log(document.id);
-    console.log(document);
-    let name = "pizza";
-    let time = "30";
-    let cost = "40";
-    let servings = "3";
-    let description = "testing";
-    const database = doc(db, "users", document.id);
-    // console.log(document.data())
-    await updateDoc(database, {
-        favoriteRecipes: arrayRemove({name: "pizza"})
-    });
-}
-// document.querySelector('#tester').addEventListener('click', removeRecipe)
-
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id  user's id
@@ -92,7 +70,7 @@ async function removeRecipe() {
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
     for (let i = 0; i<userData.favorites.length; i++) {
-        favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
     }
     const userInformation = {
         "user_email" : userData["user_email"],

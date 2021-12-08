@@ -69,13 +69,6 @@ const recipe = JSON.parse(localStorage.recipe);
 const user_id = searchForKey(recipe, "user_id");
 const recipe_id = searchForKey(recipe, "recipe_id");
 
-//console.log("TEST");
-//console.log(user_id);
-//console.log(recipe_id);
-// favoriteBtn.addEventListener("click", function() {
-//     favoriteRecipe(recipe_id, user_id)
-// })
-
 deleteBtn.addEventListener("click", function() {
     //console.log("onlick is working");
     deleteRecipe(recipe_id, user_id);
@@ -83,7 +76,7 @@ deleteBtn.addEventListener("click", function() {
 
 
 favoriteBtn.addEventListener("click", function() {
-    //console.log("onlick is working");
+    console.log("onlick is working");
     favoriteRecipe(recipe_id, user_id);
 })
 
