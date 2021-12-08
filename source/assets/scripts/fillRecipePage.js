@@ -10,6 +10,7 @@ const recipeSteps = document.querySelector("#recipeList");
 
 // Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
+console.log(recipe);
 const name = searchForKey(recipe, "name");
 const image = searchForKey(recipe, "image");
 const time  = searchForKey(recipe, "time");

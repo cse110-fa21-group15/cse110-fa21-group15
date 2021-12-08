@@ -167,6 +167,7 @@ async function loadRecipes(id) {
 
 let numRecipes;
 const recipeData = {}
+let recipeCardList;
   
 // Call this to begin getting recipe cards
 
@@ -195,6 +196,7 @@ async function init(recipes) {
 async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {  
         numRecipes = recipes.length;
+        recipeCardList = new Array(numRecipes);
         console.log(recipes);
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
@@ -212,18 +214,20 @@ async function fetchRecipes(recipes) {
 function createRecipeCards() {
     let parentDiv = document.querySelector("#regularDiv");
     let favoritesDiv = document.querySelector("#favoritesDiv");
-    let mainElement = document.querySelector("main");
     for (let i = 0; i < numRecipes; i++) {
         let recipeCard = document.createElement("recipe-card");
         recipeCard.data = recipeData[i.toString()];
+        console.log(recipeCard);
         if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
             favoritesDiv.appendChild(recipeCard);
+            console.log(recipeData[i.toString()]);
         }
         else{
             parentDiv.appendChild(recipeCard); 
         }
+        recipeCardList[i] = recipeCard;
     }
-    mainElement.appendChild(parentDiv);
+
 }
   
 // Go to recipePage upon clicking recipe card
@@ -232,8 +236,8 @@ function createRecipeCards() {
  * @param {Array} recipes recipes to navigate to
  */
 function recipePage(recipes) {
-    let recipeCard = document.querySelectorAll("recipe-card");
-    console.log(recipes);    
+    let recipeCard = recipeCardList;
+    console.log(recipeCard.data);
     for (let i = 0; i < recipeCard.length; i++) {
         recipeCard[i].addEventListener("click", function (){
             localStorage.recipe = JSON.stringify(recipes[i]);
