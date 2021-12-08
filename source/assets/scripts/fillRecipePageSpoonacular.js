@@ -61,7 +61,7 @@ for(let i = 0; i < ingredientsArr.length; ++i){
 
 let ingredientsString = "";
 //Add ingredients to recipe page
-for(let i = 0 ; i < ingredients.length; ++i){
+for(let i = 0; i < ingredients.length; ++i) {
   let tempElem = document.createElement("li");
   tempElem.textContent = ingredients[i].original;
   ingredientsString += tempElem.textContent;
