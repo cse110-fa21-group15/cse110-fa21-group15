@@ -1,171 +1,168 @@
 /* Background color of entire webpage */
 *{
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Capriola', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Capriola", sans-serif;
 }
  
 body {
-  min-height: 100vh;
-  min-width: 960px;
-  display: flex;
-  flex-direction: column;
-  background-color: #FFE0BB;
+    min-height: 100vh;
+    min-width: 960px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFE0BB;
 }
  
 /* Navigation bar styling */
-.navigationBar{ 
-  display: flex;
-  background-color: #FFCF96;
+.navigationBar { 
+    display: flex;
+    background-color: #FFCF96;
 }
  
-.navigationBar div{
-  background-color: #FFCF96;
+.navigationBar div {
+    background-color: #FFCF96;
 }
  
+/* The container <div> - needed to position the dropdown content */
 .menu {
-  flex: 1;
-  cursor: pointer;
+    flex: 1;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
  
 .menuIcon {
-  width: 40px;
-  height: 3px;
-  background-color: rgb(121, 120, 118);
-  margin: 8px 0;
-  margin-left: auto;
-  margin-right: auto;
+    width: 40px;
+    height: 3px;
+    background-color: rgb(121, 120, 118);
+    margin: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Drop down button */
 .menuButton {
-  background-color: #FFF5EA;
-  height: 70px;
-  border-radius: 12px;
-  margin: 5px;
-  width: 80px;
-  border: none;
-  cursor: pointer;
+    background-color: #FFF5EA;
+    height: 70px;
+    border-radius: 12px;
+    margin: 5px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
 }
-
-/* The container <div> - needed to position the dropdown content */
-.menu {
-  position: relative;
-  display: inline-block; 
-} 
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-top: 10px;
-  margin-left: -5px;  
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 10px;
+    margin-left: -5px;  
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background-color: #FFF5EA;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #FFF5EA;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover { background-color: #DDDDDD; }
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content {display: block;}
+.menu:hover .dropdown-content { display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn {background-color: #3e8e41;}
+.menu:hover .dropbtn { background-color: #3e8e41; }
 
 .logo {
-  flex: 0.1;
-  margin-top: 5px;
+    flex: 0.1;
+    margin-top: 5px;
 }
  
 .resizeLogo {
-  width: 60px;
-  height: auto;
-  background-color: #FFCF96;
-  display: block;
-  margin-top: 5px;
+    width: 60px;
+    height: auto;
+    background-color: #FFCF96;
+    display: block;
+    margin-top: 5px;
 }
 .searchbar {
-  flex: 5.5;
-  margin-top: 10px;
+    flex: 5.5;
+    margin-top: 10px;
 }
 
 .searchbar button {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  font-size: 30px;
-  cursor: pointer;
-  height: 55px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 30px;
+    cursor: pointer;
+    height: 55px;
 }
 
 .round {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
  
 form {
-  background-color: #FFCF96;
+    background-color: #FFCF96;
 }
  
 form.example input[type=text] {
-  padding: 10px;
-  font-size: 22px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  height: 55px;
+    padding: 10px;
+    font-size: 22px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #F1F1F1;
+    height: 55px;
 }
  
 form.example button:hover {
-  background: #868b8f;
+    background: #868b8f;
 }
  
 form.example::after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
  
 form.example i {
-  font-size: 35px;
-  border-radius: 12px;
+    font-size: 35px;
+    border-radius: 12px;
 }
  
 .signIn {
-  flex: 0.5;
+    flex: 0.5;
 }
  
 .signIn button {
-  width: 100px;
-  height: 60px;
-  background-color: #FFCF96;
-  margin-top: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #FFF5EA;
-  cursor: pointer;
+    width: 100px;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFF5EA;
+    cursor: pointer;
 }
 
 /* Copyright styling */
 footer {
-  margin-top: auto;
+    margin-top: auto;
 }
+
 .copyright {
     display: flex;
 }
  
-.copyright div{
+.copyright div {
     background-color: #FFCF96;
 }
  
@@ -174,8 +171,7 @@ footer {
 }
  
 .copyrightText {
-  background-color: #FFCF96;
-  text-align: center;
-  color: gray;
- 
+    background-color: #FFCF96;
+    text-align: center;
+    color: gray;
 }

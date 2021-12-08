@@ -1,195 +1,188 @@
 /* Background color of entire webpage */
 *{
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Capriola', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Capriola", sans-serif;
 }
  
 body {
-  min-height: 100vh;
-  min-width: 960px;
-  display: flex;
-  flex-direction: column;
-  background-color: #FFE0BB;
+    min-height: 100vh;
+    min-width: 960px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFE0BB;
 }
  
 /* Navigation bar styling */
-.navigationBar{ 
-  display: flex;
-  background-color: #FFCF96;
+.navigationBar { 
+    display: flex;
+    background-color: #FFCF96;
 }
  
-.navigationBar div{
-  background-color: #FFCF96;
-}
- 
-.menu {
-  flex: 1;
-  cursor: pointer;
-}
- 
-.menuIcon {
-  width: 40px;
-  height: 3px;
-  background-color: rgb(121, 120, 118);
-  margin: 8px 0;
-  margin-left: auto;
-  margin-right: auto;
-}
- 
-/* Drop down button */
-.menuButton {
-  background-color: #FFF5EA;
-  height: 70px;
-  border-radius: 12px;
-  margin: 5px;
-  width: 80px;
-  border: none;
-  cursor: pointer;
+.navigationBar div {
+    background-color: #FFCF96;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .menu {
-  position: relative;
-  display: inline-block; 
-} 
+    flex: 1;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+ 
+.menuIcon {
+    width: 40px;
+    height: 3px;
+    background-color: rgb(121, 120, 118);
+    margin: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+/* Drop down button */
+.menuButton {
+    background-color: #FFF5EA;
+    height: 70px;
+    border-radius: 12px;
+    margin: 5px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-top: -10px;
-  margin-left: 5px;  
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: -10px;
+    margin-left: 5px;  
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background-color: #FFF5EA;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #FFF5EA;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover { background-color: #DDDDDD; }
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content {display: block;}
+.menu:hover .dropdown-content { display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn {background-color: #3e8e41;}
+.menu:hover .dropbtn { background-color: #3E8E41; }
 
- 
 .logo {
-  flex: 0.05;
-  margin-top: 5px;
-  cursor: pointer;
+    flex: 0.05;
+    margin-top: 5px;
+    cursor: pointer;
 }
  
 .resizeLogo {
-  width: 60px;
-  height: auto;
-  background-color: #FFCF96;
-  display: block;
+    width: 60px;
+    height: auto;
+    background-color: #FFCF96;
+    display: block;
 }
  
 .title {
-  flex: 1.1;
-  margin: 10px;
-  background-color: #FFCF96;
-  color: #000000;
-  cursor: context-menu;
-  font-size: 22px;
+    flex: 1.1;
+    margin: 10px;
+    background-color: #FFCF96;
+    color: #000000;
+    cursor: context-menu;
+    font-size: 22px;
 }
  
 .signIn {
-  flex: 0.16;
+    flex: 0.16;
 }
  
 .signIn button {
-  width: 100px;
-  height: 60px;
-  background-color: #FFCF96;
-  margin-top: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #FFF5EA;
-  cursor: pointer;
+    width: 100px;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFF5EA;
+    cursor: pointer;
 }
 
  /* Main page styling */
 
- main {
-   padding-top: 100px;
- }
+main {
+    padding-top: 100px;
+}
 
- .emailbar {
-  top: 25%;
-  left: 35%;
-  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+.emailbar {
+    top: 25%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
 }
 
 .passwordbar {
-  top: 40%;
-  left: 35%;
-  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+    top: 40%;
+    left: 35%;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
 }
 
-.round{
-  border-radius: 50px;
+.round {
+    border-radius: 50px;
 }
 
 .logIn {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-.logIn button{
-  width: 180px;
-  height: 80px;
-  background-color: #FFF0E0;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+.logIn button {
+    width: 180px;
+    height: 80px;
+    background-color: #FFF0E0;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
 }
-
 
 form.loginArea {
-  display: flex;
-  justify-content: center;
-  
+    display: flex;
+    justify-content: center;
 }
  
 form.loginArea input[type=text] {
-  padding: 20px;
-  font-size: 32px;
-  border: 1px solid black;
-  width: 650px;
-  height: 80px;
-  margin: 20px;
-  background: #f1f1f1;
+    padding: 20px;
+    font-size: 32px;
+    border: 1px solid black;
+    width: 650px;
+    height: 80px;
+    margin: 20px;
+    background: #F1F1F1;
 }
 
 form.loginArea input[type=password] {
-  padding: 20px;
-  font-size: 32px;
-  border: 1px solid black;
-  width: 650px;
-  height: 80px;
-  margin: 20px;
-  background: #f1f1f1;
+    padding: 20px;
+    font-size: 32px;
+    border: 1px solid black;
+    width: 650px;
+    height: 80px;
+    margin: 20px;
+    background: #F1F1F1;
 }
 
 .invalidLogIn {
-  display: flex;
-  margin-left: 450px;
-  color: #FF0000;
-  font-weight: bold;
+    display: flex;
+    margin-left: 450px;
+    color: #FF0000;
+    font-weight: bold;
 }
 
 .forgotPassword {
@@ -200,56 +193,54 @@ form.loginArea input[type=password] {
 }
 
 .forgotPassword button{
-  font-size: 20px;
-  text-decoration-line: underline;
-  color: #2C3BBD;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
+    font-size: 20px;
+    text-decoration-line: underline;
+    color: #2C3BBD;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
 }
 
 .noAccount {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .noAccount p{
-  font-size: 20px;
-  color: #000000;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+    color: #000000;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .noAccount button{
-  font-size: 24px;
-  color:  #2C3BBD;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  text-decoration-line: underline;
+    font-size: 24px;
+    color:  #2C3BBD;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    text-decoration-line: underline;
 }
- 
  
 /* Copyright styling */
 footer {
-  margin-top: auto;
+    margin-top: auto;
 }
+
 .copyright {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
  
-.copyright div{
+.copyright div {
     background-color: #FFCF96;
 }
  
 .copyrightBar {
-  flex: 1
+    flex: 1
 }
  
 .copyrightText {
-  background-color: #FFCF96;
-  text-align: center;
-  color: gray;
- 
+    background-color: #FFCF96;
+    text-align: center;
+    color: gray;
 }
-
