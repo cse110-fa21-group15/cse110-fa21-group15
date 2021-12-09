@@ -102,7 +102,7 @@ describe("Test Signup and Login", () => {
         await page.waitForNavigation();
         const input = await page.$eval(".recipeNameText", (e) => e.value = "Omelette");
         const uploader = await page.$("#imageUpload");
-        await uploader.uploadFile("/__tests__/img.jpeg");
+        await uploader.uploadFile("/home/runner/work/cse110-fa21-group15/cse110-fa21-group15/__tests__/img.jpeg");
 
         const time = await page.$eval(".timeBoxInput", (e) => e.value = "10 mins");
         const cost = await page.$eval(".costBoxInput", (e) => e.value = "$5");
