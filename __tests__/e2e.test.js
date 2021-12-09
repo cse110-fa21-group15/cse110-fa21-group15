@@ -153,7 +153,7 @@ describe("Basic user flow for website", () => {
         // const add = await page.$eval(".icon", (e) => e.click());
         await page.waitForNavigation();
         console.log(page.url());
-        const recipes = await page.$$eval("recipe-card");
+        const recipes = await page.$$("recipe-card");
         // const root = await page.evaluate(() => document.body.querySelector("main"));
         console.log(recipes);
         // expect(check).toBe(name);
