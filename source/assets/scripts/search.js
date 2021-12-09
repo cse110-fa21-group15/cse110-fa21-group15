@@ -102,11 +102,12 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
  * @return list of recipe with filter applied
  */
 function filterCost(recipes, cost){
+    let output;
     if(cost == ""){
         return recipes;
     }
     else {
-        let output = [];
+        output = [];
         for(let i = 0; i < recipes.length; i++){
             if(recipes[i].pricePerServing > 250){
                 if(cost == 3){
