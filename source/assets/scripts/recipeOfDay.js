@@ -1,7 +1,7 @@
 function newDay(){
     var date = new Date().toLocaleDateString();
     // setting  our app's date
-    if(!localStorage.currDate){
+    if(!localStorage.currDate || !localStorage.recipeOfDay){
         localStorage.currDate = date;
         return true;
     }

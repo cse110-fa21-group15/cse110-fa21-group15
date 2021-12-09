@@ -1,5 +1,5 @@
-const API_KEY = "apiKey=922f35028edc49c89b907dd84e17e1cd";
-const API_KEY_ALT = "apiKey=922f35028edc49c89b907dd84e17e1cd"
+const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
+const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
 const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1"
 
@@ -17,7 +17,7 @@ const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d
 async function getRecipes(event, filters = false, number = 14, offset = 0, currsize = 0, recurse = 0){    
     
     //Get User Input
-    let input = document.querySelector("input[name = 'search']").value;    
+    var input = document.querySelector("input[name = 'search']").value;    
     
     //If no query, then no need to do anything
     // if (input == "") {
@@ -25,14 +25,14 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     //}
 
     //Build Base Url
-    let url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
+    var url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
     
     //If there are filters, then add time and dietary parameters to url
     if(filters == true)
     {
-        let time = document.getElementById("time").value;
-        let dietary = document.getElementById("dietary").value;
-        let cost = document.getElementById("cost").value;
+        var time = document.getElementById("time").value;
+        var dietary = document.getElementById("dietary").value;
+        var cost = document.getElementById("cost").value;
         if(time != ""){
             console.log("There is a time filter =" + time)
             url+= ("&maxReadyTime=" + time);
@@ -55,8 +55,8 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
         return response.json();
     }).then(results => {
         //storeRecipe(results, input);    
-        let recipes = results['results'];    
-        let output = [];
+        var recipes = results['results'];    
+        var output = [];
         if(filters == true){
             output =  filterCost(recipes, Number(cost));
         }
@@ -72,7 +72,7 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     }
 
     //Extract the actual list of recipes from the final promise
-    let real = await final;
+    var real = await final;
 
     //Maximum 5 recursive searches
     if(recurse == 5){
@@ -81,7 +81,7 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
 
     //If not enough recipes after applying the filters recursively call this function again
     if(real.length + currsize < number){
-        let temp = await getRecipes(event,filters, number, offset+number, (currsize +real.length), recurse + 1);
+        var temp = await getRecipes(event,filters, number, offset+number, (currsize +real.length), recurse + 1);
         real = real.concat(temp);
     }
     
@@ -102,13 +102,12 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
  * @return list of recipe with filter applied
  */
 function filterCost(recipes, cost){
-    let output;
     if(cost == ""){
         return recipes;
     }
     else {
-        output = [];
-        for(let i = 0; i < recipes.length; i++){
+        var output = [];
+        for(var i = 0; i < recipes.length; i++){
             if(recipes[i].pricePerServing > 250){
                 if(cost == 3){
                     output.push(recipes[i]);
@@ -145,7 +144,7 @@ async function redirectPage(){
 async function storeRecipe(results, input){
     //store data for all sessions, string only
     console.log("Storing recipes to local storage");
-    let toStore = await results;
+    var toStore = await results;
     localStorage.setItem("recipes", JSON.stringify(toStore));
 }
 
@@ -161,13 +160,12 @@ async function retrieveRecipe(input){
     console.log(recipe_example);
 }
 
-
 /**
  * Fetches a random recipe
  * @returns random recipe
  */
 async function randomRecipe(){
-    let recipeData = await fetch(RANDOM_RECIPE_URL).then(response =>{
+    var recipeData = await fetch(RANDOM_RECIPE_URL).then(response =>{
         return response.json();
     });
     return recipeData['recipes'][0];
@@ -179,8 +177,8 @@ async function randomRecipe(){
  * @returns data about the recipe
  */
 async function recipeInfo(id){
-    let url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
-    let recipeData = await fetch(url).then(response =>{
+    var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
+    var recipeData = await fetch(url).then(response =>{
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
