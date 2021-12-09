@@ -17,6 +17,7 @@
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
      <!--Log In Script-->
+     <script src="assets/scripts/search.js"></script>
     
     <script>
     async function getRecipe(recipe_id) {
@@ -57,7 +58,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit" onclick = "getRecipes(event)"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
