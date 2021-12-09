@@ -61,11 +61,7 @@ async function addUser(email, id) {
             user_id: id,
             favoriteRecipes: [],
             favorites: [],
-            monday: null,
-            tuesday: null, 
-            wednesday: null,
-            thursday: null,
-            friday: null
+            mealPlan: []
         });
     } catch (e) {
         console.error("Error adding document: ", e);
@@ -85,6 +81,7 @@ async function getUser() {
     const q = await query(users, where("user_id", "==", id));
     const querySnapshot = await getDocs(q);
     const createdRecipes = [];
+    const mealPlan = []
     querySnapshot.forEach((doc) => {
         userInformation["results"] = doc.data();
     });
