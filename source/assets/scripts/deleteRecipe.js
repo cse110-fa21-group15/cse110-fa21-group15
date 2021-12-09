@@ -22,6 +22,9 @@ async function deleteRecipe(recipe_id, user_id) {
     await updateDoc(database, {
         favoriteRecipes: arrayRemove(recipe_id)
     });
+    await updateDoc(database, {
+        favorites: arrayRemove(recipe_id)
+    });
     location.href = "cookbook.html";
 }
 
