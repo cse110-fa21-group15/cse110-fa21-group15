@@ -125,6 +125,20 @@ form.example input[type=text] {
   height: 55px;
 }
 
+.signIn {
+  flex: 0.5;
+}
+
+.signIn button {
+  width: 100px;
+  height: 60px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #fff5ea;
+  cursor: pointer;
+}
+
 form.example button:hover {
   background: #868b8f;
 }
@@ -138,20 +152,6 @@ form.example::after {
 form.example i {
   font-size: 35px;
   border-radius: 12px;
-}
-
-.signIn {
-  flex: 0.5;
-}
-
-.signIn button {
-  width: 100px;
-  height: 60px;
-  margin-top: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #fff5ea;
-  cursor: pointer;
 }
 
 /* Copyright styling */
