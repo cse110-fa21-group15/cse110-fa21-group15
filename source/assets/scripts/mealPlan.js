@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, setDoc, updateDoc, arrayUnion, doc, arrayRemove, deleteField } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js'
 import { firebaseConfig } from './api.js'
 
 const app = initializeApp(firebaseConfig);
@@ -18,6 +18,7 @@ const db = getFirestore();
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         loadRecipes(uid);
+        console.log("uid")
         // ...
     } else {
         // User is signed out
@@ -40,7 +41,7 @@ const db = getFirestore();
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
     for (let i = 0; i<userData.favorites.length; i++) {
-        favoriteRecipes.add(await getRecipe(userData.favoriteRecipes[i]));
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
     }
     const userInformation = {
         "user_email" : userData["user_email"],
@@ -285,7 +286,42 @@ document.addEventListener("drop", function(event) {
     }
   }, false);
 
+
 console.log("TESTTESTTEST");
+const save = document.querySelector("#save")
+console.log(save);
+
+save.addEventListener("click", function (event) {
+    console.log("testing save")
+    saveMealPlan();
+})
+
+async function saveMealPlan() {
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+
+          await updateDoc(doc(db, "users", uid), {
+              mealPlan: deleteField()
+          });
+
+          const uploadMealPlan = Object.fromEntries(mealplanCalendar);
+          await setDoc(doc(db, "users", uid), {
+            mealPlan: uploadMealPlan,
+          }, { merge: true });
+          console.log(uid);
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+}
+
+function getRecipeInformation(recipe_id) {
+
+}
 // const mondayBreakfast = document.querySelector("#mondayBreakfast");
 // const mondayLunch = document.querySelector("#mondayLunch");
 // const mondayDinner = document.querySelector("#mondayDinner");

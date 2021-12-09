@@ -52,7 +52,8 @@ async function getRecipe(recipe_id) {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
         "recipes": createdRecipes,
-        "favoriteRecipes": favoriteRecipes
+        "favoriteRecipes": favoriteRecipes,
+        "mealPlan": userData["mealPlan"]
     };
     console.log(userInformation);
     console.log("test");
