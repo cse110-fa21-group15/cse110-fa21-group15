@@ -42,7 +42,8 @@ describe("Test Signup and Login", () => {
     it("checking if login works properly", async () => {
         const browser = await puppeteer.launch({
             headless:false,
-            slowMo:50
+            slowMo:50,
+            executablePath: '/usr/bin/chromium-browser'
         });
         const page = await browser.newPage();
         await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
