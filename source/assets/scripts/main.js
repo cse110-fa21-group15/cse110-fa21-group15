@@ -221,21 +221,6 @@ function createRecipeCards() {
     mainElement.appendChild(parentDiv);
 }
   
-// Go to recipePage upon clicking recipe card
-/**
- * Go to recipePage upon clicking recipe card
- * @param {Array} recipes recipes to navigate to
- */
-function recipePage(recipes) {
-    let recipeCard = document.querySelectorAll("recipe-card");
-    console.log(recipes);    
-    for (let i = 0; i < recipeCard.length; i++) {
-        recipeCard[i].addEventListener("click", function () {
-            localStorage.recipe = JSON.stringify(recipes[i]);
-            location.href = "recipePage.html";
-        })
-    }
-}
 
 
 // document.querySelector('#add').addEventListener('click', getUser)
