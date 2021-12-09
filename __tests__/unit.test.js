@@ -1,4 +1,6 @@
-const functions = require("../source/assets/scripts/RecipeCard.js");
+const functions = require("../source/assets/scripts/RecipeCard.js"); //.default
+//console.log(functions);
+//import {searchForKey, getUrl, getOrganization, convertTime} from "../source/assets/scripts/RecipeCard.js";
 
 test('basic add test', () => {
     expect(1+2).toBe(3);
