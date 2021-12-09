@@ -98,6 +98,7 @@ async function loadRecipes(id) {
 
 let numRecipes;
 const recipeData = {}
+const mealplanCalendar = new Map();
   
 // Call this to begin getting recipe cards
 
@@ -153,11 +154,19 @@ function createRecipeCards() {
         let recImg = searchForKey(recipeData[i.toString()],"image");
         img.setAttribute("src",recImg);
         
+        let recipe_id_elem = document.createElement("p");
+        let recipe_id = searchForKey(recipeData[i.toString()],"recipe_id");
+        recipe_id_elem.textContent = recipe_id;
+        recipe_id_elem.setAttribute("hidden", true);
+ 
+
+        
         let title = document.createElement("h4");
         let recTitle = searchForKey(recipeData[i.toString()],"name");
         title.textContent=recTitle;
         div.appendChild(title);
         div.appendChild(img);
+        div.appendChild(recipe_id_elem);
         div.setAttribute("draggable","true");
         div.classList.add("ele");
         //document.getElementById("div").addEventListener("dragstart", drag, true);
@@ -251,17 +260,65 @@ document.addEventListener("drop", function(event) {
     if (event.target.className == "drag2") {
         //console.log(event.target);
         event.target.style.background = "";
+        console.log(event.target);
         let title = event.target.querySelector("h4");
         let img = event.target.querySelector("img");
         console.log("title",title)
         console.log("img",img)
         let srcTitle = dragged.querySelector("h4").textContent;
         let srcImage = dragged.querySelector("img").src;
+        let recipe_id = dragged.querySelector("p").textContent;
         console.log("srcTi",srcTitle)
         console.log("img",srcImage)
         title.textContent=srcTitle;
         img.setAttribute("src",srcImage);
+        console.log(recipe_id);
         //dragged.parentNode.removeChild( dragged );
         //event.target.appendChild( dragged );
+        console.log("TESTTESTTEST");
+        const mondayBreakfast = document.querySelector('#mondayBreakfast');
+        console.log(mondayBreakfast)
+        console.log("test")
+        mealplanCalendar.set(event.target.id, recipe_id);
+        console.log(mealplanCalendar);
     }
   }, false);
+
+console.log("TESTTESTTEST");
+// const mondayBreakfast = document.querySelector("#mondayBreakfast");
+// const mondayLunch = document.querySelector("#mondayLunch");
+// const mondayDinner = document.querySelector("#mondayDinner");
+// const tuesdayBreakfast = document.querySelector("#tuesdayBreakfast");
+// const tuesdayLunch = document.querySelector("#tuesdayLunch");
+// const tuesdayDinner = document.querySelector("#tuesdayDinner");
+// const wednesdayBreakfast = document.querySelector("#wednesdayBreakfast");
+// const wednesdayLunch = document.querySelector("#wednesdayLunch");
+// const wednesdayDinner = document.querySelector("#wednesdayDinner");
+// const thursdayBreakfast = document.querySelector("#thursdayBreakfast");
+// const thursdayLunch = document.querySelector("#thursdayLunch");
+// const thursdayDinner = document.querySelector("#thursdayDinner");
+// const fridayBreakfast = document.querySelector("#fridayBreakfast");
+// const fridayLunch = document.querySelector("#fridayLunch");
+// const fridayDinner = document.querySelector("#fridayDinner");
+// const saturdayBreakfast = document.querySelector("#saturdayBreakfast");
+// const saturdayLunch = document.querySelector("#saturdayLunch");
+// const saturdayDinner = document.querySelector("#saturdayDinner");
+// const sundayBreakfast = document.querySelector("#sundayBreakfast");
+// const sundayLunch = document.querySelector("#sundayLunch");
+// const sundayDinner = document.querySelector("#sundayDinner");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log("test")
