@@ -1,4 +1,6 @@
+
 //module.exports = require('../../../jest-puppeteer.config.cjs')
+
 
 //RecipeCard.js
 //USED FROM LAB 6
@@ -265,8 +267,14 @@ class RecipeCard extends HTMLElement {
 }
 
 // for unit testing, pls dont remove without notifying
+
 //module.exports = {searchForKey, getUrl, getOrganization, convertTime};
 //export default {searchForKey, getUrl, getOrganization, convertTime};
+
+
+//module.exports = {searchForKey, getUrl, getOrganization, convertTime};
+//export {searchForKey, getUrl, getOrganization, convertTime};
+
 
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
