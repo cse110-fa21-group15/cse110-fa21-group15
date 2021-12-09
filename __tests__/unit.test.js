@@ -1,6 +1,6 @@
-const functions = require("../source/assets/scripts/RecipeCard.js"); //.default
+//const functions = require("../source/assets/scripts/RecipeCard.js");
 //console.log(functions);
-//import {searchForKey, getUrl, getOrganization, convertTime} from "../source/assets/scripts/RecipeCard.js";
+import {searchForKey, getUrl, getOrganization, convertTime} from "../source/assets/scripts/RecipeCard.js";
 
 test('basic add test', () => {
     expect(1+2).toBe(3);
@@ -104,82 +104,82 @@ let testRecipeData = {
 };
 
 test('searchForKey Author Name Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'author').name).toBe("Makinze Gore");
+    expect(searchForKey(testRecipeData, 'author').name).toBe("Makinze Gore");
 });
 
 test('searchForKey Author Name Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'author').name).not.toBe("Kevin Hart");
+    expect(searchForKey(testRecipeData, 'author').name).not.toBe("Kevin Hart");
 });
 
 test('searchForKey cookTime Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'cookTime')).toBe("PT0S");
+    expect(searchForKey(testRecipeData, 'cookTime')).toBe("PT0S");
 });
 
 test('searchForKey cookTime Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'cookTime')).not.toBe("PT5S");
+    expect(searchForKey(testRecipeData, 'cookTime')).not.toBe("PT5S");
 });
 
 test('searchForKey headline Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'headline')).toBe("Spooky Ghost Cookies");
+    expect(searchForKey(testRecipeData, 'headline')).toBe("Spooky Ghost Cookies");
 });
 
 test('searchForKey headline Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'headline')).not.toBe("Chicken Noodle Soup");
+    expect(searchForKey(testRecipeData, 'headline')).not.toBe("Chicken Noodle Soup");
 });
 
 test('searchForKey prepTime Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'prepTime')).toBe("PT10M");
+    expect(searchForKey(testRecipeData, 'prepTime')).toBe("PT10M");
 });
 
 test('searchForKey prepTime Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'prepTime')).not.toBe("PT5M");
+    expect(searchForKey(testRecipeData, 'prepTime')).not.toBe("PT5M");
 });
 
 test('searchForKey recipeYield Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'recipeYield')).toBe("24");
+    expect(searchForKey(testRecipeData, 'recipeYield')).toBe("24");
 });
 
 test('searchForKey recipeYield Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'recipeYield')).not.toBe("34");
+    expect(searchForKey(testRecipeData, 'recipeYield')).not.toBe("34");
 })
 
 test('searchforkey thumbnailUrl Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'thumbnailUrl')).toBe("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190807-ghost-cookies-0031-landscape-pf-1566483952.jpg?crop=0.668xw:1.00xh;0.160xw,0&resize=100:*");
+    expect(searchForKey(testRecipeData, 'thumbnailUrl')).toBe("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190807-ghost-cookies-0031-landscape-pf-1566483952.jpg?crop=0.668xw:1.00xh;0.160xw,0&resize=100:*");
 });
 
 test('searchforkey thumbnailUrl Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'thumbnailUrl')).not.toBe("https://google.com");
+    expect(searchForKey(testRecipeData, 'thumbnailUrl')).not.toBe("https://google.com");
 });
 
 test('searchForKey url Success Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'url')).toBe("https://www.delish.com/holiday-recipes/halloween/a28637917/ghost-cookies-recipe/");
+    expect(searchForKey(testRecipeData, 'url')).toBe("https://www.delish.com/holiday-recipes/halloween/a28637917/ghost-cookies-recipe/");
 });
 
 test('searchForKey url Fail Test', () => {
-    expect(functions.searchForKey(testRecipeData, 'url')).not.toBe("https://youtube.com");
+    expect(searchForKey(testRecipeData, 'url')).not.toBe("https://youtube.com");
 });
 
 test('getUrl Success Test' , () => {
-    expect(functions.getUrl(testRecipeData)).toBe("https://www.delish.com/holiday-recipes/halloween/a28637917/ghost-cookies-recipe/");
+    expect(getUrl(testRecipeData)).toBe("https://www.delish.com/holiday-recipes/halloween/a28637917/ghost-cookies-recipe/");
 });
 
 test('getUrl Fail Test' , () => {
-    expect(functions.getUrl(testRecipeData)).not.toBe("https://geoguesser.com");
+    expect(getUrl(testRecipeData)).not.toBe("https://geoguesser.com");
 });
 
 test('getOrganization Success Test', () => {
-    expect(functions.getOrganization(testRecipeData)).toBe("Delish");
+    expect(getOrganization(testRecipeData)).toBe("Delish");
 });
 
 test('getOrganization Fail Test', () => {
-    expect(functions.getOrganization(testRecipeData)).not.toBe("Google");
+    expect(getOrganization(testRecipeData)).not.toBe("Google");
 });
 
 test('convertTime Success Test', () => {
-    expect(functions.convertTime(functions.searchForKey(testRecipeData,"totalTime"))).toBe("2 hr");
+    expect(convertTime(searchForKey(testRecipeData,"totalTime"))).toBe("2 hr");
 });
 
 test('convertTime Fail Test', () => {
-    expect(functions.convertTime(functions.searchForKey(testRecipeData,"totalTime"))).not.toBe("1 hr");
+    expect(convertTime(searchForKey(testRecipeData,"totalTime"))).not.toBe("1 hr");
 });
 
