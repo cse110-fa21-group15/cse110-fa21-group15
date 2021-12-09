@@ -186,6 +186,22 @@ form.example button:hover {
   margin-top: 50px;
 }
 
+.centered{
+  position: absolute;
+  color: white;
+  font-size: 50px;;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#recipeimg{
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-radius: 37px;
+  backdrop-filter: blur(5px);
+  box-shadow:         6px 6px 4px 4px #909090;
+}
+
 /* Copyright styling */
 footer {
   margin-top: auto;
