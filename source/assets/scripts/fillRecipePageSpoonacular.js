@@ -1,5 +1,4 @@
 const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js'
@@ -10,7 +9,23 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-//Grab elements from recipe page to fill in
+// Search for keys in JSON file
+function searchForKey(object, key) {
+    var value;
+    Object.keys(object).some(function (k) {
+        if (k === key) {
+            value = object[k];
+            return true;
+        }
+        if (object[k] && typeof object[k] === "object") {
+            value = searchForKey(object[k], key);
+            return value !== undefined;
+        }
+    });
+    return value;
+}
+
+// Grab elements from recipe page to fill in
 const recipeName = document.querySelector("#recipeName");
 const recipeImage = document.querySelector("#recipeImage");
 const recipeTime = document.querySelector("#recipeTime");
@@ -22,7 +37,7 @@ const recipeSteps = document.querySelector("#recipeList");
 
 await recipeInfo(localStorage.recipeID);
 
-//Grab keys from JSON file
+// Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
 const extraRecipeInfo = JSON.parse(localStorage.extraRecipeInfo);
 console.log(extraRecipeInfo);
@@ -38,8 +53,6 @@ const steps = searchForKey(extraRecipeInfo, "instructions");
 let newDescription = new DOMParser().parseFromString(description, "text/html");
 let descriptionText = newDescription.querySelector("body").textContent;
 
-
-
 recipeName.textContent = name;
 recipeImage.setAttribute("src",image);
 recipeTime.textContent = time;
@@ -47,7 +60,7 @@ recipeCost.textContent = cost;
 recipeServings.textContent = servings;
 recipeDescription.textContent = descriptionText;
 
-//Get recipe ingredients into an array to append them the ul element
+// Get recipe ingredients into an array to append them the ul element
 /*let ingredientsArr = [];
 let tempRecipes = ingredients;
 ingredientsArr = tempRecipes.split("\n");
@@ -63,13 +76,14 @@ for(let i = 0; i < ingredientsArr.length; ++i){
 
 let ingredientsString = "";
 //Add ingredients to recipe page
-for(let i = 0 ; i < ingredients.length; ++i){
+for(let i = 0; i < ingredients.length; ++i) {
   let tempElem = document.createElement("li");
   tempElem.textContent = ingredients[i].original;
   ingredientsString += tempElem.textContent;
   ingredientsString += "\n";
   recipeIngredients.appendChild(tempElem);
 }
+
 
 console.log(ingredientsString);
 
@@ -89,7 +103,9 @@ for(let i = 0; i < stepsArr.length; ++i){
   recipeSteps.appendChild(tempElem);
 }*/
 
+
 //Output recipe steps
+
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;
 let stepsArr = newSteps.querySelectorAll("li");
@@ -111,8 +127,11 @@ else{
         stepsString += stepsArr[i];
         stepsString += "\n";
         recipeSteps.appendChild(tempElem);
-      }
+
+    }
 }
+
+
 
 //Upon clicking the "+" icon, save recipe to cookbook
 const addBtn = document.querySelector("#add");
@@ -120,32 +139,14 @@ addBtn.addEventListener("click", function(){
   downloadSpoonacularRecipe(time, name, cost, servings, descriptionText, ingredientsString, stepsString, image);
 })
 
-
-//Search for keys in JSON file
-function searchForKey(object, key) {
-    var value;
-    Object.keys(object).some(function (k) {
-      if (k === key) {
-        value = object[k];
-        return true;
-      }
-      if (object[k] && typeof object[k] === 'object') {
-        value = searchForKey(object[k], key);
-        return value !== undefined;
-      }
-    });
-    return value;
-  }
-
-
-  async function recipeInfo(id){
-    var url = "https://api.spoonacular.com/recipes/" + id + "/information?"+API_KEY;
-    var recipeData = await fetch(url).then(response =>{
+async function recipeInfo(id){
+    var url = "https://api.spoonacular.com/recipes/" + id + "/information?" + API_KEY;
+    var recipeData = await fetch(url).then((response) => {
         return response.json();
     });
     localStorage.setItem("extraRecipeInfo", JSON.stringify(recipeData));
-
 }
+
 
 
 /**
@@ -181,3 +182,4 @@ function searchForKey(object, key) {
     }
   });
 }
+

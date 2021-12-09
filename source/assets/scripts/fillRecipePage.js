@@ -1,3 +1,19 @@
+// Search for keys in JSON file
+function searchForKey(object, key) {
+    var value;
+    Object.keys(object).some(function(k) {
+        if (k === key) {
+            value = object[k];
+            return true;
+        }
+        if (object[k] && typeof object[k] === "object") {
+            value = searchForKey(object[k], key);
+            return value !== undefined;
+        }
+    });
+    return value;
+}
+
 // Grab elements from recipe page to fill in
 const recipeName = document.querySelector("#recipeName");
 const recipeImage = document.querySelector("#recipeImage");
@@ -34,7 +50,7 @@ ingredientsArr = tempRecipes.split("\n");
 for (let i = 0; i < ingredientsArr.length; i++) {
     let tempElem = document.createElement("li");
     tempElem.textContent = ingredientsArr[i];
-    if (tempElem.textContent == "") {
+    if (tempElem.textContent === "") {
         continue;
     }
     recipeIngredients.appendChild(tempElem);
@@ -48,24 +64,8 @@ stepsArr = tempSteps.split("\n");
 for (let i = 0; i < stepsArr.length; i++) {
     let tempElem = document.createElement("li");
     tempElem.textContent = stepsArr[i];
-    if (tempElem.textContent == "") {
+    if (tempElem.textContent === "") {
         continue;
     }
     recipeSteps.appendChild(tempElem);
-}
-
-// Search for keys in JSON file
-function searchForKey(object, key) {
-    var value;
-    Object.keys(object).some(function(k) {
-        if (k === key) {
-            value = object[k];
-            return true;
-        }
-        if (object[k] && typeof object[k] === 'object') {
-            value = searchForKey(object[k], key);
-            return value !== undefined;
-        }
-    });
-    return value;
 }

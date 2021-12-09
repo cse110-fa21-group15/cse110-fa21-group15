@@ -7,7 +7,7 @@ console.log(recipe);
 
 for(let i = 0; i < favoriteRecipesList.length; ++i){
     if(favoriteRecipesList[i].recipe_id == recipe.recipe_id){
-        favoriteBtn.setAttribute("src","assets/images/Add.png");
+        favoriteBtn.setAttribute("src","assets/images/FavoriteFilled.png");
         break;
     }
 }

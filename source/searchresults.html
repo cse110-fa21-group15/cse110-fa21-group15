@@ -2,31 +2,23 @@
 <html lang="en">
 
 <head>
-
     <title>Easy Chef</title>
 
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/searchresults.css" />
-
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Link to font style-->
-    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Capriola&display=swap">
 
-    <!--Link to JS file-->
-    <script src="assets/scripts/createRecipe.js" type="module"></script>
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
-    <!--Recipe Card-->
+    <!--Recipe Scripts-->
+    <script src="assets/scripts/createRecipe.js" type="module"></script>
     <script src="assets/scripts/RecipeCardSearch.js" type="module"></script>
-    
-    <!--Main Script-->
+    <!--Search Scripts-->
     <script src="assets/scripts/searchresults.js" type="module"></script>
-    
-     <!--Link to Javascript search file-->
-     <script src="assets/scripts/search.js"></script>
+    <script src="assets/scripts/search.js"></script>
 </head>
 
 <body>
@@ -39,6 +31,7 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+
                 <div class="dropdown-content">
                     <a id="recipeUpload" href="recipeUpload.html">Create Recipe</a>
                     <a href="cookbook.html">Personal Cookbook</a>
@@ -46,17 +39,18 @@
                 </div>
             </div>
 
-
             <div class="logo">
                 <a href="homepage.html">
                     <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
                 </a>
             </div>
+
             <div class="title">
                 <a class="titlebutton">
                     <h1>EasyChef</h1>
                 </a>
             </div>
+
             <div class="signIn">
                 <a href="signIn.html">
                     <button id="signedIn" style="font-size:22px">Sign In</button>
@@ -77,12 +71,14 @@
                 <option>Paleo</option>
                 <option>Whole30</option>
             </select>
+
             <select id = "time" class="drop">
                 <option value="" selected>Time</option>
                 <option value=30>Under 30 min</option>
                 <option value=60>Under 60 min</option>
                 <option value=100>Under 100 min</option>
             </select>
+
             <select id="cost" class="drop">
                 <option value="" selected>Cost</option>
                 <option value = 1>$</option>
@@ -118,9 +114,7 @@
                 <h3 class="copyrightText">@Copyright</h3>
             </div>
         </div>
-        
     </footer>
 </body>
-
 
 </html>

@@ -5,18 +5,16 @@
 
     <title>Easy Chef</title>
 
+
     <!--Link to CSS file-->
     <link rel="stylesheet" href="assets/styles/mealplan.css" />
-
     <!--Link to fa fa CSS icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Link to font style-->
-    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Capriola&display=swap">
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
 </head>
 
 <body>
@@ -29,23 +27,27 @@
                     <p class="menuIcon"></p>
                     <p class="menuIcon"></p>
                 </button>
+
                 <div class="dropdown-content">
                     <a id="recipeUpload" href="recipeUpload.html">Create Recipe</a>
                     <a href="cookbook.html">Personal Cookbook</a>
                     <a href="mealplan.html">Meal Plan</a>
                 </div>
             </div>
+
             <div class="logo">
                 <a href="homepage.html">
                     <img class="resizeLogo" src="assets/images/Logo2.png" alt="Website logo">
                 </a>
             </div>
+
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
+
             <div class="signIn">
                 <a href="signIn.html">
                     <button id="signedIn" style="font-size:22px">Sign In</button>
@@ -56,11 +58,14 @@
     </header>
 
     <main>
-        <div class="mealplanTemp"></div>
+
+        <div class="container">
+
         <table class="personalCookbook">
             <tr>
                 <th>Personal Cookbook</th>
             </tr>
+
             <tr>
                 <td>
                     <span class="cookbookMeals"></span>
@@ -79,121 +84,145 @@
                 <th>S</th>
                 <th>S</th>
             </tr>
+
             <tr>
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
                     </div>
+
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
                     </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Dinner</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                </td>
-                <td>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Breakfast</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
-                    <div class="cookbookItems">
-                        <p class="calendarMeal">Lunch</p>
-                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
-                    </div>
+
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
                     </div>
                 </td>
 
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                    
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Breakfast</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Lunch</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                    
+                    <div class="cookbookItems">
+                        <p class="calendarMeal">Dinner</p>
+                        <button class="addToCookbook"> <i class="fa fa-plus"></i></button>
+                    </div>
+                </td>
             </tr>
         </table>
+    </div>
+
 
         <div class="saveButton">
             <img class="icon" src="assets/images/Save.png" alt="Save">
         </div>
-
     </main>
-    <footer>
+
+    <div class= "footer">
+
         <div class="copyright">
             <div class="copyrightBar">
                 <h3 class="copyrightText">@Copyright</h3>
             </div>
         </div>
-    </footer>
+    </div>
+    
 </body>
 
 </html>
