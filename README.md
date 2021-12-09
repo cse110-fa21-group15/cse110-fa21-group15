@@ -4,6 +4,8 @@ This repository contains meeting notes and project-related files for group 15. I
 
 The project will be a CRUD-type recipe manager.
 
+[Easy Chef](https://festive-minsky-ab51a6.netlify.app/source/homepage.html)
+
 [Team Page](admin/team.md)
 
 [![GitHub Super-Linter](https://github.com/cse110-fa21-group15/cse110-fa21-group15/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
