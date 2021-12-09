@@ -35,8 +35,8 @@ async function favoriteRecipe(recipe_id, user_id) {
 const database = doc(db, "users", user_id);
     let favoriteRecipesList = JSON.parse(localStorage.favoriteRecipes);
     let isFavorite = false;
-    for(let i = 0; i < favoriteRecipesList.length; ++i){
-        if(recipe_id == favoriteRecipesList[i].recipe_id){
+    for(let i = 0; i < favoriteRecipesList.length; ++i) {
+        if(recipe_id == favoriteRecipesList[i].recipe_id) {
             isFavorite = true;
             break;
         }

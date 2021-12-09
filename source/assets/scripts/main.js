@@ -1,9 +1,9 @@
 // main.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js"
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js"
-import { firebaseConfig } from "./api.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, updateDoc, arrayUnion, doc, arrayRemove } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -11,6 +11,53 @@ const db = getFirestore();
 let favoriteRecipesSet = new Set();
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
+
+/**
+ * Returns the desired recipe
+ * @param {string} recipe_id ID of recipe to be fetched
+ * @return recipe data
+ */
+async function getRecipe(recipe_id) {
+    const recipesRef = doc(db, "recipes", recipe_id);
+    const docSnap = await getDoc(recipesRef);
+  
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } 
+    else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+
+/**
+ * Returns the information of a signed user such as favorite recipes, email, ID
+ * @param {String} id  user's id
+ * @returns information regarding the user
+ */
+
+ async function getUser(id) {
+    const user = doc(db, "users", id)
+    const userDoc = await getDoc(user);
+    const createdRecipes = [];
+    const favoriteRecipes = new Set();
+    const userData = userDoc.data();
+    for (let i = 0; i<userData.favoriteRecipes.length; i++) {
+        createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
+    }
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
+    }
+    const userInformation = {
+        "user_email" : userData["user_email"],
+        "user_id" : userData["user_id"],
+        "recipes": createdRecipes,
+        "favoriteRecipes": favoriteRecipes
+    };
+    console.log(userInformation);
+    console.log("test");
+    return userInformation;
+}
 
 /**
  * Sign in function that returns a user ID
@@ -54,67 +101,22 @@ async function addUser(email, id) {
     }
 }
 
-/**
- * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {String} id  user's id
- * @returns information regarding the user
- */
+// document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
 
- async function getUser(id) {
-    const user = doc(db, "users", id)
-    const userDoc = await getDoc(user);
-    const createdRecipes = [];
-    const favoriteRecipes = new Set();
-    const userData = userDoc.data();
-    for (let i = 0; i<userData.favoriteRecipes.length; i++) {
-        createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
-    }
-    for (let i = 0; i<userData.favorites.length; i++) {
-        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
-    }
-    const userInformation = {
-        "user_email" : userData["user_email"],
-        "user_id" : userData["user_id"],
-        "recipes": createdRecipes,
-        "favoriteRecipes": favoriteRecipes
-    };
-    console.log(userInformation);
-    console.log("test");
-    return userInformation;
-}
-
-/**
- * Returns the desired recipe
- * @param {string} recipe_id ID of recipe to be fetched
- * @return recipe data
- */
-async function getRecipe(recipe_id) {
-    const recipesRef = doc(db, "recipes", recipe_id);
-    const docSnap = await getDoc(recipesRef);
-  
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } 
-    else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}
+// document.querySelector('#tester').addEventListener('click', removeRecipe)
 
 //document.querySelector('#tester').addEventListener('click', getUser);
 
 //********************************************************************
 /* main.js STARTS HERE */
 //*********************************************************************
-//Get users' favorite recipes
 
 /*const user = await getUser();
 console.log("GETUSER()");*/
 
-/**
- * Load the desired recipes
- * @param {string} id id of recipe
- */
+let numRecipes;
+const recipeData = {};
+
 async function loadRecipes(id) {
     const userFile = await getUser(id);
     console.log(userFile);
@@ -128,28 +130,21 @@ async function loadRecipes(id) {
     const recipes = userFile.recipes;
     init(recipes);
 }
-
-let numRecipes;
-const recipeData = {};
   
-// Call this to begin getting recipe cards
-
+// Go to recipePage upon clicking recipe card
 /**
- * Initial function to populate page with recipes
- * @param {Array} recipes recipes to display
- */ 
-// This is the first function to be called, so when you are tracing your code start here.
-async function init(recipes) {
-    // fetch the recipes and wait for them to load
-    let fetchSuccessful = await fetchRecipes(recipes);
-    // if they didn't successfully load, quit the function
-    if (!fetchSuccessful) {
-        console.log("Recipe fetch unsuccessful");
-        return;
+ * Go to recipePage upon clicking recipe card
+ * @param {Array} recipes recipes to navigate to
+ */
+function recipePage(recipes) {
+    let recipeCard = document.querySelectorAll("recipe-card");
+    console.log(recipes);    
+    for (let i = 0; i < recipeCard.length; i++) {
+        recipeCard[i].addEventListener("click", function () {
+            localStorage.recipe = JSON.stringify(recipes[i]);
+            location.href = "recipePage.html";
+        });
     }
-    // Add the first three recipe cards to the page
-    createRecipeCards();
-    recipePage(recipes);
 }
 
 /**
@@ -169,11 +164,30 @@ async function fetchRecipes(recipes) {
         }
     });
 }
-  
+
+// Call this to begin getting recipe cards
+/**
+ * Initial function to populate page with recipes
+ * @param {Array} recipes recipes to display
+ */ 
+// This is the first function to be called, so when you are tracing your code start here.
+async function init(recipes) {
+    // fetch the recipes and wait for them to load
+    let fetchSuccessful = await fetchRecipes(recipes);
+    // if they didn't successfully load, quit the function
+    if (!fetchSuccessful) {
+        console.log("Recipe fetch unsuccessful");
+        return;
+    }
+    // Add the first three recipe cards to the page
+    createRecipeCards();
+    recipePage(recipes);
+}
+
 /**
  * Checks if user is logged in and behaves accordingly
  */
- onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -222,5 +236,6 @@ function recipePage(recipes) {
         })
     }
 }
+
 
 // document.querySelector('#add').addEventListener('click', getUser)
