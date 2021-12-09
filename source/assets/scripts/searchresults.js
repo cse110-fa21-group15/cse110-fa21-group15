@@ -37,30 +37,29 @@ init(recipes);
 
     recipePage(recipes);
 
-  }
-  async function fetchRecipes(recipes) {
-    return new Promise((resolve, reject) => {
-  
-        numRecipes = recipes.length;
-        let numNull = 0;
-        let numRealRecipes = 0;
-        console.log(recipes)
-        //Parse recipes from JSON to recipeData
-        for(let i = 0; i < numRecipes; ++i){
-          if(recipes[i] == null){
-            console.log(i);
-            ++numNull;
-            continue;
-          }
-          recipeData[i] = recipes[i];
-          ++numRealRecipes;
+async function fetchRecipes(recipes) {
+  return new Promise((resolve, reject) => {
+
+      numRecipes = recipes.length;
+      let numNull = 0;
+      let numRealRecipes = 0;
+      console.log(recipes)
+      //Parse recipes from JSON to recipeData
+      for(let i = 0; i < numRecipes; ++i){
+        if(recipes[i] == null){
+          console.log(i);
+          ++numNull;
+          continue;
         }
-        numRecipes = numRecipes - numNull;
-        if(numRealRecipes == numRecipes){
-          resolve(true);
-        }
-    });
-  }
+        recipeData[i] = recipes[i];
+        ++numRealRecipes;
+      }
+      numRecipes = numRecipes - numNull;
+      if(numRealRecipes == numRecipes){
+        resolve(true);
+      }
+  });
+}
   
   function createRecipeCards() {
     let parentDiv = document.querySelector(".parentDiv");

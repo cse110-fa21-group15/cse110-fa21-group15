@@ -8,6 +8,7 @@ import { firebaseConfig } from './api.js'
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+let favoriteRecipesSet = new Set();
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
 
@@ -114,6 +115,7 @@ onAuthStateChanged(auth, async (user) => {
         "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
+    console.log("test");
     return userInformation;
 }
 
@@ -150,6 +152,14 @@ console.log("GETUSER()");*/
  */
 async function loadRecipes(id) {
     const userFile = await getUser(id);
+    console.log(userFile);
+    const favoriteRecipes = userFile.favoriteRecipes;
+    let tempFavorites = Array.from(favoriteRecipes);
+    localStorage.favoriteRecipes = JSON.stringify(tempFavorites);
+    console.log(userFile.favoriteRecipes);
+    for(let i = 0; i < tempFavorites.length; ++i){
+        favoriteRecipesSet.add(tempFavorites[i].recipe_id);
+    }
     const recipes = userFile.recipes;
     init(recipes);
 }
@@ -199,12 +209,18 @@ async function fetchRecipes(recipes) {
  * Create recipe cards to be displayed 
  */
 function createRecipeCards() {
-    let parentDiv = document.querySelector(".parentDiv");
+    let parentDiv = document.querySelector("#regularDiv");
+    let favoritesDiv = document.querySelector("#favoritesDiv");
     let mainElement = document.querySelector("main");
     for (let i = 0; i < numRecipes; i++) {
         let recipeCard = document.createElement("recipe-card");
         recipeCard.data = recipeData[i.toString()];
-        parentDiv.appendChild(recipeCard);
+        if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
+            favoritesDiv.appendChild(recipeCard);
+        }
+        else{
+            parentDiv.appendChild(recipeCard); 
+        }
     }
     mainElement.appendChild(parentDiv);
 }

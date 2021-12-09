@@ -111,7 +111,7 @@ else{
         stepsString += stepsArr[i];
         stepsString += "\n";
         recipeSteps.appendChild(tempElem);
-     }
+      }
 }
 
 
