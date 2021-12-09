@@ -31,8 +31,8 @@ async function deleteRecipe(recipe_id, user_id) {
 /**
  * Function adds favorite Recipe to the database based on the current recipe_id and user_id.
  * Function works on recipes that were already saved to the users personal cookbook
- * @param {id of recipe in DB} recipe_id 
- * @param {ID of current user} user_id 
+ * @param {string} recipe_id ID of recipe to be deleted
+ * @param {string} user_id ID of user
  */
 async function favoriteRecipe(recipe_id, user_id) {
 const database = doc(db, "users", user_id);
