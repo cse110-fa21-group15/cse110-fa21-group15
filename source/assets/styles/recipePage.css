@@ -71,6 +71,11 @@ body {
   background-color: #fff5ea;
 }
 
+.para a {
+  font-size: 15px;
+  float: right;
+}
+
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
@@ -207,11 +212,6 @@ form.example i {
   font-size: 20px;
   letter-spacing: 2px;
   line-height: 40px;
-}
-
-.para a {
-  font-size: 15px;
-  float: right;
 }
 
 .recImg {
