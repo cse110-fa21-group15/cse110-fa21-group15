@@ -238,6 +238,13 @@ document.addEventListener("dragstart",function(event){
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
     }
+
+    else if (event.target.className == "drag2") {
+        console.log("called");
+        event.dataTransfer.setData("text", event.target.id);
+        dragged = event.target;
+    }
+    
     // // make it half transparent
     // event.target.style.opacity = .5;
   }, false);
@@ -247,9 +254,15 @@ document.addEventListener("dragover", function(event) {
     // prevent default to allow drop
     if (event.target.className == "drag2") {
         event.preventDefault();}
+    
+    else if(dragged.className == "drag2"){
+        event.preventDefault();
+    }
+    
 
   }, false);
 
+  
 document.addEventListener("drop", function(event) {
     console.log("event",event);
     console.log("dragged",dragged);
@@ -258,28 +271,49 @@ document.addEventListener("drop", function(event) {
     event.preventDefault();
     // move dragged elem to the selected drop target
     if (event.target.className == "drag2") {
-        console.log(event.target.parentNode);
-        event.target.style.background = "";
-        console.log(event.target);
-        let title = event.target.parentNode.querySelector("h4");
-        let img = event.target.parentNode.querySelector("img");
-        console.log("title",title)
-        console.log("img",img)
-        let srcTitle = dragged.querySelector("h4").textContent;
-        let srcImage = dragged.querySelector("img").src;
-        let recipe_id = dragged.querySelector("p").textContent;
-        console.log("srcTi",srcTitle)
-        console.log("img",srcImage)
-        title.textContent=srcTitle;
-        img.setAttribute("src",srcImage);
-        console.log(recipe_id);
-        //dragged.parentNode.removeChild( dragged );
-        //event.target.appendChild( dragged );
-        console.log("TESTTESTTEST");
-        const mondayBreakfast = document.querySelector('#mondayBreakfast');
-        console.log(mondayBreakfast)
-        console.log("test")
-        mealplanCalendar.set(event.target.parentNode.id, recipe_id);
+        if(dragged.className == "drag2"){
+            let title = dragged.parentNode.querySelector("h4");
+            let img = dragged.parentNode.querySelector("img");
+            let changeTitle = event.target.parentNode.querySelector("h4");
+            let changeImg = event.target.parentNode.querySelector("img");
+            changeImg.setAttribute("src",img.src);
+            changeTitle.textContent = title.textContent;
+            mealplanCalendar.set(event.target.parentNode.id, mealplanCalendar.get(dragged.parentNode.id));
+            console.log(mealplanCalendar);
+        }
+        else{
+            console.log(event.target.parentNode);
+            event.target.style.background = "";
+            console.log(event.target);
+            let title = event.target.parentNode.querySelector("h4");
+            let img = event.target.parentNode.querySelector("img");
+            console.log("title",title)
+            console.log("img",img)
+            let srcTitle = dragged.querySelector("h4").textContent;
+            let srcImage = dragged.querySelector("img").src;
+            let recipe_id = dragged.querySelector("p").textContent;
+            console.log("srcTi",srcTitle)
+            console.log("img",srcImage)
+            title.textContent=srcTitle;
+            img.setAttribute("src",srcImage);
+            console.log(recipe_id);
+            //dragged.parentNode.removeChild( dragged );
+            //event.target.appendChild( dragged );
+            console.log("TESTTESTTEST");
+            const mondayBreakfast = document.querySelector('#mondayBreakfast');
+            console.log(mondayBreakfast)
+            console.log("test")
+            mealplanCalendar.set(event.target.parentNode.id, recipe_id);
+            console.log(mealplanCalendar);
+        }
+    }
+    //Remove recipes that are dragged out of calendar
+    else if(dragged.className == "drag2"){
+        let title = dragged.parentNode.querySelector("h4");
+        let img = dragged.parentNode.querySelector("img");
+        img.setAttribute("src","assets/images/Add.png");
+        title.textContent = "recipeTitle";
+        mealplanCalendar.delete(dragged.parentNode.id);
         console.log(mealplanCalendar);
     }
   }, false);
