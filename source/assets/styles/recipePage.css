@@ -184,6 +184,7 @@ form.example i {
 .icons {
   margin-top: 10px;
   margin-left: 73%;
+  cursor: pointer;
 }
 
 .icon {
@@ -298,3 +299,5 @@ footer {
   text-align: center;
   color: gray;
 }
+
+
