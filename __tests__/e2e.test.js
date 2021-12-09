@@ -100,5 +100,5 @@ describe("Basic user flow for website", () => {
         const ings = await page.$eval("#ingredientsBox", (e) => e.value = "eggs, chili powder, salt, oil");
         
         await browser.close();
-    }, 100000);
+    }, 100000); 
 });
