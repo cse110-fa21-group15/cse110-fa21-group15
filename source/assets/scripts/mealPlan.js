@@ -248,7 +248,7 @@ document.addEventListener("dragstart",function(event){
 document.addEventListener("dragover", function(event) {
     // prevent default to allow drop
     if (event.target.className == "drag2") {
-    event.preventDefault();}
+        event.preventDefault();}
 
   }, false);
 
@@ -260,11 +260,11 @@ document.addEventListener("drop", function(event) {
     event.preventDefault();
     // move dragged elem to the selected drop target
     if (event.target.className == "drag2") {
-        //console.log(event.target);
+        console.log(event.target.parentNode);
         event.target.style.background = "";
         console.log(event.target);
-        let title = event.target.querySelector("h4");
-        let img = event.target.querySelector("img");
+        let title = event.target.parentNode.querySelector("h4");
+        let img = event.target.parentNode.querySelector("img");
         console.log("title",title)
         console.log("img",img)
         let srcTitle = dragged.querySelector("h4").textContent;
@@ -281,7 +281,7 @@ document.addEventListener("drop", function(event) {
         const mondayBreakfast = document.querySelector('#mondayBreakfast');
         console.log(mondayBreakfast)
         console.log("test")
-        mealplanCalendar.set(event.target.id, recipe_id);
+        mealplanCalendar.set(event.target.parentNode.id, recipe_id);
         console.log(mealplanCalendar);
     }
   }, false);
