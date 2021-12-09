@@ -114,8 +114,6 @@ async function addUser(email, id) {
 /*const user = await getUser();
 console.log("GETUSER()");*/
 
-let numRecipes;
-const recipeData = {};
 
 async function loadRecipes(id) {
     const userFile = await getUser(id);
@@ -130,20 +128,24 @@ async function loadRecipes(id) {
     const recipes = userFile.recipes;
     init(recipes);
 }
-  
+
+let numRecipes;
+const recipeData = {};
+let recipeCardList;
+
 // Go to recipePage upon clicking recipe card
 /**
  * Go to recipePage upon clicking recipe card
  * @param {Array} recipes recipes to navigate to
  */
-function recipePage(recipes) {
-    let recipeCard = document.querySelectorAll("recipe-card");
-    console.log(recipes);    
+ function recipePage(recipes) {
+    let recipeCard = recipeCardList;
+    console.log(recipeCard.data);
     for (let i = 0; i < recipeCard.length; i++) {
-        recipeCard[i].addEventListener("click", function () {
+        recipeCard[i].addEventListener("click", function (){
             localStorage.recipe = JSON.stringify(recipes[i]);
             location.href = "recipePage.html";
-        });
+        })
     }
 }
 
@@ -151,25 +153,26 @@ function recipePage(recipes) {
  * Fetch recipes and populate them into recipeData
  * @param {Array} recipes recipes to fetch
  */
-async function fetchRecipes(recipes) {
+ async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {  
         numRecipes = recipes.length;
+        recipeCardList = new Array(numRecipes);
         console.log(recipes);
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
             recipeData[i] = recipes[i];
-            if (i === numRecipes - 1) {
+            if(i == numRecipes - 1) {
                 resolve(true);
             }
         }
     });
 }
 
-// Call this to begin getting recipe cards
-/**
+ //Call this to begin getting recipe cards
+/*
  * Initial function to populate page with recipes
  * @param {Array} recipes recipes to display
- */ 
+ */
 // This is the first function to be called, so when you are tracing your code start here.
 async function init(recipes) {
     // fetch the recipes and wait for them to load
@@ -204,21 +207,23 @@ onAuthStateChanged(auth, async (user) => {
 /**
  * Create recipe cards to be displayed 
  */
-function createRecipeCards() {
+ function createRecipeCards() {
     let parentDiv = document.querySelector("#regularDiv");
     let favoritesDiv = document.querySelector("#favoritesDiv");
-    let mainElement = document.querySelector("main");
     for (let i = 0; i < numRecipes; i++) {
         let recipeCard = document.createElement("recipe-card");
         recipeCard.data = recipeData[i.toString()];
+        console.log(recipeCard);
         if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
             favoritesDiv.appendChild(recipeCard);
+            console.log(recipeData[i.toString()]);
         }
         else{
             parentDiv.appendChild(recipeCard); 
         }
+        recipeCardList[i] = recipeCard;
     }
-    mainElement.appendChild(parentDiv);
+
 }
   
 
