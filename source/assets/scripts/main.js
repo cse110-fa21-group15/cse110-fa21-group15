@@ -8,6 +8,7 @@ import { firebaseConfig } from "./api.js";
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+let favoriteRecipesSet = new Set();
 
 // document.querySelector('#signUp').addEventListener('click', signUp);
 
@@ -29,44 +30,32 @@ async function getRecipe(recipe_id) {
     }
 }
 
-async function removeRecipe() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-    const q = query(collection(db, "users"), where("user_id", "==", id));
-    const querySnapshot = await getDocs(q);
-    const document = querySnapshot.docs[0];
-    console.log(document.id);
-    console.log(document);
-    let name = "pizza";
-    let time = "30";
-    let cost = "40";
-    let servings = "3";
-    let description = "testing";
-    const database = doc(db, "users", document.id);
-    // console.log(document.data())
-    await updateDoc(database, {
-        favoriteRecipes: arrayRemove({name: "pizza"})
-    });
-}
-
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
  * @param {String} id  user's id
  * @returns information regarding the user
  */
-async function getUser(id) {
-    const user = doc(db, "users", id);
+
+ async function getUser(id) {
+    const user = doc(db, "users", id)
     const userDoc = await getDoc(user);
     const createdRecipes = [];
+    const favoriteRecipes = new Set();
     const userData = userDoc.data();
     for (let i = 0; i<userData.favoriteRecipes.length; i++) {
         createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
+    }
     const userInformation = {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
-        "recipes": createdRecipes
+        "recipes": createdRecipes,
+        "favoriteRecipes": favoriteRecipes
     };
     console.log(userInformation);
+    console.log("test");
     return userInformation;
 }
 
@@ -128,18 +117,18 @@ console.log("GETUSER()");*/
 let numRecipes;
 const recipeData = {};
 
-/**
- * Create recipe cards to be displayed 
- */
-function createRecipeCards() {
-    let parentDiv = document.querySelector(".parentDiv");
-    let mainElement = document.querySelector("main");
-    for (let i = 0; i < numRecipes; i++) {
-        let recipeCard = document.createElement("recipe-card");
-        recipeCard.data = recipeData[i.toString()];
-        parentDiv.appendChild(recipeCard);
+async function loadRecipes(id) {
+    const userFile = await getUser(id);
+    console.log(userFile);
+    const favoriteRecipes = userFile.favoriteRecipes;
+    let tempFavorites = Array.from(favoriteRecipes);
+    localStorage.favoriteRecipes = JSON.stringify(tempFavorites);
+    console.log(userFile.favoriteRecipes);
+    for(let i = 0; i < tempFavorites.length; ++i){
+        favoriteRecipesSet.add(tempFavorites[i].recipe_id);
     }
-    mainElement.appendChild(parentDiv);
+    const recipes = userFile.recipes;
+    init(recipes);
 }
   
 // Go to recipePage upon clicking recipe card
@@ -195,17 +184,6 @@ async function init(recipes) {
     recipePage(recipes);
 }
 
-//Get users' favorite recipes
-/**
- * Load the desired recipes
- * @param {string} id id of recipe
- */
-async function loadRecipes(id) {
-    const userFile = await getUser(id);
-    const recipes = userFile.recipes;
-    init(recipes);
-}
-
 /**
  * Checks if user is logged in and behaves accordingly
  */
@@ -222,5 +200,42 @@ onAuthStateChanged(auth, async (user) => {
         // ...
     }
 });
+
+/**
+ * Create recipe cards to be displayed 
+ */
+function createRecipeCards() {
+    let parentDiv = document.querySelector("#regularDiv");
+    let favoritesDiv = document.querySelector("#favoritesDiv");
+    let mainElement = document.querySelector("main");
+    for (let i = 0; i < numRecipes; i++) {
+        let recipeCard = document.createElement("recipe-card");
+        recipeCard.data = recipeData[i.toString()];
+        if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
+            favoritesDiv.appendChild(recipeCard);
+        }
+        else{
+            parentDiv.appendChild(recipeCard); 
+        }
+    }
+    mainElement.appendChild(parentDiv);
+}
+  
+// Go to recipePage upon clicking recipe card
+/**
+ * Go to recipePage upon clicking recipe card
+ * @param {Array} recipes recipes to navigate to
+ */
+function recipePage(recipes) {
+    let recipeCard = document.querySelectorAll("recipe-card");
+    console.log(recipes);    
+    for (let i = 0; i < recipeCard.length; i++) {
+        recipeCard[i].addEventListener("click", function () {
+            localStorage.recipe = JSON.stringify(recipes[i]);
+            location.href = "recipePage.html";
+        })
+    }
+}
+
 
 // document.querySelector('#add').addEventListener('click', getUser)

@@ -62,6 +62,40 @@ async function createRecipe(event) {
 }
 
 /**
+ * Create a user recipe
+ * @param event Event that occurs when recipe save button is clicked
+ */
+ async function downloadSpoonacularRecipe(time, name, cost, servings, description, ingredients, steps, image) {
+  console.log("test")
+  onAuthStateChanged (auth, async (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const id = user.uid;
+    const database = doc(db, "users", id);
+    try {
+     const docRef = await addDoc(collection(db, "recipes"), {
+         time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
+     })
+     await updateDoc(docRef, {
+       recipe_id : docRef.id
+     })
+     console.log(docRef.id)
+     await updateDoc(database, {
+         favoriteRecipes: arrayUnion(docRef.id)
+       })
+     location.href = 'cookbook.html';
+   } catch (e) {
+     console.error("Error adding document: ", e);
+   }
+      // ...
+    } else {
+      location.href = "signIn.html"
+    }
+  });
+}
+
+/**
  * Adds a user to the FireStore Database
  * @param {string} email email of user
  * @param {string} id id of user
