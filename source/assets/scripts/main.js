@@ -153,25 +153,26 @@ let recipeCardList;
  * Fetch recipes and populate them into recipeData
  * @param {Array} recipes recipes to fetch
  */
-async function fetchRecipes(recipes) {
+ async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {  
         numRecipes = recipes.length;
+        recipeCardList = new Array(numRecipes);
         console.log(recipes);
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
             recipeData[i] = recipes[i];
-            if (i === numRecipes - 1) {
+            if(i == numRecipes - 1) {
                 resolve(true);
             }
         }
     });
 }
+
+ //Call this to begin getting recipe cards
 /*
- Call this to begin getting recipe cards
-/**
  * Initial function to populate page with recipes
  * @param {Array} recipes recipes to display
- 
+ */
 // This is the first function to be called, so when you are tracing your code start here.
 async function init(recipes) {
     // fetch the recipes and wait for them to load
@@ -184,7 +185,7 @@ async function init(recipes) {
     // Add the first three recipe cards to the page
     createRecipeCards();
     recipePage(recipes);
-}*/
+}
 
 /**
  * Checks if user is logged in and behaves accordingly
