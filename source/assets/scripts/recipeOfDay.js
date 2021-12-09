@@ -30,7 +30,8 @@ async function initDaily(){
     (daily.querySelector("div")).textContent = JSON.parse(localStorage.recipeOfDay).title;
     daily.addEventListener("click", () => {
         localStorage.recipe = localStorage.recipeOfDay;
-        window.location.href = "recipePage.html";
+        localStorage.extraRecipeInfo = localStorage.recipeOfDay;
+        window.location.href = "recipePageSpoonacular.html";
     })
 }
 
