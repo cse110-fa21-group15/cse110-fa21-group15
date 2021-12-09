@@ -40,13 +40,13 @@ describe("Test Signup and Login", () => {
     // }, 10000);
 
     it("checking if login works properly", async () => {
-        // const browser = await puppeteer.launch({
-        //     headless:false,
-        //     slowMo:50,
-        //     //executablePath: '/usr/bin/chromium-browser'
-        // });
-        // const page = await browser.newPage();
-        // await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        const browser = await puppeteer.launch({
+            headless:true,
+            slowMo:50,
+            //executablePath: '/usr/bin/chromium-browser'
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
         const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
         const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
         const button = await page.$("#lbutton");
