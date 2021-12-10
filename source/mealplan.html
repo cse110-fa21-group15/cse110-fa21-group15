@@ -6,31 +6,21 @@
     <title>Easy Chef</title>
 
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/mealplan.css" />
-
+    <link rel="stylesheet" href="assets/styles/mealplan.css">
     <!--Link to fa fa CSS icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Link to font style-->
-    <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Capriola&display=swap">
+    <!--Link to favicon-->
+    <link rel="shortcut icon" href="assets/images/logo2.png">
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-     <!--Log In Script-->
-    
-    <script>
-    async function getRecipe(recipe_id) {
-    const recipesRef = doc(db, "recipes", recipe_id);
-    const docSnap = await getDoc(recipesRef);
-  
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}
-    </script>
+    <!--Recipe Scripts-->
+    <script src="assets/scripts/createRecipe.js" type="module"></script>
+    <!--Search Script-->
+    <script src="assets/scripts/search.js"></script>
+
 </head>
 
 <body>
@@ -57,12 +47,12 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button onclick = "getRecipes(event)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
                 <a href="signIn.html">
-                    <button id="signedIn" style="font-size:100%">Sign In</button>
+                    <button id="signedIn" style="font-size:22px">Sign In</button>
                 </a>
             </div>
         </div>
@@ -70,22 +60,24 @@
     </header>
 
     <main>
-        <div class="mealplanTemp"></div>
         <div class = "scroll">
-        <table class="personalCookbook">
-            <tr >
-                <th>Personal Cookbook</th>
-            </tr>
-           
-            <tr class="row">
-                <td>
-                    <span class="cookbookMeals"></span>
-                    <button class="addButton">Add+</button>
-                </td>    
-            </tr>
+            <table class="personalCookbook">
+                <tr >
+                    <th>Personal Cookbook
+                        <a href="cookbook.html">
+                            <button class="addButton">Add+</button>
+                        </a>
+                    </th>
+                </tr>
             
-        </table>
-    </div>
+                <tr class="row">
+                    <td>   
+                        <span class="mealplanPrompt">Drag from the Cookbook and Drop in the Calendar!</span>
+                        <span class="cookbookMeals"></span>
+                    </td>    
+                </tr>       
+            </table>
+        </div>
 
         <table class="calendar">
             <tr>
@@ -101,9 +93,9 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="mondayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                         <!-- <button class="addToCookbook"> <i class="fa fa-plus"></i></button> -->
@@ -111,16 +103,16 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <!-- <button class="addToCookbook" ondrop="drop(event)" ondragover="allowDrop(event) > <i class="fa fa-plus"> </i></button> -->
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="mondayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="mondayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
@@ -128,25 +120,25 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="tuesdayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="tuesdayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="tuesdayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
@@ -154,26 +146,26 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="wednesdayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
 
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="wednesdayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class="drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png   width="36" height="36" >
+                        <div id="wednesdayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
                     </div>
@@ -181,26 +173,26 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="thursdayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
                         
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="thursdayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="thursdayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
@@ -208,25 +200,25 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="fridayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="fridayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="fridayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
@@ -234,25 +226,25 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="saturdayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="saturdayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="saturdayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
@@ -260,38 +252,37 @@
                 <td>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
-                         <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="sundayBreakfast">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="sundayLunch">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
-                        <div class = "drag2">
-                            <h4>recipeTitle</h4>
-                            <img src = assets/images/Add.png  width="36" height="36" >
+                        <div id="sundayDinner">
+                            <h4></h4>
+                            <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
                         <div id="v1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     </div>
                 </td>
-
             </tr>
         </table>
 
         <div class="saveButton">
-            <img class="icon" src="assets/images/Save.png" alt="Save">
+            <img class="icon" id="save" src="assets/images/Save.png" alt="Save">
         </div>
-
     </main>
+
     <footer>
         <div class="copyright">
             <div class="copyrightBar">
@@ -300,9 +291,11 @@
         </div>
     </footer>
 </body>
-  <!--Drag and Drop Script-->
-  <!--<script src="assets/scripts/dragdrop.js"></script>-->
-   <!--User Recipe Cards Script-->
-   <script src="assets/scripts/mealPlan.js" type = "module"></script>
-   <script src="assets/scripts/RecipeCard.js" type="module"></script>
+
+<!--Drag and Drop Script-->
+<!--<script src="assets/scripts/dragdrop.js"></script>-->
+<!--User Recipe Cards Script-->
+<script src="assets/scripts/mealPlan.js" type = "module"></script>
+<script src="assets/scripts/RecipeCard.js" type="module"></script>
+
 </html>
