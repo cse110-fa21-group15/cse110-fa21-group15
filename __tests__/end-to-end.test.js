@@ -55,7 +55,6 @@ describe("Test Signup and Login", () => {
         const sbar = await page.$eval("#signedIn", (e) => e.innerHTML);
         await browser.close();
         expect(sbar).toBe("Sign Out");
-        await browser.close();
     }, 10000);
 
     it("checking if all the dropdown elements are present", async () => {
