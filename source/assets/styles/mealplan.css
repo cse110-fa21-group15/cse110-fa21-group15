@@ -68,7 +68,7 @@ body {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
 }
 
 /* Change color of dropdown links on hover */
@@ -94,7 +94,7 @@ body {
 .resizeLogo {
   width: 60px;
   height: auto;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
   display: block;
   cursor: pointer;
 }
@@ -181,7 +181,6 @@ form.example i {
   height: 100px;
   display: flex;
   justify-content: center;
-
 }
 
 .mealplanPrompt {
