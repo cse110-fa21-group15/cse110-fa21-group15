@@ -220,6 +220,8 @@ form.example i {
 
 .desPara {
   color: #505050;
+  word-spacing: 5px;
+  line-height: 30px;
 }
 
 .recImg {
