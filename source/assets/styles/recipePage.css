@@ -218,6 +218,10 @@ form.example i {
   line-height: 40px;
 }
 
+.desPara {
+  color: #505050;
+}
+
 .recImg {
   width: 25vw;
   height: auto;
