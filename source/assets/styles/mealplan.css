@@ -153,12 +153,12 @@ form.example i {
 
 .personalCookbook {
   position: absolute;
-  margin-top: 5%;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   background-color: #fff;
   display: inline-block; /* inline-block */
   width: 20%;
-  height: 60%;
+  height: 550px;
   margin-left: 10%;
   overflow-y: scroll;
 }
@@ -205,12 +205,11 @@ table img {
 
 /* Calendar */
 .calendar {
-  position: absolute;
-  margin: 5% 10% 20px 35%;
+  margin: 50px 10% 30px 35%;
   background-color: #fff;
   display: table;
   width: 55%;
-  height: 60%;
+  height: 550px;
   table-layout: fixed;
 }
 
@@ -272,10 +271,10 @@ table img {
 }
 
 .saveButton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  float: right;
+  margin-top: 20px;
   margin-bottom: 10px;
+  width: 350px;
 }
 
 .drag2 h4 {
@@ -303,4 +302,11 @@ footer {
   background-color: #ffcf96;
   text-align: center;
   color: gray;
+}
+
+@media screen and (min-width: 400px) and (max-width: 900px) {
+
+  .logo {
+    display: none;
+   }
 }
