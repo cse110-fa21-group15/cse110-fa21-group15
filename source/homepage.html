@@ -17,7 +17,6 @@
     <script src="assets/scripts/createRecipe.js" type="module"></script>
     <!--Search Script-->
     <script src="assets/scripts/search.js"></script>
-  
 </head>
 
 <body>
@@ -94,21 +93,17 @@
             </div>
 
             <div class="searchbar">
-                <form class="example" action="/action_page.php">
+                <form class="example" onSubmit="return false;">
                     <input type="text" placeholder="Search Recipes" name="search" class="round">
                     <button onclick = "getRecipes(event, true)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            
-            <div class="blankbox"></div>
+
+            <div id="recipeOfDay">
+                <img id = "recipeimg"style="width:800px; height:300px">
+                <div class="centered"></div>
+            </div>
         </div>
-      
-        <div id="recipeOfDay" class="blankbox">
-            <img id = "recipeimg" src = "assets/images/spooky.png" style="width:800px;
-            height:300px">
-            <div class="centered">Recipe of the Day!</div>
-        </div>
-      
     </div>
     </main>
 

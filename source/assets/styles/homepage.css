@@ -186,20 +186,29 @@ form.example button:hover {
   margin-top: 50px;
 }
 
-.centered{
+.centered {
+  margin-bottom: 5px;
   position: absolute;
   color: white;
-  font-size: 50px;;
+  text-align: center;
+  font-size: 50px;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
 }
-#recipeimg{
+
+#recipeOfDay {
+  position: relative;
+}
+
+#recipeimg {
+  margin-top: 20px;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   border-radius: 37px;
   backdrop-filter: blur(5px);
-  box-shadow:         6px 6px 4px 4px #909090;
+  width: 800px;
+  height: 300px;
+  box-shadow: 6px 6px 4px 4px #909090;
 }
 
 /* Copyright styling */
