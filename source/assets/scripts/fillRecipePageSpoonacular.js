@@ -1,4 +1,4 @@
-const API_KEY = "apiKey=7f2487ec91f241dbbdfd5060ae535477";
+const API_KEY = "apiKey=85215063b7bb478b9b0198be8f8cc862";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
@@ -101,14 +101,15 @@ recipeDescription.textContent = descriptionText;
 
 // Add ingredients to recipe page
 let ingredientsString = "";
-for (let i = 0 ; i < ingredients.length; i++) {
-    let tempElem = document.createElement("li");
-    tempElem.textContent = ingredients[i].original;
-    ingredientsString += tempElem.textContent;
-    ingredientsString += "\n";
-    recipeIngredients.appendChild(tempElem);
+if (ingredients) {
+    for (let i = 0 ; i < ingredients.length; i++) {
+        let tempElem = document.createElement("li");
+        tempElem.textContent = ingredients[i].original;
+        ingredientsString += tempElem.textContent;
+        ingredientsString += "\n";
+        recipeIngredients.appendChild(tempElem);
+    }
 }
-
 // Output recipe steps
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;
