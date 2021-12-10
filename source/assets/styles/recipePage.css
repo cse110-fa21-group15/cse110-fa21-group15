@@ -222,7 +222,6 @@ form.example i {
   color: #505050;
   word-spacing: 5px;
   line-height: 30px;
-  font-size: 20px;
 }
 
 .recImg {
@@ -257,24 +256,14 @@ form.example i {
   margin: 0;
   padding: 0;
   float: left;
-  font-size: 20px;
+  font-size: 15px;
   color: #505050;
   list-style-type: none;
   line-height: 30px;
 }
 
-#lst li {
-  font-size: 15px;
-  color: #505050;
-}
-
-.recipeList {
-  font-size: 15px;
-  color: #505050;
-}
-
 .texts {
-  font-size: 28px;
+  font-size: 27px;
   color: #505050;
 }
 
@@ -285,12 +274,6 @@ form.example i {
   font-size: 15px;
   color: #505050;
   line-height: 30px;
-  padding-left: 30px;
-}
-
-#lst2 li {
-  font-size: 15px;
-  color: #505050;
 }
 
 /* Copyright styling */
@@ -346,9 +329,5 @@ footer {
 
   .para {
     margin-left: 10vw;
-  }
-
-  .desPara {
-    font-size: 40%;
   }
 }
