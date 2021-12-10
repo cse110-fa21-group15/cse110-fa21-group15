@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #ffe0bb;
+  cursor: context-menu;
 }
 
 /* Navigation bar styling */
@@ -287,6 +288,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {

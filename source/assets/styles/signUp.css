@@ -184,6 +184,7 @@ main {
   line-height: 30px;
   color: #000;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  cursor: context-menu;
 }
 
 .haveAccount button {
@@ -235,6 +236,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {

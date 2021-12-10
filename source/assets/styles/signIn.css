@@ -217,6 +217,7 @@ form.loginArea input[type=password] {
   font-size: 20px;
   color: #000;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  cursor: context-menu;
 }
 
 .noAccount button {
@@ -235,6 +236,7 @@ footer {
 .copyright {
   display: flex;
   justify-content: center;
+  cursor: context-menu;
 }
 
 .copyright div {

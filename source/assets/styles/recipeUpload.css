@@ -189,6 +189,7 @@ form.recipeNameTextBox input {
 .recipePictureText {
   position: relative;
   text-align: center;
+  cursor: context-menu;
 }
 
 .uploadImage {
@@ -202,6 +203,10 @@ form.recipeNameTextBox input {
 
 #imageUpload {
   margin-bottom: 40px;
+}
+
+::-webkit-file-upload-button {
+  cursor: pointer;
 }
 
 .middleArea {
@@ -221,6 +226,7 @@ form.recipeNameTextBox input {
   font-size: 28px;
   line-height: 45px;
   color: #505050;
+  cursor: context-menu;
 }
 
 .time {
@@ -284,6 +290,7 @@ textarea {
   font-size: 25px;
   color: #505050;
   margin-left: 90px;
+  cursor: context-menu;
 }
 
 .step {
@@ -321,6 +328,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {

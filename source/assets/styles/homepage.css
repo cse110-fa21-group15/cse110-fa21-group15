@@ -149,6 +149,11 @@ body {
   border-radius: 12px;
   font-size: 20px;
   padding-left: 5px;
+  cursor: pointer;
+}
+
+option {
+  cursor: context-menu;
 }
 
 .searchbar {
@@ -166,6 +171,7 @@ body {
   font-size: 3em;
   height: 100px;
   position: absolute;
+  cursor: pointer;
 }
 
 form.example input[type=text] {
@@ -182,14 +188,6 @@ form.example button:hover {
   background: #0b7dda;
 }
 
-.blankbox {
-  width: 800px;
-  height: 300px;
-  border-radius: 37px;
-  background-color: lightgrey;
-  margin-top: 50px;
-}
-
 .centered {
   margin-bottom: 5px;
   position: absolute;
@@ -198,6 +196,7 @@ form.example button:hover {
   font-size: 2em;
   top: 30%;
   width: 100%;
+  cursor: context-menu;
 }
 
 #recipeOfDay {
@@ -212,6 +211,7 @@ form.example button:hover {
   width: 45vw;
   height: 300px;
   box-shadow: 6px 6px 4px 4px #909090;
+  cursor: pointer;
 }
 
 /* Copyright styling */
@@ -221,6 +221,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {

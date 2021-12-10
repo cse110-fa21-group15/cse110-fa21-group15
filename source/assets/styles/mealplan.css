@@ -169,6 +169,10 @@ form.example i {
   overflow-y: scroll;
 }
 
+.personalCookbook tr {
+  padding-bottom: 30px;
+}
+
 .personalCookbook th {
   background-color: #fff5ea;
   height: 60px;
@@ -219,6 +223,7 @@ table img {
   width: 55%;
   height: 550px;
   table-layout: fixed;
+  cursor: context-menu;
 }
 
 .calendar th {
@@ -274,15 +279,12 @@ table img {
   height: 40px;
 }
 
-.personalCookbook tr {
-  padding-bottom: 30px;
-}
-
 .saveButton {
   float: right;
   margin-top: 20px;
   margin-bottom: 10px;
   width: 350px;
+  cursor: pointer;
 }
 
 .drag2 h4 {
@@ -296,6 +298,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {

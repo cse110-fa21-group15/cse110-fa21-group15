@@ -171,6 +171,11 @@ form.example i {
   margin-right: 1%;
   margin-bottom: 1%;
   gap: 3em;
+  cursor: pointer;
+}
+
+h1 {
+  cursor: context-menu;
 }
 
 /* Copyright styling */
@@ -180,6 +185,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {
