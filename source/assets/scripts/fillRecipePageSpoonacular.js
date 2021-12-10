@@ -35,10 +35,10 @@ async function downloadSpoonacularRecipe(time, name, cost, servings, description
                 });
                 await updateDoc(docRef, {
                     recipe_id : docRef.id
-                })
+                });
                 await updateDoc(database, {
                     favoriteRecipes: arrayUnion(docRef.id)
-                })
+                });
                 location.href = "cookbook.html";
             } catch (e) {
                 console.error("Error adding document: ", e);
