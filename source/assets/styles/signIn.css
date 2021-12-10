@@ -191,22 +191,6 @@ form.loginArea input[type=password] {
   font-weight: bold;
 }
 
-.forgotPassword {
-  display: flex;
-  justify-content: center;
-  margin-left: 35%;
-  margin-bottom: 20px;
-}
-
-.forgotPassword button {
-  font-size: 20px;
-  text-decoration-line: underline;
-  color: #2c3bbd;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-}
-
 .noAccount {
   display: flex;
   justify-content: center;
