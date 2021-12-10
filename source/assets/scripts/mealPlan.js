@@ -244,7 +244,7 @@ document.addEventListener("dragover", function(event) {
     if (event.target.className === "drag2") {
         event.preventDefault();
     }
-    else if(dragged.className === "drag2"){
+    else if (dragged.className === "drag2") {
         event.preventDefault();
     }
 }, false);
