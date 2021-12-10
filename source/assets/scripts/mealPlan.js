@@ -1,4 +1,3 @@
-// main.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
@@ -42,7 +41,6 @@ const mealplanCalendar = new Map();
  async function fetchRecipes(recipes) {
     return new Promise((resolve, reject) => {  
         numRecipes = recipes.length;
-        console.log(recipes);
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
             recipeData[i] = recipes[i];
@@ -83,26 +81,10 @@ function createRecipeCards() {
         div.appendChild(recipe_id_elem);
         div.setAttribute("draggable","true");
         div.classList.add("ele");
-        //document.getElementById("div").addEventListener("dragstart", drag, true);
-        // let dragged;
-        // document.addEventListener("dragstart", function(event) {
-        //     console.log("event",event);
-        //     event.dataTransfer.setData("text", event.target.id);
-        //     // store a ref. on the dragged elem
-        //     dragged = event.target;
-        //     // make it half transparent
-        //     event.target.style.opacity = .5;
-        //   }, false);
-        // div.classList.add(i.toString());
         td.appendChild(div);
         row.appendChild(td);
         parentDiv.appendChild(row);
-        
-        // content.appendChild(recipeCard);
-        // row.appendChild(content);
-        // parentDiv.appendChild(row);
     }
-    
 }
 
 /**
@@ -120,6 +102,12 @@ function createRecipeCards() {
         // doc.data() will be undefined in this case
         console.error("No such document!");
     }
+}
+
+async function clickListener(evt){
+    let tempRecipe = await getRecipe(evt.currentTarget.recipeId);
+    localStorage.recipe = JSON.stringify(tempRecipe);
+    window.location.href = "recipePage.html";
 }
 
 async function fillCalendar() {
@@ -144,7 +132,7 @@ async function init(recipes) {
     let fetchSuccessful = await fetchRecipes(recipes);
     // If they didn't successfully load, quit the function
     if (!fetchSuccessful) {
-        console.log("Recipe fetch unsuccessful");
+        console.error("Recipe fetch unsuccessful");
         return;
     }
     // Add the first three recipe cards to the page
@@ -176,8 +164,6 @@ async function init(recipes) {
         favoriteRecipes,
         "mealPlan":userData["mealPlan"]
     };
-    console.log(userInformation);
-    console.log("test");
     return userInformation;
 }
 
@@ -187,15 +173,10 @@ async function init(recipes) {
  */
  async function loadRecipes(id) {
     const userFile = await getUser(id);
-    console.log(userFile);
     const favoriteRecipes = userFile.favoriteRecipes;
     localStorage.favoriteRecipes = JSON.stringify(Array.from(favoriteRecipes));
-    console.log(userFile.favoriteRecipes);
     const recipes = userFile.recipes;
     fillCalendarRecipes = userFile.mealPlan;
-    console.log(fillCalendarRecipes);
-    console.log("user recipes");
-    console.log(recipes);
     init(recipes);
 }
 
@@ -211,30 +192,12 @@ async function init(recipes) {
     }
 });
 
-//document.querySelector('#tester').addEventListener('click', getUser);
-
-//********************************************************************
-/* main.js STARTS HERE */
-//*********************************************************************
-//Get users' favorite recipes
-
-/*const user = await getUser();
-console.log("GETUSER()");*/
-
-async function clickListener(evt){
-    let tempRecipe = await getRecipe(evt.currentTarget.recipeId);
-    localStorage.recipe = JSON.stringify(tempRecipe);
-    window.location.href = "recipePage.html";
-}
-  
-// Go to recipePage upon clicking recipe card
 /**
  * Go to recipePage upon clicking recipe card
  * @param {Array} recipes recipes to navigate to
  */
 function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
-    console.log(recipes);    
     for (let i = 0; i < recipeCard.length; i++) {
         recipeCard[i].addEventListener("click", function (){
             localStorage.recipe = JSON.stringify(recipes[i]);
@@ -246,38 +209,30 @@ function recipePage(recipes) {
 async function saveMealPlan() {
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
 
-          await updateDoc(doc(db, "users", uid), {
-              mealPlan: deleteField()
-          });
+            await updateDoc(doc(db, "users", uid), {
+                mealPlan: deleteField()
+            });
 
-          const uploadMealPlan = Object.fromEntries(mealplanCalendar);
-          await setDoc(doc(db, "users", uid), {
-            mealPlan: uploadMealPlan,
-          }, { merge: true });
-          console.log(uid);
-        } else {
-          // User is signed out
-          // ...
+            const uploadMealPlan = Object.fromEntries(mealplanCalendar);
+            await setDoc(doc(db, "users", uid), {
+                mealPlan: uploadMealPlan,
+            }, { merge: true });
         }
-      });
+    });
 }
 
 let dragged;
 document.addEventListener("dragstart", function(event) {
-    //console.log("event",event);
-    
     // Store a ref. on the dragged elem
     if (event.target.className === "dragImage" || event.target.className === "ele") {
-        console.log("called");
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
     }
     else if (event.target.className === "drag2") {
-        console.log("called");
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
     }
@@ -292,15 +247,9 @@ document.addEventListener("dragover", function(event) {
     else if(dragged.className === "drag2"){
         event.preventDefault();
     }
-    
+}, false);
 
-  }, false);
-
-
-  document.addEventListener("drop", function(event) {
-    console.log("event",event);
-    console.log("dragged",dragged);
-    console.log("target", event.target);
+document.addEventListener("drop", function(event) {
     // Prevent default action (open as link for some elements)
     event.preventDefault();
     // Move dragged elem to the selected drop target
@@ -314,39 +263,24 @@ document.addEventListener("dragover", function(event) {
             changeImg.setAttribute("src", img.src);
             changeTitle.textContent = title.textContent;
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
-            console.log(mealplanCalendar);
             (event.target.parentNode).recipeId = recipe_id;
             (event.target.parentNode).addEventListener("click", clickListener);
         }
-        else if(dragged.className == "ele") {
-            console.log(event.target.parentNode);
+        else if (dragged.className === "ele") {
             event.target.style.background = "";
-            console.log(event.target);
             let title = event.target.parentNode.querySelector("h4");
             let img = event.target.parentNode.querySelector("img");
-            console.log("title",title);
-            console.log("img",img);
             let srcTitle = dragged.querySelector("h4").textContent;
             let srcImage = dragged.querySelector("img").src;
             let recipe_id = dragged.querySelector("p").textContent;
-            console.log("srcTi",srcTitle);
-            console.log("img",srcImage);
             title.textContent=srcTitle;
             img.setAttribute("src",srcImage);
-            console.log(recipe_id);
-            //dragged.parentNode.removeChild( dragged );
-            //event.target.appendChild( dragged );
-            console.log("TESTTESTTEST");
             const mondayBreakfast = document.querySelector("#mondayBreakfast");
-            console.log(mondayBreakfast);
-            console.log("test");
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
-            console.log(mealplanCalendar);
             (event.target.parentNode).recipeId = recipe_id;
             (event.target.parentNode).addEventListener("click", clickListener);
-            
         }
-        else{
+        else {
             let title = event.target.parentNode.querySelector("h4");
             let img = event.target.parentNode.querySelector("img");
             let srcTitle = dragged.parentNode.querySelector("h4").textContent;
@@ -355,14 +289,13 @@ document.addEventListener("dragover", function(event) {
             title.textContent=srcTitle;
             img.setAttribute("src",srcImage);
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
-            console.log(mealplanCalendar);
             (event.target.parentNode).recipeId = recipe_id;
             (event.target.parentNode).addEventListener("click", clickListener);
 
         }
     }
-    //Remove recipes that are dragged out of calendar
-    else if(dragged.className === "drag2"){
+    // Remove recipes that are dragged out of calendar
+    else if (dragged.className === "drag2") {
         let title = dragged.parentNode.querySelector("h4");
         let img = dragged.parentNode.querySelector("img");
         img.setAttribute("src","assets/images/Add.png");
@@ -373,43 +306,11 @@ document.addEventListener("dragover", function(event) {
         title.textContent = "";
 
         mealplanCalendar.delete(dragged.parentNode.id);
-        console.log(mealplanCalendar);
     }
-  }, false);
+}, false);
 
-
-console.log("TESTTESTTEST");
 const save = document.querySelector("#save");
-console.log(save);
 
 save.addEventListener("click", function (event) {
-    console.log("testing save");
     saveMealPlan();
 });
-
-function getRecipeInformation(recipe_id) {
-
-}
-// const mondayBreakfast = document.querySelector("#mondayBreakfast");
-// const mondayLunch = document.querySelector("#mondayLunch");
-// const mondayDinner = document.querySelector("#mondayDinner");
-// const tuesdayBreakfast = document.querySelector("#tuesdayBreakfast");
-// const tuesdayLunch = document.querySelector("#tuesdayLunch");
-// const tuesdayDinner = document.querySelector("#tuesdayDinner");
-// const wednesdayBreakfast = document.querySelector("#wednesdayBreakfast");
-// const wednesdayLunch = document.querySelector("#wednesdayLunch");
-// const wednesdayDinner = document.querySelector("#wednesdayDinner");
-// const thursdayBreakfast = document.querySelector("#thursdayBreakfast");
-// const thursdayLunch = document.querySelector("#thursdayLunch");
-// const thursdayDinner = document.querySelector("#thursdayDinner");
-// const fridayBreakfast = document.querySelector("#fridayBreakfast");
-// const fridayLunch = document.querySelector("#fridayLunch");
-// const fridayDinner = document.querySelector("#fridayDinner");
-// const saturdayBreakfast = document.querySelector("#saturdayBreakfast");
-// const saturdayLunch = document.querySelector("#saturdayLunch");
-// const saturdayDinner = document.querySelector("#saturdayDinner");
-// const sundayBreakfast = document.querySelector("#sundayBreakfast");
-// const sundayLunch = document.querySelector("#sundayLunch");
-// const sundayDinner = document.querySelector("#sundayDinner");
-
-console.log("test");
