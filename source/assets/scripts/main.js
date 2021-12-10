@@ -10,8 +10,6 @@ const auth = getAuth();
 const db = getFirestore();
 let favoriteRecipesSet = new Set();
 
-// document.querySelector('#signUp').addEventListener('click', signUp);
-
 /**
  * Returns the desired recipe
  * @param {string} recipe_id ID of recipe to be fetched
@@ -26,7 +24,7 @@ async function getRecipe(recipe_id) {
     } 
     else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        console.error("No such document!");
     }
 }
 
@@ -37,7 +35,7 @@ async function getRecipe(recipe_id) {
  */
 
  async function getUser(id) {
-    const user = doc(db, "users", id)
+    const user = doc(db, "users", id);
     const userDoc = await getDoc(user);
     const createdRecipes = [];
     const favoriteRecipes = new Set();
@@ -52,10 +50,8 @@ async function getRecipe(recipe_id) {
         "user_email" : userData["user_email"],
         "user_id" : userData["user_id"],
         "recipes": createdRecipes,
-        "favoriteRecipes": favoriteRecipes
+        favoriteRecipes
     };
-    console.log(userInformation);
-    console.log("test");
     return userInformation;
 }
 
@@ -66,8 +62,6 @@ async function getRecipe(recipe_id) {
 async function signIn() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    console.log(email);
-    console.log(password);
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
@@ -102,51 +96,36 @@ async function addUser(email, id) {
     }
 }
 
-// document.querySelector('#descriptionSubmit').addEventListener('click', createRecipe);
-
-// document.querySelector('#tester').addEventListener('click', removeRecipe)
-
-//document.querySelector('#tester').addEventListener('click', getUser);
-
-//********************************************************************
-/* main.js STARTS HERE */
-//*********************************************************************
-
-/*const user = await getUser();
-console.log("GETUSER()");*/
-
-
-async function loadRecipes(id) {
-    const userFile = await getUser(id);
-    console.log(userFile);
-    const favoriteRecipes = userFile.favoriteRecipes;
-    let tempFavorites = Array.from(favoriteRecipes);
-    localStorage.favoriteRecipes = JSON.stringify(tempFavorites);
-    console.log(userFile.favoriteRecipes);
-    for(let i = 0; i < tempFavorites.length; ++i){
-        favoriteRecipesSet.add(tempFavorites[i].recipe_id);
-    }
-    const recipes = userFile.recipes;
-    init(recipes);
-}
-
-let numRecipes;
-const recipeData = {};
-let recipeCardList;
-
-// Go to recipePage upon clicking recipe card
 /**
  * Go to recipePage upon clicking recipe card
  * @param {Array} recipes recipes to navigate to
  */
  function recipePage(recipes) {
     let recipeCard = recipeCardList;
-    console.log(recipeCard.data);
     for (let i = 0; i < recipeCard.length; i++) {
-        recipeCard[i].addEventListener("click", function (){
+        recipeCard[i].addEventListener("click", function () {
             localStorage.recipe = JSON.stringify(recipes[i]);
             location.href = "recipePage.html";
-        })
+        });
+    }
+}
+
+/**
+ * Create recipe cards to be displayed 
+ */
+ function createRecipeCards() {
+    let parentDiv = document.querySelector("#regularDiv");
+    let favoritesDiv = document.querySelector("#favoritesDiv");
+    for (let i = 0; i < numRecipes; i++) {
+        let recipeCard = document.createElement("recipe-card");
+        recipeCard.data = recipeData[i.toString()];
+        if (favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)) {
+            favoritesDiv.appendChild(recipeCard);
+        }
+        else {
+            parentDiv.appendChild(recipeCard); 
+        }
+        recipeCardList[i] = recipeCard;
     }
 }
 
@@ -158,35 +137,49 @@ let recipeCardList;
     return new Promise((resolve, reject) => {  
         numRecipes = recipes.length;
         recipeCardList = new Array(numRecipes);
-        console.log(recipes);
         // Parse recipes from JSON to recipeData
         for (let i = 0; i < numRecipes; i++) {
             recipeData[i] = recipes[i];
-            if(i == numRecipes - 1) {
+            if (i === numRecipes - 1) {
                 resolve(true);
             }
         }
     });
 }
 
- //Call this to begin getting recipe cards
 /*
  * Initial function to populate page with recipes
  * @param {Array} recipes recipes to display
  */
 // This is the first function to be called, so when you are tracing your code start here.
 async function init(recipes) {
-    // fetch the recipes and wait for them to load
+    // Fetch the recipes and wait for them to load
     let fetchSuccessful = await fetchRecipes(recipes);
-    // if they didn't successfully load, quit the function
+    // If they didn't successfully load, quit the function
     if (!fetchSuccessful) {
-        console.log("Recipe fetch unsuccessful");
+        console.error("Recipe fetch unsuccessful");
         return;
     }
     // Add the first three recipe cards to the page
     createRecipeCards();
     recipePage(recipes);
 }
+
+async function loadRecipes(id) {
+    const userFile = await getUser(id);
+    const favoriteRecipes = userFile.favoriteRecipes;
+    let tempFavorites = Array.from(favoriteRecipes);
+    localStorage.favoriteRecipes = JSON.stringify(tempFavorites);
+    for(let i = 0; i < tempFavorites.length; ++i){
+        favoriteRecipesSet.add(tempFavorites[i].recipe_id);
+    }
+    const recipes = userFile.recipes;
+    init(recipes);
+}
+
+let numRecipes;
+const recipeData = {};
+let recipeCardList;
 
 /**
  * Checks if user is logged in and behaves accordingly
@@ -197,36 +190,5 @@ onAuthStateChanged(auth, async (user) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         loadRecipes(uid);
-        // ...
-    } 
-    else {
-        // User is signed out
-        // ...
     }
 });
-
-/**
- * Create recipe cards to be displayed 
- */
- function createRecipeCards() {
-    let parentDiv = document.querySelector("#regularDiv");
-    let favoritesDiv = document.querySelector("#favoritesDiv");
-    for (let i = 0; i < numRecipes; i++) {
-        let recipeCard = document.createElement("recipe-card");
-        recipeCard.data = recipeData[i.toString()];
-        console.log(recipeCard);
-        if(favoriteRecipesSet.has(recipeData[i.toString()].recipe_id)){
-            favoritesDiv.appendChild(recipeCard);
-            console.log(recipeData[i.toString()]);
-        }
-        else{
-            parentDiv.appendChild(recipeCard); 
-        }
-        recipeCardList[i] = recipeCard;
-    }
-
-}
-  
-
-
-// document.querySelector('#add').addEventListener('click', getUser)

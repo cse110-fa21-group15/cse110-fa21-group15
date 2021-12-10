@@ -1,12 +1,6 @@
-//document.querySelector('#tester').addEventListener('click', getUser);
-
-//********************************************************************
-/* main.js STARTS HERE */
-//*********************************************************************
-// Get users' favorite recipes
-
-/*const user = await getUser();
-console.log("GETUSER()");*/
+let recipes = JSON.parse(localStorage.recipes);
+let numRecipes;
+const recipeData = {};
 
 /**
  * Recursively search for a key nested somewhere inside an object
@@ -30,27 +24,24 @@ function searchForKey(object, key) {
 }
 
 async function fetchRecipes(recipes) {
-  return new Promise((resolve, reject) => {
-
-      numRecipes = recipes.length;
-      let numNull = 0;
-      let numRealRecipes = 0;
-      console.log(recipes)
-      //Parse recipes from JSON to recipeData
-      for(let i = 0; i < numRecipes; ++i){
-        if(recipes[i] == null){
-          console.log(i);
-          ++numNull;
-          continue;
+    return new Promise((resolve, reject) => {
+        numRecipes = recipes.length;
+        let numNull = 0;
+        let numRealRecipes = 0;
+        // Parse recipes from JSON to recipeData
+        for (let i = 0; i < numRecipes; i++) {
+            if (recipes[i] === null) {
+                ++numNull;
+                continue;
+            }
+            recipeData[i] = recipes[i];
+            ++numRealRecipes;
         }
-        recipeData[i] = recipes[i];
-        ++numRealRecipes;
-      }
-      numRecipes = numRecipes - numNull;
-      if(numRealRecipes == numRecipes){
-        resolve(true);
-      }
-  });
+        numRecipes = numRecipes - numNull;
+        if (numRealRecipes === numRecipes) {
+            resolve(true);
+        }
+    });
 }
   
 function createRecipeCards() {
@@ -67,8 +58,6 @@ function createRecipeCards() {
 // Go to recipePage upon clicking recipe card
 function recipePage(recipes) {
     let recipeCard = document.querySelectorAll("recipe-card");
-    console.log(recipes);
-    
     for (let i = 0; i < recipeCard.length; i++) {
         recipeCard[i].addEventListener("click", function () {
             localStorage.recipe = JSON.stringify(recipes[i]);
@@ -81,21 +70,15 @@ function recipePage(recipes) {
 // Call this to begin getting recipe cards
 // This is the first function to be called, so when you are tracing your code start here.
 async function init(recipes) {
-    console.log("hi");
     // Fetch the recipes and wait for them to load
     let fetchSuccessful = await fetchRecipes(recipes);
     // If they didn't successfully load, quit the function
     if (!fetchSuccessful) {
-        console.log("Recipe fetch unsuccessful");
         return;
     }
     // Add the first three recipe cards to the page
     createRecipeCards();
     recipePage(recipes);
 }
-
-let recipes = JSON.parse(localStorage.recipes);
-let numRecipes;
-const recipeData = {};
 
 init(recipes);
