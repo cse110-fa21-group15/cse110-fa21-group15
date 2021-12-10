@@ -160,7 +160,7 @@ onAuthStateChanged(auth, (user) => {
     } 
     else {
         // If not signed in, redirect to homepage.html if on createRecipe.html, cookbook.html, mealplan.html
-        if (document.querySelector(".timeBoxInput") || document.querySelector(".parentDiv")||
+        if (document.querySelector(".timeBoxInput") || document.querySelector(".favoriteRecipes")||
             document.querySelector(".calendar")) {
             location.href = "signIn.html";   
         }

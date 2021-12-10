@@ -31,15 +31,15 @@ async function downloadSpoonacularRecipe(time, name, cost, servings, description
             const database = doc(db, "users", id);
             try {
                 const docRef = await addDoc(collection(db, "recipes"), {
-                time, name, cost, servings, description, ingredients, steps, image, user_id : id
-            })
-            await updateDoc(docRef, {
-                recipe_id : docRef.id
-            })
-            await updateDoc(database, {
-                favoriteRecipes: arrayUnion(docRef.id)
-            })
-            location.href = "cookbook.html";
+                    time, name, cost, servings, description, ingredients, steps, image, user_id : id
+                });
+                await updateDoc(docRef, {
+                    recipe_id : docRef.id
+                })
+                await updateDoc(database, {
+                    favoriteRecipes: arrayUnion(docRef.id)
+                })
+                location.href = "cookbook.html";
             } catch (e) {
                 console.error("Error adding document: ", e);
             }

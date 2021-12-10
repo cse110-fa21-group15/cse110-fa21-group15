@@ -3,7 +3,55 @@ const API_KEY_ALT = "apiKey=9d680d9e4b2f4442a24618c2592e4a71";
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?";
 const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1";
 
-//get recipes by searched keywords from database 
+/**
+ * Takes a list of recipes and filters them by cost, and returns the filtered list
+ * @param {Array} recipes list of recipes
+ * @param {string} cost set cost
+ * @return list of recipe with filter applied
+ */
+ function filterCost(recipes, cost) {
+    if (cost == "") {
+        return recipes;
+    }
+    else {
+        var output = [];
+        for (var i = 0; i < recipes.length; i++){
+            if (recipes[i].pricePerServing > 250) {
+                if (cost === 3) {
+                    output.push(recipes[i]);
+                }
+            }
+            else if (recipes[i].pricePerServing > 125) {
+                if (cost === 2) {
+                    output.push(recipes[i]);
+                }
+            }
+            else if (cost === 1) {
+                output.push(recipes[i]);
+            }
+        }
+    }
+    return output;
+}
+
+/**
+ * Store recipe data retrieved
+ * @param {Array} results recipe list
+ * @param {string} input  where to store data
+ */
+ async function storeRecipe(results, input){
+    // Store data for all sessions, string only
+    var toStore = await results;
+    localStorage.setItem("recipes", JSON.stringify(toStore));
+}
+
+/**
+ * Redirect to results page
+ */
+ async function redirectPage() {
+    window.location.href = "searchresults.html";
+}
+
 /**
  * Get recipes by searched keywords from database
  * @param event 
@@ -76,55 +124,6 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     
     storeRecipe(real.slice(0, number));
     redirectPage();
-}
-
-/**
- * Takes a list of recipes and filters them by cost, and returns the filtered list
- * @param {Array} recipes list of recipes
- * @param {string} cost set cost
- * @return list of recipe with filter applied
- */
-function filterCost(recipes, cost) {
-    if (cost == "") {
-        return recipes;
-    }
-    else {
-        var output = [];
-        for (var i = 0; i < recipes.length; i++){
-            if (recipes[i].pricePerServing > 250) {
-                if (cost === 3) {
-                    output.push(recipes[i]);
-                }
-            }
-            else if (recipes[i].pricePerServing > 125) {
-                if (cost === 2) {
-                    output.push(recipes[i]);
-                }
-            }
-            else if (cost === 1) {
-                output.push(recipes[i]);
-            }
-        }
-    }
-    return output;
-}
-
-/**
- * Redirect to results page
- */
-async function redirectPage() {
-    window.location.href = "searchresults.html";
-}
-
-/**
- * Store recipe data retrieved
- * @param {Array} results recipe list
- * @param {string} input  where to store data
- */
-async function storeRecipe(results, input){
-    // Store data for all sessions, string only
-    var toStore = await results;
-    localStorage.setItem("recipes", JSON.stringify(toStore));
 }
 
 /**

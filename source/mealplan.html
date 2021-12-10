@@ -60,24 +60,24 @@
     </header>
 
     <main>
-        <div class="mealplanTemp"></div>
         <div class = "scroll">
-        <table class="personalCookbook">
-            <tr >
-                <th>Personal Cookbook</th>
-            </tr>
-           
-            <tr class="row">
-                <td>
-                    <span class="cookbookMeals"></span>
-                    <a href="cookbook.html">
-                        <button class="addButton">Add+</button>
-                    </a>
-                </td>    
-            </tr>
+            <table class="personalCookbook">
+                <tr >
+                    <th>Personal Cookbook
+                        <a href="cookbook.html">
+                            <button class="addButton">Add+</button>
+                        </a>
+                    </th>
+                </tr>
             
-        </table>
-    </div>
+                <tr class="row">
+                    <td>   
+                        <span class="mealplanPrompt">Drag from the Cookbook and Drop in the Calendar!</span>
+                        <span class="cookbookMeals"></span>
+                    </td>    
+                </tr>       
+            </table>
+        </div>
 
         <table class="calendar">
             <tr>
@@ -275,15 +275,14 @@
                         <div id="v1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     </div>
                 </td>
-
             </tr>
         </table>
 
         <div class="saveButton">
             <img class="icon" id="save" src="assets/images/Save.png" alt="Save">
         </div>
-
     </main>
+
     <footer>
         <div class="copyright">
             <div class="copyrightBar">
@@ -292,9 +291,11 @@
         </div>
     </footer>
 </body>
-  <!--Drag and Drop Script-->
-  <!--<script src="assets/scripts/dragdrop.js"></script>-->
-   <!--User Recipe Cards Script-->
-   <script src="assets/scripts/mealPlan.js" type = "module"></script>
-   <script src="assets/scripts/RecipeCard.js" type="module"></script>
+
+<!--Drag and Drop Script-->
+<!--<script src="assets/scripts/dragdrop.js"></script>-->
+<!--User Recipe Cards Script-->
+<script src="assets/scripts/mealPlan.js" type = "module"></script>
+<script src="assets/scripts/RecipeCard.js" type="module"></script>
+
 </html>
