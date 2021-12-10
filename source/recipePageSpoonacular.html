@@ -49,7 +49,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit" onclick = "getRecipes(event)"><i class="fa fa-search"></i></button>
+                    <button type="submit" onclick="getRecipes(event)"><i class="fa fa-search"></i></button>
                 </form>
             </div>
 
@@ -84,55 +84,38 @@
                 <br>
                 <span>Cost: $<span id="recipeCost"></span></span>
                 <br>
-                <span>Servings: <span id="recipeServings"></span> people</span> 
+                <span>Servings: <span id="recipeServings"></span> people</span>
                 <br>
             </div>
         </span>
 
         <!-- Description-->
-        <div class = "flex-container">
-            <div class = "row-flex"> <div class= "texts"> Description: </div></div>
+        <div class="flex-container">
+            <div class="row-flex">
+                <div class="texts"> Description: </div>
+            </div>
             <p class="desPara" id="recipeDescription"></p>
 
             <br>
-            <div class = "row-flex"> <div class ="texts">Ingredients:</div></div>
+            <div class="row-flex">
+                <div class="texts">Ingredients:</div>
+            </div>
             <div id="lst">
                 <ul id="recipeIngredients">
 
                 </ul>
             </div>
             <br>
-            <div class = "row-flex"> <div class="texts">Steps:</div></div>
+            <div class="row-flex">
+                <div class="texts">Steps:</div>
+            </div>
             <div id="lst2">
-             <ol id="recipeList">
- 
-             </ol>
-         </div>
-        <!-- <div id="imgC">
-        <div id="one"> <img class="recImg" src="assets/images/spooky.png" alt="Recipe Image" ></div>
-            
-            <div class="details">
-                <p class="para">
-                    <br>
-                    <br>
-                    Time: 2 hours 0 mins <br>
-                    Servings: 3 <br>
-                    tags: <br>
-                </p>
-                <div class ="time"> Time: 2 hours 0 mins </div>
-                <div class = "cost">Cost: $58</div>
-                <div class="serving">Servings: 3</div>
-                <div class="tags">
-                    <div class="sweet">sweet</div>
-                    <div class="long">Long</div>
-                    <div class="medium">Medium</div>
-                </div> -->
-        <!-- </div>
-            </div> -->
+                <ol id="recipeList">
 
-        <!-- </div> -->
+                </ol>
+            </div>
     </main>
-    
+
     <footer>
         <div class="copyright">
             <div class="copyrightBar">

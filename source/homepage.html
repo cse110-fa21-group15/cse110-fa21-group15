@@ -53,7 +53,7 @@
 
             <div class="signIn">
                 <a href="signIn.html">
-                    <button id="signedIn" style="font-size:22px">Sign in</button>
+                    <button id="signedIn" style="font-size:100%">Sign in</button>
                 </a>
             </div>
         </div>
@@ -69,7 +69,7 @@
     <main>
         <div class="flexcontainer">
             <div class="dropdown">
-                <select id = "dietary" class="drop">
+                <select id="dietary" class="drop">
                     <option value="" selected>Dietary</option>
                     <option>Gluten Free</option>
                     <option>Nut Free</option>
@@ -79,34 +79,33 @@
                     <option>Whole30</option>
                 </select>
 
-                <select id = "time" class="drop">
+                <select id="time" class="drop">
                     <option value="" selected>Time</option>
-                    <option value =30>Under 30 min</option>
-                    <option value = 60>Under 60 min</option>
-                    <option value = 100>Under 100 min</option>
+                    <option value=30>Under 30 min</option>
+                    <option value=60>Under 60 min</option>
+                    <option value=100>Under 100 min</option>
                 </select>
-                
+
                 <select id="cost" class="drop">
                     <option value="" selected>Cost</option>
-                    <option value = 1>$</option>
-                    <option value = 2>$$</option>
-                    <option value = 3>$$$</option>
+                    <option value=1>$</option>
+                    <option value=2>$$</option>
+                    <option value=3>$$$</option>
                 </select>
             </div>
 
             <div class="searchbar">
                 <form class="example" onSubmit="return false;">
                     <input type="text" placeholder="Search Recipes" name="search" class="round">
-                    <button onclick = "getRecipes(event, true)" type="submit"><i class="fa fa-search"></i></button>
+                    <button onclick="getRecipes(event, true)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-
             <div id="recipeOfDay">
-                <img id = "recipeimg"style="width:800px; height:300px">
+                <img id="recipeimg">
                 <div class="centered"></div>
             </div>
         </div>
-    </div>
+        </div>
     </main>
 
     <footer>

@@ -5,13 +5,8 @@
   font-family: "Capriola", sans-serif;
 }
 
-header {
-  width: auto;
-}
-
 body {
   min-height: 100vh;
-  min-width: 960px;
   display: flex;
   flex-direction: column;
   background-color: #ffe0bb;
@@ -20,6 +15,8 @@ body {
 /* Navigation bar styling */
 .navigationBar {
   display: flex;
+  flex-direction: row;
+  margin: auto;
   background-color: #ffcf96;
 }
 
@@ -29,10 +26,10 @@ body {
 
 /* The container <div> - needed to position the dropdown content */
 .menu {
-  flex: 1;
-  cursor: pointer;
   position: relative;
   display: inline-block;
+  margin-right: 10%;
+  margin-left: 1%;
 }
 
 .menuIcon {
@@ -50,7 +47,7 @@ body {
   height: 70px;
   border-radius: 12px;
   margin: 5px;
-  width: 80px;
+  width: 100%;
   border: none;
   cursor: pointer;
 }
@@ -76,16 +73,22 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
-  flex: 0.05;
+  margin-left: 25%;
   margin-top: 5px;
   cursor: pointer;
 }
@@ -98,8 +101,8 @@ body {
 }
 
 .title {
-  flex: 1.1;
-  margin: 10px;
+  flex: 2;
+  margin-top: 1%;
   background-color: #ffcf96;
   color: #000;
   cursor: context-menu;
@@ -107,13 +110,13 @@ body {
 }
 
 .signIn {
-  flex: 0.16;
+  flex: 0.3;
 }
 
 .signIn button {
-  width: 100px;
-  height: 60px;
-  margin-top: 10px;
+  width: 90%;
+  height: 80%;
+  margin-top: 5%;
   border-radius: 20px;
   border: none;
   background-color: #fff5ea;
@@ -135,16 +138,22 @@ body {
 
 .dropdown {
   font-size: 10px;
+  margin-top: -2%;
 }
 
 .dropdown select {
-  width: 200px;
+  width: 10vw;
   height: 30px;
   margin: 15px;
   margin-bottom: 30px;
   border-radius: 12px;
   font-size: 20px;
   padding-left: 5px;
+  cursor: pointer;
+}
+
+option {
+  cursor: context-menu;
 }
 
 .searchbar {
@@ -159,17 +168,18 @@ body {
 .searchbar button {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  font-size: 60px;
+  font-size: 3em;
   height: 100px;
   position: absolute;
+  cursor: pointer;
 }
 
 form.example input[type=text] {
   padding: 10px;
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 400;
   border: 1px solid grey;
-  width: 800px;
+  width: 45vw;
   height: 100px;
   background: #f1f1f1;
 }
@@ -183,15 +193,10 @@ form.example button:hover {
   position: absolute;
   color: white;
   text-align: center;
-  font-size: 50px;
-  justify-content: center;
-  height: 100%;
+  font-size: 2em;
+  top: 30%;
   width: 100%;
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-  top: 0;
-  left: 0;
+  cursor: context-menu;
 }
 
 #recipeOfDay {
@@ -199,12 +204,14 @@ form.example button:hover {
 }
 
 #recipeimg {
-  margin-top: 20px;
+  margin-top: 5%;
+  margin-bottom: 3%;
   border-radius: 12px 12px 12px 12px;
   backdrop-filter: blur(5px);
-  width: 800px;
+  width: 45vw;
   height: 300px;
   box-shadow: 6px 6px 4px 4px #909090;
+  cursor: pointer;
 }
 
 /* Copyright styling */
@@ -214,6 +221,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {
@@ -228,4 +236,22 @@ footer {
   background-color: #ffcf96;
   text-align: center;
   color: gray;
+}
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  .logo {
+    display: none;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  main {
+    margin-bottom: 15%;
+  }
+
+  .dropdown select {
+    width: 20vw;
+  }
 }
