@@ -7,7 +7,6 @@
 
 body {
   min-height: 100vh;
-  min-width: 960px;
   display: flex;
   flex-direction: column;
   background-color: #ffe0bb;
@@ -16,6 +15,8 @@ body {
 /* Navigation bar styling */
 .navigationBar {
   display: flex;
+  flex-direction: row;
+  margin: auto;
   background-color: #ffcf96;
 }
 
@@ -25,10 +26,10 @@ body {
 
 /* The container <div> - needed to position the dropdown content */
 .menu {
-  flex: 1;
-  cursor: pointer;
   position: relative;
   display: inline-block;
+  margin-right: 10%;
+  margin-left: 1%;
 }
 
 .menuIcon {
@@ -46,7 +47,7 @@ body {
   height: 70px;
   border-radius: 12px;
   margin: 5px;
-  width: 80px;
+  width: 100%;
   border: none;
   cursor: pointer;
 }
@@ -72,13 +73,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.1;
@@ -90,7 +97,7 @@ body {
   height: auto;
   background-color: #ffcf96;
   display: block;
-  margin-top: 5px;
+  cursor: pointer;
 }
 
 .searchbar {
@@ -111,10 +118,6 @@ body {
   border-bottom-left-radius: 12px;
 }
 
-form {
-  background-color: #ffcf96;
-}
-
 form.example input[type=text] {
   padding: 10px;
   font-size: 22px;
@@ -126,13 +129,13 @@ form.example input[type=text] {
 }
 
 .signIn {
-  flex: 0.5;
+  flex: 0.6;
 }
 
 .signIn button {
-  width: 100px;
-  height: 60px;
-  margin-top: 10px;
+  width: 90%;
+  height: 80%;
+  margin-top: 5%;
   border-radius: 20px;
   border: none;
   background-color: #fff5ea;
@@ -140,7 +143,7 @@ form.example input[type=text] {
 }
 
 form.example button:hover {
-  background: #868b8f;
+  background: #0b7dda;
 }
 
 form.example::after {
@@ -155,7 +158,7 @@ form.example i {
 }
 
 .favoriteRecipes {
-  margin-left: 20px;
+  margin-left: 4%;
 }
 
 /* Personal Cookbook items */
@@ -163,8 +166,16 @@ form.example i {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  margin-left: 59px;
+  justify-content: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
   gap: 3em;
+  cursor: pointer;
+}
+
+h1 {
+  cursor: context-menu;
 }
 
 /* Copyright styling */
@@ -174,6 +185,7 @@ footer {
 
 .copyright {
   display: flex;
+  cursor: context-menu;
 }
 
 .copyright div {
@@ -188,4 +200,10 @@ footer {
   background-color: #ffcf96;
   text-align: center;
   color: gray;
+}
+
+@media screen and (min-width: 400px) and (max-width: 900px) {
+  .logo {
+    display: none;
+  }
 }

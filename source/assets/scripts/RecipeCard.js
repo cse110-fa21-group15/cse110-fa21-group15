@@ -173,9 +173,12 @@ class RecipeCard extends HTMLElement {
             }
             
             h1.title {
-                display: -webkit-box;
+                display: inline-block;
                 height: 30px;
+                white-space: nowrap;
+                width: 100%;
                 overflow: hidden;
+                text-overflow: ellipsis;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 color: white;
@@ -255,7 +258,7 @@ class RecipeCard extends HTMLElement {
         const time = document.createElement("p");
         time.classList.add("time");
         const timeValue = searchForKey(data,"time");
-        time.textContent = "Time: " + timeValue;
+        time.textContent = "Time: " + timeValue + " min";
         card.appendChild(time);
         
         this.shadowRoot.appendChild(card);
