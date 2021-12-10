@@ -194,4 +194,9 @@ if (document.querySelector("#sbutton")) {
 
 if (document.querySelector("#lbutton")) {
     document.querySelector("#lbutton").addEventListener("click", signIn);
+    document.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+            signIn(event);
+        }
+    });
 }

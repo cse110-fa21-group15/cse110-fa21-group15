@@ -1,5 +1,5 @@
-const API_KEY = "apiKey=17d9935d04164997aef523459d06487b";
-const API_KEY_ALT = "apiKey=eb8f87242ae8478f9dc126f96c50fda0"
+const API_KEY = "apiKey=d31e7e45c6d040e88773ab8f3a8fda69";
+const API_KEY_ALT = "apiKey=d31e7e45c6d040e88773ab8f3a8fda69"
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?"
 const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1"
 

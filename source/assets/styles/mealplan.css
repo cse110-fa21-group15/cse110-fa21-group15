@@ -10,22 +10,25 @@ body {
   min-width: 1400px;
   display: flex;
   flex-direction: column;
-  background-color: #FFE0BB;
+  background-color: #ffe0bb;
 }
 
 /* Navigation bar styling */
 .navigationBar {
   display: flex;
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
 .navigationBar div {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
+/* The container <div> - needed to position the dropdown content */
 .menu {
   flex: 1;
   cursor: pointer;
+  position: relative;
+  display: inline-block;
 }
 
 .menuIcon {
@@ -39,7 +42,7 @@ body {
 
 /* Drop down button */
 .menuButton {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 70px;
   border-radius: 12px;
   margin: 5px;
@@ -48,18 +51,12 @@ body {
   cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.menu {
-  position: relative;
-  display: inline-block;
-}
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-top: -10px;
   margin-left: 5px;
@@ -88,7 +85,6 @@ body {
 .menu:hover .dropbtn {
   background-color: #3e8e41;
 }
-
 
 .logo {
   flex: 0.1;
@@ -134,6 +130,16 @@ form.example input[type=text] {
   height: 55px;
 }
 
+.signIn button {
+  width: 100px;
+  height: 60px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #fff5ea;
+  cursor: pointer;
+}
+
 form.example button:hover {
   background: #0b7dda;
 }
@@ -153,45 +159,22 @@ form.example i {
   flex: 0.5;
 }
 
-.signIn button {
-  width: 100px;
-  height: 60px;
-  background-color: #FFCF96;
-  margin-top: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #FFF5EA;
-  cursor: pointer;
-}
-
-/* Personal cookbook list */
-
-/* .container table {
-    position: absolute;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #FFFFFF;
-    display: table;
-  }*/
-
 .personalCookbook {
   position: absolute;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #FFFFFF;
-  display: table;
+  background-color: #fff;
+  display: inline-block; /* inline-block */
   width: 20%;
   height: 70%;
   margin-left: 10%;
   overflow-y: scroll;
-  display: inline-block;
 }
 
 .personalCookbook th {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 60px;
   width: 20%;
-
 }
 
 .personalCookbook td {
@@ -211,6 +194,7 @@ form.example i {
   font-size: 20px;
   height: 30px;
 }
+
 table h4 {
   font-size: 20px;
 }
@@ -219,25 +203,23 @@ table img {
   width: 30px;
   height: 30px;
 }
-.row td{
-  padding-top:20px;
-}
-/* Calendar */
 
+.row td {
+  padding-top: 20px;
+}
+
+/* Calendar */
 .calendar {
   position: absolute;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #FFFFFF;
+  margin: 20px 10% 20px 35%;
+  background-color: #fff;
   display: table;
   width: 60%;
   height: 70%;
-  margin-right: 10%;
-  margin-left: 35%;
 }
 
 .calendar th {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 100px;
   font-size: 30px;
 }
@@ -269,12 +251,13 @@ table img {
 #div1 {
   width: 100px;
   height: 100px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
 }
 
 .ele {
   margin-left: 10px;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .ele h4 {
@@ -296,7 +279,8 @@ table img {
   right: 0;
   margin-bottom: 10px;
 }
-.drag2 h4{
+
+.drag2 h4 {
   font-size: 15px;
 }
 

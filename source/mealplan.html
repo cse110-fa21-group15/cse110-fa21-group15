@@ -16,22 +16,11 @@
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
+    <!--Recipe Scripts-->
+    <script src="assets/scripts/createRecipe.js" type="module"></script>
     <!--Search Script-->
     <script src="assets/scripts/search.js"></script>
-    
-    <script>
-    async function getRecipe(recipe_id) {
-    const recipesRef = doc(db, "recipes", recipe_id);
-    const docSnap = await getDoc(recipesRef);
-  
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}
-    </script>
+
 </head>
 
 <body>
@@ -58,7 +47,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit" onclick = "getRecipes(event)"><i class="fa fa-search"></i></button>
+                    <button onclick = "getRecipes(event)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
@@ -81,7 +70,9 @@
             <tr class="row">
                 <td>
                     <span class="cookbookMeals"></span>
-                    <button class="addButton">Add+</button>
+                    <a href="cookbook.html">
+                        <button class="addButton">Add+</button>
+                    </a>
                 </td>    
             </tr>
             
@@ -103,7 +94,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="mondayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -113,14 +104,14 @@
                         <p class="calendarMeal">Lunch</p>
                         <!-- <button class="addToCookbook" ondrop="drop(event)" ondragover="allowDrop(event) > <i class="fa fa-plus"> </i></button> -->
                         <div id="mondayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
                     </div>
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="mondayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -130,7 +121,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="tuesdayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -138,7 +129,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <div id="tuesdayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -146,7 +137,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="tuesdayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -156,7 +147,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="wednesdayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -165,7 +156,7 @@
                         <p class="calendarMeal">Lunch</p>
 
                         <div id="wednesdayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -173,7 +164,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="wednesdayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png   width="36" height="36" >
                         </div>
 
@@ -183,7 +174,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="thursdayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
                         
@@ -192,7 +183,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <div id="thursdayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -200,7 +191,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="thursdayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -210,7 +201,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="fridayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -218,7 +209,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <div id="fridayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -226,7 +217,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="fridayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -236,7 +227,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="saturdayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -244,7 +235,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <div id="saturdayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -252,7 +243,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="saturdayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -262,7 +253,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Breakfast</p>
                         <div id="sundayBreakfast">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -270,7 +261,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Lunch</p>
                         <div id="sundayLunch">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
 
@@ -278,7 +269,7 @@
                     <div class="cookbookItems">
                         <p class="calendarMeal">Dinner</p>
                         <div id="sundayDinner">
-                            <h4>recipeTitle</h4>
+                            <h4></h4>
                             <img class="drag2" src = assets/images/Add.png  width="36" height="36" >
                         </div>
                         <div id="v1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
