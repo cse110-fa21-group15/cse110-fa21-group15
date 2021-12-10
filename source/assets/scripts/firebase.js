@@ -61,11 +61,7 @@ async function addUser(email, id) {
             user_id: id,
             favoriteRecipes: [],
             favorites: [],
-            monday: null,
-            tuesday: null, 
-            wednesday: null,
-            thursday: null,
-            friday: null
+            mealPlan: []
         });
     } catch (e) {
         console.error("Error adding document: ", e);
