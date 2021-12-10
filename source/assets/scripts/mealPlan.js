@@ -205,6 +205,10 @@ async function fillCalendar(){
         let calendarBox = document.getElementById(i);
         calendarBox.querySelector("img").setAttribute("src", searchForKey(tempRecipe, "image"));
         calendarBox.querySelector("h4").textContent = searchForKey(tempRecipe, "name");
+        calendarBox.addEventListener("click", function() {
+            localStorage.recipe = JSON.stringify(tempRecipe);
+            window.location.href = "recipePage.html";
+        })
         mealplanCalendar.set(i,fillCalendarRecipes[i]);
     }
 }
