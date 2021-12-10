@@ -1,4 +1,4 @@
-const API_KEY = "apiKey=85215063b7bb478b9b0198be8f8cc862";
+const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
@@ -75,7 +75,8 @@ const recipeDescription = document.querySelector("#recipeDescription");
 const recipeIngredients = document.querySelector("#recipeIngredients");
 const recipeSteps = document.querySelector("#recipeList");
 
-await recipeInfo(localStorage.recipeID);
+if(localStorage.extraRecipeInfo.id != localStorage.recipe.id)
+    await recipeInfo(localStorage.recipeID);
 
 // Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);

@@ -1,7 +1,7 @@
-const API_KEY = "apiKey=7f2487ec91f241dbbdfd5060ae535477";
+const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 const API_KEY_ALT = "apiKey=7f2487ec91f241dbbdfd5060ae535477";
 const SEARCH_URL = "https://api.spoonacular.com/recipes/complexSearch?";
-const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?apiKey=17d9935d04164997aef523459d06487b&number=1";
+const RANDOM_RECIPE_URL = "https://api.spoonacular.com/recipes/random?"+API_KEY+"&number=1";
 
 /**
  * Takes a list of recipes and filters them by cost, and returns the filtered list
@@ -67,7 +67,7 @@ async function getRecipes(event, filters = false, number = 14, offset = 0, currs
     var input = document.querySelector("input[name = 'search']").value;    
     
     // Build Base Url
-    var url = SEARCH_URL+API_KEY_ALT +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
+    var url = SEARCH_URL+API_KEY +"&query=" + input + "&number="+number + "&instructionsRequired=true" + "&offset=" + offset + "&addRecipeInformation=true";
     
     // If there are filters, then add time and dietary parameters to url
     if (filters === true) {
