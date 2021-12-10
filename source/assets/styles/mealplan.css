@@ -151,32 +151,32 @@ form.example i {
   border-radius: 12px;
 }
 
-/* Personal cookbook list */
 .personalCookbook {
   position: absolute;
-  margin-top: 20px;
+  margin-top: 5%;
   margin-bottom: 20px;
-  background-color: #FFFFFF;
-  display: table;
+  background-color: #fff;
+  display: inline-block; /* inline-block */
   width: 20%;
-  height: 70%;
+  height: 60%;
   margin-left: 10%;
   overflow-y: scroll;
-  display: inline-block;
 }
 
 .personalCookbook th {
-  background-color: #FFF5EA;
+  background-color: #fff5ea;
   height: 60px;
   width: 20%;
-
 }
 
 .personalCookbook td {
   height: 100px;
   display: flex;
   justify-content: center;
+}
 
+.mealplanPrompt {
+  text-align: center;
 }
 
 .scrollable {
@@ -189,6 +189,7 @@ form.example i {
   font-size: 20px;
   height: 30px;
 }
+
 table h4 {
   font-size: 20px;
 }
@@ -197,31 +198,31 @@ table img {
   width: 30px;
   height: 30px;
 }
-.row td{
-  padding-top:20px;
+
+.row td {
+  padding-top: 20px;
 }
 
 /* Calendar */
 .calendar {
   position: absolute;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #FFFFFF;
+  margin: 5% 10% 20px 35%;
+  background-color: #fff;
   display: table;
-  width: 60%;
-  height: 70%;
-  margin-right: 10%;
-  margin-left: 35%;
+  width: 55%;
+  height: 60%;
+  table-layout: fixed;
 }
 
 .calendar th {
-  background-color: #FFF5EA;
-  height: 100px;
+  background-color: #fff5ea;
+  height: 15%;
   font-size: 30px;
 }
 
 .calendar td {
   text-align: center;
+  overflow: hidden;
 }
 
 .addToCookbook {
@@ -229,30 +230,32 @@ table img {
 }
 
 .cookbookItems {
-  margin-bottom: 50px;
+  margin-bottom: 50%;
 }
 
 .calendarMeal {
-  font-size: 20px;
+  font-size: 100%;
   text-align: center;
+  margin-bottom: 10%;
 }
 
 .icon {
   float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 60px;
+  margin-right: 20%;
+  margin-bottom: 15%;
+  width: 15%;
 }
 
 #div1 {
   width: 100px;
   height: 100px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
 }
 
 .ele {
   margin-left: 10px;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .ele h4 {
@@ -274,7 +277,8 @@ table img {
   right: 0;
   margin-bottom: 10px;
 }
-.drag2 h4{
+
+.drag2 h4 {
   font-size: 15px;
 }
 
@@ -288,7 +292,7 @@ footer {
 }
 
 .copyright div {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
 .copyrightBar {
@@ -296,7 +300,7 @@ footer {
 }
 
 .copyrightText {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
   text-align: center;
   color: gray;
 }
