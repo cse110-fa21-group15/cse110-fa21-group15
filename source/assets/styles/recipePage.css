@@ -156,7 +156,13 @@ form.example i {
   display: flex;
   flex-direction: row;
   margin-top: 1%;
-  margin-bottom: 20vh;
+  margin-bottom: 2%;
+}
+
+.RecTitle h2 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
 }
 
 .name {
@@ -164,17 +170,18 @@ form.example i {
   margin-left: 7%;
   float: left;
   color: #505050;
-  font-size: 3em;
+  font-size: 2em;
   position: absolute;
-  max-width: 65vw;
+  max-width: 70vw;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
 }
 
 .icons {
-  margin-top: 10px;
-  margin-left: 80%;
+  display: flex;
+  margin-top: 2%;
+  margin-left: 79vw;
   cursor: pointer;
 }
 
@@ -186,9 +193,7 @@ form.example i {
 #details {
   display: flex;
   padding: 0 100px 20px 30px;
-  margin-bottom: 0;
-  margin-left: 0;
-  gap: 300px;
+  gap: 20%;
   flex-direction: row;
 }
 
@@ -207,9 +212,10 @@ form.example i {
 }
 
 .recImg {
-  width: 30vw;
+  width: 25vw;
   height: auto;
   box-shadow: 15px 15px 9px 0 #505050;
+  margin-left: 7%;
 }
 
 .flex-container {
@@ -291,27 +297,35 @@ footer {
   color: gray;
 }
 
-@media screen and (min-width: 400px) and (max-width: 900px) {
+@media screen and (min-width: 400px) and (max-width: 1000px) {
 
   .logo {
     display: none;
    }
 
-   .RecTitle {
-     margin-bottom: 30vh;
+   .RecTitle h2 {
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
    }
 
    .recImg {
-     width: 50vw;
+    width: 50vw;
+   }
+
+   .icons {
+    margin-left: 80vw;
+    flex-direction: column;
    }
 
    #details {
-     display: flex;
-     flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    margin-left: -3%;
    }
 
    .para  {
-     margin-top: -50vh;
-     margin-left: 10vw;
+    margin-left: 10vw;
    }
 }
