@@ -63,7 +63,7 @@ jobs:
           VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_MARKDOWN: false
           VALIDATE_JSCPD: false
-          #VALIDATE_HTML: false
+          VALIDATE_HTML: false
           FILTER_REGEX_INCLUDE: ./source/.*
           FILTER_REGEX_EXCLUDE: ./source/assets/.*
           
