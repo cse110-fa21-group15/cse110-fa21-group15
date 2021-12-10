@@ -101,7 +101,7 @@ body {
 }
 
 .title {
-  flex: 1;
+  flex: 2;
   margin-top: 1%;
   background-color: #ffcf96;
   color: #000;
@@ -110,7 +110,7 @@ body {
 }
 
 .signIn {
-  flex: 0.15;
+  flex: 0.3;
 }
 
 .signIn button {
