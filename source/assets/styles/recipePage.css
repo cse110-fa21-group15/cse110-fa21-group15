@@ -73,13 +73,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.1;
@@ -301,31 +307,31 @@ footer {
 
   .logo {
     display: none;
-   }
+  }
 
-   .RecTitle h2 {
+  .RecTitle h2 {
     text-overflow: ellipsis;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-   }
+  }
 
-   .recImg {
+  .recImg {
     width: 50vw;
-   }
+  }
 
-   .icons {
+  .icons {
     margin-left: 80vw;
     flex-direction: column;
-   }
+  }
 
-   #details {
+  #details {
     display: flex;
     flex-direction: column;
     margin-left: -3%;
-   }
+  }
 
-   .para  {
+  .para {
     margin-left: 10vw;
-   }
+  }
 }

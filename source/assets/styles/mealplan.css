@@ -73,13 +73,19 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover { background-color: #ddd; }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.menu:hover .dropdown-content { display: block; }
+.menu:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.menu:hover .dropbtn { background-color: #3e8e41; }
+.menu:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .logo {
   flex: 0.1;
@@ -156,7 +162,8 @@ form.example i {
   margin-top: 70px;
   margin-bottom: 30px;
   background-color: #fff;
-  display: inline-block; /* inline-block */
+  display: inline-block;
+  /* inline-block */
   width: 20%;
   height: 550px;
   margin-left: 10%;
@@ -306,5 +313,5 @@ footer {
 
   .logo {
     display: none;
-   }
+  }
 }

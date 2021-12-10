@@ -131,7 +131,7 @@ body {
   justify-content: center;
 }
 
-.dropdown > select {
+.dropdown>select {
   width: 180px;
   height: 30px;
   margin: 10px;
@@ -237,6 +237,6 @@ footer {
 
   main {
     margin-bottom: 15%;
-  }  
+  }
 
 }
