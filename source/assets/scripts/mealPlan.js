@@ -48,7 +48,7 @@ const db = getFirestore();
         "user_id" : userData["user_id"],
         "recipes": createdRecipes,
         "favoriteRecipes": favoriteRecipes,
-        "mealPlan":mealPlan
+        "mealPlan":userData["mealPlan"]
     };
     console.log(userInformation);
     console.log("test");

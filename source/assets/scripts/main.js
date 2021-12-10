@@ -93,7 +93,8 @@ async function addUser(email, id) {
             user_email: email,
             user_id: id,
             favoriteRecipes: [],
-            favorites: []
+            favorites: [],
+            mealPlan: []
         });
     } 
     catch (e) {
