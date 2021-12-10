@@ -31,7 +31,6 @@ describe("Test Signup and Login", () => {
         const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
         const button = await page.$("#lbutton");
         await button.click();
-         //console.log("here2");
         await page.waitForSelector('#invalidLogin');
         let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
          //console.log("here1");
