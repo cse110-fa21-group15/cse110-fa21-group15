@@ -176,14 +176,22 @@ form.example i {
   margin-left: 70px;
   float: left;
   color: #505050;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 46px;
   position: absolute;
   min-width: 800px;
+  max-width: 70%;
 }
 
 .icons {
   margin-top: 10px;
-  margin-left: 73%;
+  margin-left: 82%;
+}
+
+.single {
+  margin-top: 10px;
+  margin-left: 90%;
 }
 
 .icon {

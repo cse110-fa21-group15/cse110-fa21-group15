@@ -53,10 +53,10 @@ async function createRecipe(event) {
                     });
                     await updateDoc(docRef, {
                         recipe_id : docRef.id
-                    })
+                    });
                     await updateDoc(database, {
                         favoriteRecipes: arrayUnion(docRef.id)
-                    })
+                    });
                     location.href = "cookbook.html";
                 } 
                 catch (e) {

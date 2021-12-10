@@ -3,12 +3,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, setDoc, updateDoc, arrayUnion, doc, arrayRemove, deleteField } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import { firebaseConfig } from "./api.js"
+import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 let fillCalendarRecipes = new Map();
+
+let numRecipes;
+const recipeData = {};
+const mealplanCalendar = new Map();
 
 /**
  * Recursively search for a key nested somewhere inside an object
@@ -69,9 +73,7 @@ function createRecipeCards() {
         let recipe_id = searchForKey(recipeData[i.toString()],"recipe_id");
         recipe_id_elem.textContent = recipe_id;
         recipe_id_elem.setAttribute("hidden", true);
- 
-
-        
+         
         let title = document.createElement("h4");
         let recTitle = searchForKey(recipeData[i.toString()],"name");
         title.textContent=recTitle;
@@ -102,6 +104,23 @@ function createRecipeCards() {
     
 }
 
+/**
+ * Returns the desired recipe
+ * @param {string} recipe_id ID of recipe to be fetched
+ * @return recipe data
+ */
+ async function getRecipe(recipe_id) {
+    const recipesRef = doc(db, "recipes", recipe_id);
+    const docSnap = await getDoc(recipesRef);
+  
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+        // doc.data() will be undefined in this case
+        console.error("No such document!");
+    }
+}
+
 async function fillCalendar() {
     for (let i in fillCalendarRecipes) {
         let tempRecipe = await getRecipe(fillCalendarRecipes[i]);
@@ -110,7 +129,7 @@ async function fillCalendar() {
         calendarBox.querySelector("h4").textContent = searchForKey(tempRecipe, "name");
         calendarBox.recipeId = fillCalendarRecipes[i];
         calendarBox.addEventListener("click", clickListener);
-        mealplanCalendar.set(i,fillCalendarRecipes[i]);
+        mealplanCalendar.set(i, fillCalendarRecipes[i]);
     }
 }
 
@@ -130,6 +149,35 @@ async function init(recipes) {
     // Add the first three recipe cards to the page
     createRecipeCards();
     fillCalendar();
+}
+
+/**
+ * Returns the information of a signed user such as favorite recipes, email, ID
+ * @param {String} id  user's id
+ * @returns information regarding the user
+ */
+ async function getUser(id) {
+    const user = doc(db, "users", id);
+    const userDoc = await getDoc(user);
+    const createdRecipes = [];
+    const favoriteRecipes = new Set();
+    const userData = userDoc.data();
+    for (let i = 0; i < userData.favoriteRecipes.length; i++) {
+        createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
+    }
+    for (let i = 0; i < userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
+    }
+    const userInformation = {
+        "user_email" : userData["user_email"],
+        "user_id" : userData["user_id"],
+        "recipes": createdRecipes,
+        favoriteRecipes,
+        "mealPlan":userData["mealPlan"]
+    };
+    console.log(userInformation);
+    console.log("test");
+    return userInformation;
 }
 
 /**
@@ -162,52 +210,6 @@ async function init(recipes) {
     }
 });
 
-/**
- * Returns the desired recipe
- * @param {string} recipe_id ID of recipe to be fetched
- * @return recipe data
- */
- async function getRecipe(recipe_id) {
-    const recipesRef = doc(db, "recipes", recipe_id);
-    const docSnap = await getDoc(recipesRef);
-  
-    if (docSnap.exists()) {
-        return docSnap.data();
-    } else {
-        // doc.data() will be undefined in this case
-        console.error("No such document!");
-    }
-}
-
-/**
- * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {String} id  user's id
- * @returns information regarding the user
- */
- async function getUser(id) {
-    const user = doc(db, "users", id);
-    const userDoc = await getDoc(user);
-    const createdRecipes = [];
-    const favoriteRecipes = new Set();
-    const userData = userDoc.data();
-    for (let i = 0; i < userData.favoriteRecipes.length; i++) {
-        createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
-    }
-    for (let i = 0; i < userData.favorites.length; i++) {
-        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
-    }
-    const userInformation = {
-        "user_email" : userData["user_email"],
-        "user_id" : userData["user_id"],
-        "recipes": createdRecipes,
-        favoriteRecipes,
-        "mealPlan":userData["mealPlan"]
-    };
-    console.log(userInformation);
-    console.log("test");
-    return userInformation;
-}
-
 //document.querySelector('#tester').addEventListener('click', getUser);
 
 //********************************************************************
@@ -217,10 +219,6 @@ async function init(recipes) {
 
 /*const user = await getUser();
 console.log("GETUSER()");*/
-
-let numRecipes;
-const recipeData = {};
-const mealplanCalendar = new Map();
 
 async function clickListener(evt){
     let tempRecipe = await getRecipe(evt.currentTarget.recipeId);
@@ -268,7 +266,7 @@ async function saveMealPlan() {
 }
 
 let dragged;
-document.addEventListener("dragstart",function(event){
+document.addEventListener("dragstart", function(event) {
     //console.log("event",event);
     
     // Store a ref. on the dragged elem
@@ -277,20 +275,16 @@ document.addEventListener("dragstart",function(event){
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
     }
-
     else if (event.target.className === "drag2") {
         console.log("called");
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
     }
-    
-    // // make it half transparent
-    // event.target.style.opacity = .5;
-  }, false);
+}, false);
 
-  /* events fired on the drop targets */
+// Events fired on the drop targets
 document.addEventListener("dragover", function(event) {
-    // prevent default to allow drop
+    // Prevent default to allow drop
     if (event.target.className === "drag2") {
         event.preventDefault();
     }
@@ -306,9 +300,9 @@ document.addEventListener("dragover", function(event) {
     console.log("event",event);
     console.log("dragged",dragged);
     console.log("target", event.target);
-    // prevent default action (open as link for some elements)
+    // Prevent default action (open as link for some elements)
     event.preventDefault();
-    // move dragged elem to the selected drop target
+    // Move dragged elem to the selected drop target
     if (event.target.className === "drag2") {
         if (dragged.className === "drag2") {
             let title = dragged.parentNode.querySelector("h4");
@@ -329,8 +323,8 @@ document.addEventListener("dragover", function(event) {
             console.log(event.target);
             let title = event.target.parentNode.querySelector("h4");
             let img = event.target.parentNode.querySelector("img");
-            console.log("title",title)
-            console.log("img",img)
+            console.log("title",title);
+            console.log("img",img);
             let srcTitle = dragged.querySelector("h4").textContent;
             let srcImage = dragged.querySelector("img").src;
             let recipe_id = dragged.querySelector("p").textContent;
@@ -353,7 +347,7 @@ document.addEventListener("dragover", function(event) {
         }
     }
     //Remove recipes that are dragged out of calendar
-    else if(dragged.className == "drag2"){
+    else if(dragged.className === "drag2"){
         let title = dragged.parentNode.querySelector("h4");
         let img = dragged.parentNode.querySelector("img");
         img.setAttribute("src","assets/images/Add.png");
@@ -374,7 +368,7 @@ const save = document.querySelector("#save");
 console.log(save);
 
 save.addEventListener("click", function (event) {
-    console.log("testing save")
+    console.log("testing save");
     saveMealPlan();
 })
 
