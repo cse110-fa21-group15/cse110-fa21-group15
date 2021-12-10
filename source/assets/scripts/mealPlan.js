@@ -332,7 +332,7 @@ document.addEventListener("dragover", function(event) {
         let title = dragged.parentNode.querySelector("h4");
         let img = dragged.parentNode.querySelector("img");
         img.setAttribute("src","assets/images/Add.png");
-        title.textContent = "recipeTitle";
+        title.textContent = "";
         mealplanCalendar.delete(dragged.parentNode.id);
         console.log(mealplanCalendar);
     }
