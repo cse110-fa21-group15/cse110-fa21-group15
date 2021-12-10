@@ -169,18 +169,18 @@ option {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   font-size: 3em;
-  height: 100px;
+  height: 90px;
   position: absolute;
   cursor: pointer;
 }
 
 form.example input[type=text] {
   padding: 10px;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 400;
   border: 1px solid grey;
   width: 45vw;
-  height: 100px;
+  height: 90px;
   background: #f1f1f1;
 }
 
@@ -193,10 +193,13 @@ form.example button:hover {
   position: absolute;
   color: white;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
   top: 30%;
   width: 100%;
   cursor: context-menu;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 #recipeOfDay {
@@ -209,7 +212,7 @@ form.example button:hover {
   border-radius: 12px 12px 12px 12px;
   backdrop-filter: blur(5px);
   width: 45vw;
-  height: 300px;
+  height: auto;
   box-shadow: 6px 6px 4px 4px #909090;
   cursor: pointer;
 }
@@ -255,3 +258,23 @@ footer {
     width: 20vw;
   }
 }
+
+@media screen and (min-width: 1700px) and (max-width: 2700px) {
+  .logo {
+    margin-left: 30vw;
+  }
+
+  .title {
+    margin-left: 1vw;
+    margin-top: 0.5%;
+  }
+
+  .signUp {
+    margin-top: 3%;
+  }
+
+  #recipeimg {
+    height: 40vh;
+  }
+}
+

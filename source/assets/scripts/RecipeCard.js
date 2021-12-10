@@ -151,11 +151,11 @@ class RecipeCard extends HTMLElement {
                 border: 1px solid black;
                 border-radius: 8px;
                 display: grid;
-                grid-template-rows: 118px 56px 56px 56px 0px 0px;
+                grid-template-rows: 130px 56px 56px 56px 0px 0px;
                 height: 300px;
                 padding: 0 16px 16px 16px;
                 background-color: #303030;
-                width: 178px;
+                width: 175px;
                 filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.35));
             }
 
@@ -166,10 +166,11 @@ class RecipeCard extends HTMLElement {
             article > img {
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
-                height: 118px;
+                height: 130px;
                 object-fit: cover;
                 margin-left: -16px;
                 width: calc(100% + 32px);
+                cursor: pointer;
             }
             
             h1.title {

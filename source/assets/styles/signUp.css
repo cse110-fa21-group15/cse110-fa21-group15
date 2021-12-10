@@ -253,7 +253,7 @@ footer {
   color: gray;
 }
 
-@media screen and (min-width: 400px) and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   .logo {
     display: none;
   }
@@ -264,5 +264,20 @@ footer {
 
   main {
     margin-bottom: 15%;
+  }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 2700px) {
+  .logo {
+    margin-left: 30vw;
+  }
+
+  .title {
+    margin-left: 1vw;
+    margin-top: 0.5%;
+  }
+
+  .signUp {
+    margin-top: 3%;
   }
 }

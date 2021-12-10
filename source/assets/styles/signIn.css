@@ -249,8 +249,19 @@ footer {
   main {
     margin-bottom: 15%;
   }
+}
 
-  .forgotPassword {
-    margin-left: 60%;
+@media screen and (min-width: 1700px) and (max-width: 2700px) {
+  .logo {
+    margin-left: 30vw;
+  }
+
+  .title {
+    margin-left: 1vw;
+    margin-top: 0.5%;
+  }
+
+  .signUp {
+    margin-top: 3%;
   }
 }
