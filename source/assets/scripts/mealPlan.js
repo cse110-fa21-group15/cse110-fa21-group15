@@ -202,7 +202,7 @@ function createRecipeCards() {
 
 
 async function clickListener(evt){
-    let tempRecipe = await getRecipe(evt.currentTarget.recipeId)
+    let tempRecipe = await getRecipe(evt.currentTarget.recipeId);
     localStorage.recipe = JSON.stringify(tempRecipe);
     window.location.href = "recipePage.html";
 }
