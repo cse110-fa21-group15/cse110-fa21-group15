@@ -1,27 +1,25 @@
-function newDay(){
+function newDay() {
     var date = new Date().toLocaleDateString();
-    // setting  our app's date
-    if(!localStorage.currDate || !localStorage.recipeOfDay){
+    // Setting our app's date
+    if (!localStorage.currDate || !localStorage.recipeOfDay) {
         localStorage.currDate = date;
         return true;
     }
-    if(localStorage.currDate== date){
-
+    if (localStorage.currDate === date) {
         return false;
     }
     localStorage.currDate = date;
     return true;
 }
 
-// storing recipe of the day in the localstorage
-async function recipeOfTheDay(){
+// Storing recipe of the day in the localstorage
+async function recipeOfTheDay() {
     var recipe = await randomRecipe();
     localStorage.recipeOfDay = JSON.stringify(recipe);
 }
 
-
-async function initDaily(){
-    if(newDay()){
+async function initDaily() {
+    if (newDay()) {
         await recipeOfTheDay();
     }
 
@@ -32,7 +30,7 @@ async function initDaily(){
         localStorage.recipe = localStorage.recipeOfDay;
         localStorage.extraRecipeInfo = localStorage.recipeOfDay;
         window.location.href = "recipePageSpoonacular.html";
-    })
+    });
 }
 
 initDaily();

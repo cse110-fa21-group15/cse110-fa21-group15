@@ -6,8 +6,21 @@ import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-console.log("NEW STUFF");
 const db = getFirestore();
+
+/**
+ * Converts an image to data url to store in the database.
+ * @param {string} image Image file uploaded when creating recipe
+ */
+ function convertToBase64(image) {
+    let reader = new FileReader();
+    return new Promise((resolve, reject) => {
+        reader.onload = () => {
+            resolve(reader.result);
+        };
+        reader.readAsDataURL(image);
+    })
+}
 
 /**
  * Create a user recipe
@@ -15,7 +28,6 @@ const db = getFirestore();
  */
 async function createRecipe(event) {
     event.preventDefault();
-    console.log("test");
     onAuthStateChanged (auth, async (user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
@@ -42,7 +54,6 @@ async function createRecipe(event) {
                     await updateDoc(docRef, {
                         recipe_id : docRef.id
                     })
-                    console.log(docRef.id);
                     await updateDoc(database, {
                         favoriteRecipes: arrayUnion(docRef.id)
                     })
@@ -51,12 +62,7 @@ async function createRecipe(event) {
                 catch (e) {
                     console.error("Error adding document: ", e);
                 }
-                // ...
             }
-        } 
-        else {
-            // User is signed out
-            // ...
         }
     });
 }
@@ -66,33 +72,30 @@ async function createRecipe(event) {
  * @param event Event that occurs when recipe save button is clicked
  */
  async function downloadSpoonacularRecipe(time, name, cost, servings, description, ingredients, steps, image) {
-  console.log("test")
-  onAuthStateChanged (auth, async (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const id = user.uid;
-    const database = doc(db, "users", id);
-    try {
-     const docRef = await addDoc(collection(db, "recipes"), {
-         time: time, name: name, cost: cost, servings: servings, description: description, ingredients: ingredients, steps: steps, image: image, user_id : id
-     })
-     await updateDoc(docRef, {
-       recipe_id : docRef.id
-     })
-     console.log(docRef.id)
-     await updateDoc(database, {
-         favoriteRecipes: arrayUnion(docRef.id)
-       })
-     location.href = 'cookbook.html';
-   } catch (e) {
-     console.error("Error adding document: ", e);
-   }
-      // ...
-    } else {
-      location.href = "signIn.html"
-    }
-  });
+    onAuthStateChanged (auth, async (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const id = user.uid;
+            const database = doc(db, "users", id);
+            try {
+                const docRef = await addDoc(collection(db, "recipes"), {
+                    time, name, cost, servings, description, ingredients, steps, image, user_id : id
+                })
+                await updateDoc(docRef, {
+                    recipe_id : docRef.id
+                });
+                await updateDoc(database, {
+                    favoriteRecipes: arrayUnion(docRef.id)
+                });
+                location.href = "cookbook.html";
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        } else {
+            location.href = "signIn.html";
+        }
+    });
 }
 
 /**
@@ -111,20 +114,6 @@ async function addUser(email, id) {
     catch (e) {
         console.error("Error adding document: ", e);
     }
-}
-
-/**
- * Converts an image to data url to store in the database.
- * @param {string} image Image file uploaded when creating recipe
- */
-function convertToBase64(image) {
-    let reader = new FileReader();
-    return new Promise((resolve, reject) => {
-        reader.onload = () => {
-            resolve(reader.result);
-        };
-        reader.readAsDataURL(image);
-    })
 }
 
 /**
@@ -147,7 +136,6 @@ function imagePreview() {
         }
     }
     reader.onloadend = function() {
-        console.log(reader.result);
         preview.src = reader.result;
     };
     reader.readAsDataURL(image);

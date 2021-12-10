@@ -22,7 +22,7 @@ async function getRecipe(recipe_id) {
     } 
     else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        console.error("No such document!");
     }
 }
 
@@ -34,15 +34,12 @@ async function removeRecipe() {
     const q = query(collection(db, "users"), where("user_id", "==", id));
     const querySnapshot = await getDocs(q);
     const document = querySnapshot.docs[0];
-    console.log(document.id);
-    console.log(document);
     let name = "pizza";
     let time = "30";
     let cost = "40";
     let servings = "3";
     let description = "testing";
     const database = doc(db, "users", document.id);
-    // console.log(document.data())
     await updateDoc(database, {
         favoriteRecipes: arrayRemove({name: "pizza"})
     });
@@ -55,7 +52,6 @@ async function removeRecipe() {
  */
 async function addUser(email, id) {
     try {
-        console.log(id + "ID");
         await setDoc(doc(db, "users", id), {
             user_email: email,
             user_id: id,
@@ -88,7 +84,6 @@ async function getUser() {
         createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
     }
     userInformation.results.recipes = createdRecipes;
-    console.log(userInformation);
     return userInformation;
 }
 
@@ -106,25 +101,20 @@ async function signUp(event) {
     if (password === confirmPassword) {
         createUserWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
-            console.log("SIGNED UP");
             const user = userCredential.user;
             user_id = user.uid;
             await addUser(email, user.uid);
             location.href = "homepage.html";
             const userInformation = getUser(user.uid);
-            //console.log(userInformation);
             return userInformation;
         })
         .catch((error) => {
             document.querySelector("#invalidSignUp").innerHTML = "Invalid Sign Up";
-            console.log("INVALID SIGN UP");
-            const errorCode = error.code;
-            const errorMessage = error.message;
         });
     } 
     else {
         document.querySelector("#invalidSignUp").innerHTML = "Passwords Do Not Match";
-        console.log("INVALID SIGN UP");  
+        console.error("Invalid Sign Up");  
     }
 }
 
@@ -140,7 +130,6 @@ async function signIn(event) {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
-        console.log("SIGNED IN");
         const user = userCredential.user;
         location.href = "homepage.html";
         // UID specifies which user we are talking about
@@ -149,35 +138,25 @@ async function signIn(event) {
     })
     .catch((error) => {
         document.querySelector("#invalidLogin").innerHTML = "Invalid Log In";
-        console.log("WRONG LOG IN INFO");
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.error("Invalid Sign In");
     });
 }
-
-// document.querySelector("#descriptionSubmit").addEventListener("click", createRecipe);
-
-// document.querySelector("#tester").addEventListener("click", removeRecipe)
 
 /**
  * Checks if user is logged in and behaves accordingly
  */
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        const uid = user.uid;
         const signedInButton = document.querySelector("#signedIn");
 
         signedInButton.innerHTML = "Sign Out";
         signedInButton.addEventListener("click", () => {
             signOut(auth).then(() => {
                 location.href = "homepage.html";
-                console.log("SIGNED OUT");
             }).catch((error) => {
-                console.log("ERROR SIGNING OUT");
+                console.error("Erorr Signing Out");
             });
         });
-
-        console.log(uid);
     } 
     else {
         // If not signed in, redirect to homepage.html if on createRecipe.html, cookbook.html, mealplan.html

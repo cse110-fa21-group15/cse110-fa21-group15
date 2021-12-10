@@ -1,12 +1,15 @@
-const personalCookbook = document.querySelector("#recipeUpload");
+let personalCookbook;
 
-personalCookbook.addEventListener("click", function() {
-    sessionStorage.setItem("recipeName","");
-    sessionStorage.setItem("recipeImage","assets/images/oldUpload.png");
-    sessionStorage.setItem("recipeTime", "");
-    sessionStorage.setItem("recipeCost", "");
-    sessionStorage.setItem("recipeServings", "");
-    sessionStorage.setItem("recipeDescription", "");
-    localStorage.ingredients = JSON.stringify("");
-    localStorage.steps = JSON.stringify("");
-});
+if (document.querySelector("#recipeUpload")) {
+    personalCookbook = document.querySelector("#recipeUpload");
+    personalCookbook.addEventListener("click", function() {
+        sessionStorage.setItem("recipeName","");
+        sessionStorage.setItem("recipeImage","assets/images/oldUpload.png");
+        sessionStorage.setItem("recipeTime", "");
+        sessionStorage.setItem("recipeCost", "");
+        sessionStorage.setItem("recipeServings", "");
+        sessionStorage.setItem("recipeDescription", "");
+        localStorage.ingredients = JSON.stringify("");
+        localStorage.steps = JSON.stringify("");
+    });
+}
