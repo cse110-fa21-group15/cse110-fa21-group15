@@ -305,7 +305,7 @@ textarea {
   margin-bottom: 10px;
   margin-left: 90vw;
   width: 4%;
-  height: 4%
+  height: 4%;
 }
 
 .uploadError {
@@ -338,7 +338,6 @@ footer {
 }
 
 @media screen and (min-width: 400px) and (max-width: 900px) {
-
   .logo {
     display: none;
   }
@@ -375,5 +374,4 @@ footer {
   .btTxt {
     width: 6vw;
   }
-
 }

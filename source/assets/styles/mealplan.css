@@ -163,7 +163,6 @@ form.example i {
   margin-bottom: 30px;
   background-color: #fff;
   display: inline-block;
-  /* inline-block */
   width: 20%;
   height: 550px;
   margin-left: 10%;
@@ -174,25 +173,29 @@ form.example i {
   background-color: #fff5ea;
   height: 60px;
   width: 20%;
+  cursor: context-menu;
 }
 
 .personalCookbook td {
   height: 100px;
   display: flex;
   justify-content: center;
-  margin-bottom: 15%;
+  margin-bottom: 20%;
   text-overflow: ellipsis;
-  overflow: hidden
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .mealplanPrompt {
   text-align: center;
+  cursor: context-menu;
 }
 
 .addButton {
   margin-left: 10px;
   font-size: 20px;
   height: 30px;
+  cursor: pointer;
 }
 
 table h4 {
@@ -310,7 +313,6 @@ footer {
 }
 
 @media screen and (min-width: 400px) and (max-width: 900px) {
-
   .logo {
     display: none;
   }
