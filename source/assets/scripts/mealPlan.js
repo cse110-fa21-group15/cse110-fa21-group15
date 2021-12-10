@@ -385,7 +385,7 @@ console.log(save);
 save.addEventListener("click", function (event) {
     console.log("testing save");
     saveMealPlan();
-})
+});
 
 function getRecipeInformation(recipe_id) {
 

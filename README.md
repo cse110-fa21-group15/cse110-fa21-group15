@@ -8,7 +8,7 @@
 [![Node.js CI](https://github.com/cse110-fa21-group15/cse110-fa21-group15/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/cse110-fa21-group15/cse110-fa21-group15/actions/workflows/testing.yml)
 [![Auto-assign to Recipe App Project](https://github.com/cse110-fa21-group15/cse110-fa21-group15/actions/workflows/projectAssign.yml/badge.svg?branch=main)](https://github.com/cse110-fa21-group15/cse110-fa21-group15/actions/workflows/projectAssign.yml)
 
-# Introduction
+# Synopsis
 [**Easy Chef**](https://festive-minsky-ab51a6.netlify.app/source/homepage.html) is an easy to use application that provides recipes for its users. It includes a meal of the day so users don’t need to search through a large pool of dishes and a simple, easy to use meal planner for users to plan out their week. This application is perfect for those who are new to cooking and are looking for quick dishes to create that taste great.
 
 The project will be a CRUD-type recipe manager.
@@ -18,6 +18,8 @@ This repository contains meeting notes and project-related files for group 15. I
 [Easy Chef App](https://festive-minsky-ab51a6.netlify.app/source/homepage.html)
 
 [Documentation](https://cse110-fa21-group15.github.io/)
+
+[Codacy Styling Patterns](https://app.codacy.com/gh/cse110-fa21-group15/cse110-fa21-group15/patterns/list)
 
 # Tech Stack
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)

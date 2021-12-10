@@ -117,7 +117,7 @@ body {
 }
 
 form {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
 form.example input[type=text] {
@@ -297,7 +297,7 @@ footer {
 }
 
 .copyright div {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
 }
 
 .copyrightBar {
@@ -305,7 +305,7 @@ footer {
 }
 
 .copyrightText {
-  background-color: #FFCF96;
+  background-color: #ffcf96;
   text-align: center;
   color: gray;
 }
