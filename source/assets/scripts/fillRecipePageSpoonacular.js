@@ -102,14 +102,15 @@ recipeDescription.textContent = descriptionText;
 
 // Add ingredients to recipe page
 let ingredientsString = "";
-for (let i = 0 ; i < ingredients.length; i++) {
-    let tempElem = document.createElement("li");
-    tempElem.textContent = ingredients[i].original;
-    ingredientsString += tempElem.textContent;
-    ingredientsString += "\n";
-    recipeIngredients.appendChild(tempElem);
+if (ingredients) {
+    for (let i = 0 ; i < ingredients.length; i++) {
+        let tempElem = document.createElement("li");
+        tempElem.textContent = ingredients[i].original;
+        ingredientsString += tempElem.textContent;
+        ingredientsString += "\n";
+        recipeIngredients.appendChild(tempElem);
+    }
 }
-
 // Output recipe steps
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;

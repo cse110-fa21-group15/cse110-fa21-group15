@@ -177,9 +177,12 @@ class RecipeCard extends HTMLElement {
             }
             
             h1.title {
-                display: -webkit-box;
+                display: inline-block;
                 height: 30px;
+                white-space: nowrap;
+                width: 100%;
                 overflow: hidden;
+                text-overflow: ellipsis;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 color: white;
