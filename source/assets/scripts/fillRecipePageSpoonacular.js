@@ -1,4 +1,4 @@
-const API_KEY = "apiKey=7f2487ec91f241dbbdfd5060ae535477";
+const API_KEY = "apiKey=818daa16f8f44a6790d7e444c55f92b8";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
@@ -75,7 +75,9 @@ const recipeDescription = document.querySelector("#recipeDescription");
 const recipeIngredients = document.querySelector("#recipeIngredients");
 const recipeSteps = document.querySelector("#recipeList");
 
-await recipeInfo(localStorage.recipeID);
+if (localStorage.extraRecipeInfo.id !== localStorage.recipe.id) {
+    await recipeInfo(localStorage.recipeID);
+}
 
 // Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
@@ -101,14 +103,15 @@ recipeDescription.textContent = descriptionText;
 
 // Add ingredients to recipe page
 let ingredientsString = "";
-for (let i = 0 ; i < ingredients.length; i++) {
-    let tempElem = document.createElement("li");
-    tempElem.textContent = ingredients[i].original;
-    ingredientsString += tempElem.textContent;
-    ingredientsString += "\n";
-    recipeIngredients.appendChild(tempElem);
+if (ingredients) {
+    for (let i = 0 ; i < ingredients.length; i++) {
+        let tempElem = document.createElement("li");
+        tempElem.textContent = ingredients[i].original;
+        ingredientsString += tempElem.textContent;
+        ingredientsString += "\n";
+        recipeIngredients.appendChild(tempElem);
+    }
 }
-
 // Output recipe steps
 let newSteps = new DOMParser().parseFromString(steps, "text/html");
 let stepTemp = newSteps.querySelector("body").textContent;
