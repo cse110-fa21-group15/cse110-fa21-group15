@@ -20,24 +20,25 @@ describe("Test Signup and Login", () => {
         expect(pbar).toBe("Password");
     });
 
-    // it("checking if checking if incorrect username and password results in error", async () => {
-    //     const browser = await puppeteer.launch({
-    //         headless:false,
-    //         slowMo:100
-    //     });
-    //     const page = await browser.newPage();
-    //     await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
-    //     const ebar = await page.$eval("#email", (e) => e.value = "failemail@gmail.com");
-    //     const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
-    //     const button = await page.$("#lbutton");
-    //     await button.click();
-    //     // console.log("here2");
-    //     let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
-    //     // console.log("here1");
-    //     // console.log(error);
-    //     await browser.close();
-    //     expect(error).toBe("Invalid Log In");
-    // }, 10000);
+    it("Checking if incorrect username and password results in error", async () => {
+        const browser = await puppeteer.launch({
+            headless:true,
+            slowMo:100
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        const ebar = await page.$eval("#email", (e) => e.value = "failemail@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
+        const button = await page.$("#lbutton");
+        await button.click();
+         //console.log("here2");
+        await page.waitForSelector('#invalidLogin');
+        let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
+         //console.log("here1");
+         //console.log(error);
+        await browser.close();
+        expect(error).toBe("Invalid Log In");
+    }, 10000);
 
     it("checking if login works properly", async () => {
         const browser = await puppeteer.launch({
@@ -81,7 +82,7 @@ describe("Test Signup and Login", () => {
 
     it("checking if creating recipes works", async () => {
         const browser = await puppeteer.launch({
-            slowMo:100,
+            slowMo:50,
             headless:true,
             defaultViewport: {
                 width:1280,
@@ -102,6 +103,11 @@ describe("Test Signup and Login", () => {
         await page.waitForNavigation();
         const input = await page.$eval(".recipeNameText", (e) => e.value = "Omelette");
         const uploader = await page.$("#imageUpload");
+        
+        // use if locally testing
+        //await uploader.uploadFile("/Users/padun/Desktop/CSE 110/Team/cse110-fa21-group15/__tests__/img.jpeg");
+        
+        // use for ci/cd deployment
         await uploader.uploadFile("/home/runner/work/cse110-fa21-group15/cse110-fa21-group15/__tests__/img.jpeg");
 
         const time = await page.$eval(".timeBoxInput", (e) => e.value = "10 mins");
@@ -119,7 +125,7 @@ describe("Test Signup and Login", () => {
 
     it("checking if searching for recipe works", async () => {
         const browser = await puppeteer.launch({
-            slowMo:150,
+            slowMo:50,
             headless:true,
             defaultViewport: {
                 width:1920,
@@ -161,5 +167,5 @@ describe("Test Signup and Login", () => {
         // expect(check).toBe(name);
         
         await browser.close();
-    }, 100000);
+    }, 10000);
 });

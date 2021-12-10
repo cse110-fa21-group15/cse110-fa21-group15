@@ -1,7 +1,6 @@
-//const functions = require("../source/assets/scripts/RecipeCard.js");
-//console.log(functions);
 import {searchForKey, getUrl, getOrganization, convertTime} from "../source/assets/scripts/RecipeCard.js";
 
+// check jest is working
 test('basic add test', () => {
     expect(1+2).toBe(3);
 }); 
