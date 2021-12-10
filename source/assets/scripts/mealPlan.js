@@ -199,6 +199,14 @@ function createRecipeCards() {
     
 }
 
+
+
+async function clickListener(evt){
+    let tempRecipe = await getRecipe(evt.currentTarget.recipeId)
+    localStorage.recipe = JSON.stringify(tempRecipe);
+    window.location.href = "recipePage.html";
+}
+
 async function fillCalendar(){
     for(let i in fillCalendarRecipes){
         let tempRecipe = await getRecipe(fillCalendarRecipes[i]);
@@ -206,7 +214,7 @@ async function fillCalendar(){
         calendarBox.querySelector("img").setAttribute("src", searchForKey(tempRecipe, "image"));
         calendarBox.querySelector("h4").textContent = searchForKey(tempRecipe, "name");
         calendarBox.recipeId = fillCalendarRecipes[i];
-        calendarBox.addEventListener("click", clickListener)
+        calendarBox.addEventListener("click", clickListener);
         mealplanCalendar.set(i,fillCalendarRecipes[i]);
     }
 }
@@ -304,7 +312,7 @@ document.addEventListener("dragover", function(event) {
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
             console.log(mealplanCalendar);
             (event.target.parentNode).recipeId = recipe_id;
-            (event.target.parentNode).addEventListener("click", clickListener)
+            (event.target.parentNode).addEventListener("click", clickListener);
         }
         else{
             console.log(event.target.parentNode);
@@ -331,7 +339,7 @@ document.addEventListener("dragover", function(event) {
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
             console.log(mealplanCalendar);
             (event.target.parentNode).recipeId = recipe_id;
-            (event.target.parentNode).addEventListener("click", clickListener)
+            (event.target.parentNode).addEventListener("click", clickListener);
             
         }
     }
@@ -341,7 +349,7 @@ document.addEventListener("dragover", function(event) {
         let img = dragged.parentNode.querySelector("img");
         img.setAttribute("src","assets/images/Add.png");
         title.textContent = "recipeTitle";
-        dragged.parentNode.removeEventListener("click", clickListener)
+        dragged.parentNode.removeEventListener("click", clickListener);
         mealplanCalendar.delete(dragged.parentNode.id);
         console.log(mealplanCalendar);
     }
@@ -357,11 +365,6 @@ save.addEventListener("click", function (event) {
     saveMealPlan();
 })
 
-async function clickListener(evt){
-    let tempRecipe = await getRecipe(evt.currentTarget.recipeId)
-    localStorage.recipe = JSON.stringify(tempRecipe);
-    window.location.href = "recipePage.html";
-}
 
 async function saveMealPlan() {
     onAuthStateChanged(auth, async (user) => {
