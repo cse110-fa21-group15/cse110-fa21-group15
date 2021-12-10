@@ -49,5 +49,8 @@ This repository contains meeting notes and project-related files for group 15. I
 
 [Meet the Team](admin/team.md)
 
+# Public Demo Video
+![public Video](https://drive.google.com/file/d/1C7XhAniFcxAt1CkVAPUb7ZgfnOV1edPe/view)
+
 
 
