@@ -6,10 +6,7 @@ import { firebaseConfig } from "./api.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-console.log(auth);
 const db = getFirestore();
-
-// PUT ID OF BUTTON THAT SAVES CHANGES UNDER THE FOLLOWING LINE
 
 /**
  * Converts an image to data url to store in the database.
@@ -22,7 +19,7 @@ const db = getFirestore();
             resolve(reader.result);
         };
         reader.readAsDataURL(image);
-    })
+    });
 }
 
 /**
@@ -45,7 +42,6 @@ function imagePreview() {
         }
     }
     reader.onloadend = function() {
-        console.log(reader.result);
         preview.src = reader.result;
     };
     reader.readAsDataURL(image);
@@ -80,19 +76,18 @@ async function updateRecipe() {
             const docRef = doc(db, "recipes", recipe_id);
             await updateDoc(docRef, {
                 time, name, cost, servings, description, ingredients, steps
-            })
+            });
         }
     }
     else {
         const docRef = doc(db, "recipes", recipe_id);
         await updateDoc(docRef, {
             time, name, cost, servings, description, ingredients, steps
-        })
+        });
     }
     location.href = "cookbook.html";
 }
 
 // Event listeners for creating a recipe and displaying preview when image is uploaded.
-//document.querySelector("#imageUpload").addEventListener("change", imagePreview)
 document.querySelector("#saveForm").addEventListener("click", updateRecipe);
 document.querySelector("#imageUpload").addEventListener("change", imagePreview);

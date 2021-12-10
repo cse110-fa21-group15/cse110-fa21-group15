@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <title>Easy Chef</title>
 
     <!--Link to CSS file-->
-    <link rel="stylesheet" href="assets/styles/recipePage.css" />
-
+    <link rel="stylesheet" href="assets/styles/recipePage.css">
     <!--Link to fa fa CSS for search icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Link to font style-->
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet">
-
-    <!--Edit recipe script-->
-    <script src="assets/scripts/recipePage.js" type="module"></script>
-
-    <!--Fill recipe page script-->
-    <script src="assets/scripts/fillRecipePage.js" type="module"></script>
+    <!--Link to favicon-->
+    <link rel="shortcut icon" href="assets/images/logo2.png">
 
     <!--Log In Script-->
     <script src="assets/scripts/firebase.js" type="module"></script>
-
-    <!--Other scripts-->
+    <!--Recipe Scripts-->
+    <script src="assets/scripts/recipePage.js" type="module"></script>
+    <script src="assets/scripts/fillRecipePage.js" type="module"></script>
     <script src="assets/scripts/createRecipe.js" type="module"></script>
     <script src="assets/scripts/deleteRecipe.js" type="module"></script>
     <script src="assets/scripts/isFavorite.js" type="module"></script>
-
+    <!--Search Script-->
+    <script src="assets/scripts/search.js"></script>
 </head>
 
 <body>
@@ -53,7 +49,7 @@
             <div class="searchbar">
                 <form class="example" action="/action_page.php" style="margin:auto;max-width:700px">
                     <input type="text" placeholder="Search.." name="search" class="round">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button onclick = "getRecipes(event)" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="signIn">
@@ -68,15 +64,14 @@
     <main>
         <!--Recipe name-->
         <div class="RecTitle">
-            <h2 class="name" id="recipeName"></h2>
-            
-            <div class="icons">
+            <div class="icons multi">
                 <img class="icon" src="assets/images/add.png" alt="Add">
                 <img class="icon" id="favorite" src="assets/images/favorite.png" alt="Favourite">
                 <img id="edit" class="icon" src="assets/images/edit.png" alt="Edit">
                 <!--<img class="icon" src="assets/images/download.png" alt="Download">-->
                 <img class="icon" id="delete" src="assets/images/delete.png" alt="Delete">
             </div>
+            <h2 class="name" id="recipeName"></h2>
         </div>
 
         <!-- Image-->

@@ -144,8 +144,9 @@ main {
 }
 
 .invalidSignUp {
-  display: flex;
-  margin-left: 450px;
+  text-align: center;
+  margin-top: -1%;
+  margin-bottom: 1%;
   color: #f00;
   font-weight: bold;
 }

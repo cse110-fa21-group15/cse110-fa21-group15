@@ -10,7 +10,7 @@
  * @param {String} key the key that you are looking for in the object
  * @returns {*} the value of the found key
  */
-function searchForKey(object, key) {
+ function searchForKey(object, key) {
     let value;
     Object.keys(object).some(function (k) {
         if (k === key) {
@@ -249,10 +249,9 @@ class RecipeCard extends HTMLElement {
         const description = document.createElement("p");
         description.classList.add("description");
         const descriptionValue = searchForKey(data , "summary");
-        console.log(data.summary);
-        console.log("******************************");
-        console.log(descriptionValue);
-        description.textContent = descriptionValue;
+        let newDescription = new DOMParser().parseFromString(descriptionValue, "text/html");
+        let descriptionText = newDescription.querySelector("body").textContent;
+        description.textContent = descriptionText;
         card.appendChild(description);
     
         let br = document.createElement("br");
@@ -272,4 +271,3 @@ class RecipeCard extends HTMLElement {
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it
 customElements.define("recipe-card", RecipeCard);
-

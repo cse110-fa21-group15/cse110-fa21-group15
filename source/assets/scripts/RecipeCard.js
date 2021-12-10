@@ -62,7 +62,7 @@ function getOrganization(data) {
             }
         }
     }
-return null;
+    return null;
 }
 
 /**
@@ -262,9 +262,8 @@ class RecipeCard extends HTMLElement {
     }
 }
 
-// need for unit tests to work. PLEASE DO NOT COMMENT EXPORT OUT.
+// Need for unit tests to work. PLEASE DO NOT COMMENT EXPORT OUT.
 export {searchForKey, getUrl, getOrganization, convertTime};
-
 
 // Define the Class so you can use it as a custom element.
 // This is critical, leave this here and don't touch it

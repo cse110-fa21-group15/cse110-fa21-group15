@@ -20,24 +20,24 @@ describe("Test Signup and Login", () => {
         expect(pbar).toBe("Password");
     });
 
-    // it("checking if checking if incorrect username and password results in error", async () => {
-    //     const browser = await puppeteer.launch({
-    //         headless:false,
-    //         slowMo:100
-    //     });
-    //     const page = await browser.newPage();
-    //     await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
-    //     const ebar = await page.$eval("#email", (e) => e.value = "failemail@gmail.com");
-    //     const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
-    //     const button = await page.$("#lbutton");
-    //     await button.click();
-    //     // console.log("here2");
-    //     let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
-    //     // console.log("here1");
-    //     // console.log(error);
-    //     await browser.close();
-    //     expect(error).toBe("Invalid Log In");
-    // }, 10000);
+    it("Checking if incorrect username and password results in error", async () => {
+        const browser = await puppeteer.launch({
+            headless:true,
+            slowMo:100
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        const ebar = await page.$eval("#email", (e) => e.value = "failemail@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "asdasdasd");
+        const button = await page.$("#lbutton");
+        await button.click();
+        await page.waitForSelector('#invalidLogin');
+        let error = await page.$eval("#invalidLogin", (e) => e.innerHTML);
+         //console.log("here1");
+         //console.log(error);
+        await browser.close();
+        expect(error).toBe("Invalid Log In");
+    }, 10000);
 
     it("checking if login works properly", async () => {
         const browser = await puppeteer.launch({
@@ -81,7 +81,7 @@ describe("Test Signup and Login", () => {
 
     it("checking if creating recipes works", async () => {
         const browser = await puppeteer.launch({
-            slowMo:100,
+            slowMo:50,
             headless:true,
             defaultViewport: {
                 width:1280,
@@ -102,6 +102,11 @@ describe("Test Signup and Login", () => {
         await page.waitForNavigation();
         const input = await page.$eval(".recipeNameText", (e) => e.value = "Omelette");
         const uploader = await page.$("#imageUpload");
+        
+        // use if locally testing
+        //await uploader.uploadFile("/Users/padun/Desktop/CSE 110/Team/cse110-fa21-group15/__tests__/img.jpeg");
+        
+        // use for ci/cd deployment
         await uploader.uploadFile("/home/runner/work/cse110-fa21-group15/cse110-fa21-group15/__tests__/img.jpeg");
 
         const time = await page.$eval(".timeBoxInput", (e) => e.value = "10 mins");
@@ -115,5 +120,51 @@ describe("Test Signup and Login", () => {
         await page.waitForNavigation();
         await browser.close();
         expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/cookbook.html");
+    }, 10000);
+
+    it("checking if searching for recipe works", async () => {
+        const browser = await puppeteer.launch({
+            slowMo:50,
+            headless:true,
+            defaultViewport: {
+                width:1920,
+                height:1080
+            }
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
+        let button = await page.$("#lbutton");
+        await button.click();
+        await page.waitForNavigation();
+        expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/homepage.html");
+        page.goto("https://festive-minsky-ab51a6.netlify.app/source/cookbook.html");
+        // const sbar = await page.$eval(".round", (e) => e.value = "chicken");
+        // button = await page.$(".fa");
+        // await button.click();
+        // await page.waitForNavigation();
+        // expect(page.url()).toBe("http://127.0.0.1:5501/source/searchresults.html");
+        // const recipes = await page.$$("recipe-card");
+        // expect(recipes.length).toBe(14);
+        // for (let i = 0; i < recipes.length; i++) {
+        //     const shadow = await recipes[i].getProperty("shadowRoot");
+        //     const time1 = await shadow.$eval(".time", (e) => e.textContent);
+        //     console.log(time1);
+        // }
+        // const recipe = recipes[0];
+        // await recipe.click();
+        // await page.waitForNavigation();
+        // const name = await page.$eval(".name", (e) => e.textContent);
+        // console.log(name);
+        // const add = await page.$eval(".icon", (e) => e.click());
+        await page.waitForNavigation();
+        console.log(page.url());
+        const recipes = await page.$$("recipe-card");
+        // const root = await page.evaluate(() => document.body.querySelector("main"));
+        console.log(recipes);
+        // expect(check).toBe(name);
+        
+        await browser.close();
     }, 10000);
 });

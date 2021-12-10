@@ -302,6 +302,12 @@ textarea {
   height: 4%
 }
 
+.uploadError {
+  color: red;
+  text-align: right;
+  margin-right: 70px;
+}
+
 /* Copyright styling */
 footer {
   margin-top: auto;

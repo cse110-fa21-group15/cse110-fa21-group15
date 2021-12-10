@@ -19,7 +19,7 @@
 - Hi, my name is Jonathan but feel free to call me Johnny. I’m a 3rd year Computer Science major in Revelle College. My hobbies include dancing, running, and skateboarding. Even though I sprain my wrist at least twice a quarter from skating, it is still my favorite mode of transportation around campus. My favorite form of entertainment is anime.
 
 5. Lavanya Verma: https://github.com/FiendFyre5
--Hi, I'm Lavanya and I'm a 3rd Computer Science major at Warren. In my free time I enjoy painting, hiking and watching anime. I am obsessed with Tennis and have controversial favourites smh.
+- Hi, I'm Lavanya and I'm a 3rd Computer Science major at Warren. In my free time I enjoy painting, hiking and watching anime. I am obsessed with Tennis and have controversial favourites smh.
 
 6. Likith Palabindela: https://github.com/likithpala7
 - Hi I’m Likith and I’m a junior studying Computer Science in Muir. Some things I like to do are play sports, mainly basketball and tennis. I’m addicted to Super Smash Bros. Ultimate and I play tetris whenever I have nothing else to do.
