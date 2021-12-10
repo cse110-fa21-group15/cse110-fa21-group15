@@ -75,8 +75,9 @@ const recipeDescription = document.querySelector("#recipeDescription");
 const recipeIngredients = document.querySelector("#recipeIngredients");
 const recipeSteps = document.querySelector("#recipeList");
 
-if(localStorage.extraRecipeInfo.id != localStorage.recipe.id)
+if (localStorage.extraRecipeInfo.id !== localStorage.recipe.id) {
     await recipeInfo(localStorage.recipeID);
+}
 
 // Grab keys from JSON file
 const recipe = JSON.parse(localStorage.recipe);
