@@ -188,7 +188,7 @@ form.recipeNameTextBox input {
 
 .recipePictureText {
   position: relative;
-  margin-left: 25%;
+  text-align: center;
 }
 
 .uploadImage {
