@@ -68,6 +68,7 @@ function createRecipeCards() {
         let img = document.createElement("img");
         let recImg = searchForKey(recipeData[i.toString()],"image");
         img.setAttribute("src",recImg);
+        img.classList.add("dragImage");
         
         let recipe_id_elem = document.createElement("p");
         let recipe_id = searchForKey(recipeData[i.toString()],"recipe_id");
@@ -270,7 +271,7 @@ document.addEventListener("dragstart", function(event) {
     //console.log("event",event);
     
     // Store a ref. on the dragged elem
-    if (event.target.className === "ele") {
+    if (event.target.className === "dragImage" || event.target.className === "ele") {
         console.log("called");
         event.dataTransfer.setData("text", event.target.id);
         dragged = event.target;
@@ -317,7 +318,7 @@ document.addEventListener("dragover", function(event) {
             (event.target.parentNode).recipeId = recipe_id;
             (event.target.parentNode).addEventListener("click", clickListener);
         }
-        else {
+        else if(dragged.className == "ele") {
             console.log(event.target.parentNode);
             event.target.style.background = "";
             console.log(event.target);
@@ -344,6 +345,20 @@ document.addEventListener("dragover", function(event) {
             (event.target.parentNode).recipeId = recipe_id;
             (event.target.parentNode).addEventListener("click", clickListener);
             
+        }
+        else{
+            let title = event.target.parentNode.querySelector("h4");
+            let img = event.target.parentNode.querySelector("img");
+            let srcTitle = dragged.parentNode.querySelector("h4").textContent;
+            let srcImage = dragged.parentNode.querySelector("img").src;
+            let recipe_id = dragged.parentNode.querySelector("p").textContent;
+            title.textContent=srcTitle;
+            img.setAttribute("src",srcImage);
+            mealplanCalendar.set(event.target.parentNode.id, recipe_id);
+            console.log(mealplanCalendar);
+            (event.target.parentNode).recipeId = recipe_id;
+            (event.target.parentNode).addEventListener("click", clickListener);
+
         }
     }
     //Remove recipes that are dragged out of calendar

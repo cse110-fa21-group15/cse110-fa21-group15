@@ -1,4 +1,4 @@
-const API_KEY = "apiKey=9d680d9e4b2f4442a24618c2592e4a71";
+const API_KEY = "apiKey=7f2487ec91f241dbbdfd5060ae535477";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
