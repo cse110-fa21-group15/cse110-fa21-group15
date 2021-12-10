@@ -140,31 +140,60 @@ describe("Test Signup and Login", () => {
         await page.waitForNavigation();
         expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/homepage.html");
         page.goto("https://festive-minsky-ab51a6.netlify.app/source/cookbook.html");
-        // const sbar = await page.$eval(".round", (e) => e.value = "chicken");
-        // button = await page.$(".fa");
-        // await button.click();
-        // await page.waitForNavigation();
-        // expect(page.url()).toBe("http://127.0.0.1:5501/source/searchresults.html");
-        // const recipes = await page.$$("recipe-card");
-        // expect(recipes.length).toBe(14);
-        // for (let i = 0; i < recipes.length; i++) {
-        //     const shadow = await recipes[i].getProperty("shadowRoot");
-        //     const time1 = await shadow.$eval(".time", (e) => e.textContent);
-        //     console.log(time1);
-        // }
-        // const recipe = recipes[0];
-        // await recipe.click();
-        // await page.waitForNavigation();
-        // const name = await page.$eval(".name", (e) => e.textContent);
-        // console.log(name);
-        // const add = await page.$eval(".icon", (e) => e.click());
+        const sbar = await page.$eval(".round", (e) => e.value = "chicken");
+        button = await page.$(".fa");
+        await button.click();
+        await page.waitForNavigation();
+        expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/searchresults.html");
+        const recipes = await page.$$("recipe-card");
+        expect(recipes.length).toBe(14);
+        for (let i = 0; i < recipes.length; i++) {
+            const shadow = await recipes[i].getProperty("shadowRoot");
+            const time1 = await shadow.$eval(".time", (e) => e.textContent);
+            console.log(time1);
+        }
+        const recipe = recipes[0];
+        await recipe.click();
+        await page.waitForNavigation();
+        const name = await page.$eval(".name", (e) => e.textContent);
+        console.log(name);
+        const add = await page.$eval(".icon", (e) => e.click());
         await page.waitForNavigation();
         console.log(page.url());
         const recipes = await page.$$("recipe-card");
-        // const root = await page.evaluate(() => document.body.querySelector("main"));
-        console.log(recipes);
-        // expect(check).toBe(name);
+        const check = await page.$eval(".title", (e) => e.textContent);
+        expect(check).toBe(name);
         
         await browser.close();
     }, 10000);
+    
+    it("checking if the filters work", async () => {
+        const browser = await puppeteer.launch({
+            slowMo:100,
+            headless:true,
+            defaultViewport: {
+                width:1280,
+                height:720
+            }
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/homepage.html");
+        const sbar = await page.$eval(".round", (e) => e.value = "cake");
+        const dietary = await page.select("#dietary", "Gluten Free");
+        const time = await page.select("#time", "60");
+        const cost = await page.select("#cost", "3");
+        const button = await page.$(".fa");
+        await button.click();
+        await page.waitForNavigation();
+        const recipes = await page.$$("recipe-card");
+        recipes.forEach(async (recipe) => {
+            recipe.click();
+            await page.waitForNavigation();
+            const tcheck = await page.evaluate(() => document.querySelector("#recipeTime").textContent);
+            const money = await page.evaluate(() => document.querySelector("#recipeCost").textContent);
+            expect(tcheck).toBeLessThan(60);
+            expect(money).toBeGreaterThan(100);
+            await page.goBack();
+        });
+    }, 100000);
 });
