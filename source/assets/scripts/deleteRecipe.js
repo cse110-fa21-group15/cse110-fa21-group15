@@ -95,11 +95,11 @@ const recipe_id = searchForKey(recipe, "recipe_id");
 if (deleteBtn) {
     deleteBtn.addEventListener("click", function() {
         deleteRecipe(recipe_id, user_id);
-    })
+    });
 }
 
 if (favoriteBtn) {
     favoriteBtn.addEventListener("click", function() {
         favoriteRecipe(recipe_id, user_id);
-    })
+    });
 }

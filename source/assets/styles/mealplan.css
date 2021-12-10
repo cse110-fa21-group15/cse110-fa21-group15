@@ -184,6 +184,10 @@ form.example i {
 
 }
 
+.mealplanPrompt {
+  text-align: center;
+}
+
 .scrollable {
   overflow-y: scroll;
   height: 100px;

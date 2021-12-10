@@ -76,7 +76,7 @@ async function updateRecipe() {
             const docRef = doc(db, "recipes", recipe_id);
             await updateDoc(docRef, {
                 time, name, cost, servings, description, ingredients, steps
-            })
+            });
         }
     }
     else {

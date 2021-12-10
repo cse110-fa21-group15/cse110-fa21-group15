@@ -10,6 +10,10 @@ const auth = getAuth();
 const db = getFirestore();
 let favoriteRecipesSet = new Set();
 
+let numRecipes;
+const recipeData = {};
+let recipeCardList;
+
 /**
  * Returns the desired recipe
  * @param {string} recipe_id ID of recipe to be fetched
@@ -176,10 +180,6 @@ async function loadRecipes(id) {
     const recipes = userFile.recipes;
     init(recipes);
 }
-
-let numRecipes;
-const recipeData = {};
-let recipeCardList;
 
 /**
  * Checks if user is logged in and behaves accordingly
