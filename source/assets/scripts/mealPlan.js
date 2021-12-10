@@ -199,12 +199,22 @@ function createRecipeCards() {
     
 }
 
+
+
+async function clickListener(evt){
+    let tempRecipe = await getRecipe(evt.currentTarget.recipeId);
+    localStorage.recipe = JSON.stringify(tempRecipe);
+    window.location.href = "recipePage.html";
+}
+
 async function fillCalendar(){
     for(let i in fillCalendarRecipes){
         let tempRecipe = await getRecipe(fillCalendarRecipes[i]);
         let calendarBox = document.getElementById(i);
         calendarBox.querySelector("img").setAttribute("src", searchForKey(tempRecipe, "image"));
         calendarBox.querySelector("h4").textContent = searchForKey(tempRecipe, "name");
+        calendarBox.recipeId = fillCalendarRecipes[i];
+        calendarBox.addEventListener("click", clickListener);
         mealplanCalendar.set(i,fillCalendarRecipes[i]);
     }
 }
@@ -296,10 +306,13 @@ document.addEventListener("dragover", function(event) {
             let img = dragged.parentNode.querySelector("img");
             let changeTitle = event.target.parentNode.querySelector("h4");
             let changeImg = event.target.parentNode.querySelector("img");
+            let recipe_id = mealplanCalendar.get(dragged.parentNode.id);
             changeImg.setAttribute("src",img.src);
             changeTitle.textContent = title.textContent;
-            mealplanCalendar.set(event.target.parentNode.id, mealplanCalendar.get(dragged.parentNode.id));
+            mealplanCalendar.set(event.target.parentNode.id, recipe_id);
             console.log(mealplanCalendar);
+            (event.target.parentNode).recipeId = recipe_id;
+            (event.target.parentNode).addEventListener("click", clickListener);
         }
         else{
             console.log(event.target.parentNode);
@@ -325,6 +338,9 @@ document.addEventListener("dragover", function(event) {
             console.log("test")
             mealplanCalendar.set(event.target.parentNode.id, recipe_id);
             console.log(mealplanCalendar);
+            (event.target.parentNode).recipeId = recipe_id;
+            (event.target.parentNode).addEventListener("click", clickListener);
+            
         }
     }
     //Remove recipes that are dragged out of calendar
@@ -332,7 +348,12 @@ document.addEventListener("dragover", function(event) {
         let title = dragged.parentNode.querySelector("h4");
         let img = dragged.parentNode.querySelector("img");
         img.setAttribute("src","assets/images/Add.png");
+
+        title.textContent = "recipeTitle";
+        dragged.parentNode.removeEventListener("click", clickListener);
+
         title.textContent = "";
+
         mealplanCalendar.delete(dragged.parentNode.id);
         console.log(mealplanCalendar);
     }
@@ -347,6 +368,7 @@ save.addEventListener("click", function (event) {
     console.log("testing save")
     saveMealPlan();
 })
+
 
 async function saveMealPlan() {
     onAuthStateChanged(auth, async (user) => {
