@@ -8,6 +8,7 @@ import { firebaseConfig } from './api.js'
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+let fillCalendarRecipes = new Map();
 
 /**
  * Checks if user is logged in and behaves accordingly
@@ -82,6 +83,7 @@ async function getRecipe(recipe_id) {
 /*const user = await getUser();
 console.log("GETUSER()");*/
 
+
 /**
  * Load the desired recipes
  * @param {string} id id of recipe
@@ -93,6 +95,8 @@ async function loadRecipes(id) {
     localStorage.favoriteRecipes = JSON.stringify(Array.from(favoriteRecipes));
     console.log(userFile.favoriteRecipes);
     const recipes = userFile.recipes;
+    fillCalendarRecipes = userFile.mealPlan;
+    console.log(fillCalendarRecipes);
     console.log("user recipes");
     console.log(recipes);
     init(recipes);
@@ -120,6 +124,8 @@ async function init(recipes) {
     // Add the first three recipe cards to the page
     createRecipeCards();
     //recipePage(recipes);
+
+    fillCalendar();
 }
 
 /**
@@ -192,6 +198,16 @@ function createRecipeCards() {
     }
     
 }
+
+async function fillCalendar(){
+    for(let i in fillCalendarRecipes){
+        let tempRecipe = await getRecipe(fillCalendarRecipes[i]);
+        let calendarBox = document.getElementById(i);
+        calendarBox.querySelector("img").setAttribute("src", searchForKey(tempRecipe, "image"));
+        calendarBox.querySelector("h4").textContent = searchForKey(tempRecipe, "name");
+        mealplanCalendar.set(i,fillCalendarRecipes[i]);
+    }
+}
   
 // Go to recipePage upon clicking recipe card
 /**
@@ -208,6 +224,8 @@ function recipePage(recipes) {
         })
     }
 }
+
+
 
 /**
  * Recursively search for a key nested somewhere inside an object
@@ -249,6 +267,19 @@ document.addEventListener("dragstart",function(event){
     
     // // make it half transparent
     // event.target.style.opacity = .5;
+  }, false);
+
+  /* events fired on the drop targets */
+document.addEventListener("dragover", function(event) {
+    // prevent default to allow drop
+    if (event.target.className == "drag2") {
+        event.preventDefault();}
+    
+    else if(dragged.className == "drag2"){
+        event.preventDefault();
+    }
+    
+
   }, false);
 
 
