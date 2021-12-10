@@ -81,7 +81,7 @@ async function createRecipe(event) {
             try {
                 const docRef = await addDoc(collection(db, "recipes"), {
                     time, name, cost, servings, description, ingredients, steps, image, user_id : id
-                })
+                });
                 await updateDoc(docRef, {
                     recipe_id : docRef.id
                 });
