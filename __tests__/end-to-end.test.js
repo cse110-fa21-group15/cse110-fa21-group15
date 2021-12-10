@@ -116,4 +116,50 @@ describe("Test Signup and Login", () => {
         await browser.close();
         expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/cookbook.html");
     }, 10000);
+
+    it("checking if searching for recipe works", async () => {
+        const browser = await puppeteer.launch({
+            slowMo:150,
+            headless:true,
+            defaultViewport: {
+                width:1920,
+                height:1080
+            }
+        });
+        const page = await browser.newPage();
+        await page.goto("https://festive-minsky-ab51a6.netlify.app/source/signin");
+        const ebar = await page.$eval("#email", (e) => e.value = "bruh@gmail.com");
+        const pbar = await page.$eval("#password", (e) => e.value = "testpassword");
+        let button = await page.$("#lbutton");
+        await button.click();
+        await page.waitForNavigation();
+        expect(page.url()).toBe("https://festive-minsky-ab51a6.netlify.app/source/homepage.html");
+        page.goto("https://festive-minsky-ab51a6.netlify.app/source/cookbook.html");
+        // const sbar = await page.$eval(".round", (e) => e.value = "chicken");
+        // button = await page.$(".fa");
+        // await button.click();
+        // await page.waitForNavigation();
+        // expect(page.url()).toBe("http://127.0.0.1:5501/source/searchresults.html");
+        // const recipes = await page.$$("recipe-card");
+        // expect(recipes.length).toBe(14);
+        // for (let i = 0; i < recipes.length; i++) {
+        //     const shadow = await recipes[i].getProperty("shadowRoot");
+        //     const time1 = await shadow.$eval(".time", (e) => e.textContent);
+        //     console.log(time1);
+        // }
+        // const recipe = recipes[0];
+        // await recipe.click();
+        // await page.waitForNavigation();
+        // const name = await page.$eval(".name", (e) => e.textContent);
+        // console.log(name);
+        // const add = await page.$eval(".icon", (e) => e.click());
+        await page.waitForNavigation();
+        console.log(page.url());
+        const recipes = await page.$$("recipe-card");
+        // const root = await page.evaluate(() => document.body.querySelector("main"));
+        console.log(recipes);
+        // expect(check).toBe(name);
+        
+        await browser.close();
+    }, 100000);
 });
