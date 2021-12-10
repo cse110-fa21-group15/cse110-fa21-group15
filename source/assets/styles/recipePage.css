@@ -222,6 +222,7 @@ form.example i {
   color: #505050;
   word-spacing: 5px;
   line-height: 30px;
+  font-size: 20px;
 }
 
 .recImg {
@@ -263,12 +264,17 @@ form.example i {
 }
 
 #lst li {
-  font-size: 17px;
+  font-size: 15px;
+  color: #505050;
+}
+
+.recipeList {
+  font-size: 15px;
   color: #505050;
 }
 
 .texts {
-  font-size: 27px;
+  font-size: 28px;
   color: #505050;
 }
 
@@ -283,7 +289,7 @@ form.example i {
 }
 
 #lst2 li {
-  font-size: 17px;
+  font-size: 15px;
   color: #505050;
 }
 
@@ -340,5 +346,9 @@ footer {
 
   .para {
     margin-left: 10vw;
+  }
+
+  .desPara {
+    font-size: 40%;
   }
 }
