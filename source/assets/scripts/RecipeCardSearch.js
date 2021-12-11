@@ -165,6 +165,7 @@ class RecipeCard extends HTMLElement {
       
             article:hover{
                 transform: scale(1.05);
+                cursor: pointer;
             }
       
             article > img {

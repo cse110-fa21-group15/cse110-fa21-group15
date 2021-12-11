@@ -159,8 +159,8 @@ form.example i {
 
 .personalCookbook {
   position: absolute;
-  margin-top: 70px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   background-color: #fff;
   display: inline-block;
   width: 20%;
@@ -184,7 +184,8 @@ form.example i {
   height: 100px;
   display: flex;
   justify-content: center;
-  margin-bottom: 20%;
+  margin-bottom: 1%;
+  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   cursor: pointer;
@@ -192,6 +193,7 @@ form.example i {
 
 .mealplanPrompt {
   text-align: center;
+  white-space: normal;
   cursor: context-menu;
 }
 
@@ -209,6 +211,7 @@ table h4 {
 table img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .row td {
@@ -217,7 +220,7 @@ table img {
 
 /* Calendar */
 .calendar {
-  margin: 70px 10% 30px 35%;
+  margin: 40px 10% 10px 35%;
   background-color: #fff;
   display: table;
   width: 55%;
@@ -243,6 +246,12 @@ table img {
 
 .cookbookItems {
   margin-bottom: 50%;
+}
+
+.cookbookItems h4 {
+  font-size: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .calendarMeal {
@@ -272,6 +281,10 @@ table img {
 
 .ele h4 {
   font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
 }
 
 .ele img {
@@ -280,10 +293,12 @@ table img {
 }
 
 .saveButton {
-  float: right;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  width: 350px;
+  position: absolute;
+  margin-right: 0;
+  margin-bottom: 0.5%;
+  margin-left: 80%;
+  right: 0;
+  bottom: 0;
   cursor: pointer;
 }
 
