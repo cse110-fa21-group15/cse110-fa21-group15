@@ -192,9 +192,17 @@ form.example i {
   cursor: pointer;
 }
 
+.single {
+  display: flex;
+  margin-top: 2%;
+  margin-left: 90vw;
+  cursor: pointer;
+}
+
 .icon {
   width: 46px;
   height: 46px;
+  margin-left: 3%;
 }
 
 #details {
