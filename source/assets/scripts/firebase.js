@@ -169,6 +169,11 @@ onAuthStateChanged(auth, (user) => {
 
 if (document.querySelector("#sbutton")) {
     document.querySelector("#sbutton").addEventListener("click", signUp);
+    document.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+            signUp(event);
+        }
+    });
 }
 
 if (document.querySelector("#lbutton")) {
