@@ -26,7 +26,6 @@ async function getRecipe(recipe_id) {
     }
 }
 
-
 /**
  * Adds a user to the FireStore Database after creating an account
  * @param {string} email email of user
@@ -154,6 +153,11 @@ onAuthStateChanged(auth, (user) => {
 
 if (document.querySelector("#sbutton")) {
     document.querySelector("#sbutton").addEventListener("click", signUp);
+    document.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+            signUp(event);
+        }
+    });
 }
 
 if (document.querySelector("#lbutton")) {

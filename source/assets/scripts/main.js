@@ -37,8 +37,7 @@ async function getRecipe(recipe_id) {
  * @param {String} id  user's id
  * @returns information regarding the user
  */
-
- async function getUser(id) {
+async function getUser(id) {
     const user = doc(db, "users", id);
     const userDoc = await getDoc(user);
     const createdRecipes = [];
