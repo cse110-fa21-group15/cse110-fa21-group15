@@ -26,24 +26,6 @@ async function getRecipe(recipe_id) {
     }
 }
 
-/**
- * Remove recipe from recipe book
- */
-async function removeRecipe() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-    const q = query(collection(db, "users"), where("user_id", "==", id));
-    const querySnapshot = await getDocs(q);
-    const document = querySnapshot.docs[0];
-    let name = "pizza";
-    let time = "30";
-    let cost = "40";
-    let servings = "3";
-    let description = "testing";
-    const database = doc(db, "users", document.id);
-    await updateDoc(database, {
-        favoriteRecipes: arrayRemove({name: "pizza"})
-    });
-}
 
 /**
  * Adds a user to the FireStore Database after creating an account
@@ -66,24 +48,27 @@ async function addUser(email, id) {
 
 /**
  * Returns the information of a signed user such as favorite recipes, email, ID
- * @param {string} id 
- * @return {Object} information regarding the user
+ * @param {String} id  user's id
+ * @returns information regarding the user
  */
-async function getUser() {
-    let id = "D3TKWTnCklTvt5dWDNPlLbUQYa53";
-
-    const userInformation = {};
-    const users = collection(db, "users");
-    const q = await query(users, where("user_id", "==", id));
-    const querySnapshot = await getDocs(q);
+async function getUser(id) {
+    const user = doc(db, "users", id);
+    const userDoc = await getDoc(user);
     const createdRecipes = [];
-    querySnapshot.forEach((doc) => {
-        userInformation["results"] = doc.data();
-    });
-    for (let i = 0; i < userInformation.results.favoriteRecipes.length; i++) {
-        createdRecipes.push( await getRecipe(userInformation.results.favoriteRecipes[i]));
+    const favoriteRecipes = new Set();
+    const userData = userDoc.data();
+    for (let i = 0; i<userData.favoriteRecipes.length; i++) {
+        createdRecipes.push(await getRecipe(userData.favoriteRecipes[i]));
     }
-    userInformation.results.recipes = createdRecipes;
+    for (let i = 0; i<userData.favorites.length; i++) {
+        favoriteRecipes.add(await getRecipe(userData.favorites[i]));
+    }
+    const userInformation = {
+        "user_email" : userData["user_email"],
+        "user_id" : userData["user_id"],
+        "recipes": createdRecipes,
+        favoriteRecipes
+    };
     return userInformation;
 }
 
