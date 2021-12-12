@@ -42,7 +42,7 @@ recipeCost.textContent = cost;
 recipeServings.textContent = servings;
 recipeDescription.textContent = description;
 
-// Get recipe ingredients into an array to append them the ul element
+// Get recipe ingredients into the array to append them the ul element
 let ingredientsArr = [];
 let tempRecipes = ingredients;
 ingredientsArr = tempRecipes.split("\n");
